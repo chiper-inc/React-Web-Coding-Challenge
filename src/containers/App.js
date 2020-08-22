@@ -1,13 +1,15 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
+import { Route, Switch } from 'wouter'
+import { Detail } from '../pages/Detail'
+import { ErrorPage } from '../pages/ErrorPage'
+import { Home } from '../pages/Home'
 
 export const App = () => {
   return (
-    <div>
-      <h1>Iniciando App React!</h1>
-      <Button variant="contained" color="primary">
-        Hola Mundo!!!
-      </Button>
-    </div>
+    <Switch>
+      <Route component={Home} path="/" />
+      <Route component={Detail} path="/detail/:id" />
+      <Route component={ErrorPage} path="/:rest*" />
+    </Switch>
   )
 }
