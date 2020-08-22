@@ -6,7 +6,7 @@ export const App = () => {
     <div>
       <h1>Iniciando App React!</h1>
       <Button variant="contained" color="primary">
-        Hola Mundo!
+        Hola Mundo!!!
       </Button>
     </div>
   )
