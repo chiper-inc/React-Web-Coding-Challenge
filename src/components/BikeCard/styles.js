@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Card = styled.div`
+export const Card = styled.li`
   display: flex;
   width: 100%;
   margin-bottom: 15px;
