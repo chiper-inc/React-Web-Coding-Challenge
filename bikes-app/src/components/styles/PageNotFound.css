@@ -1,0 +1,39 @@
+.notFoundContainer {
+    height: 100vh;
+    background: url('../../images/noPageWallpaper.jpg'), #1B1B25;
+    background-repeat: repeat;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notFound {
+    height: inherit;
+    justify-content: center;
+    align-items: center;
+}
+.row div {
+    justify-content: center;
+    text-align: center;
+}
+
+.notFound h1 {
+    font-size: 10rem;
+    color: rgba(127, 126, 223, 0.8);
+}
+
+.notFound h2 {
+    font-size:2.5rem;
+    color: rgba(0,0,0,.6);
+}
+.notFound p {
+    font-size:1.5rem;
+    color: rgba(0,0,0,.6);
+}
+
+.notFound .btn {
+    font-size: 1rem;
+    border-radius: 10px;
+
+}

@@ -1,11 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 
 import './styles/Home.css'
 import loading from '../images/loading.svg'
-
 import IncidentsList from '../components/IncidentsList'
-import { Button } from 'react-bootstrap';
 
 
 class Home extends React.Component {

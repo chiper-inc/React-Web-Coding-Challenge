@@ -18,6 +18,7 @@ class IncidentDetailsContainer extends React.Component {
         try {
             const endpoint = `https://bikewise.org:443/api/v2/incidents/`
             const id = this.props.match.params.incidentId
+            
             const response = await fetch(`${endpoint}/${id}`)
             const data = await response.json()
             this.setState({

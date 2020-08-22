@@ -8,9 +8,8 @@ import noResults from '../images/noResults.png'
 
 function useSearchIncidents(incidents) {
     const [query, setQuery] = React.useState('')
-    
     const [filteredIncidents, setFilteredIncidents] = React.useState(incidents)
-    
+    console.log(incidents)
     React.useMemo(() => {
         const result = incidents.filter(incident => {
             return incident.title.toLowerCase().includes(query.toLowerCase())
@@ -49,7 +48,7 @@ function IncidentsList(props) {
     }
     return (
         <div>
-            {!filteredIncidents.length === 0 && (
+            {filteredIncidents.length > 0 && (
                 <div className="form-group">
                     <label htmlFor="filterByTitle" >Filter Incidents</label>
                     <input
