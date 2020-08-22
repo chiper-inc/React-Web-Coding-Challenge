@@ -26,7 +26,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background: #fefefe;
+    background: #1b262c;
+    color: #f2f2f2;
     height: 100vh;
     margin: 0 auto;
     /* max-width: 500px; */
