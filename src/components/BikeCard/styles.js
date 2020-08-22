@@ -20,6 +20,9 @@ export const Description = styled.div`
   width: 100%;
   padding: 2%;
   color: white;
+  & h3 {
+    font-size: 24px;
+  }
   & p:nth-last-child(1) {
     position: absolute;
     bottom: 0;

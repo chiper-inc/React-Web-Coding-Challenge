@@ -20,19 +20,17 @@ const GlobalStyles = createGlobalStyle`
   }
 
   button: {
-    /* background: transparent; */
     border: 0;
     outline: 0;
   }
 
   body {
-    background: #1b262c;
-    color: #f2f2f2;
+    width: 100%;
     height: 100vh;
     margin: 0 auto;
-    /* max-width: 500px; */
+    background: #1b262c;
+    color: #f2f2f2;
     overscroll-behavior: none;
-    width: 100%;
   }
 `;
 

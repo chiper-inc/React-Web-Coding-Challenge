@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Layout = styled.main`
+const Layout = styled.main`
   max-width: 1120px;
   margin: 0 auto;
   padding: 2% 0;
@@ -13,6 +13,4 @@ export const Layout = styled.main`
   }
 `;
 
-export const Hola = styled.div`
-  background-color: #383838;
-`;
+export default Layout;

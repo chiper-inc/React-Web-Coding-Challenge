@@ -8,12 +8,13 @@ const BikeCard = (data) => {
   const [completeTime] = useConvertTime(occurred_at);
   const emptyimage = 'https://i.imgur.com/703NYh3.png';
 
+  console.log(description);
   return (
     <Card>
       <img src={image_url === null ? emptyimage : image_url} alt='Bike' />
       <Description>
         <h3>{title}</h3>
-        <p>{description}</p>
+        <p>{description === '' ? 'No description' : description}</p>
         <p>
           {address}
           {' '}

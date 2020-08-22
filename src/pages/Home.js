@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from './styles';
+import Layout from './styles';
 import GlobalStyles from '../GlobalStyles';
 import ListOfCards from '../components/ListOfBikes/ListOfCards';
 
