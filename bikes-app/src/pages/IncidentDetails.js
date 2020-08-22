@@ -7,7 +7,19 @@ import loading from '../images/loading.svg'
 function IncidentDetails (props) {
     
     const incident = props.incident
-    console.log(incident)
+
+    let time = new Date(incident.occurred_at * 1000)
+    let day = (parseInt(time.getDay())<10 ? '0':'') + time.getDay()
+    let month = (parseInt(time.getMonth())<10 ? '0':'') + time.getMonth()
+    let year = time.getFullYear()
+    const date = year + '/' + month + '/' + day
+    
+    time = new Date(incident.updated_at * 1000)
+    day = (parseInt(time.getDay())<10 ? '0':'') + time.getDay()
+    month = (parseInt(time.getMonth())<10 ? '0':'') + time.getMonth()
+    year = time.getFullYear()
+    const updated = year + '/' + month + '/' + day
+    
     return (
         <div>
            <div className="container">
@@ -21,7 +33,8 @@ function IncidentDetails (props) {
                         <Incident
                             title={incident.title || 'title'}
                             description={incident.description || 'description'}
-                            occurred_at={incident.occurred_at || 'ocurred_aat'}
+                            occurred_at={date || 'ocurred_at'}
+                            updated_at={updated || 'updated_at'}
                             place={incident.address || 'place'}
                             image={incident.media || null} 
                         />
