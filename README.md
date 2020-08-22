@@ -7,6 +7,21 @@ Stolen bikes are a typical problem in Berlin. The Police want to be more efficie
 
 This app needs to display the list of reported bike thefts based on the Bikewise [API](https://www.bikewise.org/documentation/api_v2).
 
+## Getting Started
+
+  npm start
+    Starts the development server.
+
+  npm run build
+    Bundles the app into static files for production.
+
+  npm test
+    Starts the test runner.
+
+  npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+
 ## Product Requirements
 
 As a police officer:
