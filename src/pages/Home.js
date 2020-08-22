@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from './styles';
+import { Layout, H1, P } from './styles';
 import GlobalStyles from '../GlobalStyles';
 import ListOfCards from '../components/ListOfBikes/ListOfCards';
 
@@ -8,8 +8,8 @@ const App = () => {
     <>
       <GlobalStyles />
       <Layout>
-        <h1>Police Departmen of Berlin</h1>
-        <p>Stolen Bikes</p>
+        <H1>Police Departmen of Berlin</H1>
+        <P>Stolen Bikes</P>
         <ListOfCards />
       </Layout>
     </>

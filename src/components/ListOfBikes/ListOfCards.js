@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BikeCard from '../BikeCard/BikeCard';
 import useGetData from '../../hooks/useGetData';
-import Section from './styles';
+import { Section, P } from './styles';
 import Loading from '../Loading/Loading';
 
 const ListOfCards = () => {
@@ -22,11 +22,11 @@ const ListOfCards = () => {
         <Loading />
       ) : (
         <>
-          <p>
+          <P>
             Total cases:
             {' '}
             {data.incidents.length}
-          </p>
+          </P>
           <ul>
             {data.incidents.map((bikes) => (
               <BikeCard key={bikes.id} {...bikes} />

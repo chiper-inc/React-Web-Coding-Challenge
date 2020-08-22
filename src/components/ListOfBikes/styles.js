@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Section = styled.section`
+export const Section = styled.section`
   display: flex;
   flex-direction: column;
   & p {
@@ -8,4 +8,7 @@ const Section = styled.section`
   }
 `;
 
-export default Section;
+export const P = styled.p`
+  font-size: 18px;
+  margin-bottom: 15px;
+`;
