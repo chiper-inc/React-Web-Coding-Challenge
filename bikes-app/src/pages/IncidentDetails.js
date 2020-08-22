@@ -32,7 +32,7 @@ function IncidentDetails (props) {
                    <div className="col">
                         <Incident
                             title={incident.title || 'title'}
-                            description={incident.description || 'description'}
+                            description={incident.description || 'no description'}
                             occurred_at={date || 'ocurred_at'}
                             updated_at={updated || 'updated_at'}
                             place={incident.address || 'place'}

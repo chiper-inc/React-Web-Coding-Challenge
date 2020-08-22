@@ -132,7 +132,7 @@ class Home extends React.Component {
                                 </div>
                                 <div className="col-sm-6 col-md-3">
                                     <div className="form-group">
-                                        <label htmlFor="titleFilter">Initial Date</label>
+                                        <label htmlFor="titleFilter">Final Date</label>
                                         <input 
                                             type="date" 
                                             className="form-control"
