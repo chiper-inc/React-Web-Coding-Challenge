@@ -21,9 +21,9 @@ function IncidentDetails (props) {
                         <Incident
                             title={incident.title || 'title'}
                             description={incident.description || 'description'}
-                            ocurrred_at={incident.occured_at || 'ocurred_aat'}
+                            occurred_at={incident.occurred_at || 'ocurred_aat'}
                             place={incident.address || 'place'}
-                            image={incident.media.image_url || ''} 
+                            image={incident.media || null} 
                         />
                    </div>
                </div>
