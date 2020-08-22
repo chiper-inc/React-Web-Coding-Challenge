@@ -1,0 +1,17 @@
+.Incident {
+    padding-top: 25px;
+    text-align: center;
+}
+
+.Incident__section-name {
+    width: 100%;
+}
+.card{
+    text-align: center;
+    align-items: center;
+}
+.card img {
+    max-width: 400px;
+    max-height: 400px;
+    width: 100%;
+}
