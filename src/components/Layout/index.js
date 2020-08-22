@@ -1,14 +1,10 @@
-import React from 'react';
-import { Container } from 'reactstrap';
-import { NavMenu } from '../NavMenu'
+import React from "react";
+import { NavMenu } from "../NavMenu";
+import { ContainerLayout, Container} from "./styles";
 
 export const Layout = ({ children }) => (
-    <div className='layout'>
-        <NavMenu />
-        <Container fluid={true}>
-            {
-                children
-            }
-        </Container>
-    </div>
-)
+  <ContainerLayout id='layout'>
+    <NavMenu />
+    <Container>{children}</Container>
+  </ContainerLayout>
+);

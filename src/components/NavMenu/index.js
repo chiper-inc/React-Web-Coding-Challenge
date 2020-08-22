@@ -9,10 +9,10 @@ export const NavMenu = () => {
     const handleToggle = () => setIsOpen(!isOpen);
 
     return (
-        <div>
+        <header>
             <HeaderMenu/>
             <Navbar color="light" light expand="md">
-                <NavbarBrand href={HOME}>Stolen bykes</NavbarBrand>
+                <NavLink to={HOME} className='navbar-brand'>Stolen bikes</NavLink>
                 <NavbarToggler onClick={handleToggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
@@ -25,6 +25,6 @@ export const NavMenu = () => {
                     </Nav>
                 </Collapse>
             </Navbar>
-        </div>
+        </header>
     )
 }

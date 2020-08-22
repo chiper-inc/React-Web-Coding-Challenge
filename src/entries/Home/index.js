@@ -1,3 +1,4 @@
 import React from 'react';
+import { StolenBikesContainer } from '../../components/StolenBikesContainer';
 
-export const Home = () => (<div>Hello world!</div>)
+export const Home = () => (<StolenBikesContainer/>)
