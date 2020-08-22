@@ -1,9 +1,13 @@
 import React from 'react'
+import Grid from '@material-ui/core/Grid'
+import { Header } from '../components/Header'
 
 export const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <Grid container spacing={2}>
+      <Grid item xs={12}>
+        <Header />
+      </Grid>
+    </Grid>
   )
 }
