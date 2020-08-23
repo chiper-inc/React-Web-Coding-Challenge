@@ -9,7 +9,7 @@ export const Card = styled.li`
   overflow: hidden;
   /* box-shadow: 0 5px 10px 0 rgba(0,0,0,.3); */
   & img {
-    width: 300px;
+    width: 400px;
     height: 300px;
     object-fit: cover;
   }

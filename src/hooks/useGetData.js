@@ -5,9 +5,8 @@ const useGetData = (url) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    setLoading(true);
-    window.fetch(url)
+  const fetchData = (url) => {
+    fetch(url)
       .then((response) => response.json())
       .then((bikes) => {
         setData(bikes);
@@ -15,14 +14,21 @@ const useGetData = (url) => {
       })
       .catch((e) => {
         setLoading(false);
-        setError('Hubo un error al obtener los datos, verifique la url o intente más tarde');
+        setError(
+          'Hubo un error al obtener los datos, verifique la url o intente más tarde',
+        );
       });
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    fetchData(url);
     return () => {
       console.log('ComponentWillUnMount');
     };
   }, []);
 
-  return [data, loading, error];
+  return [data, loading, error, fetchData];
 };
 
 export default useGetData;
