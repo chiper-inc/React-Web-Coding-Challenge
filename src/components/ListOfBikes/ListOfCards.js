@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BikeCard from '../BikeCard/BikeCard';
 import useGetData from '../../hooks/useGetData';
-import { Section, P, Container, Button, Pages, FilterTitle } from './styles';
+import { Section, P, Container, Button, Pages, FilterTitle, Li } from './styles';
 import Loading from '../Loading/Loading';
 
 const ListOfCards = () => {
@@ -40,7 +40,11 @@ const ListOfCards = () => {
             {' '}
             {data.incidents.length}
           </P>
-          <FilterTitle type='text' onChange={handleChange} placeholder='search' />
+          <FilterTitle
+            type='text'
+            onChange={handleChange}
+            placeholder='search bike description'
+          />
           {data.incidents.length === 0 ? (
             <h1>No cases</h1>
           ) : (
@@ -61,9 +65,9 @@ const ListOfCards = () => {
             </div>
             <Pages>
               {[1, 2, 3, 4, 5, 6].map((id) => (
-                <li key={id} onClick={() => setPage(id)}>
-                  {id}
-                </li>
+                <Li key={id} onClick={() => setPage(id)} color={page === id ? 'red' : 'black'}>
+                  <a>{id}</a>
+                </Li>
               ))}
             </Pages>
             <div>

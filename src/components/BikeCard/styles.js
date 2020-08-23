@@ -5,13 +5,16 @@ export const Card = styled.li`
   width: 100%;
   margin-bottom: 15px;
   border-radius: 8px;
-  background-color: #0f4c75;
+  background-color: white;
   overflow: hidden;
-  /* box-shadow: 0 5px 10px 0 rgba(0,0,0,.3); */
+  transition: all .3s;
   & img {
     width: 400px;
     height: 300px;
     object-fit: cover;
+  }
+  &:hover {
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,.3);
   }
 `;
 
@@ -19,7 +22,7 @@ export const Description = styled.div`
   position: relative;
   width: 100%;
   padding: 2%;
-  color: white;
+  color: #1b262c;
   & h3 {
     font-size: 24px;
   }

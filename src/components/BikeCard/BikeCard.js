@@ -6,7 +6,8 @@ const BikeCard = (data) => {
   const { title, description, occurred_at, address, media } = data;
   const { image_url } = media;
   const [completeTime] = useConvertTime(occurred_at);
-  const emptyImage = 'https://i.imgur.com/703NYh3.png';
+  const emptyImage =
+    'https://thumbs.dreamstime.com/b/bicicleta-vector-del-icono-de-la-bici-en-estilo-plano-117234922.jpg';
 
   return (
     <Card>

@@ -16,20 +16,20 @@ export const P = styled.p`
 export const Container = styled.div`
   display: flex;
   justify-content: space-evenly;
+  margin-top: 20px;
 `;
 
 export const Button = styled.button`
+  margin: 0 10px;
   padding: 5px;
   border: none;
-  border-radius: 8px;
-  color: white;
-  background-color: #0f4c75;
+  color: #1b262c;
+  background-color: transparent;
   outline: none;
   cursor: pointer;
-  transition: all 50ms;
-  /* &:active {
-    transform: scale(0.1);
-  } */
+  &:hover {
+    border-bottom: 1px solid black;;
+  }
 `;
 
 export const Pages = styled.ul`
@@ -42,7 +42,23 @@ export const Pages = styled.ul`
 
 export const FilterTitle = styled.input`
   width: 30%;
+  height: 30px;
   margin-bottom: 15px;
+  padding-left: 15px;
   border: none;
   border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+`;
+
+export const Li = styled.li`
+  font-size: 18px;
+  color: ${(props) => props.color};
+  &:hover, &:active {
+    font-weight: bold;
+    color: #1b262c;
+  }
 `;

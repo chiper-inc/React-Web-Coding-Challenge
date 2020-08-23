@@ -28,8 +28,8 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
     height: 100vh;
     margin: 0 auto;
-    background: #1b262c;
-    color: #f2f2f2;
+    background: #F3F6FD;
+    color: #1b262c;
     overscroll-behavior: none;
   }
 `;
