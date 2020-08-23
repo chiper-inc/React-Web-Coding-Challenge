@@ -7,7 +7,7 @@ export const HeaderMenu = () => (
     <Img src={logo} alt='logo-police' />
     <ContainerTitles>
       <Title>Police Department of Berlin</Title>
-      <SubTitle>Stolen bykes</SubTitle>
+      <SubTitle>Stolen bikes</SubTitle>
     </ContainerTitles>
   </Container>
 )

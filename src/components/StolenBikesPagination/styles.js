@@ -7,7 +7,5 @@ export const Pagination = styled(PaginationB)`
 `
 
 export const Container = styled.div`
-  position: absolute;
-  width: calc(100% - 4rem);
-  bottom: 0;
+
 `

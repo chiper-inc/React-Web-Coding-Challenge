@@ -1,10 +1,11 @@
-import styled from "styled-components/macro";
+import styled from 'styled-components/macro'
 
 export const TitleTotal = styled.h6`
-    float:right;
-`;
+  width: 100%;
+  text-align: right;
+`
 
 export const ContainerCards = styled.ul`
-    margin:0px;
-    padding:0px;
-`;
+  margin: 0px;
+  padding: 0px;
+`

@@ -4,7 +4,7 @@ import { StolenBikesList } from '../StolenBikesList'
 import { StolenBikesPagination } from '../StolenBikesPagination'
 import { OrbitalSpinner } from '../Loading'
 import { AlertError } from '../Error'
-import { Container } from './styles'
+import { Container, Header, Body, Footer } from './styles'
 
 const getBikes = (bikes, page, length) => {
   const indexFirst = (page - 1) * length
@@ -25,6 +25,7 @@ export const StolenBikesContainer = ({
   onSearch
 }) => {
   let body
+  let footer
 
   if (error) {
     body = <AlertError error={error} />
@@ -36,23 +37,24 @@ export const StolenBikesContainer = ({
     if (bikes2Show.length < 1) {
       body = 'No results!'
     } else {
-      body = (
-        <>
-          <StolenBikesList bikes={bikes2Show} total={total} />
-          <StolenBikesPagination
-            onChangePage={onChangePage}
-            page={page}
-            totalPages={getTotalPages(bikes, lengthPage)}
-          />
-        </>
+      body = <StolenBikesList bikes={bikes2Show} total={total} />
+      footer = (
+        <StolenBikesPagination
+          onChangePage={onChangePage}
+          page={page}
+          totalPages={getTotalPages(bikes, lengthPage)}
+        />
       )
     }
   }
 
   return (
-    <Container id='stolen-bykes-page'>
-      <StolenBikesSearcher onSubmit={onSearch} />
-      {body}
+    <Container id='stolen-bikes-page'>
+      <Header>
+        <StolenBikesSearcher onSubmit={onSearch} />
+      </Header>
+      <Body>{body}</Body>
+      <Footer>{footer}</Footer>
     </Container>
   )
 }
