@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { getIncidents } from '../services/getIncidents'
 import moment from 'moment'
+import IncidentsContext from '../context/IncidentsContext'
 
 export const useGetIncidents = ({
   page,
@@ -9,13 +10,21 @@ export const useGetIncidents = ({
   dateTo,
   dateFrom,
 }) => {
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-  const [incidents, setIncidents] = useState(undefined)
-  const [currentDate, setCurrentDate] = useState('')
+  const {
+    loading,
+    error,
+    incidents,
+    currentDate,
+    setLoading,
+    setError,
+    setIncidents,
+    setCurrentDate,
+  } = useContext(IncidentsContext)
 
   useEffect(() => {
+    setError(null)
     setLoading(true)
+
     const params = {
       page: page,
       per_page: per_page,
@@ -26,8 +35,12 @@ export const useGetIncidents = ({
 
     getIncidents(params)
       .then(({ incidents }) => {
-        setIncidents(incidents)
-        setLoading(false)
+        if (typeof incidents === 'undefined') {
+          setError('Error')
+        } else {
+          setIncidents(incidents)
+          setLoading(false)
+        }
       })
       .catch((error) => {
         setError(error)

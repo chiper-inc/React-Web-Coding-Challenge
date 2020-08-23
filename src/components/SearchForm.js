@@ -16,7 +16,7 @@ export const SearchForm = ({ page }) => {
 
   const { loading, handleClickSearch } = useGetIncidents({
     page: page,
-    per_page: 100,
+    per_page: 10,
     keyword,
     dateTo,
     dateFrom,

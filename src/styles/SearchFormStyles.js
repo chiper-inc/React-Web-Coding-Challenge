@@ -5,5 +5,4 @@ export const WrapperTextField = styled.div`
   height: 48px;
   padding: 5px;
   text-align: center;
-  border: 1px solid grey;
 `
