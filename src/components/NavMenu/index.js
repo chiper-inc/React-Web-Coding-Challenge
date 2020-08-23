@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HOME, MAP, REPORT } from '../../routes';
-import { Navbar, NavItem, NavbarToggler, Nav, NavbarBrand, Collapse } from 'reactstrap';
+import { Navbar, NavItem, NavbarToggler, Nav, Collapse } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import {HeaderMenu} from '../HeaderMenu'
 

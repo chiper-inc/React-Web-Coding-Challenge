@@ -1,0 +1,4 @@
+export const REQUEST_DATA = 'REQUEST_DATA';
+export const ERROR_OCURRED = 'ERROR_OCURRED';
+export const BIKES_RECEIVED = 'BIKES_RECEIVED';
+export const CHANGE_PAGE = 'CHANGE_PAGE'

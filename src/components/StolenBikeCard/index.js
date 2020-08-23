@@ -1,6 +1,9 @@
 import React from 'react'
+import moment from 'moment';
 import { Container, Img, ContainerTitles, Title, Description, Footer } from './styles';
 import logoBike from './assets/bike.svg';
+
+const getDate = (unixTime) => moment.unix(unixTime).format('DD/MM/YYYY');
 
 export const StolenBikeCard = ({
     title,
@@ -17,7 +20,7 @@ export const StolenBikeCard = ({
             <ContainerTitles>
                 <Title>{title}</Title>
                 <Description>{description}</Description>
-                <Footer>{`${occurred_at} - ${address}`}</Footer>
+                <Footer>{`${getDate(occurred_at)} - ${address}`}</Footer>
             </ContainerTitles>
         </Container>
     )
