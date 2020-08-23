@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { searchInArrayOfObj } from '../utils/fuzzySearch'
 import {
   REQUEST_DATA,
   ERROR_OCURRED,
@@ -20,18 +21,34 @@ const dispatchDataReceived = (dispatch, type, status, payload) => {
   }
   dispatchError(dispatch)
 }
+const cast2QueryParams = (obj) =>
+  Object.keys(obj)
+    .filter((key) => obj[key])
+    .map((key) => `${key}=${obj[key]}`)
+    .join('&')
 
-export const requestStolenBikes = (page, perPage) => (dispatch) => {
+export const requestStolenBikes = ({
+  page = 1,
+  perPage = 100,
+  ...aditionalParams
+}) => (dispatch) => {
+  const queryParams = cast2QueryParams({
+    ...aditionalParams,
+    page,
+    per_page: perPage,
+    proximity: 'Berlin, DE',
+    proximity_square: 100,
+    incident_type: 'theft'
+  })
   axios
-    .get(
-      `${URL}/incidents?incident_type=theft&proximity=Berlin&proximity_square=100&page=${page}&per_page=${perPage}`
-    )
+    .get(`${URL}/incidents?${queryParams}`)
     .then((res) => {
       const {
         data: { incidents },
         status
       } = res
-      dispatchDataReceived(dispatch, BIKES_RECEIVED, status, incidents)
+      const bikes = searchInArrayOfObj(incidents, ['title'], aditionalParams.query)
+      dispatchDataReceived(dispatch, BIKES_RECEIVED, status, bikes)
     })
     .catch((e) => dispatchError(dispatch, e))
 

@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react'
-import moment from 'moment'
+import { getDateFromUnix } from '../../utils/DateParser'
 import {
   Container,
   Img,
@@ -10,8 +10,6 @@ import {
   Footer
 } from './styles'
 import logoBike from './assets/bike.svg'
-
-const getDate = (unixTime) => moment.unix(unixTime).format('DD/MM/YYYY')
 
 export const StolenBikeCard = ({
   title,
@@ -26,7 +24,7 @@ export const StolenBikeCard = ({
     <ContainerTitles>
       <Title>{title}</Title>
       <Description>{description}</Description>
-      <Footer>{`${getDate(occurred_at)} - ${address}`}</Footer>
+      <Footer>{`${getDateFromUnix(occurred_at)} - ${address}`}</Footer>
     </ContainerTitles>
   </Container>
 )
