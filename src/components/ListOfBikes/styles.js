@@ -39,3 +39,10 @@ export const Pages = styled.ul`
     cursor: pointer;
   }
 `;
+
+export const FilterTitle = styled.input`
+  width: 30%;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+`;
