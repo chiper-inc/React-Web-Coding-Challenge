@@ -11,6 +11,7 @@ export const Img = styled.img`
   border-radius: 0.25rem;
   height: 150px;
   width: 150px;
+  cursor:pointer;
 `
 export const Title = styled.h5`
   text-decoration: underline;

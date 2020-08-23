@@ -6,6 +6,6 @@ export const TitleTotal = styled.h6`
 `
 
 export const ContainerCards = styled.ul`
-  margin: 0px;
+  margin: 0px 10px;
   padding: 0px;
 `
