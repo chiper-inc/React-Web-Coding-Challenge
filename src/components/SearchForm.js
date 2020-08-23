@@ -1,40 +1,77 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import Paper from '@material-ui/core/Paper'
-import Grid from '@material-ui/core/Grid'
-import TextField from '@material-ui/core/TextField'
+import { Grid, TextField, Button } from '@material-ui/core'
+import { WrapperTextField } from '../styles/SearchFormStyles'
+import { useGetIncidents } from '../hooks/useGetIncidents'
+import { useSearchForm } from '../hooks/useSearchForm'
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-}))
+export const SearchForm = ({ page }) => {
+  const {
+    keyword,
+    dateFrom,
+    dateTo,
+    handleChangeKeyword,
+    handleChangeDateFrom,
+    handleChangeDateTo,
+  } = useSearchForm()
 
-export const SearchForm = () => {
-  const classes = useStyles()
+  const { loading, handleClickSearch } = useGetIncidents({
+    page: page,
+    per_page: 100,
+    keyword,
+    dateTo,
+    dateFrom,
+  })
 
   return (
-    <div>
-      <Grid container spacing={2}>
-        <Grid item xs={6} sm={6}>
-          <Paper className={classes.paper}>
-            <TextField label="Search case descriptions" defaultValue="" />
-          </Paper>
-        </Grid>
-        <Grid item xs={6} sm={2}>
-          <Paper className={classes.paper}>Date init</Paper>
-        </Grid>
-        <Grid item xs={6} sm={2}>
-          <Paper className={classes.paper}>Date end</Paper>
-        </Grid>
-        <Grid item xs={6} sm={2}>
-          <Paper className={classes.paper}>
-            <button>Find Cases</button>
-          </Paper>
-        </Grid>
+    <Grid container spacing={2}>
+      <Grid item xs={6} sm={6}>
+        <WrapperTextField>
+          <TextField
+            label="Search case"
+            defaultValue={keyword}
+            fullWidth
+            onChange={handleChangeKeyword}
+          />
+        </WrapperTextField>
       </Grid>
-    </div>
+      <Grid item xs={6} sm={2}>
+        <WrapperTextField>
+          <TextField
+            label="From"
+            type="date"
+            defaultValue={dateFrom}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            onChange={handleChangeDateFrom}
+          />
+        </WrapperTextField>
+      </Grid>
+      <Grid item xs={6} sm={2}>
+        <WrapperTextField>
+          <TextField
+            label="To"
+            type="date"
+            defaultValue={dateTo}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            onChange={handleChangeDateTo}
+          />
+        </WrapperTextField>
+      </Grid>
+      <Grid item xs={6} sm={2}>
+        <WrapperTextField>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleClickSearch}
+            disabled={loading}
+          >
+            Find Cases
+          </Button>
+        </WrapperTextField>
+      </Grid>
+    </Grid>
   )
 }
