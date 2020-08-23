@@ -2,15 +2,15 @@ import {
   REQUEST_DATA,
   ERROR_OCURRED,
   BIKES_RECEIVED,
-  CHANGE_PAGE,
-} from "./actions";
+  CHANGE_PAGE
+} from './actions'
 
 export const INITIAL_STATE = {
   loading: false,
   error: null,
   stolenBikes: [],
-  page: 1,
-};
+  page: 1
+}
 
 export const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -18,26 +18,26 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: true,
-        error: null,
-      };
+        error: null
+      }
     case ERROR_OCURRED:
       return {
         ...state,
         loading: false,
-        error: action.payload,
-      };
+        error: action.payload
+      }
     case BIKES_RECEIVED:
       return {
         ...state,
         loading: false,
-        stolenBikes: action.payload,
-      };
+        stolenBikes: action.payload
+      }
     case CHANGE_PAGE:
-      return{
+      return {
         ...state,
         page: action.payload
       }
     default:
-      return state;
+      return state
   }
-};
+}

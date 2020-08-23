@@ -1,25 +1,25 @@
-import axios from "axios";
+import axios from 'axios'
 import {
   REQUEST_DATA,
   ERROR_OCURRED,
   BIKES_RECEIVED,
-  CHANGE_PAGE,
-} from "./actions";
+  CHANGE_PAGE
+} from './actions'
 
-const URL = "https://bikewise.org/api/v2";
+const URL = 'https://bikewise.org/api/v2'
 
-const dispatchError = (dispatch, e = "Ooops, something went wrong") =>
-  dispatch({ type: ERROR_OCURRED, payload: e });
+const dispatchError = (dispatch, e = 'Ooops, something went wrong') =>
+  dispatch({ type: ERROR_OCURRED, payload: e })
 
-const dispatchReqData = (dispatch) => dispatch({ type: REQUEST_DATA });
+const dispatchReqData = (dispatch) => dispatch({ type: REQUEST_DATA })
 const dispatchDataReceived = (dispatch, type, status, payload) => {
   if (status > 199 && status < 300) {
-    dispatch({ type, payload });
+    dispatch({ type, payload })
 
-    return;
+    return
   }
-  dispatchError(dispatch);
-};
+  dispatchError(dispatch)
+}
 
 export const requestStolenBikes = (page, perPage) => (dispatch) => {
   axios
@@ -29,13 +29,13 @@ export const requestStolenBikes = (page, perPage) => (dispatch) => {
     .then((res) => {
       const {
         data: { incidents },
-        status,
-      } = res;
-      dispatchDataReceived(dispatch, BIKES_RECEIVED, status, incidents);
+        status
+      } = res
+      dispatchDataReceived(dispatch, BIKES_RECEIVED, status, incidents)
     })
-    .catch((e) => dispatchError(dispatch, e));
+    .catch((e) => dispatchError(dispatch, e))
 
-  dispatchReqData(dispatch);
-};
+  dispatchReqData(dispatch)
+}
 
-export const requestPage = (page) => ({ type: CHANGE_PAGE, payload: page });
+export const requestPage = (page) => ({ type: CHANGE_PAGE, payload: page })
