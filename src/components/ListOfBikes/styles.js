@@ -15,7 +15,7 @@ export const P = styled.p`
 
 export const Container = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 `;
 
 export const Button = styled.button`
@@ -30,4 +30,12 @@ export const Button = styled.button`
   /* &:active {
     transform: scale(0.1);
   } */
+`;
+
+export const Pages = styled.ul`
+  display: flex;
+  & li {
+    margin: 0 10px;
+    cursor: pointer;
+  }
 `;
