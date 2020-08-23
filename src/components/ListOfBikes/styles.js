@@ -41,9 +41,8 @@ export const Pages = styled.ul`
 `;
 
 export const FilterTitle = styled.input`
-  width: 30%;
+  width: 50%;
   height: 30px;
-  margin-bottom: 15px;
   padding-left: 15px;
   border: none;
   border-radius: 5px;
@@ -61,4 +60,27 @@ export const Li = styled.li`
     font-weight: bold;
     color: #1b262c;
   }
+`;
+
+export const InputContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+`;
+
+export const DateInput = styled.input`
+  height: 30px;
+  margin-left: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+`;
+
+export const Label = styled.label`
+  margin-left: 20px;
+  font-weight: bold;
 `;

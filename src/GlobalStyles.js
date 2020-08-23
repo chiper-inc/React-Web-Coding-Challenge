@@ -19,6 +19,11 @@ const GlobalStyles = createGlobalStyle`
     list-style: none;
   }
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   button: {
     border: 0;
     outline: 0;

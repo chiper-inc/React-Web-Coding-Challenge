@@ -8,7 +8,9 @@ const App = () => {
     <>
       <GlobalStyles />
       <Layout>
-        <H1>Police Departmen of Berlin</H1>
+        <a href='/'>
+          <H1>Police Departmen of Berlin</H1>
+        </a>
         <P>Stolen Bikes</P>
         <ListOfCards />
       </Layout>
