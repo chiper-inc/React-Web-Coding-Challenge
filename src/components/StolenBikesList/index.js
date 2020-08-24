@@ -1,8 +1,8 @@
-import React from "react";
-import { StolenBikeCard } from "../StolenBikeCard";
-import { TitleTotal, ContainerCards } from "./styles";
+import React from 'react'
+import { StolenBikeCard } from '../StolenBikeCard'
+import { TitleTotal, ContainerCards } from './styles'
 
-export const StolenBikesList = ({ bikes, total = "unknown" }) => (
+export const StolenBikesList = ({ bikes, total = 'unknown' }) => (
   <>
     <TitleTotal>
       Total: <span>{total}</span>
@@ -13,4 +13,4 @@ export const StolenBikesList = ({ bikes, total = "unknown" }) => (
       ))}
     </ContainerCards>
   </>
-);
+)

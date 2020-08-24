@@ -18,11 +18,11 @@ const {
   defperPage
 } = DEF_PARAMS_SEARCH
 
-const dispatchError = (dispatch, e = 'Ooops, something went wrong') =>
+export const dispatchError = (dispatch, e = 'Ooops, something went wrong') =>
   dispatch({ type: ERROR_OCURRED, payload: e })
 
-const dispatchReqData = (dispatch) => dispatch({ type: REQUEST_DATA })
-const dispatchDataReceived = (dispatch, type, status, payload) => {
+export const dispatchReqData = (dispatch) => dispatch({ type: REQUEST_DATA })
+export const dispatchDataReceived = (dispatch, type, status, payload) => {
   if (status > 199 && status < 300) {
     dispatch({ type, payload })
 

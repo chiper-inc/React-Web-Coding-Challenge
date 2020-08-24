@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<OrbitalSpinner/> Snapshot Check UI of OrbitalSpinner 1`] = `
+<div
+  className="styles__Container-sc-11w77it-0 czyLMx"
+>
+  <div
+    className="lds-spinner styles__OrbitalSpinnerStyled-sc-11w77it-1 hraCVk"
+    style={Object {}}
+  >
+    <div>
+      <div
+        className="div-after"
+        style={
+          Object {
+            "background": "#343a40",
+          }
+        }
+      />
+    </div>
+    <div>
+      <div
+        className="div-after"
+        style={
+          Object {
+            "background": "#343a40",
+          }
+        }
+      />
+    </div>
+    <div>
+      <div
+        className="div-after"
+        style={
+          Object {
+            "background": "#343a40",
+          }
+        }
+      />
+    </div>
+    <div>
+      <div
+        className="div-after"
+        style={
+          Object {
+            "background": "#343a40",
+          }
+        }
+      />
+    </div>
+    <div>
+      <div
+        className="div-after"
+        style={
+          Object {
+            "background": "#343a40",
+          }
+        }
+      />
+    </div>
+    <div>
+      <div
+        className="div-after"
+        style={
+          Object {
+            "background": "#343a40",
+          }
+        }
+      />
+    </div>
+    <div>
+      <div
+        className="div-after"
+        style={
+          Object {
+            "background": "#343a40",
+          }
+        }
+      />
+    </div>
+    <div>
+      <div
+        className="div-after"
+        style={
+          Object {
+            "background": "#343a40",
+          }
+        }
+      />
+    </div>
+    <div>
+      <div
+        className="div-after"
+        style={
+          Object {
+            "background": "#343a40",
+          }
+        }
+      />
+    </div>
+    <div>
+      <div
+        className="div-after"
+        style={
+          Object {
+            "background": "#343a40",
+          }
+        }
+      />
+    </div>
+    <div>
+      <div
+        className="div-after"
+        style={
+          Object {
+            "background": "#343a40",
+          }
+        }
+      />
+    </div>
+    <div>
+      <div
+        className="div-after"
+        style={
+          Object {
+            "background": "#343a40",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,725 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2016 Riese und Müller ChargerB1 (07-16-2020)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/287023/large_Ec_vTSuWkAU1Nvm.jpeg'>  <a href=\"https://bikeindex.org/bikes/790656\" target=\"_blank\">View details</a>",
+          "occurred_at": "2020-07-16 13:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#EE8276",
+          "id": 121874
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3783562,
+            52.4985969
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2020 b'Twin X/L (07-14-2020)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/283733/large_Anmerkung_2020-07-11_230501.jpg'> Bike was stolen in front of the entry. <a href=\"https://bikeindex.org/bikes/787405\" target=\"_blank\">View details</a>",
+          "occurred_at": "2020-07-14 10:52:15 -0500",
+          "marker-size": "small",
+          "marker-color": "#EE8276",
+          "id": 121704
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3253773,
+            52.4693894
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2019 Haibike SDURO Trekking 4.0 (06-08-2020)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/265840/large_Haibike_SDURO_Trekking_4.0.jpg'>  <a href=\"https://bikeindex.org/bikes/755855\" target=\"_blank\">View details</a>",
+          "occurred_at": "2020-06-08 10:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#EE8276",
+          "id": 119456
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.4986372,
+            52.5383115
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2015 Stevens E-Caprile (06-05-2020)",
+          "description": " <a href=\"https://bikeindex.org/bikes/755275\" target=\"_blank\">View details</a>",
+          "occurred_at": "2020-06-05 10:15:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#EE8276",
+          "id": 118755
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.404954,
+            52.5200066
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2019 Larry Vs Harry RAW (05-25-2020)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/252852/large_93803370_10216086760031877_8308785564652404736_o.jpg'>  <a href=\"https://bikeindex.org/bikes/745210\" target=\"_blank\">View details</a>",
+          "occurred_at": "2020-05-25 12:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#EE8276",
+          "id": 117996
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3529985,
+            52.5213582
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2014 Cube Grace MX 2 Trail (05-09-2020)",
+          "description": "bike was fixed with lock at a bike parking place <a href=\"https://bikeindex.org/bikes/731202\" target=\"_blank\">View details</a>",
+          "occurred_at": "2020-05-09 03:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#EE8276",
+          "id": 119268
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3026692,
+            52.5018362
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2014 Ghost Cagua (02-04-2020)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/252967/large_IMG_6836.JPG'> Bike was stolen along with the other one from monitored underground bicycle storage <a href=\"https://bikeindex.org/bikes/745288\" target=\"_blank\">View details</a>",
+          "occurred_at": "2020-02-04 18:00:00 -0600",
+          "marker-size": "small",
+          "marker-color": "#EE8276",
+          "id": 118003
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3989194,
+            52.5471214
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2017 Genesis Croix de fer 20 (01-30-2020)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/219203/large_croixdefer.jpg'> The bike was chained to a bicycle rack in our inner courtyard. I last saw it on the afternoon of 30th January. My downstairs neighbours can confirm that it was still there around 4:15pm. When I wanted to ride it to work the next morning at 7:30pm, it was gone (along with the lock). <a href=\"https://bikeindex.org/bikes/691028\" target=\"_blank\">View details</a>",
+          "occurred_at": "2020-01-30 17:00:00 -0600",
+          "marker-size": "small",
+          "marker-color": "#EE8276",
+          "id": 113006
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.4072944,
+            52.5455109
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2017 vortex City bike Herren (12-21-2019)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/211943/large_DSC_0340.JPG'>  <a href=\"https://bikeindex.org/bikes/681640\" target=\"_blank\">View details</a>",
+          "occurred_at": "2019-12-21 11:24:28 -0600",
+          "marker-size": "small",
+          "marker-color": "#EE8276",
+          "id": 111642
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3253773,
+            52.4693894
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2017 State Bicycle Co. Matte Black 5 - 59 Core Line: Fixed Gear (10-24-2019)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/196548/large_Bike01.png'>  <a href=\"https://bikeindex.org/bikes/669448\" target=\"_blank\">View details</a>",
+          "occurred_at": "2019-10-24 06:58:21 -0500",
+          "marker-size": "small",
+          "marker-color": "#EE8276",
+          "id": 109462
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3783562,
+            52.4985969
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen Unknown tricycle (10-08-2019)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/191223/large_4EA7A795-F153-43E4-BDB6-51A76EA108B8.jpeg'>  <a href=\"https://bikeindex.org/bikes/664168\" target=\"_blank\">View details</a>",
+          "occurred_at": "2019-10-08 08:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#EE8276",
+          "id": 108624
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.5008,
+            52.48399
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2016 GT Bicycles Karakoram Comp 29 (08-28-2019)",
+          "description": "Bike was simply stolen within an hour while having dinner. It was locked just outside the Südstern UBahn station in Berlin <a href=\"https://bikeindex.org/bikes/649349\" target=\"_blank\">View details</a>",
+          "occurred_at": "2019-08-28 13:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 106292
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.4077219,
+            52.4893018
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2017 Pegasus Opero SL, Wave (07-24-2019)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/182035/large_21621-1.jpg'>  <a href=\"https://bikeindex.org/bikes/651447\" target=\"_blank\">View details</a>",
+          "occurred_at": "2019-07-24 05:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 106590
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3137346,
+            52.4868693
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2018 Intec M05 (07-20-2019)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/171073/large_IntecM05.png'>  <a href=\"https://bikeindex.org/bikes/634338\" target=\"_blank\">View details</a>",
+          "occurred_at": "2019-07-20 14:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 104057
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3968551,
+            52.493094
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen Peugeot Ventoux PE300 (06-11-2019)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/173545/large_MuN--Dll.jpeg'>  <a href=\"https://bikeindex.org/bikes/637533\" target=\"_blank\">View details</a>",
+          "occurred_at": "2019-06-11 15:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 104788
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.401651,
+            52.5027059
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2016 Cube Analog (04-25-2019)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/153579/large_WhatsApp_Image_2019-04-25_at_14.01.49.jpeg'> There were the 2 bikes I owned parked adjacent to each other and with 1 cable lock I locked the 2 bikes together and with another cable lock I locked the bike ,which was stolen, to the bike parking station bar in the courtyard of my apartment. I came back home at about 12:30 pm on 25.04.2019 and checked the bikes and found out the incident. The thief(s) cut off the cable locks and took only 1 of the bikes and left the 2nd bike. <a href=\"https://bikeindex.org/bikes/603410\" target=\"_blank\">View details</a>",
+          "occurred_at": "2019-04-25 03:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 99362
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3542784,
+            52.4830386
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2017 Riese und Müller Charger GS Nuvinci (04-11-2019)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/151809/large_IMG_3862.jpg'>  <a href=\"https://bikeindex.org/bikes/600502\" target=\"_blank\">View details</a>",
+          "occurred_at": "2019-04-11 07:06:34 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 98720
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3564767,
+            52.535898
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2019 Flyer Upstreet 4 (04-03-2019)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/151183/large_upstreet-4-7-10-diamant-404900466_large.png'> Stolen during nighttime from the house's closed yard. <a href=\"https://bikeindex.org/bikes/599290\" target=\"_blank\">View details</a>",
+          "occurred_at": "2019-04-03 17:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 98486
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3573863,
+            52.540844
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 1981 Miyata 750SR (03-15-2019)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/230143/large_miyata_Kopie.jpg'> The bike was parked between 7 p.m. and 10:30 p.m. on a street sign on the corner of Linienstr. 40 / Rosa-Luxemburg Str. in Berlin-Mitte. The bike was secured with a lock from Abus. After that the bike and lock was gone. <a href=\"https://bikeindex.org/bikes/704321\" target=\"_blank\">View details</a>",
+          "occurred_at": "2019-03-15 13:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 115108
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.4058114,
+            52.530741
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2010 Trek Superfly (03-14-2019)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/151095/large_IMG-20110221-00015.jpg'>  <a href=\"https://bikeindex.org/bikes/599141\" target=\"_blank\">View details</a>",
+          "occurred_at": "2019-03-14 04:14:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 98451
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.343094,
+            52.5094286
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2018 Cannondale CaadX Tiagra 58 (03-11-2019)",
+          "description": " <a href=\"https://bikeindex.org/bikes/595698\" target=\"_blank\">View details</a>",
+          "occurred_at": "2019-03-11 12:33:29 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 97572
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.4096184,
+            52.5384519
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2017 Canyon bicycles Inflite AL 9.0S (03-09-2019)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/148912/large_IMG_20170705_191324.jpg'> Bike was locked to a bike rack with an \"Asus Bordo Granit X-Plus\" lock. After two hours in the gym, it was gone, no trace left. The rack was a bit loose in the ground, it's possible that the thieves tried to pull it out, but failed due to the concrete foundation. <a href=\"https://bikeindex.org/bikes/595545\" target=\"_blank\">View details</a>",
+          "occurred_at": "2019-03-09 08:00:00 -0600",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 97530
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3847539,
+            52.5155098
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2015 Gepida Alboin crs 500 (11-27-2018)",
+          "description": "Locked cellar in Warthestrasse 8, Kryptonite U-lock with cable both tyres locked to frame. Someone got in and took the whole thing as well as forced some storage doors open.  <a href=\"https://bikeindex.org/bikes/480323\" target=\"_blank\">View details</a>",
+          "occurred_at": "2018-11-27 03:00:00 -0600",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 94547
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.4303378,
+            52.4668273
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2018 UNIMOKE-Urban Drivestyle UNIMOKE Swing (10-30-2018)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/139855/large_bike-3.jpg'> someone broke into the house, cut the wooden railings beside the stairs that my bike was locked to. <a href=\"https://bikeindex.org/bikes/458285\" target=\"_blank\">View details</a>",
+          "occurred_at": "2018-10-30 15:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 93593
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.4230065,
+            52.5341936
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen ROCKRIDER black-grey (10-07-2018)",
+          "description": " <a href=\"https://bikeindex.org/bikes/439032\" target=\"_blank\">View details</a>",
+          "occurred_at": "2018-10-07 11:55:27 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 92457
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.4272009,
+            52.4956904
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2018 VAUN VELO (07-21-2018)",
+          "description": "Stolen from my courtyard <a href=\"https://bikeindex.org/bikes/403765\" target=\"_blank\">View details</a>",
+          "occurred_at": "2018-07-21 01:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 88377
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.4283219,
+            52.4901314
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen Unity MTB Unity 18´´ (03-30-2018)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/113637/large_Screenshot_2018-03-30-11-55-03.png'>  <a href=\"https://bikeindex.org/bikes/387604\" target=\"_blank\">View details</a>",
+          "occurred_at": "2018-03-30 11:36:52 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 83616
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.2067825,
+            52.5466773
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2015 Pegasus Solero SL, Damen 28\", 50 cm frame (03-27-2018)",
+          "description": " <a href=\"https://bikeindex.org/bikes/387620\" target=\"_blank\">View details</a>",
+          "occurred_at": "2018-03-27 01:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 83629
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.456067,
+            52.5344541
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2017 Cannondale CAAD12 Disc, SmartForm C1 Premium Alloy, SPEED SAVE, BB30a, Di2 Ready, flat-mount disc (02-10-2018)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/112133/large_27709588_1782480685106226_4475511125443073991_o.jpg'>  <a href=\"https://bikeindex.org/bikes/385425\" target=\"_blank\">View details</a>",
+          "occurred_at": "2018-02-10 00:00:00 -0600",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 82936
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.4466477,
+            52.554561
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2017 Surly Cross-Check (09-09-2017)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/98933/large_surly_crosscheckcropped.jpg'> Bike was left in a hof (courtyard) for 45 minutes, with a cable lock attaching the front wheel to the frame and a folding Abus lock attaching the frame to a fence. The bike and cable lock were removed and the folding lock was left in place, locked. <a href=\"https://bikeindex.org/bikes/360966\" target=\"_blank\">View details</a>",
+          "occurred_at": "2017-09-09 01:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 77832
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.4334017,
+            52.5004054
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2013 Specialized Hardrock Sport Disc 29 (09-07-2017)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/108605/large_IMG_20170219_111345.jpg'> Lock was cut and only one chain left. <a href=\"https://bikeindex.org/bikes/381324\" target=\"_blank\">View details</a>",
+          "occurred_at": "2017-09-07 01:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 101605
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.2870699,
+            52.5212611
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2015 Carrera bicycles Virtuoso (08-03-2017)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/93377/large_IMG-20170512-WA0011_1__2_.jpg'> The bicycle was stolen in bright daylight on Hegelplatz behind the Humboldt University Berlin on 2nd August 2017 between 1:30 and 5:30 pm.  <a href=\"https://bikeindex.org/bikes/351525\" target=\"_blank\">View details</a>",
+          "occurred_at": "2017-08-03 01:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 76058
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3936551,
+            52.517883
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2014 Flyer Wave (05-25-2017)",
+          "description": "having seen a man interested in this e-bike, but hurrying away, when I came out of the house. 20 later the bike has gone. <a href=\"https://bikeindex.org/bikes/121203\" target=\"_blank\">View details</a>",
+          "occurred_at": "2017-05-25 01:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 72790
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3403784,
+            52.4920952
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen Create The Coaster (12-27-2016)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/75003/large_IMG_8353.JPG'>  <a href=\"https://bikeindex.org/bikes/107287\" target=\"_blank\">View details</a>",
+          "occurred_at": "2016-12-27 00:00:00 -0600",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 68100
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.4815474,
+            52.4609077
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2016 Cube Aluminium 6061 T6 Superlight, AMF, Double Butted, Smooth Welded, 3D Dropouts, Road Comfort Geometry (10-20-2016)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/70677/large_IMG_2417.JPG'>  <a href=\"https://bikeindex.org/bikes/101488\" target=\"_blank\">View details</a>",
+          "occurred_at": "2016-10-20 01:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 65604
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.2385645,
+            52.5485032
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2015 Cannondale Supersix Evo (04-17-2016)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/51340/large_IMG_3766.JPG'>  <a href=\"https://bikeindex.org/bikes/73861\" target=\"_blank\">View details</a>",
+          "occurred_at": "2016-04-17 01:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 57471
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.4411786,
+            52.5239492
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2015 Marin Bikes Fairfax SC6 DLX (06-10-2015)",
+          "description": " <a href=\"https://bikeindex.org/bikes/47880\" target=\"_blank\">View details</a>",
+          "occurred_at": "2015-06-10 01:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F29D94",
+          "id": 46809
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.4096184,
+            52.5384519
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2014 Cannondale Caad 8 105 (01-30-2015)",
+          "description": " <a href=\"https://bikeindex.org/bikes/39491\" target=\"_blank\">View details</a>",
+          "occurred_at": "2015-01-30 00:00:00 -0600",
+          "marker-size": "small",
+          "marker-color": "#F6B9B3",
+          "id": 43312
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3777036,
+            52.532614
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen 2012 Cannondale Caad8 7 Sora (08-18-2014)",
+          "description": "<img src='https://bikebook.s3.amazonaws.com/uploads/Fr/9764/c_13_3RA87C_gry_14.png'> Stolen during the day from yard bike stands between three offices in front of restaurant. <a href=\"https://bikeindex.org/bikes/30054\" target=\"_blank\">View details</a>",
+          "occurred_at": "2014-08-18 01:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F6B9B3",
+          "id": 3522
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.3777036,
+            52.532614
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "title": "Stolen di Florino (06-17-2014)",
+          "description": "<img src='https://files.bikeindex.org/uploads/Pu/9564/large_dsc_1293.jpg'>  <a href=\"https://bikeindex.org/bikes/27159\" target=\"_blank\">View details</a>",
+          "occurred_at": "2014-06-17 01:00:00 -0500",
+          "marker-size": "small",
+          "marker-color": "#F6B9B3",
+          "id": 24134
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            13.4554471,
+            52.5019332
+          ]
+        }
+      }
+    ]
+  }

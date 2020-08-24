@@ -10,7 +10,7 @@ export const INITIAL_STATE = {
   loading: false,
   error: null,
   stolenBikes: [],
-  geoJsonStolenBikes: [],
+  geoJsonStolenBikes: {},
   page: 1
 }
 
