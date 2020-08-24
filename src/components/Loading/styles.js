@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const LoadingDonut = styled.div`
-  /* display: inline-block; */
   align-self: center;
   margin-top: 25%;
   border: 15px solid hsl(222, 100%, 95%);
