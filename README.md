@@ -2,12 +2,30 @@
 
 React web coding challenge.
 
+## Capture report of unit tests of the app
+
+![Capture report of unit tests of the app](./.readme-static/screenshot-report-test)
+
 ## Screenshots app
 
+### Screenshots search
+
 ![Screenshot search](./.readme-static/screenshot-search.png)
+
+### Screenshots detail
+
 ![Screenshot detail](./.readme-static/screenshot-detail.png)
+
+### Screenshots loading
+
 ![Screenshot loading](./.readme-static/screenshot-loading.png)
+
+### Screenshots not results
+
 ![Screenshot no results](./.readme-static/screenshot-no-results.png)
+
+### Screenshots error
+
 ![Screenshot error](./.readme-static/screenshot-error.png)
 
 [See the application in https://react-web-coding-challenge.vercel.app/](https://react-web-coding-challenge.vercel.app/)
