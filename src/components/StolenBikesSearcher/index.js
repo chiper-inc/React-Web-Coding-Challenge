@@ -1,6 +1,7 @@
-import React from 'react'
-import { Input, Label, Button, Row, Col } from 'reactstrap'
-import { FormGroup, Form } from './styles'
+import React, { useState } from 'react'
+import { Navbar, Collapse } from 'reactstrap'
+import { InputForm } from './InputForm'
+import { Button, FormGroup, Form, TextButton, NavbarToggler } from './styles'
 
 const TEXT_QUERY = 'textQuery'
 const START_DATE = 'startDate'
@@ -11,6 +12,10 @@ const startDateRef = React.createRef()
 const endDateRef = React.createRef()
 
 export const StolenBikesSearcher = ({ onSubmit }) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleToggle = () => setIsOpen(!isOpen)
+
   const handleSubmit = () => {
     const textQuery = textRef.current.value.trim()
     const startDate = startDateRef.current.value
@@ -34,57 +39,48 @@ export const StolenBikesSearcher = ({ onSubmit }) => {
     }
   }
   return (
-    <Form>
-      <Row className='justify-content-md-center' form>
-        <Col md={3} className='mb-1'>
-          <FormGroup>
-            <Input
-              innerRef={textRef}
-              placeholder='Search case descriptions'
-              name={TEXT_QUERY}
-              onKeyDown={handleEnter}
-            />
+    <Navbar light expand='md' className='justify-content-center'>
+      <NavbarToggler onClick={handleToggle}>
+        <TextButton>Filters</TextButton>
+      </NavbarToggler>
+      <Collapse isOpen={isOpen} className='justify-content-center' navbar>
+        <Form inline className='w-100'>
+          <InputForm
+            innerRef={textRef}
+            placeholder='Search case descriptions'
+            name={TEXT_QUERY}
+            onKeyDown={handleEnter}
+          />
+          <InputForm
+            type='date'
+            innerRef={startDateRef}
+            name={START_DATE}
+            addonText='From'
+          />
+          <InputForm
+            type='date'
+            innerRef={endDateRef}
+            name={END_DATE}
+            addonText='To'
+          />
+          <FormGroup className='mr-0 col-md-auto'>
+            <Button
+              color='secondary'
+              className='mb-2 mr-2'
+              onClick={handleClean}
+            >
+              Clean Filters
+            </Button>
+            <Button
+              color='primary'
+              className='mb-2 mr-2'
+              onClick={handleSubmit}
+            >
+              Find cases
+            </Button>
           </FormGroup>
-        </Col>
-        <Col md={3} className='mb-1'>
-          <FormGroup row>
-            <Label for='startDate' md={2}>
-              From
-            </Label>
-            <Col md={10}>
-              <Input
-                type='date'
-                innerRef={startDateRef}
-                name={START_DATE}
-                id={START_DATE}
-              />
-            </Col>
-          </FormGroup>
-        </Col>
-        <Col md={3} className='mb-1'>
-          <FormGroup row>
-            <Label for='endDate' md={2}>
-              To
-            </Label>
-            <Col md={10}>
-              <Input
-                type='date'
-                innerRef={endDateRef}
-                name={END_DATE}
-                id={END_DATE}
-              />
-            </Col>
-          </FormGroup>
-        </Col>
-        <Col md='auto' className='mb-1 text-center'>
-          <Button color='secondary mr-1' onClick={handleClean}>
-            Clean Filters
-          </Button>
-          <Button color='primary' onClick={handleSubmit}>
-            Find cases
-          </Button>
-        </Col>
-      </Row>
-    </Form>
+        </Form>
+      </Collapse>
+    </Navbar>
   )
 }
