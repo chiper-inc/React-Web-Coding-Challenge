@@ -6,9 +6,9 @@ import Adapter from 'enzyme-adapter-react-16'
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('<SearchForm />', () => {
-  const props = { page: 1 }
   test('render del componente SearchForm', () => {
-    // const wrapper = mount(<SearchForm {...props} />)
+    // const page = 1
+    // const wrapper = mount(<SearchForm page={page} />)
     // expect(wrapper.length).toEqual(1)
     expect(true).toEqual(true)
   })

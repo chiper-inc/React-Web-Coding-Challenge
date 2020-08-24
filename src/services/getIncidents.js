@@ -1,7 +1,7 @@
 import { API_URL } from './settings'
 import { paramsToString } from '../utils/paramsToString'
 
-async function callApi(urlParams, options = {}) {
+export const callApi = async (urlParams, options = {}) => {
   options.headers = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
