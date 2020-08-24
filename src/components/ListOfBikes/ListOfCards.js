@@ -29,7 +29,7 @@ const ListOfCards = () => {
   const [unixStart, unixEnd] = useConvertUnix(date1, date2);
   const URL = `https://bikewise.org:443/api/v2/incidents?page=${toggle ? '' : page}&per_page=${toggle ? '' : 10}&occurred_before=${sendFetch ? unixEnd : ''}&occurred_after=${sendFetch ? unixStart : ''}&incident_type=theft&proximity=Berlin&query=${query}`;
   const [data, loading, fetchData] = useGetData(URL);
-  console.log(loading);
+
   const handleChange = (e) => {
     const { value } = e.target;
     const regex = /\s/g;
