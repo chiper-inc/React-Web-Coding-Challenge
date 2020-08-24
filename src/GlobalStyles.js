@@ -38,6 +38,13 @@ const GlobalStyles = createGlobalStyle`
     color: #1b262c;
     overscroll-behavior: none;
   }
+
+  main {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 2% 3%;
+    font-family: 'Montserrat', sans-serif;
+  }
 `;
 
 export default GlobalStyles;

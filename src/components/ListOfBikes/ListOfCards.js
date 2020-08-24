@@ -73,7 +73,7 @@ const ListOfCards = () => {
           <Label>To</Label>
           <DateInput type='date' onChange={handleDateEndChange} />
           <Send type='button' onClick={() => setSendFetch(true)}>
-            Enviar
+            Search
           </Send>
         </DateContainer>
       </InputContainer>
