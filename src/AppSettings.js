@@ -9,3 +9,4 @@ export const DEF_PARAMS_SEARCH = {
   proximity_square: 50,
   incident_type: 'theft'
 }
+export const BASENAME_URL = '/React-Web-Coding-Challenge'
