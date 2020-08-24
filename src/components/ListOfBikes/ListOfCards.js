@@ -66,7 +66,7 @@ const ListOfCards = () => {
             <FilterTitle
               type='text'
               onChange={handleChange}
-              placeholder='search bike description'
+              placeholder='Search bike description'
             />
             <div>
               <Label>From</Label>
@@ -90,7 +90,7 @@ const ListOfCards = () => {
                 First Page
               </Button>
               <Button type='button' onClick={handleClickLast}>
-                Previus Page
+                Previous Page
               </Button>
             </div>
             <Pages>

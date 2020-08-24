@@ -9,7 +9,7 @@ const App = () => {
       <GlobalStyles />
       <Layout>
         <a href='/'>
-          <H1>Police Departmen of Berlin</H1>
+          <H1>Police Department of Berlin</H1>
         </a>
         <P>Stolen Bikes</P>
         <ListOfCards />
