@@ -4,20 +4,20 @@
 ## Getting Started
   Check the Deploy of the app on https://jjuan1k94.github.io/React-Web-Coding-Challenge/
   
-  npm start
+  npm start  
     Starts the development server.
 
-  npm run build
+  npm run build  
     Bundles the app into static files for production.
 
-  npm test
+  npm test  
     Starts the test runner.
 
-  npm run eject (already executed)
+  npm run eject (already executed)  
     Removes this tool and copies build dependencies, configuration files
     and scripts into the app directory. If you do this, you can’t go back!
   
-  npm run deploy
+  npm run deploy  
     deploy the branch witouth travis, it will not exec the test
 
 ## Context
