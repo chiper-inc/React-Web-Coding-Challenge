@@ -6,7 +6,7 @@ React web coding challenge.
 
 ![Screenshot search](./.readme-static/screenshot-search.png)
 ![Screenshot detail](./.readme-static/screenshot-detail.png)
-![Screenshot loading](./.readme-static/screenshot-loadind.png)
+![Screenshot loading](./.readme-static/screenshot-loading.png)
 ![Screenshot no results](./.readme-static/screenshot-no-results.png)
 ![Screenshot error](./.readme-static/screenshot-error.png)
 
