@@ -4,7 +4,7 @@ React web coding challenge.
 
 ## Capture report of unit tests of the app
 
-![Capture report of unit tests of the app](./.readme-static/screenshot-report-test)
+![Capture report of unit tests of the app](./.readme-static/screenshot-report-test.png)
 
 ## Screenshots app
 
