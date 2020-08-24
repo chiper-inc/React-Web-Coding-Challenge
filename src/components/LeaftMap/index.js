@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import 'leaflet/dist/leaflet.css'
-import './assets/leaftMap.css'
+import './assets/LeaftMap.css'
 import L from 'leaflet'
 
 const noImageSrc =
@@ -68,7 +68,7 @@ export default class LeaftLetMap {
     L.tileLayer(URL_MAPPER, DEF_CONFIG).addTo(this.leafletMap)
   }
 
-  renderGeoJson (geoJson) {
+  renderGeoJson (geoJson, setView = false) {
     L.geoJSON([geoJson], {
       onEachFeature: renderPopUp,
       pointToLayer: (feature, latlng) =>
@@ -81,9 +81,16 @@ export default class LeaftLetMap {
           fillOpacity: 0.8
         })
     }).addTo(this.leafletMap)
+
+    if (setView) {
+      const [firstC, secondC] = geoJson.features[0].geometry.coordinates
+      this.leafletMap.setView([secondC, firstC], 13)
+    }
   }
 
   DisposeElem () {
+    this.leafletMap.off()
+    this.leafletMap.remove()
     this.leafletMap = null
   }
 }

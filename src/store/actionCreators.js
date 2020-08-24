@@ -70,12 +70,15 @@ export const requestStolenBikes = ({
 
 export const requestPage = (page) => ({ type: CHANGE_PAGE, payload: page })
 
-export const requestGeoJsonStolenBikes = () => (dispatch) => {
+export const requestGeoJsonStolenBikes = (aditionalParams = {}) => (
+  dispatch
+) => {
   const queryParams = cast2QueryParams({
     proximity,
     proximity_square,
     incident_type,
-    all: true
+    all: true,
+    ...aditionalParams
   })
 
   axios
@@ -85,6 +88,22 @@ export const requestGeoJsonStolenBikes = () => (dispatch) => {
       dispatchDataReceived(dispatch, GEOJSON_BIKES_RECEIVED, status, data)
     })
     .catch((e) => dispatchError(dispatch, e))
+}
 
-  dispatchReqData(dispatch)
+export const requestGeoJsonByTitle = (title) => (dispatch) => {
+  const queryParams = cast2QueryParams({
+    proximity,
+    proximity_square,
+    incident_type,
+    all: true,
+    query: title,
+    limit: 1
+  })
+  axios
+    .get(`${URL_API}/locations/markers?${queryParams}`)
+    .then((res) => {
+      const { data, status } = res
+      dispatchDataReceived(dispatch, GEOJSON_BIKES_RECEIVED, status, data)
+    })
+    .catch((e) => dispatchError(dispatch, e))
 }

@@ -4,7 +4,7 @@ import { getDateFromUnix } from '../../utils/DateParser'
 import { Card, Img, Title, BoldText, Paragraph } from './styles'
 import { CardBody, Row, Col } from 'reactstrap'
 import logoBike from './assets/bike.svg'
-import { ImageViewer } from '../ImageViewer'
+import { ImageViewerContainer } from '../../containers/ImageViewerContainer'
 
 export const StolenBikeCard = ({
   title,
@@ -43,12 +43,12 @@ export const StolenBikeCard = ({
           </Col>
         </Row>
       </CardBody>
-      <ImageViewer
+      <ImageViewerContainer
         isOpen={viewerIsOpen}
         onClose={handleToggleViewer}
         src={image_url || logoBike}
         alt='bike-image'
-        title={title}
+        {...{ title, description, address, occurred_at, updated_at }}
       />
     </Card>
   )

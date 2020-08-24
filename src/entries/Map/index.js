@@ -5,7 +5,7 @@ import { requestGeoJsonStolenBikes } from '../../store/actionCreators'
 import { Container } from './styles'
 import { OrbitalSpinner } from '../../components/Loading'
 import { AlertError } from '../../components/Error'
-import LeaftMap from './leaftMap'
+import LeaftMap from '../../components/LeaftMap'
 
 const refContainer = React.createRef()
 let leaftMap
