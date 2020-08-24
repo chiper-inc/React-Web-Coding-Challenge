@@ -2,6 +2,7 @@
   "name": "react-web-coding-challenge",
   "version": "0.1.0",
   "private": false,
+  "homepage": "https://jjuan1k94.github.io/React-Web-Coding-Challenge",
   "dependencies": {
     "@babel/core": "7.9.0",
     "@svgr/webpack": "4.3.3",
