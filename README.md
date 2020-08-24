@@ -4,12 +4,11 @@ React web coding challenge.
 
 ## Screenshots app
 
-![Screenshot mobile](./.readme-static/screenshot-mobile.png)
 ![Screenshot search](./.readme-static/screenshot-search.png)
 ![Screenshot detail](./.readme-static/screenshot-detail.png)
 ![Screenshot loading](./.readme-static/screenshot-loadind.png)
-![Screenshot no results](./.readme-static/no-results.png)
-![Screenshot error](./.readme-static/error.png)
+![Screenshot no results](./.readme-static/screenshot-no-results.png)
+![Screenshot error](./.readme-static/screenshot-error.png)
 
 [See the application in https://react-web-coding-challenge.vercel.app/](https://react-web-coding-challenge.vercel.app/)
 
@@ -22,10 +21,6 @@ Requires Node.JS > 10
 - `npm run build` To build the production environment.
 - `npm run test` To run the unit tests.
 - `npm run test:coverage` To generate the unit test report.
-
-## License
-
-MIT
 
 # Stolen Bike Index - Frontend (React) Conding Challenge
 ![JOIN Stolen Bike Cases](https://github.com/chiper-inc/React-Web-Coding-Challenge/blob/master/illustration.png)
