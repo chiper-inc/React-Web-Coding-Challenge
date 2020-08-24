@@ -1,14 +1,9 @@
 # Stolen Bike Index - Frontend (React) Conding Challenge
 ![JOIN Stolen Bike Cases](https://github.com/chiper-inc/React-Web-Coding-Challenge/blob/master/illustration.png)
 
-## Context
-
-Stolen bikes are a typical problem in Berlin. The Police want to be more efficient in resolving stolen bike cases. They decided to build a software that can automate their processes — the software that you're going to develop.
-
-This app needs to display the list of reported bike thefts based on the Bikewise [API](https://www.bikewise.org/documentation/api_v2).
-
 ## Getting Started
-
+  Check the Deploy of the app on https://jjuan1k94.github.io/React-Web-Coding-Challenge/
+  
   npm start
     Starts the development server.
 
@@ -18,9 +13,19 @@ This app needs to display the list of reported bike thefts based on the Bikewise
   npm test
     Starts the test runner.
 
-  npm run eject
+  npm run eject (already executed)
     Removes this tool and copies build dependencies, configuration files
     and scripts into the app directory. If you do this, you can’t go back!
+  
+  npm run deploy
+    deploy the branch witouth travis, it will not exec the test
+
+## Context
+
+Stolen bikes are a typical problem in Berlin. The Police want to be more efficient in resolving stolen bike cases. They decided to build a software that can automate their processes — the software that you're going to develop.
+
+This app needs to display the list of reported bike thefts based on the Bikewise [API](https://www.bikewise.org/documentation/api_v2).
+
 
 ## Product Requirements
 
