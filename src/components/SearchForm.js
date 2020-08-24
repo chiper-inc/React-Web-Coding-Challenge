@@ -43,6 +43,7 @@ export const SearchForm = ({ page }) => {
             InputLabelProps={{
               shrink: true,
             }}
+            fullWidth
             onChange={handleChangeDateFrom}
           />
         </WrapperTextField>
@@ -56,6 +57,7 @@ export const SearchForm = ({ page }) => {
             InputLabelProps={{
               shrink: true,
             }}
+            fullWidth
             onChange={handleChangeDateTo}
           />
         </WrapperTextField>

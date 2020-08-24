@@ -55,14 +55,11 @@ export const IncidentText = styled.p`
 `
 
 export const IncidentAnchor = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   text-transform: uppercase;
   color: #5a65c5;
   font-weight: bold;
-  font-size: 14px;
-  position: relative;
-  display: inline-block;
-  z-index: 1;
-  padding: 5px;
-  left: -5px;
 `

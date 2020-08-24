@@ -11,6 +11,8 @@ import {
 } from '../styles/IncidentStyles'
 import DEFAULT_IMAGE from '../assets/image/default-image.png'
 import { Link } from 'wouter'
+import { IconButton, Typography } from '@material-ui/core'
+import { Event, Room, Visibility } from '@material-ui/icons'
 
 export const Incident = ({
   id,
@@ -34,10 +36,24 @@ export const Incident = ({
               : description}
           </IncidentText>
           <IncidentText>
-            {moment(occurred_at).format('LLL')} - {address}{' '}
+            <IconButton aria-label="date">
+              <Event />
+            </IconButton>
+            {moment(occurred_at).format('LLL')}
+            <IconButton aria-label="location">
+              <Room />
+            </IconButton>
+            {address}
           </IncidentText>
           <Link to={`/detail/${id}`}>
-            <IncidentAnchor>View Detail</IncidentAnchor>
+            <IncidentAnchor>
+              <IconButton aria-label="view">
+                <Visibility />
+              </IconButton>
+              <Typography variant="subtitle1" color="textSecondary">
+                View Detail
+              </Typography>
+            </IncidentAnchor>
           </Link>
         </IncidentTextContainer>
       </IncidentCard>

@@ -12,6 +12,9 @@ import {
 import DEFAULT_IMAGE from '../assets/image/default-image.png'
 import moment from 'moment'
 import { Redirect, Link } from 'wouter'
+import { IconButton, Typography } from '@material-ui/core'
+import { Event, Room, Language } from '@material-ui/icons'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 
 export const Detail = ({ params }) => {
   const { incidents } = useContext(IncidentsContext)
@@ -25,7 +28,14 @@ export const Detail = ({ params }) => {
   return (
     <Fragment>
       <Link to={`/`}>
-        <IncidentAnchor>Back</IncidentAnchor>
+        <IncidentAnchor>
+          <IconButton aria-label="website">
+            <ArrowBackIosIcon />
+          </IconButton>
+          <Typography variant="subtitle1" color="textSecondary">
+            Back
+          </Typography>
+        </IncidentAnchor>
       </Link>
       <IncidentContainer>
         <IncidentCard>
@@ -44,7 +54,21 @@ export const Detail = ({ params }) => {
                 : incident.description}
             </IncidentText>
             <IncidentText>
-              {moment(incident.occurred_at).format('LLL')} - {incident.address}{' '}
+              <IconButton aria-label="date">
+                <Event />
+              </IconButton>
+              {moment(incident.occurred_at).format('LLL')}
+              <IconButton aria-label="location">
+                <Room />
+              </IconButton>
+              {incident.address}
+
+              <a href={incident.source.html_url} target="_blank">
+                <IconButton aria-label="website">
+                  <Language />
+                </IconButton>
+                {incident.source.html_url}
+              </a>
             </IncidentText>
           </IncidentTextContainer>
         </IncidentCard>

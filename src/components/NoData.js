@@ -1,13 +1,13 @@
 import React from 'react'
-import { ErrorContainer } from '../styles/ErrorStyles'
 import { Typography } from '@material-ui/core'
+import { NoDataContainer } from '../styles/NoDataStyles'
 
-export const ErrorPage = () => {
+export const NoData = () => {
   return (
-    <ErrorContainer>
+    <NoDataContainer>
       <Typography variant="h3" component="h3" color="primary">
-        404 Not Found
+        No results
       </Typography>
-    </ErrorContainer>
+    </NoDataContainer>
   )
 }

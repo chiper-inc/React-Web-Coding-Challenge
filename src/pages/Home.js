@@ -7,6 +7,7 @@ import { Loading } from '../components/Loading'
 import { ListOfIncidents } from '../components/ListOfIncidents'
 import { usePaginate } from '../hooks/usePaginate'
 import IncidentsContext from '../context/IncidentsContext'
+import { NoData } from '../components/NoData'
 
 export const Home = () => {
   const { page, handleChangePage } = usePaginate()
@@ -26,6 +27,8 @@ export const Home = () => {
             <Error />
           ) : loading ? (
             <Loading />
+          ) : incidents.length === 0 ? (
+            <NoData />
           ) : (
             <ListOfIncidents incidents={incidents} />
           )}
