@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react'
-import { Grid } from '@material-ui/core'
+import { Grid, Typography } from '@material-ui/core'
 import { SearchForm } from '../components/SearchForm'
 import { Paginate } from '../components/Paginate'
 import { Error } from '../components/Error'
@@ -19,6 +19,11 @@ export const Home = () => {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <SearchForm page={page} />
+        </Grid>
+      </Grid>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <Typography>Total 180</Typography>
         </Grid>
       </Grid>
       <Grid container spacing={2}>
