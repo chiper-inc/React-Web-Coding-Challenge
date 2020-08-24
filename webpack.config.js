@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -29,10 +30,13 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html'
     }),
   ]
-}
+};

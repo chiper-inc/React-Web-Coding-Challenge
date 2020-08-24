@@ -1,21 +1,22 @@
 import React from 'react';
-import { Layout, H1, P } from './styles';
+import { Link } from 'react-router-dom';
+import { Container, H1, P } from './styles';
 import GlobalStyles from '../GlobalStyles';
 import ListOfCards from '../components/ListOfBikes/ListOfCards';
 
-const App = () => {
+const Home = () => {
   return (
     <>
       <GlobalStyles />
-      <Layout>
-        <a href='/'>
+      <Container>
+        <Link to='/'>
           <H1>Police Department of Berlin</H1>
-        </a>
+        </Link>
         <P>Stolen Bikes</P>
         <ListOfCards />
-      </Layout>
+      </Container>
     </>
   );
 };
 
-export default App;
+export default Home;
