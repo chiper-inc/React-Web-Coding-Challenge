@@ -27,10 +27,9 @@ const ListOfCards = () => {
   const [date1, setDate1] = useState();
   const [date2, setDate2] = useState();
   const [unixStart, unixEnd] = useConvertUnix(date1, date2);
-  const URL = `https://bikewise.org:443/api/v2/incidents?page=${toggle ? '' : page}&per_page=${toggle ? '' : 10}&incident_type=theft&proximity=Berlin&query=${query}`;
-  const URL2 = `https://bikewise.org:443/api/v2/incidents?occurred_before=${unixEnd}&occurred_after=${unixStart}&incident_type=theft&proximity=Berlin`;
-  const [data, fetchData] = useGetData(URL);
-
+  const URL = `https://bikewise.org:443/api/v2/incidents?page=${toggle ? '' : page}&per_page=${toggle ? '' : 10}&occurred_before=${sendFetch ? unixEnd : ''}&occurred_after=${sendFetch ? unixStart : ''}&incident_type=theft&proximity=Berlin&query=${query}`;
+  const [data, loading, fetchData] = useGetData(URL);
+  console.log(loading);
   const handleChange = (e) => {
     const { value } = e.target;
     const regex = /\s/g;
@@ -55,35 +54,33 @@ const ListOfCards = () => {
     fetchData(URL);
   }, [page, query, sendFetch]);
 
-  useEffect(() => {
-    fetchData(URL2);
-  }, [sendFetch]);
-
   return (
     <Section>
-      {data.length === 0 ? (
+      <P>
+        Total cases:
+        {' '}
+        {loading ? 0 : data.incidents.length}
+      </P>
+      <InputContainer>
+        <FilterTitle
+          type='text'
+          onChange={handleChange}
+          placeholder='Search bike description'
+        />
+        <DateContainer>
+          <Label>From</Label>
+          <DateInput type='date' onChange={handleDateStartChange} />
+          <Label>To</Label>
+          <DateInput type='date' onChange={handleDateEndChange} />
+          <Send type='button' onClick={() => setSendFetch(true)}>
+            Enviar
+          </Send>
+        </DateContainer>
+      </InputContainer>
+      {data.length === 0 || loading === true ? (
         <Loading />
       ) : (
         <>
-          <P>
-            Total cases:
-            {' '}
-            {data.incidents.length}
-          </P>
-          <InputContainer>
-            <FilterTitle
-              type='text'
-              onChange={handleChange}
-              placeholder='Search bike description'
-            />
-            <DateContainer>
-              <Label>From</Label>
-              <DateInput type='date' onChange={handleDateStartChange} />
-              <Label>To</Label>
-              <DateInput type='date' onChange={handleDateEndChange} />
-              <Send type='button' onClick={() => setSendFetch(true)}>Enviar</Send>
-            </DateContainer>
-          </InputContainer>
           {data.incidents.length === 0 ? (
             <h1>No cases</h1>
           ) : (
@@ -104,7 +101,11 @@ const ListOfCards = () => {
             </div>
             <Pages>
               {[1, 2, 3, 4, 5, 6].map((id) => (
-                <Li key={id} onClick={() => setPage(id)} color={page === id ? 'red' : 'black'}>
+                <Li
+                  key={id}
+                  onClick={() => setPage(id)}
+                  color={page === id ? 'red' : 'black'}
+                >
                   <a>{id}</a>
                 </Li>
               ))}
