@@ -35,16 +35,14 @@ export const Incident = ({
               ? 'Not desription'
               : description}
           </IncidentText>
-          <IncidentText>
-            <IconButton aria-label="date">
-              <Event />
-            </IconButton>
-            {moment(occurred_at).format('LLL')}
-            <IconButton aria-label="location">
-              <Room />
-            </IconButton>
-            {address}
-          </IncidentText>
+          <IconButton aria-label="date">
+            <Event />
+          </IconButton>
+          {moment(occurred_at).format('LLL')}
+          <IconButton aria-label="location">
+            <Room />
+          </IconButton>
+          {address}
           <Link to={`/detail/${id}`}>
             <IncidentAnchor>
               <IconButton aria-label="view">

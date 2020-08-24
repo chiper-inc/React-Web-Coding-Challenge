@@ -53,23 +53,21 @@ export const Detail = ({ params }) => {
                 ? 'Not desription'
                 : incident.description}
             </IncidentText>
-            <IncidentText>
-              <IconButton aria-label="date">
-                <Event />
-              </IconButton>
-              {moment(incident.occurred_at).format('LLL')}
+            <IconButton aria-label="date">
+              <Event />
+            </IconButton>
+            {moment(incident.occurred_at).format('LLL')}
+            <IconButton aria-label="location">
+              <Room />
+            </IconButton>
+            {incident.address}
+
+            <a href={incident.source.html_url} target="_blank">
               <IconButton aria-label="location">
-                <Room />
+                <Language />
               </IconButton>
               {incident.address}
-
-              <a href={incident.source.html_url} target="_blank">
-                <IconButton aria-label="website">
-                  <Language />
-                </IconButton>
-                {incident.source.html_url}
-              </a>
-            </IncidentText>
+            </a>
           </IncidentTextContainer>
         </IncidentCard>
       </IncidentContainer>

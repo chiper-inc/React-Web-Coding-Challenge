@@ -10,7 +10,7 @@ export const IncidentCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 30px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.45);
   @media screen and (min-width: 768px) {
@@ -28,10 +28,8 @@ export const IncidentImage = styled.div`
   background: url(${(props) => props.image});
   background-position: center;
   background-size: cover;
-  @media screen and (min-width: 768px) {
-    height: 420px;
-    min-width: 360px;
-  }
+  max-width: 306px;
+  max-height: 300px;
 `
 
 export const IncidentTextContainer = styled.div`
@@ -52,6 +50,9 @@ export const IncidentText = styled.p`
   font-weight: 300;
   line-height: 24px;
   margin: 0 0 30px 0;
+  text-overflow: ellipsis;
+  height: 20px;
+  overflow: hidden;
 `
 
 export const IncidentAnchor = styled.a`
