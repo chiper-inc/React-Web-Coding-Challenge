@@ -3,11 +3,11 @@ import { HOME, MAP } from '../../routes'
 import { Navbar, NavItem, NavbarToggler, Nav, Collapse } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
 import { HeaderMenu } from '../HeaderMenu'
+import { withRouter } from 'react-router'
 
-export const NavMenu = () => {
+export const NavMenuP = ({ location }) => {
   const [isOpen, setIsOpen] = useState(false)
   const handleToggle = () => setIsOpen(!isOpen)
-
   return (
     <header>
       <HeaderMenu />
@@ -19,7 +19,22 @@ export const NavMenu = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className='mr-auto' navbar>
             <NavItem>
-              <NavLink className='nav-link' to={MAP}>
+              <NavLink
+                activeClassName='font-weight-bold text-primary'
+                isActive={() => location.pathname === HOME}
+                className='nav-link'
+                to={HOME}
+              >
+                Home
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                activeClassName='font-weight-bold text-primary'
+                isActive={() => location.pathname === MAP}
+                className='nav-link'
+                to={MAP}
+              >
                 Map
               </NavLink>
             </NavItem>
@@ -29,3 +44,5 @@ export const NavMenu = () => {
     </header>
   )
 }
+
+export const NavMenu = withRouter(NavMenuP)

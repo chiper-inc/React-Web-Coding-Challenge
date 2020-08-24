@@ -1,6 +1,12 @@
 import styled from 'styled-components/macro'
-import { Orbitals } from 'react-spinners-css'
+import { Spinner } from 'react-spinners-css'
 
-export const OrbitalSpinnerStyled = styled(Orbitals)`
+export const Container = styled.div`
   width: 100%;
+  height:100%;
+  text-align:center;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 `
+export const OrbitalSpinnerStyled = styled(Spinner)``

@@ -1,6 +1,8 @@
-import styled from "styled-components/macro";
+import styled from 'styled-components'
 
-export const Title = styled.h6`
+export const Title = styled.h2`
   color: red;
-  font-weight: bold;
-`;
+`
+export const SubTtitle = styled.p`
+  color: red;
+`

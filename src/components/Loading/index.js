@@ -1,4 +1,8 @@
 import React from 'react'
-import { OrbitalSpinnerStyled } from './styles'
+import { OrbitalSpinnerStyled, Container } from './styles'
 
-export const OrbitalSpinner = () => <OrbitalSpinnerStyled color='#343a40' />
+export const OrbitalSpinner = () => (
+  <Container>
+    <OrbitalSpinnerStyled color='#343a40' />
+  </Container>
+)

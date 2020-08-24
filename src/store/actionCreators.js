@@ -1,13 +1,22 @@
+/* eslint-disable camelcase */
 import axios from 'axios'
 import { searchInArrayOfObj } from '../utils/fuzzySearch'
 import {
   REQUEST_DATA,
   ERROR_OCURRED,
   BIKES_RECEIVED,
-  CHANGE_PAGE
+  CHANGE_PAGE,
+  GEOJSON_BIKES_RECEIVED
 } from './actions'
+import { URL_API, DEF_PARAMS_SEARCH } from '../AppSettings'
 
-const URL = 'https://bikewise.org/api/v2'
+const {
+  proximity,
+  proximity_square,
+  incident_type,
+  defPage,
+  defperPage
+} = DEF_PARAMS_SEARCH
 
 const dispatchError = (dispatch, e = 'Ooops, something went wrong') =>
   dispatch({ type: ERROR_OCURRED, payload: e })
@@ -28,26 +37,30 @@ const cast2QueryParams = (obj) =>
     .join('&')
 
 export const requestStolenBikes = ({
-  page = 1,
-  perPage = 100,
+  page = defPage,
+  perPage = defperPage,
   ...aditionalParams
 }) => (dispatch) => {
   const queryParams = cast2QueryParams({
     ...aditionalParams,
     page,
     per_page: perPage,
-    proximity: 'Berlin, DE',
-    proximity_square: 100,
-    incident_type: 'theft'
+    proximity,
+    proximity_square,
+    incident_type
   })
   axios
-    .get(`${URL}/incidents?${queryParams}`)
+    .get(`${URL_API}/incidents?${queryParams}`)
     .then((res) => {
       const {
         data: { incidents },
         status
       } = res
-      const bikes = searchInArrayOfObj(incidents, ['title'], aditionalParams.query)
+      const bikes = searchInArrayOfObj(
+        incidents,
+        ['title'],
+        aditionalParams.query
+      )
       dispatchDataReceived(dispatch, BIKES_RECEIVED, status, bikes)
     })
     .catch((e) => dispatchError(dispatch, e))
@@ -56,3 +69,22 @@ export const requestStolenBikes = ({
 }
 
 export const requestPage = (page) => ({ type: CHANGE_PAGE, payload: page })
+
+export const requestGeoJsonStolenBikes = () => (dispatch) => {
+  const queryParams = cast2QueryParams({
+    proximity,
+    proximity_square,
+    incident_type,
+    all: true
+  })
+
+  axios
+    .get(`${URL_API}/locations/markers?${queryParams}`)
+    .then((res) => {
+      const { data, status } = res
+      dispatchDataReceived(dispatch, GEOJSON_BIKES_RECEIVED, status, data)
+    })
+    .catch((e) => dispatchError(dispatch, e))
+
+  dispatchReqData(dispatch)
+}

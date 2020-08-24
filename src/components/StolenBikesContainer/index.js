@@ -4,6 +4,7 @@ import { StolenBikesList } from '../StolenBikesList'
 import { StolenBikesPagination } from '../StolenBikesPagination'
 import { OrbitalSpinner } from '../Loading'
 import { AlertError } from '../Error'
+import { NoResult } from '../NoResult'
 import { Container, Header, Body, Footer } from './styles'
 
 const getBikes = (bikes, page, length) => {
@@ -35,7 +36,7 @@ export const StolenBikesContainer = ({
     const bikes2Show = getBikes(bikes, page, lengthPage)
 
     if (bikes2Show.length < 1) {
-      body = 'No results!'
+      body = <NoResult />
     } else {
       body = <StolenBikesList bikes={bikes2Show} total={total} />
       footer = (
