@@ -41,13 +41,14 @@ export const Pages = styled.ul`
 `;
 
 export const FilterTitle = styled.input`
-  width: 50%;
+  width: 45%;
   height: 30px;
   padding-left: 15px;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   outline: none;
+  transition: all 0.3s;
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
@@ -75,12 +76,36 @@ export const DateInput = styled.input`
   border-radius: 5px;
   font-size: 16px;
   outline: none;
+  transition: all 0.3s;
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 `;
 
 export const Label = styled.label`
-  margin-left: 20px;
+  /* margin-left: 20px; */
   font-weight: bold;
+`;
+
+export const DateContainer = styled.div`
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+export const Send = styled.button`
+  height: 30px;
+  margin-left: 20px;
+  padding: 0 2%;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: white;
+  transition: all .5s;
+  cursor: pointer;
+  &:hover {
+    /* border: 1px solid black; */
+    box-shadow: 0 0px 3px rgba(0,0,0,.3);
+  }
 `;

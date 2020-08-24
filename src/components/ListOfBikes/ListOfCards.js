@@ -15,17 +15,21 @@ import {
   InputContainer,
   DateInput,
   Label,
+  Send,
+  DateContainer,
 } from './styles';
 
 const ListOfCards = () => {
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState('');
   const [toggle, setToggle] = useState(false);
+  const [sendFetch, setSendFetch] = useState(false);
   const [date1, setDate1] = useState();
   const [date2, setDate2] = useState();
   const [unixStart, unixEnd] = useConvertUnix(date1, date2);
   const URL = `https://bikewise.org:443/api/v2/incidents?page=${toggle ? '' : page}&per_page=${toggle ? '' : 10}&incident_type=theft&proximity=Berlin&query=${query}`;
-  const [data, loading, error, fetchData] = useGetData(URL);
+  const URL2 = `https://bikewise.org:443/api/v2/incidents?occurred_before=${unixEnd}&occurred_after=${unixStart}&incident_type=theft&proximity=Berlin`;
+  const [data, fetchData] = useGetData(URL);
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -49,7 +53,11 @@ const ListOfCards = () => {
 
   useEffect(() => {
     fetchData(URL);
-  }, [page, query]);
+  }, [page, query, sendFetch]);
+
+  useEffect(() => {
+    fetchData(URL2);
+  }, [sendFetch]);
 
   return (
     <Section>
@@ -68,14 +76,15 @@ const ListOfCards = () => {
               onChange={handleChange}
               placeholder='Search bike description'
             />
-            <div>
+            <DateContainer>
               <Label>From</Label>
               <DateInput type='date' onChange={handleDateStartChange} />
               <Label>To</Label>
               <DateInput type='date' onChange={handleDateEndChange} />
-            </div>
+              <Send type='button' onClick={() => setSendFetch(true)}>Enviar</Send>
+            </DateContainer>
           </InputContainer>
-          {data.incidents.length === 0 || error ? (
+          {data.incidents.length === 0 ? (
             <h1>No cases</h1>
           ) : (
             <ul>

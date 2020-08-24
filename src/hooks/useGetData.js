@@ -2,18 +2,18 @@ import { useState, useEffect } from 'react';
 
 const useGetData = (url) => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(null);
 
   const fetchData = (url) => {
     fetch(url)
       .then((response) => response.json())
       .then((bikes) => {
         setData(bikes);
-        setLoading(false);
+        // setLoading(false);
       })
       .catch((e) => {
-        setLoading(false);
+        // setLoading(false);
         setError(
           'Hubo un error al obtener los datos, verifique la url o intente más tarde',
         );
@@ -21,14 +21,14 @@ const useGetData = (url) => {
   };
 
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
     fetchData(url);
-    return () => {
-      console.log('ComponentWillUnMount');
-    };
-  }, []);
+    // return () => {
+    //   console.log('ComponentWillUnMount');
+    // };
+  }, [url]);
 
-  return [data, loading, error, fetchData];
+  return [data, fetchData];
 };
 
 export default useGetData;
