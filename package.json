@@ -82,6 +82,7 @@
   },
   "standard": {
     "ignore": [
+      "/config/**",
       "/build/**",
       "/scripts/**",
       "webpack.config.js"
