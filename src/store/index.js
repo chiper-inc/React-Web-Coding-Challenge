@@ -6,7 +6,7 @@ export const configureStore = (initialState = INITIAL_STATE) => {
   const middleware = [thunk]
   const rootReducer = reducer
   const enhancers = [
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   ]
 
   return createStore(
