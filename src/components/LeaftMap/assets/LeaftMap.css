@@ -1,0 +1,11 @@
+#popup-map-stolenbikes > img.thumb-popup-stolen-bikes {
+  width: 150px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+#popup-map-stolenbikes > h6.title-popup-stolen-bikes {
+  font-weight: bold;
+}
+#popup-map-stolenbikes > p > span.span-text-popup-stolen-bikes {
+  font-weight: bold;
+}

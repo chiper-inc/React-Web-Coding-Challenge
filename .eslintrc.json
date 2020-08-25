@@ -1,0 +1,4 @@
+{
+  "ignorePatterns": ["/scripts/*.js"],
+  "extends": ["standard", "standard-jsx"]
+}
