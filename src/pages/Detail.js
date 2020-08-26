@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react'
+import React, { useContext } from 'react'
 import IncidentsContext from '../context/IncidentsContext'
 import {
   IncidentContainer,
@@ -7,7 +7,7 @@ import {
   IncidentTextContainer,
   IncidentTitle,
   IncidentText,
-  IncidentAnchor,
+  IncidentAnchor
 } from '../styles/IncidentStyles'
 import DEFAULT_IMAGE from '../assets/image/default-image.png'
 import moment from 'moment'
@@ -22,17 +22,17 @@ export const Detail = ({ params }) => {
   const incident = incidents.find((item) => item.id == params.id)
 
   if (typeof incident === 'undefined') {
-    return <Redirect to="/" />
+    return <Redirect to='/' />
   }
 
   return (
-    <Fragment>
-      <Link to={`/`}>
+    <>
+      <Link to='/'>
         <IncidentAnchor>
-          <IconButton aria-label="website">
+          <IconButton aria-label='website'>
             <ArrowBackIosIcon />
           </IconButton>
-          <Typography variant="subtitle1" color="textSecondary">
+          <Typography variant='subtitle1' color='textSecondary'>
             Back
           </Typography>
         </IncidentAnchor>
@@ -53,17 +53,17 @@ export const Detail = ({ params }) => {
                 ? 'Not desription'
                 : incident.description}
             </IncidentText>
-            <IconButton aria-label="date">
+            <IconButton aria-label='date'>
               <Event />
             </IconButton>
             {moment(incident.occurred_at).format('LLL')}
-            <IconButton aria-label="location">
+            <IconButton aria-label='location'>
               <Room />
             </IconButton>
             {incident.address}
 
-            <a href={incident.source.html_url} target="_blank">
-              <IconButton aria-label="location">
+            <a href={incident.source.html_url}>
+              <IconButton aria-label='location'>
                 <Language />
               </IconButton>
               {incident.address}
@@ -71,6 +71,6 @@ export const Detail = ({ params }) => {
           </IncidentTextContainer>
         </IncidentCard>
       </IncidentContainer>
-    </Fragment>
+    </>
   )
 }

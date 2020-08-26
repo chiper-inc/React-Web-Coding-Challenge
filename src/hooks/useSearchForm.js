@@ -24,6 +24,6 @@ export const useSearchForm = () => {
     dateTo,
     handleChangeKeyword,
     handleChangeDateFrom,
-    handleChangeDateTo,
+    handleChangeDateTo
   }
 }

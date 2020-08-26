@@ -9,6 +9,6 @@ export const usePaginate = () => {
 
   return {
     page,
-    handleChangePage,
+    handleChangePage
   }
 }

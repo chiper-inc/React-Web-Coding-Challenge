@@ -8,7 +8,7 @@ export const useGetIncidents = ({
   per_page,
   keyword,
   dateTo,
-  dateFrom,
+  dateFrom
 }) => {
   const {
     loading,
@@ -18,7 +18,7 @@ export const useGetIncidents = ({
     setLoading,
     setError,
     setIncidents,
-    setCurrentDate,
+    setCurrentDate
   } = useContext(IncidentsContext)
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export const useGetIncidents = ({
       per_page: per_page,
       keyword: keyword,
       occurred_before: dateTo,
-      occurred_after: dateFrom,
+      occurred_after: dateFrom
     }
 
     getIncidents(params)
@@ -60,6 +60,6 @@ export const useGetIncidents = ({
     loading,
     error,
     incidents,
-    handleClickSearch,
+    handleClickSearch
   }
 }

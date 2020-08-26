@@ -1,4 +1,4 @@
-export function paramsToString(params) {
+export function paramsToString (params) {
   params = params.filter((item) => {
     return (
       typeof item.value !== 'undefined' &&

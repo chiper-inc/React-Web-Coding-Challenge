@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import { SearchForm } from '../components/SearchForm'
 import { Paginate } from '../components/Paginate'
@@ -15,7 +15,7 @@ export const Home = () => {
   const { loading, error, incidents } = useContext(IncidentsContext)
 
   return (
-    <Fragment>
+    <>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <SearchForm page={page} />
@@ -50,6 +50,6 @@ export const Home = () => {
           )}
         </Grid>
       </Grid>
-    </Fragment>
+    </>
   )
 }

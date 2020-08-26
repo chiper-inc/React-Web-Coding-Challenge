@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Incident } from './Incident'
 
 export const ListOfIncidents = ({ incidents }) => {
   return (
-    <Fragment>
+    <>
       {incidents.map(
         ({ id, title, description, occurred_at, address, media }) => (
           <Incident
@@ -17,6 +17,6 @@ export const ListOfIncidents = ({ incidents }) => {
           />
         )
       )}
-    </Fragment>
+    </>
   )
 }

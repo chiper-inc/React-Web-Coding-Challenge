@@ -11,7 +11,7 @@ export const SearchForm = ({ page }) => {
     dateTo,
     handleChangeKeyword,
     handleChangeDateFrom,
-    handleChangeDateTo,
+    handleChangeDateTo
   } = useSearchForm()
 
   const { loading, handleClickSearch } = useGetIncidents({
@@ -19,7 +19,7 @@ export const SearchForm = ({ page }) => {
     per_page: 10,
     keyword,
     dateTo,
-    dateFrom,
+    dateFrom
   })
 
   return (
@@ -27,7 +27,7 @@ export const SearchForm = ({ page }) => {
       <Grid item xs={6} sm={6}>
         <WrapperTextField>
           <TextField
-            label="Search case"
+            label='Search case'
             defaultValue={keyword}
             fullWidth
             onChange={handleChangeKeyword}
@@ -37,11 +37,11 @@ export const SearchForm = ({ page }) => {
       <Grid item xs={6} sm={2}>
         <WrapperTextField>
           <TextField
-            label="From"
-            type="date"
+            label='From'
+            type='date'
             defaultValue={dateFrom}
             InputLabelProps={{
-              shrink: true,
+              shrink: true
             }}
             fullWidth
             onChange={handleChangeDateFrom}
@@ -51,11 +51,11 @@ export const SearchForm = ({ page }) => {
       <Grid item xs={6} sm={2}>
         <WrapperTextField>
           <TextField
-            label="To"
-            type="date"
+            label='To'
+            type='date'
             defaultValue={dateTo}
             InputLabelProps={{
-              shrink: true,
+              shrink: true
             }}
             fullWidth
             onChange={handleChangeDateTo}
@@ -65,8 +65,8 @@ export const SearchForm = ({ page }) => {
       <Grid item xs={6} sm={2}>
         <WrapperTextField>
           <Button
-            variant="contained"
-            color="primary"
+            variant='contained'
+            color='primary'
             onClick={handleClickSearch}
             disabled={loading}
           >

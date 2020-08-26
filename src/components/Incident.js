@@ -7,7 +7,7 @@ import {
   IncidentTextContainer,
   IncidentTitle,
   IncidentText,
-  IncidentAnchor,
+  IncidentAnchor
 } from '../styles/IncidentStyles'
 import DEFAULT_IMAGE from '../assets/image/default-image.png'
 import { Link } from 'wouter'
@@ -20,7 +20,7 @@ export const Incident = ({
   description,
   occurred_at,
   address,
-  media,
+  media
 }) => {
   return (
     <IncidentContainer>
@@ -35,20 +35,20 @@ export const Incident = ({
               ? 'Not desription'
               : description}
           </IncidentText>
-          <IconButton aria-label="date">
+          <IconButton aria-label='date'>
             <Event />
           </IconButton>
           {moment(occurred_at).format('LLL')}
-          <IconButton aria-label="location">
+          <IconButton aria-label='location'>
             <Room />
           </IconButton>
           {address}
           <Link to={`/detail/${id}`}>
             <IncidentAnchor>
-              <IconButton aria-label="view">
+              <IconButton aria-label='view'>
                 <Visibility />
               </IconButton>
-              <Typography variant="subtitle1" color="textSecondary">
+              <Typography variant='subtitle1' color='textSecondary'>
                 View Detail
               </Typography>
             </IncidentAnchor>

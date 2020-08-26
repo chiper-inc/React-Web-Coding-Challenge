@@ -5,7 +5,7 @@ import { ErrorContainer } from '../styles/ErrorStyles'
 export const Error = () => {
   return (
     <ErrorContainer>
-      <Typography variant="h3" component="h3" color="error">
+      <Typography variant='h3' component='h3' color='error'>
         Ooops, something went wrong
       </Typography>
     </ErrorContainer>

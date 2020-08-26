@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const Context = React.createContext({})
 
-export function IncidentsContextProvider({ children }) {
+export function IncidentsContextProvider ({ children }) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const [incidents, setIncidents] = useState([])
@@ -18,7 +18,7 @@ export function IncidentsContextProvider({ children }) {
         setLoading,
         setError,
         setIncidents,
-        setCurrentDate,
+        setCurrentDate
       }}
     >
       {children}
