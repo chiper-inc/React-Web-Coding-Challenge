@@ -1,0 +1,1 @@
+export const baseUrl='https://bikewise.org:443/api/v2/incidents?incident_type=theft&proximity=berlin&proximity_square=200';
