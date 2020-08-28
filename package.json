@@ -2,13 +2,17 @@
   "name": "biketief",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.5.2",
     "bootstrap-social": "^5.1.1",
+    "create-react-context": "^0.3.0",
     "cross-fetch": "^3.0.5",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "font-awesome": "^4.7.0",
     "google-maps-react": "^2.0.6",
     "i": "^0.3.6",
@@ -17,6 +21,7 @@
     "npm": "^6.14.8",
     "popper": "^1.0.1",
     "popper.js": "^1.16.1",
+    "prettier": "^2.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-animation-components": "^3.0.0",
@@ -38,6 +43,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
+    "eslint-check": "eslint --print-config path/to/main.js | eslint-config-prettier-check",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

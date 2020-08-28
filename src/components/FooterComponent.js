@@ -1,16 +1,14 @@
-import React from 'react';
-
+import React from "react";
 function Footer() {
-    return(
+  return (
     <div className="footer">
-            <div className="row justify-content-center">             
-                <div className="col-auto">
-                    <p>THEFT INCIDENTS</p>
-                </div>
-            </div>
+      <div className="row justify-content-center">
+        <div className="col-auto">
+          <p>© 2020 THEFT INCIDENTS</p>
+        </div>
+      </div>
     </div>
-    
-    )
+  );
 }
 
 export default Footer;

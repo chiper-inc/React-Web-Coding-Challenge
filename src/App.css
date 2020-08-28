@@ -88,7 +88,8 @@ margin-bottom: 5px;
   font-weight: 500;
 }
 .incidentElement{
-  border:1px solid #000000;
+  border:0px solid #000000;
+  background-color:#e4d5ffa8;
   margin:20px ;
 }
 .headerText{
@@ -99,3 +100,19 @@ margin-bottom: 5px;
   color:#000000;
 
 }
+.mapouter{
+  position:relative;text-align:right;height:500px;width:600px;}
+  .gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}
+  .itemTitle{
+color: #000000;
+padding:20px;
+  }
+  .itemDescription{
+padding:10px;
+  }
+  .incidentDetail{
+     border:0px solid #000000;
+
+ padding-top:40px;
+
+  }

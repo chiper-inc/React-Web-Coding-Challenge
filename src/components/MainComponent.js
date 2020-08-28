@@ -1,72 +1,60 @@
-import React, { Component } from 'react';
-import Incidents from './IncidentsComponent';
-import IncidentDetail from './IncidentDetailComponent';
-import Footer from './FooterComponent';
-import Header from './HeaderComponent';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
-import {actions} from 'react-redux-form';
-import { connect } from 'react-redux';
-import { fetchData, postQuery } from '../redux/ActionCreators';
+import React, { Component } from "react";
+import Incidents from "./IncidentsComponent";
+import IncidentDetail from "./IncidentDetailComponent";
+import Footer from "./FooterComponent";
+import Header from "./HeaderComponent";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchData, postQuery } from "../redux/ActionCreators";
 
-
-
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     incidents: state.incidents,
-    
-  }
-}
+  };
+};
 
- 
-const mapDispatchToProps = dispatch => ({
-
-  fetchData: () => { dispatch(fetchData())},
+const mapDispatchToProps = (dispatch) => ({
+  fetchData: () => {
+    dispatch(fetchData());
+  },
   postQuery: (query) => dispatch(postQuery(query)),
-  resetQuery: () => { dispatch(actions.reset('query'))},
-  
 });
 
-
 class Main extends Component {
+  componentDidMount() {
+    this.props.fetchData();
+  }
 
-
-    componentDidMount() {
-      this.props.fetchData();
-  
-    }
-  
-    
-render() {
-
-
-
-
-  const IncidentWithId = ({match}) => {
-    return(
-     
-      <IncidentDetail incident={this.props.incidents.incidents.incidents.filter((incident) => incident.id.toString()===match.params.incidentId)[0]}
-      isLoading={this.props.incidents.incidents.isLoading}
-      errMess={this.props.incidents.incidents.errMess}
-    
-    />
-    );
-  };
-
-
-  return (
-    <div>
-      <Header postQuery={this.props.postQuery} resetQuery={this.props.resetQuery}/>
+  render() {
+    return (
       <div>
+        <Header postQuery={this.props.postQuery} />
+        <div>
+          <Switch>
+            <Route
+              path="/cases"
+              component={() => <Incidents incidents={this.props.incidents} />}
+            />
+            <Route
+              path="/case/:incidentId"
+              render={(props) => {
+                return (
+                  <IncidentDetail
+                    id={props.match.params.incidentId}
+                    incidents={this.props.incidents.incidents.incidents}
+                    isLoading={this.props.incidents.isLoading}
+                    errMess={this.props.incidents.errMess}
+                  />
+                );
+              }}
+            />
 
-              <Switch >
-                  <Route path="/cases" component={()=><Incidents  incidents={this.props.incidents}/>}/>
-                  <Route  path="/case/:incidentId" component={IncidentWithId}/>
-               <Redirect to="/cases" />
-              </Switch>  
+            <Redirect to="/cases" />
+          </Switch>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-  );
-}
+    );
+  }
 }
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
