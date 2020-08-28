@@ -71,8 +71,8 @@ Host the website on the service of your choice (zeit, Heroku, AWS, GCloud, ...)
 - Create a pull request
 - Please complete your working solution within 5 days of receiving this challenge, and be sure to notify us when it is ready for review.
 
-##solution 
-I manage to deply my solution in https://theftincidents.netlify.app/
+## solution 
+I manage to deploy my solution in https://theftincidents.netlify.app/
 ## License
 
 MIT

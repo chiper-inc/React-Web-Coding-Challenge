@@ -19,7 +19,7 @@ function RenderItem({ incident }) {
   return (
     <div id={incident.id.toString()}>
       <div className="row incidentElement">
-        <div className="col-4 offset-2 col-md-4 offset-md-0">
+        <div className="col-4 offset-1 offset-xs-2 col-md-4 offset-md-0">
           <img
             className="  md-float-left "
             onLoad={onLoad(this)}

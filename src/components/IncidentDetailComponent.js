@@ -42,7 +42,7 @@ export default class IncidentDetail extends Component {
       return (
         <div className="container">
           <div className="row">
-            <div className="col-9 m-auto p-2 incidentDetail">
+            <div className="col-11 col-xs-10 col-md-9 m-auto p-2 incidentDetail">
               <div className="col-12 col-md-10 m-4">
                 <h3 className="mt-5 ">{incident.title}</h3>
                 <p>
