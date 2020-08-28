@@ -72,7 +72,11 @@ Host the website on the service of your choice (zeit, Heroku, AWS, GCloud, ...)
 - Please complete your working solution within 5 days of receiving this challenge, and be sure to notify us when it is ready for review.
 
 ## solution 
+<<<<<<< HEAD
 I manage to deploy my solution in https://theftincidents.netlify.app/
+=======
+I managed to deploy my solution in https://theftincidents.netlify.app/
+>>>>>>> ef2a5493441cc497dd31a43b7f0203d2c036449e
 ## License
 
 MIT
