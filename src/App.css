@@ -69,10 +69,12 @@
 }
 .formElement{
   display: inline-block;
+  text-align: right;
 }
 .btn{
-  margin-bottom: 5px;
- float: right;
+margin-bottom: 5px;
+
+ 
 }
 .headerImg{
   float: left;
@@ -81,4 +83,19 @@
 }
 .total{
   float: right;
+}
+.formLabel{
+  font-weight: 500;
+}
+.incidentElement{
+  border:1px solid #000000;
+  margin:20px ;
+}
+.headerText{
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color:#000000;
+
 }

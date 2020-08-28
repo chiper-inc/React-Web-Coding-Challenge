@@ -3,7 +3,8 @@ import Incidents from './IncidentsComponent';
 import IncidentDetail from './IncidentDetailComponent';
 import Footer from './FooterComponent';
 import Header from './HeaderComponent';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import {actions} from 'react-redux-form';
 import { connect } from 'react-redux';
 import { fetchData, postQuery } from '../redux/ActionCreators';
 
@@ -21,6 +22,7 @@ const mapDispatchToProps = dispatch => ({
 
   fetchData: () => { dispatch(fetchData())},
   postQuery: (query) => dispatch(postQuery(query)),
+  resetQuery: () => { dispatch(actions.reset('query'))},
   
 });
 
@@ -53,7 +55,7 @@ render() {
 
   return (
     <div>
-      <Header postQuery={this.props.postQuery} />
+      <Header postQuery={this.props.postQuery} resetQuery={this.props.resetQuery}/>
       <div>
 
               <Switch >

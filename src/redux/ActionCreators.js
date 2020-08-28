@@ -40,18 +40,21 @@ export const addData = (data) => ({
     payload: data
 });
 function convertTime(time){
-  var date = new Date(time);
-  return(Math.floor(date.getTime() / 1000)) 
+  if(time!==''){ var date = new Date(time);
+    return(Math.floor(date.getTime() / 1000)) }
+    else return '';
+ 
 
 };
 export const postQuery = (query) => (dispatch) => {
- console.log(query);
-  return fetch(baseUrl + "&query="+query.query+"&occurred_after="+query.occurred_after+"&occurred_before="+query.occurred_before)
+  
+ console.log(query.occurred_after);
+  return fetch(baseUrl + "&query="+query.query+"&occurred_after="+convertTime(query.occurred_after)+"&occurred_before="+convertTime(query.occurred_before))
 .then(response => {
     if (response.ok) {
       return response;
     } else {
-      var error = new Error('Error ' + response.status + ': ' + response.statusText);
+      var error = new Error('Oops,something went wrong');
       error.response = response;
       throw error;
     }
@@ -61,6 +64,6 @@ export const postQuery = (query) => (dispatch) => {
   })
 .then(response => response.json())
 .then(response => dispatch(addData(response)))
-.catch(error =>  { console.log('post feedback', error.message); alert('Your feedback could not be posted\nError: '+error.message); });
+.catch(error =>  { console.log('post Query', error.message); alert('Oops,something went wrong'); });
 };
 

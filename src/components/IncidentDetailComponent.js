@@ -1,12 +1,17 @@
 import React,{Component} from 'react';
 import { Loading } from './LoadingComponent';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-
+function description (description){
+    
+    if(description===null || description==='')
+    {return ("No description available")}
+    else{
+        return description;
+    }
+} 
 
    class IncidentDetail extends Component  {
-      constructor(props){
-          super(props);
-      }
+   
       render(){
 
       
@@ -59,7 +64,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
                     </div>
                     <div className="col-12 col-md-10">
                         <h3 >DESCRIPTION OF INCIDENT</h3>            
-                        <p>{this.props.incident.description}</p>                    
+                        <p>{description(this.props.incident.description)}</p>                    
                     </div>
                 </div>
                 </div> 

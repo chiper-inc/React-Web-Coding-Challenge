@@ -1,29 +1,49 @@
 
 import { Loading } from './LoadingComponent';
 import React, { Component } from 'react';
-import { ButtonGroup, Button, ListGroupItem, ListGroup } from 'reactstrap';
+import { ButtonGroup, Button} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-
+function description (description){
+    
+    if(description===null || description==='')
+    {return ("No description available")}
+    else{
+        return description;
+    }
+} 
     function RenderItem ({incident}){
      
         let url = incident.media.image_url_thumb;
         const onLoad=()=>{
-            if(url==null){
+            if(url===null){
             url= "https://cdn0.iconfinder.com/data/icons/sports-linear-white-with-square-black-background/2048/Cycle-512.png";
            };}
+           
   
-
+      
             return(
+                <div key={incident.id.toString()} >
+                    <div className="row incidentElement" >
                
-                <ListGroupItem key={incident.id.toString()}>
-                   
+                   <div className="col-3">
                     <img className="float-left " onLoad={onLoad(this)} src={url} width={200} alt={incident.title} />
+                    </div>
+                    <div className="col-9">
+                        <div className="row p-1">
                     <Link  to={`/case/${incident.id}`}><h3 className="mt-5">{incident.title}</h3> </Link> 
-                    <p>{incident.description}</p>
+                    </div>
+                    <div className="row">
+                    <p>{description(incident.description)}</p>
+                    </div>
+                    <div className="row">
                     <p>{new Date((incident.occurred_at)*1000).toDateString()} - {incident.address}</p>
+                    </div>
+                   
                 
-                </ListGroupItem>
+                    </div>
+                    </div>
+                    </div>
                  
                 
      
@@ -54,8 +74,11 @@ import { Link } from 'react-router-dom';
                 const data = this.props.incidents;
                 const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
           
-                const postData = slice.map(incident =>
-              <RenderItem  incident={incident}/>)
+                const postData = slice.map(incident => 
+                  
+                    <RenderItem   incident={incident}/>
+               
+                    )
 
                 this.setState({
                
@@ -153,13 +176,13 @@ import { Link } from 'react-router-dom';
 
         return (
           <React.Fragment>
-                <div>
-                 <ListGroup>
+            
+                 
                       {this.state.postData}
-                  </ListGroup>
+                
                    
                     
-                </div>
+            
       
                 <div >
                     <ButtonGroup  >
@@ -199,7 +222,7 @@ const Incidents = props => {
                 </div>
             );
         }
-         else if(props.incidents.incidents.incidents.length == 0){
+         else if(props.incidents.incidents.incidents.length === 0){
              return(<div><h4 className="m-auto noResults">No results</h4></div>)
              
 
@@ -215,7 +238,7 @@ const Incidents = props => {
                     </div>
                     </div>
                     <div className="row ">
-                        <div className="col-8 m-auto " >                  
+                        <div className="col-10 m-auto " >                  
                             <RenderTable incidents={props.incidents.incidents.incidents}/>
                         </div>
                     </div>
