@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import Incidents from './IncidentsComponent';
 import IncidentDetail from './IncidentDetailComponent';
 import Footer from './FooterComponent';
+import Header from './HeaderComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { fetchData } from '../redux/ActionCreators';
+import { fetchData, postQuery } from '../redux/ActionCreators';
 
 
 
 const mapStateToProps = state => {
   return {
-    data: state.data,
+    incidents: state.incidents,
     
   }
 }
@@ -18,18 +19,14 @@ const mapStateToProps = state => {
  
 const mapDispatchToProps = dispatch => ({
 
-  fetchData: () => { dispatch(fetchData())}
+  fetchData: () => { dispatch(fetchData())},
+  postQuery: (query) => dispatch(postQuery(query)),
   
 });
 
 
 class Main extends Component {
-   constructor(props) {
-      super(props);
-  
-      this.state = {
-        incidents:null
-      };}
+
 
     componentDidMount() {
       this.props.fetchData();
@@ -42,11 +39,12 @@ render() {
 
 
 
-  const incidentWithId = ({incidentId}) => {
+  const IncidentWithId = ({match}) => {
     return(
-      <IncidentDetail incident={this.props.data.data.filter((item) => item.id === incidentId)[0]}
-      isLoading={this.props.data.isLoading}
-      errMess={this.props.data.errMess}
+     
+      <IncidentDetail incident={this.props.incidents.incidents.incidents.filter((incident) => incident.id.toString()===match.params.incidentId)[0]}
+      isLoading={this.props.incidents.incidents.isLoading}
+      errMess={this.props.incidents.incidents.errMess}
     
     />
     );
@@ -55,12 +53,13 @@ render() {
 
   return (
     <div>
+      <Header postQuery={this.props.postQuery} />
       <div>
 
-              <Switch location={this.props.location}>
-                  <Route path='/' component={()=><Incidents  incidents={this.props.data}/>} />
-                  <Route path='/case/:incidentId' component={incidentWithId} />
-               <Redirect to="/home" />
+              <Switch >
+                  <Route path="/cases" component={()=><Incidents  incidents={this.props.incidents}/>}/>
+                  <Route  path="/case/:incidentId" component={IncidentWithId}/>
+               <Redirect to="/cases" />
               </Switch>  
       </div>
       <Footer />

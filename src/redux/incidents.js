@@ -1,10 +1,10 @@
 import * as ActionTypes from './ActionTypes';
 
-export const Data = (state = { isLoading: true,
-    errMess: null}, action) => {
+export const Incidents = (state = { isLoading: true,
+    errMess: null, incidents:[]}, action) => {
     switch (action.type) {
         case ActionTypes.ADD_DATA:
-            return {...state, isLoading: false, errMess: null, data: action.payload};
+            return {...state, isLoading: false, errMess: null, incidents: action.payload};
 
         case ActionTypes.DATA_LOADING:
             return {...state, isLoading: true, errMess: null}

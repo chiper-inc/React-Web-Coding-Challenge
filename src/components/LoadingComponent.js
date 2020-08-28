@@ -1,10 +1,13 @@
 import React from 'react';
+import{ Spinner} from 'reactstrap';
 
 export const Loading = () => {
     return(
-        <div className="col-12">
-            <span className="fa fa-spinner fa-pulse fa-3x fa-fw text-primary"></span>
-            <p>Loading . . .</p>
-        </div>
+  
+                    <div className="col-10 m-auto loading">
+                        <Spinner color="dark" className="mt-4 loading" />
+                        <p>Loading...</p>
+                    </div>
+         
     );
 };

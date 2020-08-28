@@ -1,7 +1,7 @@
-.App {
+
+.App{
   text-align: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -37,7 +37,48 @@
   }
 }
  img{
-   background-image: url('https://cdn0.iconfinder.com/data/icons/sports-linear-white-with-square-black-background/2048/Cycle-512.png');
- }
+ margin:10px;
+ padding: 10px;
+  }
+.row{
+  height: fit-content;
+}
+.red{
+  color:#ec7a57;
+}
+.form{
+  text-align: center;
+}
+.text{
+  height: 20px;
+}
+#map{
+  
+    height: 300px; 
+    width: 100%;  /* The width is the width of the web page */
+  
 
- 
+}
+.loading{
+  text-align:center;
+  margin-top:25%;
+  margin-bottom:30px;
+}
+.noResults{
+  text-align: center;
+}
+.formElement{
+  display: inline-block;
+}
+.btn{
+  margin-bottom: 5px;
+ float: right;
+}
+.headerImg{
+  float: left;
+  margin-left: -15px;
+  margin-right: 50px;
+}
+.total{
+  float: right;
+}

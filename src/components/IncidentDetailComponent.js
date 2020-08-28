@@ -1,71 +1,82 @@
-import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import React,{Component} from 'react';
 import { Loading } from './LoadingComponent';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
-    function RenderIncident({incident}) {
-        if (incident != null) {
-            return (
-                <div className="col-12 col-sm-5">   
-                            <Card>
-                                <CardImg top src={incident.media.image_url} alt={incident.title} />
-                                <CardBody>
-                                    <CardTitle>{incident.title}</CardTitle>
-                                    <CardText>{incident.description}</CardText>
-                                </CardBody>
-                            </Card>   
-                </div>
-                   
-                
-            )
-        }
-        else {
-            return (<div></div>)
-        }
-    }
 
-    const  IncidentDetail = (props) => {
-        if (props.isLoading) {
+   class IncidentDetail extends Component  {
+      constructor(props){
+          super(props);
+      }
+      render(){
+
+      
+        if (this.props.isLoading) {
             return(
                 <div className="container">
-                    <div className="row">            
+                    <div className="col-5 ">            
                         <Loading />
                     </div>
                 </div>
             );
         }
-        else if (props.errMess) {
+        else if (this.props.errMess) {
             return(
                 <div className="container">
                     <div className="row">            
-                        <h4>{props.errMess}</h4>
+                    <h4 className="red">{this.props.errMess}</h4>
                     </div>
                 </div>
             );
         }
     
     
-        else if (props.incident != null) {
+        else if (this.props.incident != null) {
             return (
+              
+              
                 <div className="container">
-                <div className="row">
-                </div>    
-                <div className="col-12">
-                    <h3>{props.incident.title}</h3>
-                    <hr/>
-                </div>                
-                <div className="row">    
-                    <RenderIncident incident={props.incident} />
-                    
+               <div className="row-content"> 
+                <div className="col-9 m-auto">
+                
+                    <div className="col-12 col-md-10">
+                        <h3 className="mt-5 ">{this.props.incident.title}</h3> 
+                        <p 
+                        >{new Date((this.props.incident.occurred_at)*1000).toDateString()} - {this.props.incident.address}</p>
+                    </div>
+                    <div id="map" className=" col-12 col-md-10 " >
+                        <Map 
+                            google={this.props.google}
+                            zoom={14}                          
+                            initialCenter={{
+                            lat:  52.5186,
+                            lng:  13.4081
+                            }}
+                            >
+                            <Marker position={{ 
+                            lat:  3.426394,
+                            lng:  -76.528423}} />
+                        </Map>
+                    </div>
+                    <div className="col-12 col-md-10">
+                        <h3 >DESCRIPTION OF INCIDENT</h3>            
+                        <p>{this.props.incident.description}</p>                    
+                    </div>
                 </div>
-            </div>
+                </div> 
+                </div>
         ); }
 
       
-        else if(props.incident == null) {
+        else if(this.props.incident == null) {
             return (<div></div>)
         }
+    }
         
     
           
     }
-export default IncidentDetail;
+    export default GoogleApiWrapper({
+        apiKey: "AIzaSyCkpkkmeGkRg2EcNERVVVBQwU2MQOXfBRY"
+      })(IncidentDetail)
+      
+    
