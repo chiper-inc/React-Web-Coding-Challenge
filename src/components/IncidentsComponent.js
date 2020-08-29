@@ -39,7 +39,7 @@ const Incidents = (props) => {
             </div>
           </div>
           <div className="row ">
-            <div className="col-10 m-auto ">
+            <div className="col-12 col-md-10 m-auto  ">
               <RenderTable incidents={props.incidents.incidents.incidents} />
             </div>
           </div>
