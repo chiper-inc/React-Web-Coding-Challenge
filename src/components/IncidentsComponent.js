@@ -1,6 +1,7 @@
 import { Loading } from "./LoadingComponent";
 import React from "react";
 import RenderTable from "./RenderTableComponent";
+import SearchBar from "./SearchBarComponent";
 
 const Incidents = (props) => {
   if (props.incidents.isLoading) {
@@ -23,24 +24,27 @@ const Incidents = (props) => {
     );
   } else if (props.incidents.incidents.incidents.length === 0) {
     return (
-      <div>
-        <h4 className="m-auto noResults">No results</h4>
+      <div className="container">
+        <div className="row ">
+          <div className="col-12 col-md-10 m-auto  ">
+            <SearchBar postQuery={props.postQuery} />
+            <div>
+              <h4 className="m-auto noResults">No results</h4>
+            </div>
+          </div>
+        </div>
       </div>
     );
   } else {
     return (
       <React.Fragment>
         <div className="container">
-          <div className="row">
-            <div className="col-8 m-auto">
-              <h4 className="total">
-                Total:{props.incidents.incidents.incidents.length}
-              </h4>
-            </div>
-          </div>
           <div className="row ">
-            <div className="col-12 col-md-10 m-auto  ">
-              <RenderTable incidents={props.incidents.incidents.incidents} />
+            <div className="col-12 col-md-11 m-auto  ">
+              <RenderTable
+                incidents={props.incidents.incidents.incidents}
+                postQuery={props.postQuery}
+              />
             </div>
           </div>
         </div>

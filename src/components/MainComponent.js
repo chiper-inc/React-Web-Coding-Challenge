@@ -28,12 +28,17 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Header postQuery={this.props.postQuery} />
+        <Header />
         <div>
           <Switch>
             <Route
               path="/cases"
-              component={() => <Incidents incidents={this.props.incidents} />}
+              component={() => (
+                <Incidents
+                  incidents={this.props.incidents}
+                  postQuery={this.props.postQuery}
+                />
+              )}
             />
             <Route
               path="/case/:incidentId"

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ButtonGroup, Button } from "reactstrap";
 import RenderItem from "./RenderItemComponent";
+import SearchBar from "./SearchBarComponent";
 
 class RenderTable extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class RenderTable extends Component {
     this.handleLastPage = this.handleLastPage.bind(this);
     this.handlePrevPage = this.handlePrevPage.bind(this);
     this.handleNextPage = this.handleNextPage.bind(this);
+
     this.state = {
       offset: 0,
       data: [],
@@ -16,6 +18,7 @@ class RenderTable extends Component {
       currentPage: 1,
     };
   }
+
   receivedData() {
     const data = this.props.incidents;
     const slice = data.slice(
@@ -23,7 +26,7 @@ class RenderTable extends Component {
       this.state.offset + this.state.perPage
     );
     const postData = slice.map((incident) => (
-      <RenderItem incident={incident} />
+      <RenderItem toggle={this.toggleModal} incident={incident} />
     ));
     this.setState({
       pageCount: Math.ceil(data.length / this.state.perPage),
@@ -126,27 +129,54 @@ class RenderTable extends Component {
     }
     return (
       <React.Fragment>
+        <SearchBar postQuery={this.props.postQuery} />
+        <div className="row">
+          <div className="col-10">
+            {" "}
+            <h3>Total Cases: {this.props.incidents.length}</h3>
+          </div>
+        </div>
         {this.state.postData}
-        <div>
-          <ButtonGroup>
-            <Button
-              color="info"
-              className="m-1 "
-              onClick={this.handleFirstPage}
-            >
-              &lt;&lt;
-            </Button>
-            <Button color="info" className="m-1" onClick={this.handlePrevPage}>
-              &lt;
-            </Button>
-            {items}
-            <Button color="info" className="m-1" onClick={this.handleNextPage}>
-              &gt;
-            </Button>
-            <Button color="info" className="m-1" onClick={this.handleLastPage}>
-              &gt;&gt;
-            </Button>
-          </ButtonGroup>
+        <div className="row">
+          <div className=" col-12 col-md-4 m-auto">
+            <h4 className="displayPagInfo">
+              Showing Page {this.state.currentPage + 1} of{" "}
+              {this.state.pageCount}
+            </h4>
+          </div>
+          <div className="col-12 col-md-8">
+            <ButtonGroup>
+              <Button
+                color="info"
+                className="m-1 "
+                onClick={this.handleFirstPage}
+              >
+                &lt;&lt;
+              </Button>
+              <Button
+                color="info"
+                className="m-1"
+                onClick={this.handlePrevPage}
+              >
+                &lt;
+              </Button>
+              {items}
+              <Button
+                color="info"
+                className="m-1"
+                onClick={this.handleNextPage}
+              >
+                &gt;
+              </Button>
+              <Button
+                color="info"
+                className="m-1"
+                onClick={this.handleLastPage}
+              >
+                &gt;&gt;
+              </Button>
+            </ButtonGroup>
+          </div>
         </div>
       </React.Fragment>
     );

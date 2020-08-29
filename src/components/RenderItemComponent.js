@@ -15,18 +15,21 @@ function RenderItem({ incident }) {
         "https://cdn0.iconfinder.com/data/icons/sports-linear-white-with-square-black-background/2048/Cycle-512.png";
     }
   };
-
+  //col-4 offset-1 offset-xs-2 col-md-4 offset-md-0
   return (
     <div id={incident.id.toString()}>
       <div className="row incidentElement">
-        <div className="col-4 offset-1 offset-xs-2 col-md-4 offset-md-0">
-          <img
-            className="  md-float-left "
-            onLoad={onLoad(this)}
-            src={url}
-            width={200}
-            alt={incident.title}
-          />
+        <div className="col-12 col-lg-4">
+          <div className="row">
+            <div className="col-6 m-auto m-lg-1 ">
+              <img
+                onLoad={onLoad(this)}
+                src={url}
+                width={200}
+                alt={incident.title}
+              />
+            </div>
+          </div>
         </div>
         <div className="col-8 col-md-8 m-auto">
           <div className="row ">

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Loading } from "./LoadingComponent";
+import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
 function mapSource(address) {
   const newAddress = address.replace(/ /g, "%20");
   const src =
@@ -44,6 +46,13 @@ export default class IncidentDetail extends Component {
           <div className="row">
             <div className="col-11 col-xs-10 col-md-9 m-auto p-2 incidentDetail">
               <div className="col-12 col-md-10 m-4">
+                <div className="row">
+                  <div className="col-3">
+                    <Link to="/cases">
+                      <h4 className="headerText">Go Back</h4>
+                    </Link>
+                  </div>
+                </div>
                 <h3 className="mt-5 ">{incident.title}</h3>
                 <p>
                   occurred at{" "}
