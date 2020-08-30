@@ -33,7 +33,7 @@ function RenderItem({ incident }) {
         </div>
         <div className="col-8 col-md-8 m-auto">
           <div className="row ">
-            <Link to={`/case/${incident.id}`} className=" col-12 itemTitle ">
+            <Link to={`/cases/${incident.id}`} className=" col-12 itemTitle ">
               <h3 className="mr-auto">{incident.title}</h3>{" "}
             </Link>
           </div>

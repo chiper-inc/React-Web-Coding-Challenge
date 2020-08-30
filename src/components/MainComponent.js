@@ -32,6 +32,7 @@ class Main extends Component {
         <div>
           <Switch>
             <Route
+              exact
               path="/cases"
               component={() => (
                 <Incidents
@@ -41,7 +42,7 @@ class Main extends Component {
               )}
             />
             <Route
-              path="/case/:incidentId"
+              path="/cases/:incidentId"
               render={(props) => {
                 return (
                   <IncidentDetail
