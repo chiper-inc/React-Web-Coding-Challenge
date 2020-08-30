@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: "PT Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+}
+
+.app {
+  font-size: 1.3em;
+  color: #1d3f72;
+}
