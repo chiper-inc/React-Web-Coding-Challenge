@@ -31,18 +31,18 @@ const BikePicture = styled.img`
 
 const IncidentTitle = styled.h5`
   font-weight: bold;
-  color: #4996a2;
+  color: #1d3f72;
   font-size: 1.2em;
   margin: 0;
 `;
 
 const IncidentDesc = styled.p`
-  color: #71c2cc;
+  color: #4996a2;
   margin: 0;
 `;
 
 const IncidentInfo = styled.p`
-  color: #999;
+  color: #666;
   margin: 10px 0 0;
 `;
 

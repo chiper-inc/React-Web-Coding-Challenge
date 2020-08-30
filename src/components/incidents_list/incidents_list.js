@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import IncidentItem from '../incident_item/incident_item';
 import Paginator from '../paginator/paginator';
+import SearchBar from '../search_bar/search_bar';
 import API from '../../api';
 import styled from '../../theme';
 
@@ -29,6 +30,7 @@ export default class IncidentsList extends React.Component {
       incidents: [],
       totalIncidents: 0,
       isLoaded: false,
+      query: '',
       queryError: false,
       occurredBefore: '',
       occurredAfter: '',
@@ -41,13 +43,25 @@ export default class IncidentsList extends React.Component {
       pagedIncidents: []
     }
     this.updatePage = this.updatePage.bind(this);
+    this.searchIncident = this.searchIncident.bind(this);
   }
 
   async getIncidentsList() {
-    await API.get(`incidents/?proximity=${this.state.proximity}&incident_type=${this.state.incidentType}&per_page=${this.state.resultsLimit}`).then((res) => {
-      this.setState({ incidents: res.data.incidents });
-      this.setState({ totalIncidents: res.data.incidents.length });
-      this.setState({ isLoaded: true });
+    this.setState({isLoaded: false});
+    this.setState({queryError: false});
+
+    const queryParams = `proximity=${this.state.proximity}&incident_type=${this.state.incidentType}&per_page=${this.state.resultsLimit}&query=${this.state.query}&occurred_before=${this.state.occurredBefore}&occurred_after=${this.state.occurredAfter}`;
+
+    await API.get(`incidents/?${queryParams}`).then((res) => {
+      this.setState({
+        incidents: res.data.incidents,
+        totalIncidents: res.data.incidents.length,
+        isLoaded: true
+      });
+      if (res.data.incidents.length === 0) {
+        this.setState({ queryError: true });
+        console.log("no results");
+      };
     }).catch((err) => {
       this.setState({ queryError: true });
       throw (err);
@@ -57,17 +71,28 @@ export default class IncidentsList extends React.Component {
   async componentDidMount() {
     await this.getIncidentsList();
     await this.paginate();
-    console.log(this.state.incidents);
   }
 
-  updatePage = newPage => {
-    this.setState({ pageNumber: newPage });
+  async updatePage(newPage) {
+    await this.setState({ pageNumber: newPage });
+    this.paginate();
+  }
+
+  async searchIncident(query) {
+    await this.setState({
+      query: query.query,
+      occurredAfter: query.occurredAfter,
+      occurredBefore: query.occurredBefore
+    });
+    await this.getIncidentsList();
+    await this.paginate();
   }
 
   paginate() {
-    this.setState({ pagedIncidents: this.state.incidents.slice((this.state.pageNumber - 1) * this.state.itemsPerPage, this.state.pageNumber * this.state.itemsPerPage) });
-    this.setState({ totalPages: Math.ceil(this.state.totalIncidents / this.state.itemsPerPage) });
-    console.log(this.state.totalPages);
+    this.setState({
+      pagedIncidents: this.state.incidents.slice((this.state.pageNumber - 1) * this.state.itemsPerPage, this.state.pageNumber * this.state.itemsPerPage),
+      totalPages: Math.ceil(this.state.totalIncidents / this.state.itemsPerPage)
+    });
   }
 
   listIncidents() {
@@ -77,6 +102,13 @@ export default class IncidentsList extends React.Component {
   }
 
   render() {
+    let selectedTemplate;
+    let paginatorTemplate;
+
+    if (this.state.totalPages > 1) {
+      paginatorTemplate = (<Paginator updatePage={this.updatePage} pageNumber={this.state.pageNumber} totalPages={this.state.totalPages} />);
+    }
+
     const loadingTemplate = (
       <React.Fragment>
         <LoadingSpinner src="spinner.gif" alt="Loading..." />
@@ -87,29 +119,27 @@ export default class IncidentsList extends React.Component {
       <React.Fragment>
         <TotalIncidents>{this.state.totalIncidents} incidents found</TotalIncidents>
         {this.listIncidents()}
+        {paginatorTemplate}
       </React.Fragment>
     );
 
     const errorTemplate = (
       <React.Fragment>
-        No results matching your search were found
+        <TotalIncidents>No results matching your search were found</TotalIncidents>
       </React.Fragment>
     );
 
-    let selectedTemplate;
-
-    if (this.state.isLoaded) {
-      selectedTemplate = listTemplate;
-    } else if (this.state.queryError) {
-      selectedTemplate = errorTemplate;
-    } else {
-      selectedTemplate = loadingTemplate;
-    }
+    if (this.state.isLoaded && !this.state.queryError) { selectedTemplate = listTemplate; }
+    else if (this.state.isLoaded && this.state.queryError) { selectedTemplate = errorTemplate; }
+    else { selectedTemplate = loadingTemplate; }
 
     return (
-      <MainWrapper>
-        {selectedTemplate}
-      </MainWrapper>
+      <React.Fragment>
+        <SearchBar query={this.searchIncident} />
+        <MainWrapper>
+          {selectedTemplate}
+        </MainWrapper>
+      </React.Fragment>
     );
   }
 }
