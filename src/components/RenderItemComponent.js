@@ -21,11 +21,11 @@ function RenderItem({ incident }) {
       <div className="row incidentElement">
         <div className="col-12 col-lg-4">
           <div className="row">
-            <div className="col-6 m-auto m-lg-1 ">
+            <div className="col-12 m-auto ">
               <img
                 onLoad={onLoad(this)}
                 src={url}
-                width={200}
+                width="100%"
                 alt={incident.title}
               />
             </div>
