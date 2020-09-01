@@ -5,25 +5,19 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
   }
-  handleChange(values) {
-    this.props.postQuery(values);
-  }
+
   handleSubmit(values) {
     this.props.postQuery(values);
+    this.props.resetQueryForm();
   }
 
   render() {
     return (
       <div className="row">
         <div className="col-12 m-auto">
-          <Form
-            model="query"
-            onSubmit={(values) => this.handleSubmit(values)}
-            onChange={(values) => this.handleChange(values)}
-          >
-            <div className="col-12 col-sm-4 col-md-3 formElement ">
+          <Form model="query" onSubmit={this.handleSubmit}>
+            <div className="col-12 col-sm-4 col-md-3 formElement  ">
               <Control
                 type="text"
                 model=".query"

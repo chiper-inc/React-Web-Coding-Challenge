@@ -129,7 +129,10 @@ class RenderTable extends Component {
     }
     return (
       <React.Fragment>
-        <SearchBar postQuery={this.props.postQuery} />
+        <SearchBar
+          postQuery={this.props.postQuery}
+          resetQueryForm={this.props.resetQueryForm}
+        />
         <div className="row">
           <div className="col-10">
             {" "}

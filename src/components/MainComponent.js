@@ -5,6 +5,7 @@ import Footer from "./FooterComponent";
 import Header from "./HeaderComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { actions } from "react-redux-form";
 import { fetchData, postQuery } from "../redux/ActionCreators";
 
 const mapStateToProps = (state) => {
@@ -17,7 +18,12 @@ const mapDispatchToProps = (dispatch) => ({
   fetchData: () => {
     dispatch(fetchData());
   },
-  postQuery: (query) => dispatch(postQuery(query)),
+  postQuery: (query) => {
+    dispatch(postQuery(query));
+  },
+  resetQueryForm: () => {
+    dispatch(actions.reset("query"));
+  },
 });
 
 class Main extends Component {
@@ -38,6 +44,7 @@ class Main extends Component {
                 <Incidents
                   incidents={this.props.incidents}
                   postQuery={this.props.postQuery}
+                  resetQueryForm={this.props.resetQueryForm}
                 />
               )}
             />

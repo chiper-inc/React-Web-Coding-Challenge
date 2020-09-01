@@ -27,7 +27,10 @@ const Incidents = (props) => {
       <div className="container">
         <div className="row ">
           <div className="col-12 col-md-10 m-auto  ">
-            <SearchBar postQuery={props.postQuery} />
+            <SearchBar
+              postQuery={props.postQuery}
+              resetQueryForm={props.resetQueryForm}
+            />
             <div>
               <h4 className="m-auto noResults">No results</h4>
             </div>
@@ -44,6 +47,7 @@ const Incidents = (props) => {
               <RenderTable
                 incidents={props.incidents.incidents.incidents}
                 postQuery={props.postQuery}
+                resetQueryForm={props.resetQueryForm}
               />
             </div>
           </div>
