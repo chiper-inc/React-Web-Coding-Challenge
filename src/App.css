@@ -1,0 +1,121 @@
+
+.App{
+  text-align: center;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+ img{
+
+ padding: 20px;
+  }
+.row{
+  height: fit-content;
+}
+.red{
+  color:#ec7a57;
+}
+.form{
+  text-align: center;
+}
+.text{
+  height: 20px;
+}
+#map{
+  
+    height: 300px; 
+    width: 100%;  /* The width is the width of the web page */
+  
+
+}
+.loading{
+  text-align:center;
+  margin-top:25%;
+  margin-bottom:30px;
+}
+.noResults{
+  text-align: center;
+}
+.formElement{
+  display: inline-block;
+  text-align: right;
+}
+.btn{
+margin-bottom: 5px;
+
+ 
+}
+.headerImg{
+  float: left;
+  margin-left: -15px;
+  margin-right: 50px;
+}
+.total{
+  float: right;
+}
+.formLabel{
+  font-weight: 500;
+}
+.incidentElement{
+  border:0px solid #000000;
+  background-color:#e4d5ffa8;
+  margin:20px ;
+}
+.headerText{
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color:#000000;
+
+}
+.mapouter{
+  position:relative;text-align:right;height:500px;width:600px;}
+  .gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}
+  .itemTitle{
+color: #000000;
+padding:20px;
+  }
+  .itemDescription{
+padding:10px;
+  }
+  .incidentDetail{
+     border:0px solid #000000;
+
+ padding-top:40px;
+
+  }
+  .displayPagInfo{
+    text-align: center;
+  }
