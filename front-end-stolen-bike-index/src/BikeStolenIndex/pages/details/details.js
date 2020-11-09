@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import {  Button, Row , Col} from 'react-bootstrap';
 import { ApiBikewise } from '../../services/bikewise'
+
 
 
 function mapSource(address) {
@@ -22,7 +24,8 @@ class DetailsPage extends Component {
           title:"",
           address:"",
           description :"",
-          img:""
+          img:"",
+          date:"",
          };
          this.props.changeStatusLoad(false)
       }
@@ -42,6 +45,9 @@ class DetailsPage extends Component {
           this.setState({
             img: response.incident.media.image_url
           });
+          this.setState({
+            date: new Date(response.incident.occurred_at * 1000).toString()
+          });
           this.props.changeStatusLoad(true)
         })
       }
@@ -60,6 +66,7 @@ class DetailsPage extends Component {
             <Link to="/"><Button variant="link">Back</Button>  </Link>
             <h1 >{this.state.title}</h1>
             <h3 >{this.state.address}</h3>
+            <h4 >published :{this.state.date} </h4>
             <Row>
               <Col>
               <iframe

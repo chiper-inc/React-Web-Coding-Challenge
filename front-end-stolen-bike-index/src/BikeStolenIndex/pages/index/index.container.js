@@ -13,4 +13,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export const IndexPageC = connect(mapStateToProps, mapDispatchToProps)(IndexPage)
-//export const IndexPageC = IndexPage;
