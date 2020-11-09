@@ -1,24 +1,20 @@
 import 'rxjs';
 
 const initialState = {
-    user : {
-        name:"visitor",
-        profile:"visitor",
-    },
     ui :{
-        generalLoading:"true"
+        generalLoading:false
     }
 }
 
 /*Reduces*/
 const reducer = (state = initialState, action) => {
     switch(action.type) {
-        case "CHANGE_PROFILE":
+        case "CHANGE_STAUTS_LOAD":
             const temp = Object.assign({},
                 state ,
                 {
-                    user : {
-                        profile : action.payload 
+                    ui : {
+                        generalLoading : action.payload 
                     }
                 });
         return temp  

@@ -1,9 +1,9 @@
 /*aciones*/
 
-export const changeProfile = function (rol) {
+export const changeStatusLoad = function (status) {
     return {
-      type: 'CHANGE_PROFILE',
-      payload: rol
+      type: 'CHANGE_STAUTS_LOAD',
+      payload: status
     }
   }
 

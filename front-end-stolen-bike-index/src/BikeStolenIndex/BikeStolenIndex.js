@@ -3,7 +3,7 @@ import { Header } from '../components/header/header';
 import { DetailsPageC } from '../BikeStolenIndex/pages/details/details.container';
 import { IndexPageC } from   '../BikeStolenIndex/pages/index/index.container';
 import {  BrowserRouter as Router,Route, Redirect, Switch, NavLink } from 'react-router-dom';
-import {Row, Container} from 'react-bootstrap'
+import {Row, Container,Spinner} from 'react-bootstrap'
 import './BikeStolenIndex.scss';
 
 class BikeStolenIndex extends Component {
@@ -24,17 +24,27 @@ class BikeStolenIndex extends Component {
                 <Router>
                     <Container>
                         <Header></Header>
-                        <Row className="justify-content-md-center">
+                       
+                        <Row className="justify-content-md-center ">
+                           
                             <Switch>
-                                <Route path="/">
+                                <Route path="/incidents/:Id">
+                                    <DetailsPageC /> 
+                                </Route>
+                                <Route path="/">                      
                                     <IndexPageC />   
                                 </Route>
-                                <Route path="/report/:Id">
-                                    <DetailsPageC />
-                                </Route>
+
                             </Switch>
                         </Row>
+                         { ! this.props.loading &&      
+                        <Row className="justify-content-md-center ">
+                            <Spinner animation="border" />
+                        </Row>
+                        } 
+
                     </Container>
+                    
                 </Router>
             </div>
         )};
