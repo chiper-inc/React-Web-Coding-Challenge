@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import {BikeStolenIndexContainer} from './BikeStolenIndex/BikeStolenIndex.container';
 import './index.css';
-import App from './App';
+
 import { configureStore as GeneralStore } from './store/configureStore';
 
 
