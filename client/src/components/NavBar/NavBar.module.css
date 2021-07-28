@@ -1,0 +1,35 @@
+.navbar {
+  background: var(--color-dark);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1vh;
+}
+.izq {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 41vw;
+  width: 100%;
+}
+.subtitle {
+  font-weight: 400;
+}
+.total {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  height: 4rem;
+  margin: 3vh;
+  margin-right: 2vw;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.total > p {
+  text-transform: uppercase;
+  color: var(--color-golden);
+}

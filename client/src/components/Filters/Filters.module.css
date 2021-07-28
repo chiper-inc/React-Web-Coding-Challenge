@@ -1,0 +1,48 @@
+.filters {
+  height: 10vh;
+  display: flex; 
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: .5rem;
+}
+.search {
+  background: transparent;
+  width: 35vw;
+  padding: .4rem;
+  border: 1px solid var(--color-dark);
+  border-radius: 5px; 
+}
+.search:focus {
+  outline: none;
+}
+.date > input {
+  background: transparent;
+  padding: .3rem;
+  border: 1px solid var(--color-dark);
+  border-radius: 5px; 
+}
+
+.button {
+  width: 95vw;
+  margin: auto;
+  text-align: center;
+  border-bottom: .5px solid var(--color-dark);
+}
+.btn {
+  background: none;
+  padding: .3rem;
+  margin-bottom: 2vh;
+  width: 20vw;
+  border: 1px solid var(--color-dark);
+  border-radius: 5px;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+.btn:hover {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--color-golden);
+  border: 1px solid var(--color-golden);
+  transition: .2s;
+}
