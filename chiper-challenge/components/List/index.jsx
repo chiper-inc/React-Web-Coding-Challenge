@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import ListItem from './ListItem'
 
 const MainContainer = styled.div`
     display: flex;
@@ -9,7 +10,7 @@ const MainContainer = styled.div`
     width: 80%;
     margin: 20px;
     border: 2px solid black;
-    height: 700px;
+    mi-height: 500px;
     background-color: gray;
 `
 const Filters = styled.div`
@@ -54,6 +55,10 @@ const SearchButton = styled.button`
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 `
+const ListContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`
 
 const List = () => {
   return (
@@ -79,6 +84,12 @@ const List = () => {
                     </SearchButton>
                 </SearchBar>
             </Filters>
+            <ListContainer>
+                <ListItem />
+                <ListItem />
+                <ListItem />
+                <ListItem />
+            </ListContainer>
         </MainContainer>
   )
 }
