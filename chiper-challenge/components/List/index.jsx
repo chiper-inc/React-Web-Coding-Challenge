@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCases } from '../../actions'
 import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -61,20 +63,27 @@ const ListContainer = styled.div`
 `
 
 const List = () => {
-  return (
+    const dispatch = useDispatch()
+    const { cases, totalCases } = useSelector((state) => ({ ...state }))
+
+    useEffect(() => {
+        dispatch(getCases())
+    }, [])
+
+    console.log(cases)
+
+    return (
         <MainContainer>
             <Filters>
                 <Selectors>
                     <ByDateSelectors>
-                        <Label for='start' >Stolen from</Label>
+                        <Label>Stolen from</Label>
                         <DatePicker
                             selected={1627570800}
-                            id='start'
                         />
-                        <Label for='finish' >to</Label>
+                        <Label>to</Label>
                         <DatePicker
                             selected={1627570800}
-                            id='finish'
                         />
                     </ByDateSelectors>
                 </Selectors>
@@ -85,13 +94,21 @@ const List = () => {
                 </SearchBar>
             </Filters>
             <ListContainer>
-                <ListItem />
-                <ListItem />
-                <ListItem />
-                <ListItem />
+                {
+                    cases && cases.map(element => (
+                            <ListItem
+                                image={element.large_img}
+                                title={element.title}
+                                colors={element.frame_colors}
+                                description={element.description}
+                                dateStolen={element.date_stolen}
+                                location={element.solen_location}
+                            />
+                    ))
+                }
             </ListContainer>
         </MainContainer>
-  )
+    )
 }
 
 export default List
