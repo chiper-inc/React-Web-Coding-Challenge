@@ -15,7 +15,7 @@ export function getCases(params) {
         return axios.get('https://bikeindex.org:443/api/v3/search', { params: params })
             .then(res => res.data)
             .then(res => {
-                dispatch({ type: GET_CASES, payload: res })
+                dispatch({ type: GET_CASES, payload: res.bikes })
             })
             .catch(e => console.error(e))
     }
