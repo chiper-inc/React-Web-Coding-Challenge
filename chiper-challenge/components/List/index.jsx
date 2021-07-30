@@ -61,6 +61,17 @@ const ListContainer = styled.div`
     display: flex;
     flex-direction: column;
 `
+const Pagination = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+const PaginationButton = styled.button`
+
+`
+const PaginationButtonDisabled = styled.button`
+
+`
 
 const List = () => {
     const dispatch = useDispatch()
@@ -68,17 +79,69 @@ const List = () => {
     const [startDate, setStartDate] = useState(new Date('01/01/2010'))
     const [finishDate, setFinishDate] = useState(new Date())
     const [actualPage, setActualPage] = useState(1)
+    const [listCases, setListCases] = useState([])
+    const [totalPages, setTotalPages] = useState(0)
 
     useEffect(() => {
         dispatch(getCases())
     }, [])
 
+    useEffect(() => {
+        if (cases) {
+            listHandler(actualPage)
+        }
+    }, [ cases, actualPage ])
+
+    useEffect(() => {
+        if (cases) {
+            setTotalPages(Math.ceil(cases.length / 10))
+        }
+    }, [ cases ])
+
     function listHandler (actualPage) {
         let newCasesArr = []
         for (let i = 0; i < 10; i++) {
-            newCasesArr.push(cases[(actualPage * 10 - 10) + i])
+            if (cases[(actualPage * 10 - 10) + i]) {
+                newCasesArr.push(cases[(actualPage * 10 - 10) + i])
+            }
         }
-        return newCasesArr;
+        setListCases(newCasesArr)
+    }
+
+    function paginationButtonsHandler () {
+        let buttons = []
+
+        if (actualPage === 1) {
+            buttons.push(<PaginationButtonDisabled onClick={() => setActualPage(1)} >First</PaginationButtonDisabled>)
+            buttons.push(<PaginationButtonDisabled >Prev</PaginationButtonDisabled>)
+        } else if (actualPage > 1) {
+            buttons.push(<PaginationButton onClick={() => setActualPage(1)} >First</PaginationButton>)
+            buttons.push(<PaginationButton onClick={() => setActualPage(actualPage - 1)} >Prev</PaginationButton>)
+        }
+
+        for (let i = 1; i <= totalPages; i++) {
+            if (i ===  actualPage - 2) {
+                buttons.push(<PaginationButton onClick={() => setActualPage(actualPage - 2)}>{actualPage - 2}</PaginationButton>)
+            } else if (i ===  actualPage - 1) {
+                buttons.push(<PaginationButton onClick={() => setActualPage(actualPage - 1)}>{actualPage - 1}</PaginationButton>)
+            } else if (i ===  actualPage) {
+                buttons.push(<PaginationButton>{actualPage}</PaginationButton>)
+            } else if (i === (actualPage + 1)) {
+                buttons.push(<PaginationButton onClick={() => setActualPage(actualPage + 1)} >{actualPage + 1}</PaginationButton>)
+            } else if (i === actualPage + 2) {
+                buttons.push(<PaginationButton onClick={() => setActualPage(actualPage + 2)} >{actualPage + 2}</PaginationButton>)
+            }
+        }
+
+        if (actualPage === totalPages) {
+            buttons.push(<PaginationButtonDisabled>Next</PaginationButtonDisabled>)
+            buttons.push(<PaginationButtonDisabled>Last</PaginationButtonDisabled>)
+        } else if (actualPage < totalPages) {
+            buttons.push(<PaginationButton onClick={() => setActualPage(actualPage + 1)}>Next</PaginationButton>)
+            buttons.push(<PaginationButton onClick={() => setActualPage(totalPages)}>Last</PaginationButton>)
+        }
+
+        return buttons
     }
 
     return (
@@ -106,7 +169,7 @@ const List = () => {
             </Filters>
             <ListContainer>
                 {
-                    cases && listHandler(actualPage).map(element => (
+                    listCases && listCases.map(element => (
                         <ListItem
                             image={element.large_img}
                             title={element.title}
@@ -118,6 +181,11 @@ const List = () => {
                     ))
                 }
             </ListContainer>
+            <Pagination>
+                {
+                    paginationButtonsHandler()
+                }
+            </Pagination>
         </MainContainer>
     )
 }
