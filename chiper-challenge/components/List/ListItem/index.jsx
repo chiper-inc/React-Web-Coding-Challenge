@@ -34,18 +34,33 @@ const Datereported = styled.span`
 const Locationtheft = styled.span`
 
 `
+const Colors = styled.span`
 
-const ListItem = () => {
+`
+
+const ListItem = ({ image, title, colors, description, dateStolen, location }) => {
     return (
         <Item>
-            <Image src='./img/bike.png' alt='bike-image' />
+            <Image src={image ? image : './img/bike.png'} alt='bike-image' />
             <Description>
-                <Casetitle>{'Asdada ASasdasd 2017'}</Casetitle>
-                <BikeColors>Color: {'asdasdasd'}</BikeColors>
-                <Casedescription>{'asdasdasdasda'}</Casedescription>
-                <Datetheft>Theft Date: {1}</Datetheft>
-                <Datereported>Report Date: {1}</Datereported>
-                <Locationtheft>Location of the theft: {1}</Locationtheft>
+                <Casetitle>{title}</Casetitle>
+                <BikeColors>{'Colors: '}
+                {
+                   colors.length > 1 ? 
+                   colors.map(color => {
+                    if(color === colors[0]) {
+                        return <Colors>{color + ' - '}</Colors>
+                    } else {
+                        return <Colors>{color + ' '}</Colors>
+                    }
+                   })
+                   :
+                   <Colors>{colors[0] + ' '}</Colors>
+                }
+                </BikeColors>
+                <Casedescription>{description}</Casedescription>
+                <Datetheft>Theft Date: {dateStolen}</Datetheft>
+                <Locationtheft>Location of the theft: {location}</Locationtheft>
             </Description>
         </Item>
     )
