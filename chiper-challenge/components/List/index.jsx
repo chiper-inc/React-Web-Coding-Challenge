@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCases } from '../../actions'
 import styled from 'styled-components'
@@ -64,13 +64,22 @@ const ListContainer = styled.div`
 
 const List = () => {
     const dispatch = useDispatch()
-    const { cases, totalCases } = useSelector((state) => ({ ...state }))
+    const { cases } = useSelector((state) => ({ ...state }))
+    const [startDate, setStartDate] = useState(new Date('01/01/2010'))
+    const [finishDate, setFinishDate] = useState(new Date())
+    const [actualPage, setActualPage] = useState(1)
 
     useEffect(() => {
         dispatch(getCases())
     }, [])
 
-    console.log(cases)
+    function listHandler (actualPage) {
+        let newCasesArr = []
+        for (let i = 0; i < 10; i++) {
+            newCasesArr.push(cases[(actualPage * 10 - 10) + i])
+        }
+        return newCasesArr;
+    }
 
     return (
         <MainContainer>
@@ -79,11 +88,13 @@ const List = () => {
                     <ByDateSelectors>
                         <Label>Stolen from</Label>
                         <DatePicker
-                            selected={1627570800}
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)}
                         />
                         <Label>to</Label>
                         <DatePicker
-                            selected={1627570800}
+                            selected={finishDate}
+                            onChange={(date) => setFinishDate(date)}
                         />
                     </ByDateSelectors>
                 </Selectors>
@@ -95,15 +106,15 @@ const List = () => {
             </Filters>
             <ListContainer>
                 {
-                    cases && cases.map(element => (
-                            <ListItem
-                                image={element.large_img}
-                                title={element.title}
-                                colors={element.frame_colors}
-                                description={element.description}
-                                dateStolen={element.date_stolen}
-                                location={element.solen_location}
-                            />
+                    cases && listHandler(actualPage).map(element => (
+                        <ListItem
+                            image={element.large_img}
+                            title={element.title}
+                            colors={element.frame_colors}
+                            description={element.description}
+                            dateStolen={element.date_stolen}
+                            location={element.stolen_location}
+                        />
                     ))
                 }
             </ListContainer>
