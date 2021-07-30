@@ -74,71 +74,83 @@ const PaginationButtonDisabled = styled.button`
 `
 
 const List = () => {
-    const dispatch = useDispatch()
-    const { cases } = useSelector((state) => ({ ...state }))
-    const [startDate, setStartDate] = useState(new Date('01/01/2010'))
-    const [finishDate, setFinishDate] = useState(new Date())
-    const [actualPage, setActualPage] = useState(1)
-    const [listCases, setListCases] = useState([])
-    const [totalPages, setTotalPages] = useState(0)
+  const dispatch = useDispatch()
+  const { cases } = useSelector((state) => ({ ...state }))
+  const [filteredCases, setFilteredCases] = useState([])
+  const [startDate, setStartDate] = useState(new Date('01-26-2014'))
+  const [finishDate, setFinishDate] = useState(new Date())
+  const [actualPage, setActualPage] = useState(1)
+  const [listCases, setListCases] = useState([])
+  const [totalPages, setTotalPages] = useState(0)
 
-    useEffect(() => {
-        dispatch(getCases())
-    }, [])
+  useEffect(() => {
+    dispatch(getCases())
+  }, [])
 
-    useEffect(() => {
-        if (cases) {
-            listHandler(actualPage)
-        }
-    }, [cases, actualPage])
+  useEffect(() => {
+    if (filteredCases) {
+      listHandler(actualPage)
+    }
+  }, [filteredCases, actualPage])
 
-    useEffect(() => {
-        if (cases) {
-            setTotalPages(Math.ceil(cases.length / 10))
-        }
-    }, [cases])
+  useEffect(() => {
+    if (cases) {
+      setFilteredCases(cases.filter(element => element.date_stolen < toTimestamp(finishDate) && element.date_stolen > toTimestamp(startDate)))
+    }
+  }, [cases, startDate, finishDate])
 
-    function listHandler(actualPage) {
-        let newCasesArr = []
-        for (let i = 0; i < 10; i++) {
-            if (cases[(actualPage * 10 - 10) + i]) {
-                newCasesArr.push(cases[(actualPage * 10 - 10) + i])
-            }
-        }
-        setListCases(newCasesArr)
+  useEffect(() => {
+    if (filteredCases) {
+      setTotalPages(Math.ceil(filteredCases.length / 10))
+    }
+  }, [filteredCases])
+
+  function listHandler (actualPage) {
+    const newCasesArr = []
+    for (let i = 0; i < 10; i++) {
+      if (filteredCases[(actualPage * 10 - 10) + i]) {
+        newCasesArr.push(filteredCases[(actualPage * 10 - 10) + i])
+      }
+    }
+    setListCases(newCasesArr)
+  }
+
+  function toTimestamp (strDate) {
+    const dateNum = Date.parse(strDate)
+    return dateNum / 1000
+  }
+
+  function paginationButtonsHandler () {
+    const buttons = []
+
+    if (actualPage > 1) {
+      buttons.push(<PaginationButton onClick={() => setActualPage(1)} >First</PaginationButton>)
+      buttons.push(<PaginationButton onClick={() => setActualPage(actualPage - 1)} >Prev</PaginationButton>)
     }
 
-    function paginationButtonsHandler() {
-        let buttons = []
-
-        if (actualPage > 1) {
-            buttons.push(<PaginationButton onClick={() => setActualPage(1)} >First</PaginationButton>)
-            buttons.push(<PaginationButton onClick={() => setActualPage(actualPage - 1)} >Prev</PaginationButton>)
-        }
-
-        for (let i = 1; i <= totalPages; i++) {
-            if (i === actualPage - 2) {
-                buttons.push(<PaginationButton onClick={() => setActualPage(actualPage - 2)}>{actualPage - 2}</PaginationButton>)
-            } else if (i === actualPage - 1) {
-                buttons.push(<PaginationButton onClick={() => setActualPage(actualPage - 1)}>{actualPage - 1}</PaginationButton>)
-            } else if (i === actualPage) {
-                buttons.push(<PaginationButton>{actualPage}</PaginationButton>)
-            } else if (i === (actualPage + 1)) {
-                buttons.push(<PaginationButton onClick={() => setActualPage(actualPage + 1)} >{actualPage + 1}</PaginationButton>)
-            } else if (i === actualPage + 2) {
-                buttons.push(<PaginationButton onClick={() => setActualPage(actualPage + 2)} >{actualPage + 2}</PaginationButton>)
-            }
-        }
-
-        if (actualPage < totalPages) {
-            buttons.push(<PaginationButton onClick={() => setActualPage(actualPage + 1)}>Next</PaginationButton>)
-            buttons.push(<PaginationButton onClick={() => setActualPage(totalPages)}>Last</PaginationButton>)
-        }
-
-        return buttons
+    for (let i = 1; i <= totalPages; i++) {
+      if (i === actualPage - 2) {
+        buttons.push(<PaginationButton onClick={() => setActualPage(actualPage - 2)}>{actualPage - 2}</PaginationButton>)
+      } else if (i === actualPage - 1) {
+        buttons.push(<PaginationButton onClick={() => setActualPage(actualPage - 1)}>{actualPage - 1}</PaginationButton>)
+      } else if (i === actualPage) {
+        buttons.push(<PaginationButtonDisabled>{actualPage}</PaginationButtonDisabled>)
+      } else if (i === (actualPage + 1)) {
+        buttons.push(<PaginationButton onClick={() => setActualPage(actualPage + 1)} >{actualPage + 1}</PaginationButton>)
+      } else if (i === actualPage + 2) {
+        buttons.push(<PaginationButton onClick={() => setActualPage(actualPage + 2)} >{actualPage + 2}</PaginationButton>)
+      }
     }
 
-    return (
+    if (actualPage < totalPages) {
+      buttons.push(<PaginationButton onClick={() => setActualPage(actualPage + 1)}>Next</PaginationButton>)
+      buttons.push(<PaginationButton onClick={() => setActualPage(totalPages)}>Last</PaginationButton>)
+    }
+
+    return buttons
+  }
+  
+  return (
         <MainContainer>
             <Filters>
                 <Selectors>
@@ -163,8 +175,9 @@ const List = () => {
             </Filters>
             <ListContainer>
                 {
-                    listCases && listCases.map(element => (
+                    listCases && listCases.map((element, index) => (
                         <ListItem
+                            key={index}
                             image={element.large_img}
                             title={element.title}
                             colors={element.frame_colors}
@@ -181,7 +194,7 @@ const List = () => {
                 }
             </Pagination>
         </MainContainer>
-    )
+  )
 }
 
 export default List
