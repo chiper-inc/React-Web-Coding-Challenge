@@ -72,6 +72,9 @@ const PaginationButton = styled.button`
 const PaginationButtonDisabled = styled.button`
 
 `
+const TotalCases = styled.span`
+
+`
 
 const List = () => {
   const dispatch = useDispatch()
@@ -110,11 +113,10 @@ const List = () => {
     setSearched(onSearch)
   }
 
-  function filterCases (onSearch) {
+  function filterCases () {
     if (searched) {
-      setFilteredCases(cases.filter(element => element.date_stolen < toTimestamp(finishDate) && element.date_stolen > toTimestamp(startDate) && element.title.toLowerCase().indexOf(searched.toLowerCase()) > -1))
+      setFilteredCases(cases.filter(element => element.date_stolen < toTimestamp(finishDate) && element.date_stolen > toTimestamp(startDate) && element.title.toLowerCase().indexOf(searched.toLowerCase()) !== -1))
     } else {
-      console.log(filteredCases.length)
       setFilteredCases(cases.filter(element => element.date_stolen < toTimestamp(finishDate) && element.date_stolen > toTimestamp(startDate)))
     }
     setActualPage(1)
@@ -188,6 +190,7 @@ const List = () => {
                     </SearchButton>
                 </SearchBar>
             </Filters>
+            <TotalCases>{`Total Cases Found: ${filteredCases.length}`}</TotalCases>
             <ListContainer>
                 {
                     listCases && listCases.map((element, index) => (
