@@ -90,15 +90,15 @@ const List = () => {
         if (cases) {
             listHandler(actualPage)
         }
-    }, [ cases, actualPage ])
+    }, [cases, actualPage])
 
     useEffect(() => {
         if (cases) {
             setTotalPages(Math.ceil(cases.length / 10))
         }
-    }, [ cases ])
+    }, [cases])
 
-    function listHandler (actualPage) {
+    function listHandler(actualPage) {
         let newCasesArr = []
         for (let i = 0; i < 10; i++) {
             if (cases[(actualPage * 10 - 10) + i]) {
@@ -108,23 +108,20 @@ const List = () => {
         setListCases(newCasesArr)
     }
 
-    function paginationButtonsHandler () {
+    function paginationButtonsHandler() {
         let buttons = []
 
-        if (actualPage === 1) {
-            buttons.push(<PaginationButtonDisabled onClick={() => setActualPage(1)} >First</PaginationButtonDisabled>)
-            buttons.push(<PaginationButtonDisabled >Prev</PaginationButtonDisabled>)
-        } else if (actualPage > 1) {
+        if (actualPage > 1) {
             buttons.push(<PaginationButton onClick={() => setActualPage(1)} >First</PaginationButton>)
             buttons.push(<PaginationButton onClick={() => setActualPage(actualPage - 1)} >Prev</PaginationButton>)
         }
 
         for (let i = 1; i <= totalPages; i++) {
-            if (i ===  actualPage - 2) {
+            if (i === actualPage - 2) {
                 buttons.push(<PaginationButton onClick={() => setActualPage(actualPage - 2)}>{actualPage - 2}</PaginationButton>)
-            } else if (i ===  actualPage - 1) {
+            } else if (i === actualPage - 1) {
                 buttons.push(<PaginationButton onClick={() => setActualPage(actualPage - 1)}>{actualPage - 1}</PaginationButton>)
-            } else if (i ===  actualPage) {
+            } else if (i === actualPage) {
                 buttons.push(<PaginationButton>{actualPage}</PaginationButton>)
             } else if (i === (actualPage + 1)) {
                 buttons.push(<PaginationButton onClick={() => setActualPage(actualPage + 1)} >{actualPage + 1}</PaginationButton>)
@@ -133,10 +130,7 @@ const List = () => {
             }
         }
 
-        if (actualPage === totalPages) {
-            buttons.push(<PaginationButtonDisabled>Next</PaginationButtonDisabled>)
-            buttons.push(<PaginationButtonDisabled>Last</PaginationButtonDisabled>)
-        } else if (actualPage < totalPages) {
+        if (actualPage < totalPages) {
             buttons.push(<PaginationButton onClick={() => setActualPage(actualPage + 1)}>Next</PaginationButton>)
             buttons.push(<PaginationButton onClick={() => setActualPage(totalPages)}>Last</PaginationButton>)
         }
