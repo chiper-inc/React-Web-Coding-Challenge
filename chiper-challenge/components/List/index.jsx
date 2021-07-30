@@ -82,6 +82,7 @@ const List = () => {
   const [actualPage, setActualPage] = useState(1)
   const [listCases, setListCases] = useState([])
   const [totalPages, setTotalPages] = useState(0)
+  const [searched, setSearched] = useState('')
 
   useEffect(() => {
     dispatch(getCases())
@@ -95,15 +96,29 @@ const List = () => {
 
   useEffect(() => {
     if (cases) {
-      setFilteredCases(cases.filter(element => element.date_stolen < toTimestamp(finishDate) && element.date_stolen > toTimestamp(startDate)))
+      filterCases(searched)
     }
-  }, [cases, startDate, finishDate])
+  }, [cases, startDate, finishDate, searched])
 
   useEffect(() => {
     if (filteredCases) {
       setTotalPages(Math.ceil(filteredCases.length / 10))
     }
   }, [filteredCases])
+
+  function handleSearch (onSearch) {
+    setSearched(onSearch)
+  }
+
+  function filterCases (onSearch) {
+    if (searched) {
+      setFilteredCases(cases.filter(element => element.date_stolen < toTimestamp(finishDate) && element.date_stolen > toTimestamp(startDate) && element.title.toLowerCase().indexOf(searched.toLowerCase()) > -1))
+    } else {
+      console.log(filteredCases.length)
+      setFilteredCases(cases.filter(element => element.date_stolen < toTimestamp(finishDate) && element.date_stolen > toTimestamp(startDate)))
+    }
+    setActualPage(1)
+  }
 
   function listHandler (actualPage) {
     const newCasesArr = []
@@ -149,7 +164,7 @@ const List = () => {
 
     return buttons
   }
-  
+
   return (
         <MainContainer>
             <Filters>
@@ -168,7 +183,7 @@ const List = () => {
                     </ByDateSelectors>
                 </Selectors>
                 <SearchBar>
-                    <SearchInput type='text' placeholder='Search...' />
+                    <SearchInput type='text' placeholder='Search...' value={searched} onChange={(e) => handleSearch(e.target.value)} />
                     <SearchButton>
                     </SearchButton>
                 </SearchBar>
