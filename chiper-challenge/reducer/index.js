@@ -13,12 +13,6 @@ const generalReducer = (state = initialState, action) => {
                 cases: action.payload
             }
         }
-        case COUNT_CASES: {
-            return {
-                ...state,
-                totalCases: action.payload.proximity
-            }
-        }
     }
 }
 
