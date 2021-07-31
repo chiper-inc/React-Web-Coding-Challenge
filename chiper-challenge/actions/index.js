@@ -16,6 +16,30 @@ export function getCases (params) {
       .then(res => {
         dispatch({ type: GET_CASES, payload: res.bikes })
       })
-      .catch(e => dispatch({ type: ERROR, payload: e }))
+      .catch(e => {
+        const status = e.response.status
+        switch (status) {
+          case 400:
+            dispatch({ type: ERROR, payload: `Error ${status}: Bad request.` })
+            break
+          case 404:
+            dispatch({ type: ERROR, payload: `Error ${status}: Page not found.` })
+            break
+          case 500:
+            dispatch({ type: ERROR, payload: `Error ${status}: Internal server error.` })
+            break
+          case 502:
+            dispatch({ type: ERROR, payload: `Error ${status}: Bad gateway.` })
+            break
+          case 503:
+            dispatch({ type: ERROR, payload: `Error ${status}: Service unavailable.` })
+            break
+          case 504:
+            dispatch({ type: ERROR, payload: `Error ${status}: Gateway timeout.` })
+            break
+          default:
+            dispatch({ type: ERROR, payload: 'Something went wrong.' })
+        }
+      })
   }
 }

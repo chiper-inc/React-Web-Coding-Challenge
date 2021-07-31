@@ -236,7 +236,7 @@ const List = () => {
           loading
             ? <Loader type="TailSpin" color='#c7c7c7' />
             : APIError
-              ? <Error>Oops, something went wrong.</Error>
+              ? <Error>{error}</Error>
               : listCases.length
                 ? listCases.map((element, index) => (
                   <ListItem
