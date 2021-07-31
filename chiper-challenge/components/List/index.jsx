@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getCases } from '../../actions'
 import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import 'react-datepicker/dist/react-datepicker.css'
 import ListItem from './ListItem'
 
@@ -54,6 +56,8 @@ const ListContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
+    min-height: 400px;
 `
 const Pagination = styled.div`
     display: flex;
@@ -108,6 +112,7 @@ const List = () => {
   const [listCases, setListCases] = useState([])
   const [totalPages, setTotalPages] = useState(0)
   const [searched, setSearched] = useState('')
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     dispatch(getCases())
@@ -116,6 +121,7 @@ const List = () => {
   useEffect(() => {
     if (filteredCases) {
       listHandler(actualPage)
+      setTimeout(function(){setLoading(false)}, 800)
     }
   }, [filteredCases, actualPage])
 
@@ -190,48 +196,51 @@ const List = () => {
   }
 
   return (
-        <MainContainer>
-            <Filters>
-                <Selectors>
-                    <ByDateSelectors>
-                        <Label>Stolen from</Label>
-                        <DatePicker
-                            selected={startDate}
-                            onChange={(date) => setStartDate(date)}
-                        />
-                        <Label>to</Label>
-                        <DatePicker
-                            selected={finishDate}
-                            onChange={(date) => setFinishDate(date)}
-                        />
-                    </ByDateSelectors>
-                </Selectors>
-                <SearchBar>
-                    <SearchInput type='text' placeholder='Search...' value={searched} onChange={(e) => handleSearch(e.target.value)} />
-                </SearchBar>
-            </Filters>
-            <TotalCases>{`Total Cases Found: ${filteredCases.length}`}</TotalCases>
-            <ListContainer>
-                {
-                    listCases && listCases.map((element, index) => (
-                        <ListItem
-                            key={index}
-                            image={element.large_img}
-                            title={element.title}
-                            colors={element.frame_colors}
-                            description={element.description}
-                            dateStolen={element.date_stolen}
-                            location={element.stolen_location}
-                        />
-                    ))
-                }
-            </ListContainer>
-            <Pagination>
-                {
-                    paginationButtonsHandler()
-                }
-            </Pagination>
-        </MainContainer>
+    <MainContainer>
+      <Filters>
+        <Selectors>
+          <ByDateSelectors>
+            <Label>Stolen from</Label>
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+            />
+            <Label>to</Label>
+            <DatePicker
+              selected={finishDate}
+              onChange={(date) => setFinishDate(date)}
+            />
+          </ByDateSelectors>
+        </Selectors>
+        <SearchBar>
+          <SearchInput type='text' placeholder='Search...' value={searched} onChange={(e) => handleSearch(e.target.value)} />
+        </SearchBar>
+      </Filters>
+      <TotalCases>{`Total Cases Found: ${filteredCases.length}`}</TotalCases>
+      <ListContainer>
+        {
+          loading ?
+            <Loader type="TailSpin" color='#c7c7c7' />
+            :
+            listCases && listCases.map((element, index) => (
+              <ListItem
+                key={index}
+                image={element.large_img}
+                title={element.title}
+                colors={element.frame_colors}
+                description={element.description}
+                dateStolen={element.date_stolen}
+                location={element.stolen_location}
+              />
+            ))
+        }
+      </ListContainer>
+      <Pagination>
+        {
+          paginationButtonsHandler()
+        }
+      </Pagination>
+    </MainContainer>
   )
 }
 
