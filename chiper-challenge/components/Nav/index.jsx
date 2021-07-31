@@ -10,14 +10,28 @@ const MainContainer = styled.div`
 const LogoContainer = styled.div`
     display: flex;
     align-items: center;
+    margin-left: 7%;
 `
 const Logo = styled.img`
     height: 40px; 
     margin: 10px;
 `
+const TitleContainer = styled.span`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    top: 5px;
+`
 const Title = styled.span`
-    font-size: 30px;
+    font-size: 25px;
     color: white;
+`
+const SubTitle = styled.span`
+    position: relative;
+    bottom: 10px;
+    right: 10px;
+    color: #cdcdcd;
 `
 
 const Nav = () => {
@@ -25,7 +39,10 @@ const Nav = () => {
         <MainContainer>
             <LogoContainer>
                 <Logo src='./img/logo.png' />
-                <Title>Police Departament of Berlin</Title>
+                <TitleContainer>
+                    <Title>Police Departament of Berlin</Title>
+                    <SubTitle>Stolen Bikes</SubTitle>
+                </TitleContainer>
             </LogoContainer>
         </MainContainer>
     )
