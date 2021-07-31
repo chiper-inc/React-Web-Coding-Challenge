@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getCases } from '../../actions'
 import styled from 'styled-components'
 import DatePicker from 'react-datepicker'
-import Loader from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from 'react-loader-spinner'
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import 'react-datepicker/dist/react-datepicker.css'
 import ListItem from './ListItem'
 
@@ -101,10 +101,17 @@ const TotalCases = styled.span`
     margin-left: 15px;
     font-size: 18px;
 `
+const NoResults = styled.span`
+    font-size: 28px;
+`
+const Error = styled.span`
+    font-size: 28px;
+    color: red;
+`
 
 const List = () => {
   const dispatch = useDispatch()
-  const { cases } = useSelector((state) => ({ ...state }))
+  const { cases, error } = useSelector((state) => ({ ...state }))
   const [filteredCases, setFilteredCases] = useState([])
   const [startDate, setStartDate] = useState(new Date('01-26-2014'))
   const [finishDate, setFinishDate] = useState(new Date())
@@ -112,7 +119,8 @@ const List = () => {
   const [listCases, setListCases] = useState([])
   const [totalPages, setTotalPages] = useState(0)
   const [searched, setSearched] = useState('')
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true)
+  const [APIError, setAPIError] = useState(false)
 
   useEffect(() => {
     dispatch(getCases())
@@ -121,7 +129,7 @@ const List = () => {
   useEffect(() => {
     if (filteredCases) {
       listHandler(actualPage)
-      setTimeout(function(){setLoading(false)}, 800)
+      setTimeout(function () { setLoading(false) }, 1000)
     }
   }, [filteredCases, actualPage])
 
@@ -136,6 +144,12 @@ const List = () => {
       setTotalPages(Math.ceil(filteredCases.length / 10))
     }
   }, [filteredCases])
+
+  useEffect(() => {
+    if (error) {
+      setAPIError(true)
+    }
+  }, [error])
 
   const handleSearch = (onSearch) => {
     setSearched(onSearch)
@@ -219,20 +233,23 @@ const List = () => {
       <TotalCases>{`Total Cases Found: ${filteredCases.length}`}</TotalCases>
       <ListContainer>
         {
-          loading ?
-            <Loader type="TailSpin" color='#c7c7c7' />
-            :
-            listCases && listCases.map((element, index) => (
-              <ListItem
-                key={index}
-                image={element.large_img}
-                title={element.title}
-                colors={element.frame_colors}
-                description={element.description}
-                dateStolen={element.date_stolen}
-                location={element.stolen_location}
-              />
-            ))
+          loading
+            ? <Loader type="TailSpin" color='#c7c7c7' />
+            : APIError
+              ? <Error>Oops, something went wrong.</Error>
+              : listCases.length
+                ? listCases.map((element, index) => (
+                  <ListItem
+                    key={index}
+                    image={element.large_img}
+                    title={element.title}
+                    colors={element.frame_colors}
+                    description={element.description}
+                    dateStolen={element.date_stolen}
+                    location={element.stolen_location}
+                  />
+                ))
+                : <NoResults>Oops, no results, try searching for something different.</NoResults>
         }
       </ListContainer>
       <Pagination>
