@@ -9,16 +9,18 @@ import ListItem from './ListItem'
 const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 90%;
     margin: 20px;
-    border: 2px solid black;
-    mi-height: 500px;
-    background-color: gray;
+    min-height: 500px;
 `
 const Filters = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 10px;
+    padding: 5px;
+    background-color: #c7c7c7;
+    border-radius: 5px;
 `
 const Selectors = styled.div`
     display: flex;
@@ -36,44 +38,64 @@ const Label = styled.label`
 `
 const SearchBar = styled.div`
     display: flex;
-    width: 30%;
-    height: 50px;
+    width: 20%;
+    height: 36px;
     border-radius: 8px;,
     overflow: hidden;
-    border: 2px solid black;
 `
 const SearchInput = styled.input`
     border: none;
     outline: none;
-    padding: 20px;
-    width: 80%;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-`
-const SearchButton = styled.button`
-    height: 100%;
-    border: none;
-    width: 20%;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+    padding: 15px;
+    width: 100%;
+    border-radius: 8px;
 `
 const ListContainer = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
 `
 const Pagination = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
 `
+const FirstPrevButton = styled.button`
+    border: none;
+    heigth: 35px;
+    width: 35px;
+    background-color: #191919;
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 4px;
+    cursor: pointer;
+`
 const PaginationButton = styled.button`
-
+    border: none;
+    heigth: 35px;
+    width: 35px;
+    background-color: #191919;
+    color: white;
+    border-radius: 20%;
+    padding: 10px;
+    margin: 4px;
+    cursor: pointer;
 `
 const PaginationButtonDisabled = styled.button`
-
+    border: none;
+    heigth: 35px;   
+    width: 35px;
+    background-color: #c7c7c7;
+    color: #191919;
+    border-radius: 20%;
+    padding: 10px;
+    margin: 4px;
 `
 const TotalCases = styled.span`
-
+    color: gray;
+    margin-left: 15px;
+    font-size: 18px;
 `
 
 const List = () => {
@@ -109,11 +131,11 @@ const List = () => {
     }
   }, [filteredCases])
 
-  function handleSearch (onSearch) {
+  const handleSearch = (onSearch) => {
     setSearched(onSearch)
   }
 
-  function filterCases () {
+  const filterCases = () => {
     if (searched) {
       setFilteredCases(cases.filter(element => element.date_stolen < toTimestamp(finishDate) && element.date_stolen > toTimestamp(startDate) && element.title.toLowerCase().indexOf(searched.toLowerCase()) !== -1))
     } else {
@@ -122,7 +144,7 @@ const List = () => {
     setActualPage(1)
   }
 
-  function listHandler (actualPage) {
+  const listHandler = (actualPage) => {
     const newCasesArr = []
     for (let i = 0; i < 10; i++) {
       if (filteredCases[(actualPage * 10 - 10) + i]) {
@@ -132,17 +154,17 @@ const List = () => {
     setListCases(newCasesArr)
   }
 
-  function toTimestamp (strDate) {
+  const toTimestamp = (strDate) => {
     const dateNum = Date.parse(strDate)
     return dateNum / 1000
   }
 
-  function paginationButtonsHandler () {
+  const paginationButtonsHandler = () => {
     const buttons = []
 
     if (actualPage > 1) {
-      buttons.push(<PaginationButton onClick={() => setActualPage(1)} >First</PaginationButton>)
-      buttons.push(<PaginationButton onClick={() => setActualPage(actualPage - 1)} >Prev</PaginationButton>)
+      buttons.push(<FirstPrevButton onClick={() => setActualPage(1)} >{'<<'}</FirstPrevButton>)
+      buttons.push(<FirstPrevButton onClick={() => setActualPage(actualPage - 1)} >{'<'}</FirstPrevButton>)
     }
 
     for (let i = 1; i <= totalPages; i++) {
@@ -160,8 +182,8 @@ const List = () => {
     }
 
     if (actualPage < totalPages) {
-      buttons.push(<PaginationButton onClick={() => setActualPage(actualPage + 1)}>Next</PaginationButton>)
-      buttons.push(<PaginationButton onClick={() => setActualPage(totalPages)}>Last</PaginationButton>)
+      buttons.push(<FirstPrevButton onClick={() => setActualPage(actualPage + 1)}>{'>'}</FirstPrevButton>)
+      buttons.push(<FirstPrevButton onClick={() => setActualPage(totalPages)}>{'>>'}</FirstPrevButton>)
     }
 
     return buttons
@@ -186,8 +208,6 @@ const List = () => {
                 </Selectors>
                 <SearchBar>
                     <SearchInput type='text' placeholder='Search...' value={searched} onChange={(e) => handleSearch(e.target.value)} />
-                    <SearchButton>
-                    </SearchButton>
                 </SearchBar>
             </Filters>
             <TotalCases>{`Total Cases Found: ${filteredCases.length}`}</TotalCases>
