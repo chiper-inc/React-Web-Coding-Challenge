@@ -12,38 +12,75 @@ const MainContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 90%;
-    margin: 20px;
-    min-height: 500px;
+    margin: 1.2rem;
+    min-height: 35rem;
 `
 const Filters = styled.div`
     display: flex;
+    width: 95%;
     justify-content: space-between;
     align-items: center;
-    margin: 10px;
+    margin: 10px 2.5%;
     padding: 5px;
-    background-color: #c7c7c7;
     border-radius: 5px;
-`
-const Selectors = styled.div`
-    display: flex;
-    justify-content: space-between;
+    border: 1px solid #c7c7c7;
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+      border: none;
+    }
+    
 `
 const ByDateSelectors = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    @media (max-width: 1024px) {
+      margin: .6rem;
+    }
+    @media (max-width: 481px) {
+      flex-direction: column;
+      width: 100%;
+    }
+    
 `
 const Label = styled.label`
-    font-size: 30px;
-    margin-right: 10px;
-    margin-left: 10px;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    @media (max-width: 720px) {
+      font-size: 1.2rem;
+      margin: 0 5px;
+    }
+    @media (max-width: 481px) {
+      font-size: 1.5rem
+    }
+`
+const DateSelector = styled(props => <DatePicker {...props} />)`
+    border: none;
+    margin: none;
+    padding: 8px;
+    text-align: center;
+    font-weight: 500;
+    outline: none;
+    border-bottom: 1px solid #c7c7c7;
+    width: 100px;
+    @media (max-width: 481px) {
+      font-size: 1.2rem;
+      width: 100%;
+    }
 `
 const SearchBar = styled.div`
     display: flex;
     width: 20%;
     height: 36px;
-    border-radius: 8px;,
+    border: 1px solid #c7c7c7;
+    border-radius: 5px;
     overflow: hidden;
+    @media (max-width: 1024px) {
+      width: 35%;
+    }
+    @media (max-width: 768px) {
+      width: 100%;
+    }
 `
 const SearchInput = styled.input`
     border: none;
@@ -57,7 +94,7 @@ const ListContainer = styled.div`
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    min-height: 400px;
+    min-height: 30rem;
 `
 const Pagination = styled.div`
     display: flex;
@@ -66,7 +103,7 @@ const Pagination = styled.div`
 `
 const FirstPrevButton = styled.button`
     border: none;
-    heigth: 35px;
+    height: 35px;
     width: 35px;
     background-color: #191919;
     color: white;
@@ -74,10 +111,16 @@ const FirstPrevButton = styled.button`
     padding: 10px;
     margin: 4px;
     cursor: pointer;
+    visibility: ${props => props.visibilityState || 'auto'};
+    @media (max-width: 481px) {
+      height: 25px;
+      width: 25px;
+      padding: 3px;
+    }
 `
 const PaginationButton = styled.button`
     border: none;
-    heigth: 35px;
+    height: 35px;
     width: 35px;
     background-color: #191919;
     color: white;
@@ -85,6 +128,12 @@ const PaginationButton = styled.button`
     padding: 10px;
     margin: 4px;
     cursor: pointer;
+    visibility: ${props => props.visibilityState || 'visible'};
+      @media (max-width: 481px) {
+        height: 25px;
+        width: 25px;
+        padding: 3px;
+      }
 `
 const PaginationButtonDisabled = styled.button`
     border: none;
@@ -95,17 +144,24 @@ const PaginationButtonDisabled = styled.button`
     border-radius: 20%;
     padding: 10px;
     margin: 4px;
+    @media (max-width: 481px) {
+      height: 25px;
+      width: 25px;
+      padding: 3px;
+    }
 `
 const TotalCases = styled.span`
     color: gray;
-    margin-left: 15px;
-    font-size: 18px;
+    text-align: left;
+    width: 90%;
+    margin: 0 5%;
+    font-size: 1rem;
 `
 const NoResults = styled.span`
-    font-size: 28px;
+    font-size: 1.5rem;
 `
 const Error = styled.span`
-    font-size: 28px;
+    font-size: 1.5rem;
     color: red;
 `
 
@@ -186,24 +242,44 @@ const List = () => {
       buttons.push(<FirstPrevButton key='first' onClick={() => setActualPage(1)} >{'<<'}</FirstPrevButton>)
       buttons.push(<FirstPrevButton key='prev' onClick={() => setActualPage(actualPage - 1)} >{'<'}</FirstPrevButton>)
     }
-
-    for (let i = 1; i <= totalPages; i++) {
-      if (i === actualPage - 2) {
-        buttons.push(<PaginationButton key={actualPage - 2} onClick={() => setActualPage(actualPage - 2)}>{actualPage - 2}</PaginationButton>)
-      } else if (i === actualPage - 1) {
-        buttons.push(<PaginationButton key={actualPage - 1} onClick={() => setActualPage(actualPage - 1)}>{actualPage - 1}</PaginationButton>)
-      } else if (i === actualPage) {
-        buttons.push(<PaginationButtonDisabled key='actual' >{actualPage}</PaginationButtonDisabled>)
-      } else if (i === (actualPage + 1)) {
-        buttons.push(<PaginationButton key={actualPage + 1} onClick={() => setActualPage(actualPage + 1)} >{actualPage + 1}</PaginationButton>)
-      } else if (i === actualPage + 2) {
-        buttons.push(<PaginationButton key={actualPage + 2} onClick={() => setActualPage(actualPage + 2)} >{actualPage + 2}</PaginationButton>)
-      }
+    if (actualPage === 1) {
+      buttons.push(<FirstPrevButton key='first' visibilityState='hidden' onClick={() => setActualPage(1)} >{'<<'}</FirstPrevButton>)
+      buttons.push(<FirstPrevButton key='prev' visibilityState='hidden' onClick={() => setActualPage(actualPage - 1)} >{'<'}</FirstPrevButton>)
     }
+
+    if(actualPage > 2) {
+      buttons.push(<PaginationButton key={actualPage - 2} onClick={() => setActualPage(actualPage - 2)}>{actualPage - 2}</PaginationButton>)
+    } else {
+      buttons.push(<PaginationButton key={actualPage - 2} visibilityState='hidden' onClick={() => setActualPage(actualPage - 2)}>{actualPage - 2}</PaginationButton>)
+    }
+
+    if(actualPage > 1) {
+      buttons.push(<PaginationButton key={actualPage - 1} onClick={() => setActualPage(actualPage - 1)}>{actualPage - 1}</PaginationButton>)
+    } else {
+      buttons.push(<PaginationButton key={actualPage - 1} visibilityState='hidden' onClick={() => setActualPage(actualPage - 1)}>{actualPage - 1}</PaginationButton>)
+    }
+
+    buttons.push(<PaginationButtonDisabled key='actual' >{actualPage}</PaginationButtonDisabled>)
+
+    if(actualPage < totalPages) {
+      buttons.push(<PaginationButton key={actualPage + 1} onClick={() => setActualPage(actualPage + 1)} >{actualPage + 1}</PaginationButton>)
+    } else {
+      buttons.push(<PaginationButton key={actualPage + 1} visibilityState='hidden' onClick={() => setActualPage(actualPage + 1)} >{actualPage + 1}</PaginationButton>)
+    }
+
+    if(actualPage < totalPages - 1) {
+      buttons.push(<PaginationButton key={actualPage + 2} onClick={() => setActualPage(actualPage + 2)} >{actualPage + 2}</PaginationButton>)
+    } else {
+      buttons.push(<PaginationButton key={actualPage + 2} visibilityState='hidden' onClick={() => setActualPage(actualPage + 2)} >{actualPage + 2}</PaginationButton>)
+    }
+
 
     if (actualPage < totalPages) {
       buttons.push(<FirstPrevButton key='next' onClick={() => setActualPage(actualPage + 1)}>{'>'}</FirstPrevButton>)
       buttons.push(<FirstPrevButton key='last' onClick={() => setActualPage(totalPages)}>{'>>'}</FirstPrevButton>)
+    } else {
+      buttons.push(<FirstPrevButton key='next' visibilityState='hidden' onClick={() => setActualPage(actualPage + 1)}>{'>'}</FirstPrevButton>)
+      buttons.push(<FirstPrevButton key='last' visibilityState='hidden' onClick={() => setActualPage(totalPages)}>{'>>'}</FirstPrevButton>)
     }
 
     return buttons
@@ -212,20 +288,18 @@ const List = () => {
   return (
     <MainContainer>
       <Filters>
-        <Selectors>
-          <ByDateSelectors>
-            <Label>Stolen from</Label>
-            <DatePicker
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-            />
-            <Label>to</Label>
-            <DatePicker
-              selected={finishDate}
-              onChange={(date) => setFinishDate(date)}
-            />
-          </ByDateSelectors>
-        </Selectors>
+        <ByDateSelectors>
+          <Label>Stolen from</Label>
+          <DateSelector
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+          />
+          <Label>to</Label>
+          <DateSelector
+            selected={finishDate}
+            onChange={(date) => setFinishDate(date)}
+          />
+        </ByDateSelectors>
         <SearchBar>
           <SearchInput type='text' placeholder='Search...' value={searched} onChange={(e) => handleSearch(e.target.value)} />
         </SearchBar>
@@ -239,16 +313,16 @@ const List = () => {
               ? <Error>{error}</Error>
               : listCases.length
                 ? listCases.map((element, index) => (
-                    <ListItem
-                      key={index}
-                      id={element.id}
-                      image={element.large_img}
-                      title={element.title}
-                      colors={element.frame_colors}
-                      description={element.description}
-                      dateStolen={element.date_stolen}
-                      location={element.stolen_location}
-                    />
+                  <ListItem
+                    key={index}
+                    id={element.id}
+                    image={element.large_img}
+                    title={element.title}
+                    colors={element.frame_colors}
+                    description={element.description}
+                    dateStolen={element.date_stolen}
+                    location={element.stolen_location}
+                  />
                 ))
                 : <NoResults>Oops, no results, try searching for something different.</NoResults>
         }

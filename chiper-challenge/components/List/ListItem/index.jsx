@@ -4,7 +4,6 @@ import { timestampToDate } from '../../../utils'
 
 const Item = styled.div`
     width: 95%;
-    min-width: 475px;
     display: flex;
     align-items: flex-end;
     overflow: hidden;
@@ -19,19 +18,40 @@ const Item = styled.div`
             background-color: #dfdfdf;
             width: 100%;
         }
+        @media (max-width: 768px) {
+            min-width: 475px;
+        }
+        @media (max-width: 481px) {
+            min-width: 0px;
+            flex-direction: column;
+            width: 100%;
+            padding: 0;
+            margin: 5px 0;
+        }
 `
 const Image = styled.img`
-    height: 175px;
-    min-width: 175px;
-    max-width: 175px;
+    height: 11rem;
+    min-width: 11rem;
+    max-width: 11rem;
     margin-right: 1.5%;
     object-fit: cover;
+    @media (max-width: 481px) {
+        min-width: 100%;
+        max-width: 100%;
+        height: 18rem;
+        margin: 0;
+    }
 `
 const CaseDescription = styled.div`
     display: flex;
     flex-direction: column;
-    height: 175px;
+    height: 11rem;
     justify-content: space-around;
+    @media (max-width: 481px) {
+        width: 100%;
+        padding: 10px;
+        height: fit-content;
+    }
 `
 const BikeDescription = styled.div`
     display: flex;
@@ -40,7 +60,7 @@ const BikeDescription = styled.div`
 `
 
 const Casetitle = styled.span`
-    font-size: 25px;
+    font-size: 1.5rem;
 `
 const BikeInfo = styled.span`
     margin-bottom: 2%;

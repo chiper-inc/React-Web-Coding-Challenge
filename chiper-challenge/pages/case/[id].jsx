@@ -24,13 +24,15 @@ const MainContainer = styled.div`
 const CaseTitle = styled.span`
     font-size: 32px;
     font-weight: 500;
-    `
+`
 const CaseInfo = styled.div`
     display: flex; 
     justify-content: flex-start;
     margin-top: 2%;
     background-color: #dfdfdf;
-    
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `
 const CaseImage = styled.img`
     height: 25rem;
@@ -38,6 +40,13 @@ const CaseImage = styled.img`
     max-width: 45%;
     object-fit: cover;
     margin-right: 1%;
+    @media (max-width: 768px) {
+        min-width: 100%;
+        max-width: 100%;
+    }
+    @media (max-width: 480px) {
+        height: 15rem;
+    }
 `
 const CaseDescription = styled.div`
     display: flex;
@@ -46,19 +55,33 @@ const CaseDescription = styled.div`
     height: 25rem;
     width: 100%;
     padding: .5rem;
+    @media (max-width: 480px) {
+        height: fit-content;
+    }
 `
 const BikeInfo = styled.span`
     font-size: 1.3rem;
     font-weight: 500;
+    @media (max-width: 480px) {
+        font-size: 1rem;
+    }
 `
 const Info = styled.span`
     color: #282828;
     font-size: 1.1rem;
     margin-bottom: .5rem;
+    @media (max-width: 480px) {
+        font-size: .9rem;
+        margin-bottom: 1rem;
+    }
 `
 const Map = styled.div`
     height: 30rem;
     width: 54%;
+    @media (max-width: 768px) {
+        width: 100%;
+        height: 20rem;
+    }
 `
 const ExtraInfo = styled.div`
     display: flex;
@@ -66,6 +89,10 @@ const ExtraInfo = styled.div`
     justify-content: space-between;
     height: 30rem;
     width 45%;
+    @media (max-width: 768px) {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
 `
 const BikeDescription = styled.div`
     height: 48%;
@@ -96,49 +123,52 @@ const Divider = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `
 
 const Case = () => {
-  const dispatch = useDispatch()
-  const router = useRouter()
-  const { caseDetails } = useSelector((state) => ({ ...state }))
-  const [viewport, setViewport] = useState({
-    latitude: 52.4972347,
-    longitude: 13.3429021,
-    position: 'relative',
-    top: 0,
-    bottom: 0,
-    zoom: 15,
-    height: '100%',
-    width: '100%'
-  })
-  const [loading, setLoading] = useState(true)
+    const dispatch = useDispatch()
+    const router = useRouter()
+    const { caseDetails } = useSelector((state) => ({ ...state }))
+    const [viewport, setViewport] = useState({
+        latitude: 52.4972347,
+        longitude: 13.3429021,
+        position: 'relative',
+        top: 0,
+        bottom: 0,
+        zoom: 15,
+        height: '100%',
+        width: '100%'
+    })
+    const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    if (router.query.id) {
-      dispatch(getCaseDetails(router.query.id))
-    }
-    setTimeout(function () { setLoading(false) }, 1000)
-  }, [router.query.id])
-  useEffect(() => {
-    if (Object.keys(caseDetails).length) {
-      setViewport({
-        ...viewport,
-        latitude: caseDetails.stolen_record.latitude,
-        longitude: caseDetails.stolen_record.longitude
-      })
-    }
-  }, [caseDetails])
+    useEffect(() => {
+        if (router.query.id) {
+            dispatch(getCaseDetails(router.query.id))
+        }
+        setTimeout(function () { setLoading(false) }, 1000)
+    }, [router.query.id])
+    useEffect(() => {
+        if (Object.keys(caseDetails).length) {
+            setViewport({
+                ...viewport,
+                latitude: caseDetails.stolen_record.latitude,
+                longitude: caseDetails.stolen_record.longitude
+            })
+        }
+    }, [caseDetails])
 
-  return (
+    return (
         <>
             {
                 loading
-                  ? <LoaderContainer>
+                    ? <LoaderContainer>
                         <Loader type="TailSpin" color='#c7c7c7' />
                     </LoaderContainer>
-                  : caseDetails && Object.keys(caseDetails).length
-                    ? <MainContainer>
+                    : caseDetails && Object.keys(caseDetails).length
+                        ? <MainContainer>
                             <CaseTitle>{caseDetails.title}</CaseTitle>
                             <CaseInfo>
                                 <CaseImage src={caseDetails.large_img}></CaseImage>
@@ -184,10 +214,10 @@ const Case = () => {
                                 </Map>
                             </Divider>
                         </MainContainer>
-                    : <></>
+                        : <></>
             }
         </>
-  )
+    )
 }
 
 export default Case

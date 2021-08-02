@@ -8,15 +8,15 @@ const MainContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: .5rem;
 `
 const LogoContainer = styled.div`
     display: flex;
     align-items: center;
-    margin-left: 7%;
+    margin-left: 3%;
     cursor: pointer;
 `
 const Logo = styled(props => <Image {...props} />)`
-
 `
 const TitleContainer = styled.span`
     display: flex;
@@ -25,16 +25,24 @@ const TitleContainer = styled.span`
     position: relative;
     top: 5px;
     margin-left: 10px
+    
 `
 const Title = styled.span`
-    font-size: 25px;
+    font-size: 1.5rem;
     color: white;
+    @media (max-width: 481px) {
+        font-size: 1rem;
+      }
 `
 const SubTitle = styled.span`
     position: relative;
     bottom: 10px;
     right: 10px;
     color: #cdcdcd;
+    @media (max-width: 481px) {
+        font-size: .7rem;
+        bottom: 5px;
+      }
 `
 
 const Nav = () => {
