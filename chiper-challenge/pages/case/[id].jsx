@@ -105,6 +105,9 @@ const Case = () => {
   const [viewport, setViewport] = useState({
     latitude: 52.4972347,
     longitude: 13.3429021,
+    position: 'relative',
+    top: 0,
+    bottom: 0,
     zoom: 15,
     height: '100%',
     width: '100%'
