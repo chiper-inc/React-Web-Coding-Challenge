@@ -15,6 +15,7 @@
     "react-datepicker": "^4.1.1",
     "react-dom": "17.0.2",
     "react-loader-spinner": "^4.0.0",
+    "react-map-gl": "^6.1.16",
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
     "redux-devtools-extension": "^2.13.9",

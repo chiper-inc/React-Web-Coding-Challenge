@@ -1,8 +1,9 @@
-import { GET_CASES, ERROR } from '../actions'
+import { GET_CASES, ERROR, GET_CASE_DETAILS } from '../actions'
 
 const initialState = {
   cases: [],
-  error: ''
+  error: '',
+  caseDetails: {},
 }
 
 const generalReducer = (state = initialState, action) => {
@@ -17,6 +18,12 @@ const generalReducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload
+      }
+    }
+    case GET_CASE_DETAILS: {
+      return {
+        ...state,
+        caseDetails: action.payload
       }
     }
     default:

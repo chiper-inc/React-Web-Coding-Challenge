@@ -239,15 +239,16 @@ const List = () => {
               ? <Error>{error}</Error>
               : listCases.length
                 ? listCases.map((element, index) => (
-                  <ListItem
-                    key={index}
-                    image={element.large_img}
-                    title={element.title}
-                    colors={element.frame_colors}
-                    description={element.description}
-                    dateStolen={element.date_stolen}
-                    location={element.stolen_location}
-                  />
+                    <ListItem
+                      key={index}
+                      id={element.id}
+                      image={element.large_img}
+                      title={element.title}
+                      colors={element.frame_colors}
+                      description={element.description}
+                      dateStolen={element.date_stolen}
+                      location={element.stolen_location}
+                    />
                 ))
                 : <NoResults>Oops, no results, try searching for something different.</NoResults>
         }

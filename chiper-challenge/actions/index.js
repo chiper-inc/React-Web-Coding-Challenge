@@ -2,6 +2,7 @@ import axios from 'axios'
 
 export const GET_CASES = 'GET_CASES'
 export const ERROR = 'ERROR'
+export const GET_CASE_DETAILS = 'GET_CASE_DETAILS'
 
 const inmutable = {
   per_page: 100,
@@ -41,5 +42,16 @@ export function getCases (params) {
             dispatch({ type: ERROR, payload: 'Something went wrong.' })
         }
       })
+  }
+}
+
+export function getCaseDetails (id) {
+  return (dispatch) => {
+    return axios.get('https://bikeindex.org:443/api/v3/bikes/' + id)
+      .then(res => res.data)
+      .then(res => {
+        dispatch({ type: GET_CASE_DETAILS, payload: res.bike })
+      })
+      .catch(e => console.log(e))
   }
 }

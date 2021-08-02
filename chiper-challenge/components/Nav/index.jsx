@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const MainContainer = styled.div`
     width: %100;
@@ -11,10 +13,10 @@ const LogoContainer = styled.div`
     display: flex;
     align-items: center;
     margin-left: 7%;
+    cursor: pointer;
 `
-const Logo = styled.img`
-    height: 40px; 
-    margin: 10px;
+const Logo = styled(props => <Image {...props} />)`
+
 `
 const TitleContainer = styled.span`
     display: flex;
@@ -22,6 +24,7 @@ const TitleContainer = styled.span`
     align-items: flex-end;
     position: relative;
     top: 5px;
+    margin-left: 10px
 `
 const Title = styled.span`
     font-size: 25px;
@@ -37,13 +40,15 @@ const SubTitle = styled.span`
 const Nav = () => {
     return (
         <MainContainer>
-            <LogoContainer>
-                <Logo src='./img/logo.png' />
-                <TitleContainer>
-                    <Title>Police Departament of Berlin</Title>
-                    <SubTitle>Stolen Bikes</SubTitle>
-                </TitleContainer>
-            </LogoContainer>
+            <Link href='/'>
+                <LogoContainer>
+                    <Logo src='/img/logo.png' height='40px' width='40px' />
+                    <TitleContainer>
+                        <Title>Police Departament of Berlin</Title>
+                        <SubTitle>Stolen Bikes</SubTitle>
+                    </TitleContainer>
+                </LogoContainer>
+            </Link>
         </MainContainer>
     )
 }

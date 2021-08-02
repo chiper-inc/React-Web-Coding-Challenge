@@ -1,6 +1,8 @@
 import styled from 'styled-components'
+import Link from 'next/link'
+import { timestampToDate } from '../../../utils'
 
-const Item = styled.a`
+const Item = styled.div`
     width: 95%;
     min-width: 475px;
     display: flex;
@@ -11,6 +13,7 @@ const Item = styled.a`
     border-radius: 3px;
     box-shadow: -1px 0px 4px 0px rgba(0,0,0,0.3);
     position: relative;
+    cursor: pointer;
     transition: all 0.2s;
         &:hover {
             background-color: #dfdfdf;
@@ -46,37 +49,26 @@ const Colors = styled.span`
 
 `
 
-const ListItem = ({ image, title, colors, description, dateStolen, location }) => {
-  const timestampToDate = (strDate) => {
-    const dateNum = new Date(strDate * 1000).toLocaleDateString('en-US')
-    return dateNum
-  }
+const ListItem = ({ image, title, colors, description, dateStolen, location, id }) => {
+    
 
-  return (
-        <Item href=''>
-            <Image src={image || './img/bike.png'} alt='bike-image' />
-            <CaseDescription>
-                <Casetitle>{title}</Casetitle>
-                <BikeDescription>
-                    <BikeInfo>{'Colors: '}
-                        {
-                            colors.length > 1
-                              ? colors.map(color => {
-                                if (color === colors[0]) {
-                                  return <Colors>{color + ' - '}</Colors>
-                                } else {
-                                  return <Colors>{color + ' '}</Colors>
-                                }
-                              })
-                              : <Colors>{colors[0] + ' '}</Colors>
-                        }
-                    </BikeInfo>
-                    <BikeInfo>Theft Date: {timestampToDate(dateStolen)}</BikeInfo>
-                    <BikeInfo>Location of the theft: {location}</BikeInfo>
-                </BikeDescription>
-            </CaseDescription>
-        </Item>
-  )
+    return (
+        <Link href='/case/[id]' as={`/case/${id}`}>
+            <Item>
+                <Image src={image || './img/bike.png'} alt='bike-image' />
+                <CaseDescription>
+                    <Casetitle>{title}</Casetitle>
+                    <BikeDescription>
+                        <BikeInfo>{'Colors: '}
+                            <Colors>{colors.join(', ')}</Colors>
+                        </BikeInfo>
+                        <BikeInfo>Theft Date: {timestampToDate(dateStolen)}</BikeInfo>
+                        <BikeInfo>Location of the theft: {location}</BikeInfo>
+                    </BikeDescription>
+                </CaseDescription>
+            </Item>
+        </Link>
+    )
 }
 
 export default ListItem

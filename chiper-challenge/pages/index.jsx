@@ -10,7 +10,6 @@ const HomeContainer = styled.div`
 export default function Home() {
   return (
     <>
-    <Nav/>
     <HomeContainer> 
       <List />
     </HomeContainer>
