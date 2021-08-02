@@ -38,7 +38,7 @@ const SubTitle = styled.span`
 `
 
 const Nav = () => {
-    return (
+  return (
         <MainContainer>
             <Link href='/'>
                 <LogoContainer>
@@ -50,7 +50,7 @@ const Nav = () => {
                 </LogoContainer>
             </Link>
         </MainContainer>
-    )
+  )
 }
 
 export default Nav

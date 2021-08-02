@@ -3,7 +3,7 @@ import { GET_CASES, ERROR, GET_CASE_DETAILS } from '../actions'
 const initialState = {
   cases: [],
   error: '',
-  caseDetails: {},
+  caseDetails: {}
 }
 
 const generalReducer = (state = initialState, action) => {

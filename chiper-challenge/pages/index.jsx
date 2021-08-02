@@ -1,4 +1,3 @@
-import Nav from '../components/Nav'
 import List from '../components/List'
 import styled from 'styled-components'
 
@@ -7,10 +6,10 @@ const HomeContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `
-export default function Home() {
+export default function Home () {
   return (
     <>
-    <HomeContainer> 
+    <HomeContainer>
       <List />
     </HomeContainer>
     </>

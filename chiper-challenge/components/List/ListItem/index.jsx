@@ -50,9 +50,7 @@ const Colors = styled.span`
 `
 
 const ListItem = ({ image, title, colors, description, dateStolen, location, id }) => {
-    
-
-    return (
+  return (
         <Link href='/case/[id]' as={`/case/${id}`}>
             <Item>
                 <Image src={image || './img/bike.png'} alt='bike-image' />
@@ -68,7 +66,7 @@ const ListItem = ({ image, title, colors, description, dateStolen, location, id 
                 </CaseDescription>
             </Item>
         </Link>
-    )
+  )
 }
 
 export default ListItem

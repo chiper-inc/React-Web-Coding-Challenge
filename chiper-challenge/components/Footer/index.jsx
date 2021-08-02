@@ -8,9 +8,9 @@ const MainContainer = styled.div`
 `
 
 const Footer = () => {
-    return (
+  return (
         <MainContainer />
-    )
+  )
 }
 
 export default Footer
