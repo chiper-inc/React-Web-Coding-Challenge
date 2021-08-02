@@ -183,27 +183,27 @@ const List = () => {
     const buttons = []
 
     if (actualPage > 1) {
-      buttons.push(<FirstPrevButton onClick={() => setActualPage(1)} >{'<<'}</FirstPrevButton>)
-      buttons.push(<FirstPrevButton onClick={() => setActualPage(actualPage - 1)} >{'<'}</FirstPrevButton>)
+      buttons.push(<FirstPrevButton key='first' onClick={() => setActualPage(1)} >{'<<'}</FirstPrevButton>)
+      buttons.push(<FirstPrevButton key='prev' onClick={() => setActualPage(actualPage - 1)} >{'<'}</FirstPrevButton>)
     }
 
     for (let i = 1; i <= totalPages; i++) {
       if (i === actualPage - 2) {
-        buttons.push(<PaginationButton onClick={() => setActualPage(actualPage - 2)}>{actualPage - 2}</PaginationButton>)
+        buttons.push(<PaginationButton key={actualPage - 2} onClick={() => setActualPage(actualPage - 2)}>{actualPage - 2}</PaginationButton>)
       } else if (i === actualPage - 1) {
-        buttons.push(<PaginationButton onClick={() => setActualPage(actualPage - 1)}>{actualPage - 1}</PaginationButton>)
+        buttons.push(<PaginationButton key={actualPage - 1} onClick={() => setActualPage(actualPage - 1)}>{actualPage - 1}</PaginationButton>)
       } else if (i === actualPage) {
-        buttons.push(<PaginationButtonDisabled>{actualPage}</PaginationButtonDisabled>)
+        buttons.push(<PaginationButtonDisabled key='actual' >{actualPage}</PaginationButtonDisabled>)
       } else if (i === (actualPage + 1)) {
-        buttons.push(<PaginationButton onClick={() => setActualPage(actualPage + 1)} >{actualPage + 1}</PaginationButton>)
+        buttons.push(<PaginationButton key={actualPage + 1} onClick={() => setActualPage(actualPage + 1)} >{actualPage + 1}</PaginationButton>)
       } else if (i === actualPage + 2) {
-        buttons.push(<PaginationButton onClick={() => setActualPage(actualPage + 2)} >{actualPage + 2}</PaginationButton>)
+        buttons.push(<PaginationButton key={actualPage + 2} onClick={() => setActualPage(actualPage + 2)} >{actualPage + 2}</PaginationButton>)
       }
     }
 
     if (actualPage < totalPages) {
-      buttons.push(<FirstPrevButton onClick={() => setActualPage(actualPage + 1)}>{'>'}</FirstPrevButton>)
-      buttons.push(<FirstPrevButton onClick={() => setActualPage(totalPages)}>{'>>'}</FirstPrevButton>)
+      buttons.push(<FirstPrevButton key='next' onClick={() => setActualPage(actualPage + 1)}>{'>'}</FirstPrevButton>)
+      buttons.push(<FirstPrevButton key='last' onClick={() => setActualPage(totalPages)}>{'>>'}</FirstPrevButton>)
     }
 
     return buttons
