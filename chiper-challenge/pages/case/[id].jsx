@@ -127,8 +127,6 @@ const Case = () => {
     }
   }, [caseDetails])
 
-  console.log(caseDetails)
-
   return (
         <>
             {
