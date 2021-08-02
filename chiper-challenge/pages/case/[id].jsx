@@ -163,11 +163,11 @@ const Case = () => {
                                 <ExtraInfo>
                                     <BikeDescription>
                                         <InfoButton>Bike Description</InfoButton>
-                                        <InfoDisplay>{caseDetails.description}</InfoDisplay>
+                                        <InfoDisplay>{caseDetails.description ? caseDetails.description : 'No description provided'}</InfoDisplay>
                                     </BikeDescription>
                                     <BikeDescription>
                                         <InfoButton>Theft Description</InfoButton>
-                                        <InfoDisplay>{caseDetails.stolen_record.theft_description}</InfoDisplay>
+                                        <InfoDisplay>{caseDetails.stolen_record.theft_description ? caseDetails.stolen_record.theft_description : 'No description provided'}</InfoDisplay>
                                     </BikeDescription>
                                 </ExtraInfo>
                                 <Map>
