@@ -129,46 +129,46 @@ const Divider = styled.div`
 `
 
 const Case = () => {
-    const dispatch = useDispatch()
-    const router = useRouter()
-    const { caseDetails } = useSelector((state) => ({ ...state }))
-    const [viewport, setViewport] = useState({
-        latitude: 52.4972347,
-        longitude: 13.3429021,
-        position: 'relative',
-        top: 0,
-        bottom: 0,
-        zoom: 15,
-        height: '100%',
-        width: '100%'
-    })
-    const [loading, setLoading] = useState(true)
+  const dispatch = useDispatch()
+  const router = useRouter()
+  const { caseDetails } = useSelector((state) => ({ ...state }))
+  const [viewport, setViewport] = useState({
+    latitude: 52.4972347,
+    longitude: 13.3429021,
+    position: 'relative',
+    top: 0,
+    bottom: 0,
+    zoom: 15,
+    height: '100%',
+    width: '100%'
+  })
+  const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        if (router.query.id) {
-            dispatch(getCaseDetails(router.query.id))
-        }
-        setTimeout(function () { setLoading(false) }, 1000)
-    }, [router.query.id])
-    useEffect(() => {
-        if (Object.keys(caseDetails).length) {
-            setViewport({
-                ...viewport,
-                latitude: caseDetails.stolen_record.latitude,
-                longitude: caseDetails.stolen_record.longitude
-            })
-        }
-    }, [caseDetails])
+  useEffect(() => {
+    if (router.query.id) {
+      dispatch(getCaseDetails(router.query.id))
+    }
+    setTimeout(function () { setLoading(false) }, 1000)
+  }, [router.query.id])
+  useEffect(() => {
+    if (Object.keys(caseDetails).length) {
+      setViewport({
+        ...viewport,
+        latitude: caseDetails.stolen_record.latitude,
+        longitude: caseDetails.stolen_record.longitude
+      })
+    }
+  }, [caseDetails])
 
-    return (
+  return (
         <>
             {
                 loading
-                    ? <LoaderContainer>
+                  ? <LoaderContainer>
                         <Loader type="TailSpin" color='#c7c7c7' />
                     </LoaderContainer>
-                    : caseDetails && Object.keys(caseDetails).length
-                        ? <MainContainer>
+                  : caseDetails && Object.keys(caseDetails).length
+                    ? <MainContainer>
                             <CaseTitle>{caseDetails.title}</CaseTitle>
                             <CaseInfo>
                                 <CaseImage src={caseDetails.large_img}></CaseImage>
@@ -214,10 +214,10 @@ const Case = () => {
                                 </Map>
                             </Divider>
                         </MainContainer>
-                        : <></>
+                    : <></>
             }
         </>
-    )
+  )
 }
 
 export default Case
