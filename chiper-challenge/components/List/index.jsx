@@ -247,13 +247,13 @@ const List = () => {
       buttons.push(<FirstPrevButton key='prev' visibilityState='hidden' onClick={() => setActualPage(actualPage - 1)} >{'<'}</FirstPrevButton>)
     }
 
-    if(actualPage > 2) {
+    if (actualPage > 2) {
       buttons.push(<PaginationButton key={actualPage - 2} onClick={() => setActualPage(actualPage - 2)}>{actualPage - 2}</PaginationButton>)
     } else {
       buttons.push(<PaginationButton key={actualPage - 2} visibilityState='hidden' onClick={() => setActualPage(actualPage - 2)}>{actualPage - 2}</PaginationButton>)
     }
 
-    if(actualPage > 1) {
+    if (actualPage > 1) {
       buttons.push(<PaginationButton key={actualPage - 1} onClick={() => setActualPage(actualPage - 1)}>{actualPage - 1}</PaginationButton>)
     } else {
       buttons.push(<PaginationButton key={actualPage - 1} visibilityState='hidden' onClick={() => setActualPage(actualPage - 1)}>{actualPage - 1}</PaginationButton>)
@@ -261,18 +261,17 @@ const List = () => {
 
     buttons.push(<PaginationButtonDisabled key='actual' >{actualPage}</PaginationButtonDisabled>)
 
-    if(actualPage < totalPages) {
+    if (actualPage < totalPages) {
       buttons.push(<PaginationButton key={actualPage + 1} onClick={() => setActualPage(actualPage + 1)} >{actualPage + 1}</PaginationButton>)
     } else {
       buttons.push(<PaginationButton key={actualPage + 1} visibilityState='hidden' onClick={() => setActualPage(actualPage + 1)} >{actualPage + 1}</PaginationButton>)
     }
 
-    if(actualPage < totalPages - 1) {
+    if (actualPage < totalPages - 1) {
       buttons.push(<PaginationButton key={actualPage + 2} onClick={() => setActualPage(actualPage + 2)} >{actualPage + 2}</PaginationButton>)
     } else {
       buttons.push(<PaginationButton key={actualPage + 2} visibilityState='hidden' onClick={() => setActualPage(actualPage + 2)} >{actualPage + 2}</PaginationButton>)
     }
-
 
     if (actualPage < totalPages) {
       buttons.push(<FirstPrevButton key='next' onClick={() => setActualPage(actualPage + 1)}>{'>'}</FirstPrevButton>)
