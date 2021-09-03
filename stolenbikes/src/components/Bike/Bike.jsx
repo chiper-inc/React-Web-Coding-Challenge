@@ -1,23 +1,26 @@
 import React from 'react';
-import BikeDetail from '../BikeDetail/BikeDetail';
+import {Link} from 'react-router-dom';
 
 function Bike({
     title,
-    description,
+    id,
     dateoftheft,
-    dateofreport,
+    serial,
     theftlocation,
+    colors,
     picture}) {
-    console.log(picture)
+
     return (
-        <div>
-            <p>{title}</p>
-            <p>{description}</p>
-            <p>{dateoftheft}</p>
-            <p>{dateofreport}</p>
-            <p>{theftlocation}</p>
-            <img src={picture} alt={title}></img>
-        </div>
+        <Link to={`/case/${id}`}>
+            <div>
+                <img src={picture} alt={title}></img>
+                <h3>{title}</h3>
+                <strong>Stolen: <span>{dateoftheft}</span></strong>
+                <strong>Location: <span>{theftlocation}</span></strong>
+                <strong>Serial: <span>{serial}</span></strong>
+                <strong>Colors: <span>{colors}</span></strong>
+            </div>
+        </Link>
     )
 }
 

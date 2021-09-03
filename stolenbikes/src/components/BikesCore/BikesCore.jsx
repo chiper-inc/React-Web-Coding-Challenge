@@ -5,7 +5,7 @@ import Filter from '../Filter/Filter'
 
 
 function BikesCore() {
-    const [allBikes, setAllBikes] = useState([]);
+    const [allBikes, setAllBikes] = useState();
     const [bikesCount, setbikesCount] = useState();
 
 
@@ -18,6 +18,7 @@ function BikesCore() {
                     setAllBikes(allBikes);
                     setbikesCount(bikesCount);
                 })
+            .catch(error => alert(error))
             }
             useEffect(() => {
                 getData()
@@ -29,10 +30,9 @@ function BikesCore() {
 
     return (
         <div>
-            {/* <p>{allbikes.length}</p> */}
-            {/*Filters contiene el ui pero ejecuta las funciones de BikesCore */}
             <Filter /> {/*Pasar funciones por props*/}
-            {/* <BikesList bikes={filteredBikes}/> */}
+            <span>Total: {bikesCount}</span>
+            {/*Filters contiene el ui pero ejecuta las funciones de BikesCore */}
             <BikesList bikes={allBikes}/>
         </div>
     )

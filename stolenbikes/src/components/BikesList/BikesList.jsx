@@ -5,18 +5,22 @@ function BikesList({bikes}) {
     console.log(bikes,"BikesList")
     return (
         <>
-       { bikes.map((bike) => (
-           <Bike
-           key={bike.id}
-           id= {bike.id}
-           title={bike.title}
-           description={bike.description}
-           dateoftheft={bike.dateoftheft}
-           dateofreport={bike.dateofreport}
-           theftlocation={bike.theftlocation}
-           picture={bike.thumb}
-           />
-       ))}
+       {Array.isArray(bikes) ? (
+           bikes.map((bike) => (
+            <Bike
+                id={bike.id}
+                key={bike.id}
+                title={bike.title}
+                dateoftheft={bike.date_stolen}
+                theftlocation={bike.stolen_location}
+                serial={bike.serial}
+                colors={bike.frame_colors}
+                picture={bike.thumb}
+            />
+         ))
+       ):(
+        <p>Loading ...</p>
+       )}
         </>
     )
 }

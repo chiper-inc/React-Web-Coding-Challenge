@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { useForm, SubmitHandler } from "react-hook-form";
+
 
 function Filter({FilterFunctions}) { //destructuring de funciones que me vienen de BikesList
     return (
         <div>
-            {/*Aca muestro la ui */}
-            soy el Filtrovitch
+            <input type='text' name="keyword" value={keyword} placeholder="Search case descriptions"/>
         </div>
     )
 }
