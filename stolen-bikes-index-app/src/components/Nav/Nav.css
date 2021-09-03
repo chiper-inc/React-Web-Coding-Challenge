@@ -1,0 +1,13 @@
+.nav {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    padding: 0 10%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(82, 71, 71);
+}
+
+.nav img {
+    height: 100%;
+}
