@@ -9,6 +9,11 @@ export default function Nav() {
       <Link to="/">
         <img src={logo} alt="" />
       </Link>
+
+      <div className="navTitle">
+        <span className="navTitlePpal">Police Departament of Berlin</span>
+        <span className="navSubtitle">Stolen Bikes </span>
+      </div>
     </div>
   );
 }

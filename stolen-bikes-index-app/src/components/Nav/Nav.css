@@ -2,12 +2,31 @@
     width: 100%;
     height: 80px;
     position: fixed;
+    top: 0;
     padding: 0 10%;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
     background-color: rgb(82, 71, 71);
 }
 
-.nav img {
-    height: 100%;
+.nav a,
+.nav a img {
+    height: 90%;
+}
+
+.navTitle {
+    align-items: baseline;
+    margin-left: 20px;
+    color: rgb(228, 206, 206);
+}
+
+.navTitlePpal {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.navSubtitle {
+    font-size: 20px;
+    margin-left: 5px;
+    text-decoration: underline;
 }
