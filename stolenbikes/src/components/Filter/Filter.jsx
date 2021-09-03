@@ -4,6 +4,7 @@ function Filter({FilterFunctions}) { //destructuring de funciones que me vienen 
     return (
         <div>
             {/*Aca muestro la ui */}
+            soy el Filtrovitch
         </div>
     )
 }

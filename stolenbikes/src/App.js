@@ -1,11 +1,12 @@
-import logo from './logo.svg';
+import Nav from './components/Nav/Nav';
+import BikesCore from './components/BikesCore/BikesCore';
+
 import './App.css';
 
 function App() {
   return (
     <>
       <Nav/>
-      <Filters/>
       <BikesCore/>
     </>
   );

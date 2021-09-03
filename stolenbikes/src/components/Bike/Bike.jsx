@@ -1,10 +1,22 @@
 import React from 'react';
 import BikeDetail from '../BikeDetail/BikeDetail';
 
-function Bike() {
+function Bike({
+    title,
+    description,
+    dateoftheft,
+    dateofreport,
+    theftlocation,
+    picture}) {
+    console.log(picture)
     return (
         <div>
-            Lo que voy a mostrar en inicio de cada bici. Link a detalle clickeando en div
+            <p>{title}</p>
+            <p>{description}</p>
+            <p>{dateoftheft}</p>
+            <p>{dateofreport}</p>
+            <p>{theftlocation}</p>
+            <img src={picture} alt={title}></img>
         </div>
     )
 }
