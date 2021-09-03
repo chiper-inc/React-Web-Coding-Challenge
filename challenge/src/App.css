@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.3em;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+span {
+  padding-right: 10px;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
