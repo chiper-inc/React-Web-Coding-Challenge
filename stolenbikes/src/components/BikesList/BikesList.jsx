@@ -2,7 +2,6 @@ import React from 'react';
 import Bike from '../Bike/Bike';
 
 function BikesList({bikes}) {
-    console.log(bikes,"BikesList")
     return (
         <>
        {Array.isArray(bikes) ? (
