@@ -1,17 +1,18 @@
 import React,{useState} from 'react';
 import {useForm} from '../../hooks/useForm';
 
-function Filter({getData}) { //destructuring de funciones que me vienen de BikesList
+function Filter({getData,setTotalCasesCount,setReportedBikes}) { //destructuring de funciones que me vienen de BikesList
     const [allButton, setAllButton] = useState(false);
     const [ formValues, handleInputChange, reset ] = useForm({ keyword: '' })
     const { keyword } = formValues;
 
     const handleSubmit = (e) => {
         if(keyword.length >= 2) {
-          e.preventDefault();
-          getData(1,keyword)
-          reset()
-          setAllButton(true)
+            getData(1,keyword);
+            reset();
+            setTotalCasesCount(0);
+            setReportedBikes();
+            setAllButton(true);
         }
         e.preventDefault();
       }
@@ -25,10 +26,10 @@ function Filter({getData}) { //destructuring de funciones que me vienen de Bikes
                 value={keyword}
                 placeholder="Search case descriptions"
                 onChange={handleInputChange}
-                autocomplete="off"/>
+                autoComplete="off"/>
                 <button type="submit">Search</button>
-                {allButton && <button onClick={reset()}>See all</button>}
             </form>
+                {allButton && <button onClick={() => getData()}>See all</button>}
         </>
     )
 }

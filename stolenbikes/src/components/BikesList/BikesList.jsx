@@ -4,7 +4,7 @@ import Bike from '../Bike/Bike';
 function BikesList({bikes}) {
     return (
         <>
-       {Array.isArray(bikes) ? (
+       {Array.isArray(bikes) & bikes.length > 0 ? (
            bikes.map((bike) => (
             <Bike
                 id={bike.id}
@@ -18,7 +18,7 @@ function BikesList({bikes}) {
             />
          ))
        ):(
-        <p>Loading ...</p>
+        <p>No results</p>
        )}
         </>
     )

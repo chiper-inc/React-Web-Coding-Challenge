@@ -11,30 +11,36 @@ function BikesCore() {
     const [currentPage, setCurrentPage] = useState(1);
     const [casesPerPage] = useState(10);
 
+    console.log(currentPage,"currentPage")
     //Get Bikes reported and total cases count
-    function getData (page = currentPage, keyword= '') {
-        Promise.all([
-            axios.get(`https://bikeindex.org:443/api/v3/search?page=${page}&per_page=10&query=${keyword}&location=Berlin&distance=10&stolenness=proximity`),
+    function getData (page = currentPage, keyword = '') {
+            axios.get(`https://bikeindex.org:443/api/v3/search?page=${page}&per_page=10&query=${keyword}&location=Berlin&distance=10&stolenness=proximity`)
+            .then(({data:{ bikes }}) => { setReportedBikes(bikes)})
+
             axios.get(`https://bikeindex.org:443/api/v3/search/count?query=${keyword}&location=Berlin&distance=10&stolenness=proximity`)
-        ])
-        .then(([{data: { bikes}} , {data: { proximity : totalCasesCount}}]) => {
-            setReportedBikes(bikes);
-            setTotalCasesCount(totalCasesCount);
-        })
-        .catch(error => alert(error))
+            .then(({data:{ proximity : totalCasesCount }}) => { setTotalCasesCount( totalCasesCount)})
+            .catch(error => {
+                alert("Oops, we couldn't bring the cases, try again by refreshing the page!")
+             console.log(error)
+            })
     }
     useEffect(() => {
         getData()
     }, []);
 
     //Change Page
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+    function paginate(pageNumber){
+        if(currentPage !== pageNumber){
+            setCurrentPage(pageNumber)
+            getData()
+        }
+    }
+    console.log(reportedBikes,"reported bikes")
     return (
         <div>
-            <Filter getData={getData} currentPage={currentPage}/>
-            <span>Total: {totalCasesCount}</span>
-            <BikesList bikes={reportedBikes}/>
+            <Filter getData={getData} currentPage={currentPage} setTotalCasesCount={setTotalCasesCount} setReportedBikes={setReportedBikes}/>
+            {totalCasesCount ? <span>Total: {totalCasesCount}</span> : totalCasesCount === 0 ? null : <span>Loading Total...</span>}
+            {reportedBikes ? <BikesList bikes={reportedBikes}/> : <p>Loading Cases...</p>}
             <Pagination casesPerPage={casesPerPage} totalCasesCount={totalCasesCount} paginate={paginate} />
         </div>
     )
