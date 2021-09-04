@@ -10,6 +10,7 @@ export const Container = styled.div`
   position: relative;
   cursor: pointer;
   margin: auto;
+  margin-top: 7px;
   margin-bottom: 16px;
 `;
 
@@ -20,17 +21,17 @@ export const ImageBici = styled.div`
   img {
     width: 190px;
     height: 100%;
-    transition: all 0.5s ease-in-out;
-
-    &:hover {
-      width: 195px;
-      height: 145px;
-    }
   }
 `;
 
 export const ContainerText = styled.div`
-  margin: 10px 0px 0px 20px;
+  padding: 10px 0px 0px 20px;
+  width: calc(100% - 190px);
+  height: 150px;
+  &:hover {
+    background-color: #006dae;
+    color: white;
+  }
 `;
 export const Text = styled.div`
   h5 {

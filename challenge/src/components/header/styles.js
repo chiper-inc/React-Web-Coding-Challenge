@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 130px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,9 +14,9 @@ export const Container = styled.div`
 `;
 export const LogoImage = styled.div`
   img {
-    width: 120px;
-    height: 100px;
-    margin: 10px;
+    width: 115px;
+    height: 95px;
+    margin: 8px;
   }
 `;
 export const TitleHeader = styled.div`
