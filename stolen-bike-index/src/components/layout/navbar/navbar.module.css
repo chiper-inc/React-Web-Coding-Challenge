@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+  background-color: black;
+  height: 150px;
+  overflow: hidden;
+}
+
+.containerLogo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 5rem;
+  height: 100%;
+  width: 150px;
+  float: left;
+}
+
+.containerLogo img {
+  height: 100px;
+  width: 100px;
+}
+
+.containerText {
+  float: left;
+  width: 400px;
+  color: white;
+}
