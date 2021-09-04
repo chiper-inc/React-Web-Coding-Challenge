@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Container, IconoCalendar, PickerStart, SearchForm } from "./syles";
 import axios from "axios";
 
-const Search = ({ setBikes, setCase, setLoading }) => {
+const Search = ({ setBikes, setCase, setLoading, setCurrentPage }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [searchText, setSearchText] = useState("");
@@ -27,6 +27,7 @@ const Search = ({ setBikes, setCase, setLoading }) => {
         setCase(data.bikes.length);
         setLoading(false);
         setSearchText("");
+        setCurrentPage(1);
       };
       fetchBikes();
     }
@@ -88,6 +89,7 @@ Search.propTypes = {
   setBikes: PropTypes.func,
   setCase: PropTypes.func,
   setLoading: PropTypes.boolean,
+  setCurrentPage: PropTypes.func,
 };
 
 export default Search;

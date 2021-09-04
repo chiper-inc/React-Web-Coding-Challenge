@@ -36,7 +36,12 @@ const Home = () => {
   };
   return (
     <>
-      <Search setBikes={setBikes} setCase={setCase} setLoading={setLoading} />
+      <Search
+        setBikes={setBikes}
+        setCase={setCase}
+        setLoading={setLoading}
+        setCurrentPage={setCurrentPage}
+      />
       <CardList loading={loading} cases={cases} currentBikes={currentBikes} />
       {bikes.length < 1 && <NoResults />}
       <Pagination
