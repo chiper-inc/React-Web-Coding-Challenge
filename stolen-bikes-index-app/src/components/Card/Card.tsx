@@ -1,8 +1,8 @@
 import React from 'react';
-import { BikeCard } from '../../interfaces/BikeCardInterface';
+import { SimpleStolenBikes } from '../../interfaces/SimpleStolenBikesInterface';
 import './Card.css';
 
-export default function Card({ title, description, img } :BikeCard) {
+export default function Card({ title, description, img } :SimpleStolenBikes) {
   return (
     <div>
       <img src={img} alt="" />

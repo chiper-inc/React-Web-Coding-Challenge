@@ -1,4 +1,4 @@
-export interface BikeCard {
+export interface SimpleStolenBikes {
   title: string;
   description: string;
   DateOfTheft: string;
