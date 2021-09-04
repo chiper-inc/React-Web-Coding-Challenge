@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Container, IconoCalendar, PickerStart, SearchForm } from "./syles";
+import axios from "axios";
 
-const Search = () => {
+const Search = ({ setBikes, setCase, setLoading }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [searchText, setSearchText] = useState("");
@@ -11,12 +13,23 @@ const Search = () => {
   const handleInputChange = ({ target }) => {
     setSearchText(target.value);
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(startDate);
-    console.log(searchText);
-    setSearchText("");
+    if (searchText === "") {
+      alert("Debe llenar el campo");
+    } else {
+      const fetchBikes = async () => {
+        setLoading(true);
+        const { data } = await axios.get(
+          `https://bikeindex.org:443/api/v3/search?page=1&per_page=100&query=${searchText}&location=Berlin&distance=10&stolenness=proximity`
+        );
+        setBikes(data.bikes);
+        setCase(data.bikes.length);
+        setLoading(false);
+        setSearchText("");
+      };
+      fetchBikes();
+    }
   };
 
   return (
@@ -71,4 +84,10 @@ const Search = () => {
     </Container>
   );
 };
+Search.propTypes = {
+  setBikes: PropTypes.func,
+  setCase: PropTypes.func,
+  setLoading: PropTypes.boolean,
+};
+
 export default Search;
