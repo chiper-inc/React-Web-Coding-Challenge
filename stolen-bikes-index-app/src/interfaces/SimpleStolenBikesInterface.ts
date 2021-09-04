@@ -1,8 +1,8 @@
 export interface SimpleStolenBikes {
+  id:number,
   title: string;
   description: string;
-  DateOfTheft: string;
-  DateOfReported: string;
-  LocationOfTheft: string;
-  img?: string;
+  dateOfTheft: string;
+  locationOfTheft: string;
+  img?: string | null;
 }
