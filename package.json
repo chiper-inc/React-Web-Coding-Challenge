@@ -1,0 +1,58 @@
+{
+  "name": "reactwebcodingchallenge",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/user-event": "^12.1.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .jsx,.js src",
+    "pre-commit": "npm run lint",
+    "pre-push": "npm test",
+    "post-merge": "npm install",
+    "post-rewrite": "npm install"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "axios": "^0.21.1",
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.25.1",
+    "husky": "^7.0.2",
+    "intersection-observer": "^0.12.0",
+    "react-awesome-reveal": "^3.8.1",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.1",
+    "redux": "^4.1.1",
+    "redux-thunk": "^2.3.0",
+    "sass": "^1.39.0",
+    "styled-components": "^5.3.1",
+    "styled-icons": "^10.38.0"
+  }
+}

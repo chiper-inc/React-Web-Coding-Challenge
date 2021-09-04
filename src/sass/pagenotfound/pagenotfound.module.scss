@@ -1,0 +1,177 @@
+$Yellow: #ffbe0b;
+$Green: #06d6a0;
+$Red: #d90429;
+$LightGreen: #0cb0a9;
+$LightBlue: #118ab2;
+$DarkBlue: #0c637f;
+$Pink: #ef476f;
+$DarkGreen: #09c3a5;
+$White: #ffffff;
+$Black: #231b1b;
+
+@import url("https://fonts.googleapis.com/css2?family=B612&family=Bebas+Neue&family=Major+Mono+Display&family=Simonetta&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+.example {
+  font-family: "B612", sans-serif;
+  font-family: "Bebas Neue", cursive;
+  font-family: "Oswald", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+.containerNot {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  height: fit-content;
+  background-color: $DarkBlue;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.reveal {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.sortTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 5%;
+  margin-bottom: 3%;
+}
+
+.title {
+  margin: 0%;
+  color: $Yellow;
+  font-family: "Oswald", sans-serif;
+  font-size: 8vh;
+  font-weight: bold;
+  text-shadow: 1px 1px $Black, -1px 1px 0 $Black, 1px -1px 0 $Black,
+    -1px -1px 0 $Black, 0px 1px 0 $Black, 0px -1px 0 $Black, -1px 0px 0 $Black,
+    1px 0px 0 $Black, 2px 2px 0 $Black, -2px 2px 0 $Black, 2px -2px 0 $Black,
+    -2px -2px 0 $Black, 0px 2px 0 $Black, 0px -2px 0 $Black, -2px 0px 0 $Black,
+    2px 0px 0 $Black, 1px 2px 0 $Black, -1px 2px 0 $Black, 1px -2px 0 $Black,
+    -1px -2px 0 $Black, 2px 1px 0 $Black, -2px 1px 0 $Black, 2px -1px 0 $Black,
+    -2px -1px 0 $Black;
+}
+
+.sortImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 3%;
+}
+
+.imageNot {
+  width: 20%;
+}
+
+.sortButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 3%;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-decoration: none;
+}
+
+.button {
+  display: inline-block;
+  width: 20%;
+  margin: 1%;
+  height: 3rem;
+  border-radius: 15px 15px 15px 15px;
+  color: $Black;
+  font-family: "Roboto", sans-serif;
+  font-size: 3vh;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  border: solid 0.2rem $Black;
+  font-weight: bold;
+  z-index: 5;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $Yellow;
+    border-radius: 10px 10px 10px 10px;
+    z-index: -2;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: darken($Yellow, 15%);
+    transition: all 0.3s;
+    border-radius: 10px 10px 10px 10px;
+    z-index: -1;
+  }
+  &:hover {
+    color: $White;
+    cursor: url(../../components/images/pointer.png), default;
+    border: solid 0.2rem $White;
+    &:before {
+      width: 100%;
+    }
+  }
+}
+
+.iconsBikes {
+  margin-right: 1%;
+  max-width: 2rem;
+  min-width: 2rem;
+  max-height: 2rem;
+  min-height: 2rem;
+}
+
+@media (max-width: 1248px) {
+  .reveal {
+    padding: 0%;
+    margin: 0%;
+  }
+  .containerNot {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .sortTitle {
+    width: 95%;
+    padding-top: 5%;
+    margin-bottom: 5%;
+  }
+  .title {
+    font-size: 5vh;
+  }
+  .imageNot{
+    width: 50%;
+    margin-bottom: 5%;
+  }
+  .button{
+    width: 80%;
+  }
+}

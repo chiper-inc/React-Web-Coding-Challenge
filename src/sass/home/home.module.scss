@@ -1,0 +1,639 @@
+$Yellow: #ffbe0b;
+$Green: #06d6a0;
+$Red: #d90429;
+$LightGreen: #0cb0a9;
+$LightBlue: #118ab2;
+$DarkBlue: #0c637f;
+$Pink: #ef476f;
+$DarkGreen: #09c3a5;
+$White: #ffffff;
+$Black: #231b1b;
+
+@import url("https://fonts.googleapis.com/css2?family=B612&family=Bebas+Neue&family=Major+Mono+Display&family=Simonetta&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+.example {
+  font-family: "B612", sans-serif;
+  font-family: "Bebas Neue", cursive;
+  font-family: "Oswald", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+.containerHome {
+  width: 100%;
+  background-color: $DarkBlue;
+  height: fit-content;
+  min-height: 100vh;
+}
+
+.sortHome {
+  width: 100%;
+  padding-top: 1%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sortLoader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.loader {
+  border: 16px solid $Black;
+  border-top: 16px solid $Yellow;
+  border-left: solid 16px $Yellow;
+  border-right: solid 16px $Black;
+  border-radius: 10%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.sortTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.title {
+  margin: 0%;
+  color: $Yellow;
+  font-family: "Oswald", sans-serif;
+  font-size: 8vh;
+  font-weight: bold;
+  text-shadow: 1px 1px $Black, -1px 1px 0 $Black, 1px -1px 0 $Black,
+    -1px -1px 0 $Black, 0px 1px 0 $Black, 0px -1px 0 $Black, -1px 0px 0 $Black,
+    1px 0px 0 $Black, 2px 2px 0 $Black, -2px 2px 0 $Black, 2px -2px 0 $Black,
+    -2px -2px 0 $Black, 0px 2px 0 $Black, 0px -2px 0 $Black, -2px 0px 0 $Black,
+    2px 0px 0 $Black, 1px 2px 0 $Black, -1px 2px 0 $Black, 1px -2px 0 $Black,
+    -1px -2px 0 $Black, 2px 1px 0 $Black, -2px 1px 0 $Black, 2px -1px 0 $Black,
+    -2px -1px 0 $Black;
+}
+
+.police {
+  margin-top: 2%;
+  min-width: 6rem;
+  max-width: 6rem;
+  max-height: 6rem;
+  min-height: 6rem;
+  color: $Yellow;
+}
+
+.sortBicycles {
+  display: flex;
+  flex-wrap: wrap;
+  width: 95%;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+}
+
+.zoomBicycles {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 80%;
+  flex-direction: row;
+  margin: 2%;
+}
+
+.eachBycicle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  border: solid 0.2rem $Yellow;
+  height: fit-content;
+  background-color: $LightBlue;
+  border-radius: 15px 15px 15px 15px;
+  text-align: center;
+}
+
+.upBycicle {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.iconsBikes {
+  margin-right: 1%;
+  max-width: 2rem;
+  min-width: 2rem;
+  max-height: 2rem;
+  min-height: 2rem;
+}
+
+.downBycicle {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.sortTitleBycicle {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-bottom: solid 0.2rem $Yellow;
+}
+
+.titleBycicle {
+  width: 100%;
+  font-family: "B612", sans-serif;
+  font-size: 2.5vh;
+  color: $White;
+  font-weight: bold;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.descriptionByCicle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 50%;
+  font-family: "Roboto", sans-serif;
+  font-size: 2vh;
+  font-weight: bold;
+  color: $White;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  margin: 2%;
+}
+
+.textDescription {
+  resize: none;
+  width: 45%;
+  padding: 1%;
+  height: 16.5rem;
+  border-radius: 10px 10px 10px 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 2vh;
+  overflow-wrap: break-word;
+  border-radius: 15px 15px 15px 15px;
+  border: solid 0.2rem $Yellow;
+  margin: 2%;
+}
+
+.sortImageBycicle {
+  display: flex;
+  width: 25%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  margin-left: 5%;
+  margin-bottom: 2%;
+}
+
+.imageBycile {
+  width: 100%;
+  border-radius: 15px 15px 15px 15px;
+  border: solid 0.2rem $Yellow;
+}
+
+.sortPaginate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 1%;
+  flex-direction: column;
+}
+
+.sortTitlePaginate {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.titlePaginate {
+  font-family: "B612", sans-serif;
+  font-size: 3vh;
+  color: $White;
+  font-weight: bold;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.sortButtonsPaginate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  flex-direction: row;
+}
+
+.button {
+  display: inline-block;
+  width: 5rem;
+  margin: 1%;
+  height: 3rem;
+  border-radius: 15px 15px 15px 15px;
+  color: $Black;
+  font-family: "Roboto", sans-serif;
+  font-size: 3vh;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  border: solid 0.2rem $Black;
+  font-weight: bold;
+  z-index: 5;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $Yellow;
+    border-radius: 10px 10px 10px 10px;
+    z-index: -2;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: darken($Yellow, 15%);
+    transition: all 0.3s;
+    border-radius: 10px 10px 10px 10px;
+    z-index: -1;
+  }
+  &:hover {
+    color: $White;
+    cursor: url(../../components/images/pointer.png), default;
+    border: solid 0.2rem $White;
+    &:before {
+      width: 100%;
+    }
+  }
+}
+
+.sortForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+}
+
+.eachInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.label {
+  width: 15%;
+  color: $White;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 3vh;
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  margin-top: 1%;
+  margin-bottom: 0.5%;
+}
+
+.zoom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0%;
+}
+
+.input {
+  display: flex;
+  width: 15rem;
+  margin: 1%;
+  height: 2.5rem;
+  font: size 4vh;
+  font-weight: bold;
+  font-family: "Noto Sans", sans-serif;
+  background-color: $White;
+  border: transparent;
+  border-radius: 10px 10px 10px 10px;
+  font-weight: bold;
+}
+
+.buttonSearch {
+  display: inline-block;
+  width: 15rem;
+  margin: 2%;
+  height: 3rem;
+  border-radius: 15px 15px 15px 15px;
+  color: $Black;
+  font-family: "Roboto", sans-serif;
+  font-size: 3vh;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  border: solid 0.2rem $Black;
+  font-weight: bold;
+  z-index: 5;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $Yellow;
+    border-radius: 10px 10px 10px 10px;
+    z-index: -2;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: darken($Yellow, 15%);
+    transition: all 0.3s;
+    border-radius: 10px 10px 10px 10px;
+    z-index: -1;
+  }
+  &:hover {
+    color: $White;
+    cursor: url(../../components/images/pointer.png), default;
+    border: solid 0.2rem $White;
+    &:before {
+      width: 100%;
+    }
+  }
+}
+
+.sortAutoComplete {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.sortSorry {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  flex-direction: column;
+}
+
+.sorry {
+  margin: 0%;
+  margin-bottom: 2%;
+  color: $Yellow;
+  font-family: "Oswald", sans-serif;
+  font-size: 4vh;
+  font-weight: bold;
+  text-shadow: 1px 1px $Black, -1px 1px 0 $Black, 1px -1px 0 $Black,
+    -1px -1px 0 $Black, 0px 1px 0 $Black, 0px -1px 0 $Black, -1px 0px 0 $Black,
+    1px 0px 0 $Black, 2px 2px 0 $Black, -2px 2px 0 $Black, 2px -2px 0 $Black,
+    -2px -2px 0 $Black, 0px 2px 0 $Black, 0px -2px 0 $Black, -2px 0px 0 $Black,
+    2px 0px 0 $Black, 1px 2px 0 $Black, -1px 2px 0 $Black, 1px -2px 0 $Black,
+    -1px -2px 0 $Black, 2px 1px 0 $Black, -2px 1px 0 $Black, 2px -1px 0 $Black,
+    -2px -1px 0 $Black;
+}
+
+.sortImageSorry {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1%;
+  margin-bottom: 3%;
+}
+
+.imageSorry {
+  width: 20%;
+}
+
+.sortTitleAuto {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 90%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.titleAuto {
+  margin: 0%;
+  color: $Yellow;
+  font-family: "Roboto", sans-serif;
+  font-size: 4vh;
+  font-weight: bold;
+  text-shadow: 1px 1px $Black, -1px 1px 0 $Black, 1px -1px 0 $Black,
+    -1px -1px 0 $Black, 0px 1px 0 $Black, 0px -1px 0 $Black, -1px 0px 0 $Black,
+    1px 0px 0 $Black, 2px 2px 0 $Black, -2px 2px 0 $Black, 2px -2px 0 $Black,
+    -2px -2px 0 $Black, 0px 2px 0 $Black, 0px -2px 0 $Black, -2px 0px 0 $Black,
+    2px 0px 0 $Black, 1px 2px 0 $Black, -1px 2px 0 $Black, 1px -2px 0 $Black,
+    -1px -2px 0 $Black, 2px 1px 0 $Black, -2px 1px 0 $Black, 2px -1px 0 $Black,
+    -2px -1px 0 $Black;
+}
+
+.flexAuto {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+
+.inputAuto {
+  display: flex;
+  width: 30%;
+  resize: none;
+  margin: 0.5%;
+  height: 10rem;
+  font: size 4vh;
+  font-weight: bold;
+  font-family: "Noto Sans", sans-serif;
+  background-color: $White;
+  border: solid 0.2rem $Black;
+  border-radius: 10px 10px 10px 10px;
+  &:hover {
+    cursor: url(../../components/images/pointer.png), default;
+    background-color: $Yellow;
+    color: $White;
+  }
+}
+
+.smallSortLoader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+  padding-bottom: 15%;
+}
+
+.sortTotal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.total {
+  margin: 0%;
+  color: $Yellow;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 3vh;
+  font-weight: bold;
+  text-shadow: 1px 1px $Black, -1px 1px 0 $Black, 1px -1px 0 $Black,
+    -1px -1px 0 $Black, 0px 1px 0 $Black, 0px -1px 0 $Black, -1px 0px 0 $Black,
+    1px 0px 0 $Black, 2px 2px 0 $Black, -2px 2px 0 $Black, 2px -2px 0 $Black,
+    -2px -2px 0 $Black, 0px 2px 0 $Black, 0px -2px 0 $Black, -2px 0px 0 $Black,
+    2px 0px 0 $Black, 1px 2px 0 $Black, -1px 2px 0 $Black, 1px -2px 0 $Black,
+    -1px -2px 0 $Black, 2px 1px 0 $Black, -2px 1px 0 $Black, 2px -1px 0 $Black,
+    -2px -1px 0 $Black;
+}
+
+@media (max-width: 1248px) {
+  .title {
+    width: 95%;
+    font-size: 5vh;
+  }
+  .police {
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .label {
+    width: 80%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .input {
+    width: 80%;
+  }
+  .buttonSearch {
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .form {
+    margin-bottom: 5%;
+  }
+  .sorry {
+    width: 95%;
+    font-size: 3vh;
+    margin-bottom: 5%;
+  }
+  .imageSorry {
+    width: 50%;
+    margin-bottom: 5%;
+  }
+  .zoomBicycles {
+    width: 90%;
+  }
+  .titleBycicle {
+    font-size: 2vh;
+    width: 90%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
+  .eachBycicle {
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  .upBycicle {
+    display: flex;
+    margin: 0%;
+    width: 100%;
+    margin-top: 5%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .downBycicle {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .descriptionByCicle {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .sortImageBycicle {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0%;
+    margin-top: 3%;
+    margin-bottom: 5%;
+  }
+  .imageBycile {
+    margin: 0%;
+    width: 90%;
+  }
+  .iconsBikes {
+    margin-right: 4%;
+  }
+  .sortAutoComplete {
+    margin-top: 0.1%;
+  }
+  .inputAuto {
+    width: 80%;
+  }
+  .textDescription {
+    width: 90%;
+  }
+}
