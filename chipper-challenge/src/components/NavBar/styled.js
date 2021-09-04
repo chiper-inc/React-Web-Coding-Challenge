@@ -29,35 +29,22 @@ const StyledDiv = styled.div`
         .form-search {
             display: flex;
             justify-content: center;
-            padding: 1.5rem;
 
-            .form-description {
-                margin-right: 15px;
-                outline: none;
+            padding: 2rem;
+
+            input {
+                align-items: center;
+                margin-right: 5px;
+                width: 20rem;
+                height: 2rem;
             }
-            .form-from {
-                margin-right: 25px;
-                outline: none;
-            }
-            .form-to {
-                margin-right: 25px;
-                margin-left: 5px;
-                outline: none;
-            }
-            .btn-form {
-                margin-left: 15px;
-                outline: none;
+            img {
+                text-align: center;
+                justify-content: center;
             }
         }
-        /* img{
-            width:20px;
-            margin-top:2px;
-            margin-left:3px;
-            position:absolute;
-        } */
-        .btn-reset {
-            margin: 10px 0;
-        }
+    }
+    .calendar {
     }
 `;
 export default StyledDiv;

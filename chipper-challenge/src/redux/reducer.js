@@ -1,33 +1,68 @@
 const initialState = {
     stolenBikes: [],
     getBikesById: {},
+    loading: false,
+    pagination: {
+        page: 0,
+        totalPages: 1,
+    },
 };
 
 const bikes = (state = initialState, action) => {
     switch (action.type) {
         case 'STOLEN_BIKES':
+            console.log(Math.floor(action.payload.length / 10));
             return {
                 ...state,
                 stolenBikes: action.payload,
+                loading: false,
+                pagination: {
+                    ...state.pagination,
+                    totalPages: Math.floor(action.payload.length / 10) - 1,
+                },
+            };
+
+        case 'LOADING':
+            return {
+                ...state,
+                loading: true,
             };
 
         case 'GET_BY_ID': {
             return {
                 ...state,
                 getBikesById: action.payload,
+                loading: false,
             };
         }
         case 'GET_BIKES': {
             const { description, from, to } = action.payload;
-            let copy = state.stolenBikes.slice();
-            if (description) copy = copy.filter((bike) => bike.description && bike.description.includes(description));
+            let copy = [...state.stolenBikes];
+            if (description)
+                copy = copy.filter(
+                    (bike) =>
+                        bike.description &&
+                        bike.description
+                            .toLowerCase()
+                            .includes(description.toLowerCase())
+                );
             if (from) copy = copy.filter((bike) => bike.year >= parseInt(from));
             if (to) copy = copy.filter((bike) => bike.year <= parseInt(to));
+            copy = copy.sort((a, b) => a.year - b.year);
             return {
                 ...state,
                 stolenBikes: copy,
+                loading: false,
             };
         }
+        case 'SET_PAGE':
+            return {
+                ...state,
+                pagination: {
+                    ...state.pagination,
+                    page: action.payload,
+                },
+            };
         default:
             return state;
     }

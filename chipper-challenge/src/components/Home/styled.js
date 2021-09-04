@@ -4,6 +4,7 @@ export const StyledDiv = styled.div`
     width: 100%;
     margin-bottom: 15px;
     background-color: #152d35;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     grid-gap: 4em;
@@ -16,6 +17,7 @@ export const StyledDiv = styled.div`
         display: flex;
         flex-direction: flex-end;
         font-size: 2rem;
+        color: #fff;
     }
 
     .card {
@@ -30,6 +32,7 @@ export const StyledDiv = styled.div`
         .description {
             font-size: 1.4rem;
             font-weight: 300;
+            text-transform: initial;
         }
 
         .not-found {
@@ -51,10 +54,21 @@ export const StyledDiv = styled.div`
         }
 
         .info {
+            text-transform: uppercase;
         }
         .date-direction {
             display: flex;
             justify-content: center;
+            font-size: 1.4rem;
+            h3 {
+                margin-left: 5px;
+                font-weight: 300;
+            }
+            .stolen {
+                border-bottom: 0.2rem solid red;
+                text-transform: uppercase;
+                font-weight: 500;
+            }
         }
     }
 `;

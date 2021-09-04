@@ -5,13 +5,17 @@ import { getBikes } from '../../redux/actions';
 import { Card } from '../Card/Card';
 import { StyledDiv } from './styled';
 import Pagination from '../Pagination/Pagination';
+import HashLoader from 'react-spinners/HashLoader';
+import Error from './../Error/Error';
 
 const Home = () => {
     const dispatch = useDispatch();
-    const bikes = useSelector((state) => state.stolenBikes);
-    const from =
-        new URLSearchParams(useLocation().search.slice(1)).get('from') || 0;
+    const { stolenBikes, loading } = useSelector((state) => state);
+    `11`;
 
+    const page =
+        new URLSearchParams(useLocation().search.slice(1)).get('page') || 0;
+    console.log(page);
     useEffect(() => {
         dispatch(getBikes());
     }, [dispatch]);
@@ -19,19 +23,26 @@ const Home = () => {
     return (
         <StyledDiv>
             <h3 className='total-thefts'>
-                Total bikes stolen : {bikes.length}
+                Total bikes stolen:
+                {stolenBikes && stolenBikes.length}
             </h3>
-            {bikes && bikes.length > 0 ? (
+            {loading ? (
+                <div className='loading'>
+                    <HashLoader />
+                </div>
+            ) : stolenBikes && stolenBikes.length > 0 ? (
                 <>
                     <Pagination />
-                    {bikes &&
-                        bikes.slice(from, from + 10).map((bike, idx) => {
-                            return <Card key={idx} {...bike} />;
-                        })}
+                    {stolenBikes &&
+                        stolenBikes
+                            .slice(page * 10, page * 10 + 10)
+                            .map((bike, idx) => {
+                                return <Card key={idx} {...bike} />;
+                            })}
                     <Pagination />
                 </>
             ) : (
-                <h2>Loading</h2>
+                <Error />
             )}
         </StyledDiv>
     );

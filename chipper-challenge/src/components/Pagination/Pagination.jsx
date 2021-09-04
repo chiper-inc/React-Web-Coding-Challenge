@@ -1,45 +1,54 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+import { setPage } from '../../redux/actions';
 
 const Pagination = () => {
+    // create component to display pagination
     const history = useHistory();
-    const len = useSelector(state => state.stolenBikes).length;
-    const from = parseInt(new URLSearchParams(useLocation().search.slice(1)).get('from')) || 0;
-    /*
-        52
-    */
-   useEffect(() => {
-   }, [from]);
-   console.log(from);
-   console.log(typeof from);
+    const dispatch = useDispatch();
+    const { page, totalPages } = useSelector((state) => state.pagination);
+
+    useEffect(() => {
+        // update url to reflect current page
+        history.push({
+            pathname: '/',
+            search: `?page=${page}`,
+        });
+    }, [page]);
+
     return (
-        <div>
+        <div className='pagination'>
             <button
-                onClick={() => history.push(`/?from=${0}`)} 
+                className={page === 0 ? 'disabled' : ''}
+                onClick={() => {
+                    console.log('PREV clicked');
+                    if (page >= 1) {
+                        history.push({
+                            pathname: '/',
+                            search: `?page=${page - 1}`,
+                        });
+                        dispatch(setPage(page - 1));
+                    }
+                }}
             >
-                {'<<<<'}
+                Prev
             </button>
             <button
-                onClick={() => history.push(`/?from=${from - 10}`)}
+                className={page === totalPages ? 'disabled' : ''}
+                onClick={() => {
+                    console.log('NEXT clicked');
+                    if (page < totalPages) {
+                        history.push({
+                            pathname: '/',
+                            search: `?page=${page + 1}`,
+                        });
+                        dispatch(setPage(page + 1));
+                    }
+                }}
             >
-                {'<<'}
-            </button>
-            <span
-            >
-                {from / 10}
-            </span>
-            <button
-                style={{ visibility: len - 11 >= from ? 'visible' : 'hidden', cursor: 'pointer' }}
-                onClick={() => history.push(`/?from=${from + 10}`)}
-            >
-                {'>>'}
-            </button>
-            <button
-                style={{ visibility: from >= 70 || len - 1 - 30 >= from ? 'hidden' : 'visible', cursor: 'pointer' }}
-                onClick={() => history.push(`/?from=${len - 10}`)}
-            >
-                {'>>>>'}
+                Next
             </button>
         </div>
     );

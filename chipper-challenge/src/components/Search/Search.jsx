@@ -2,20 +2,18 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { searchBikes, getBikes } from '../../redux/actions';
-import calendar from '../../assests/calendar.svg';
-import { Input } from './styled';
+// import calendar from '../../assests/calendar.svg';
 
 const Search = () => {
+    const dispatch = useDispatch();
     const [inputs, setInputs] = useState({
         description: '',
         from: '',
         to: '',
     });
-    const dispatch = useDispatch();
 
     const handdleClick = (e) => {
         e.preventDefault();
-        console.log('INPUTS: ', inputs);
         setInputs({
             description: inputs.description,
             from: inputs.from,
@@ -25,11 +23,10 @@ const Search = () => {
     };
 
     useEffect(() => {
-        if (inputs) {
-            dispatch(searchBikes(inputs));
-        } else {
+        if (inputs.description === '') {
             dispatch(getBikes());
         }
+        dispatch(searchBikes(inputs));
     }, [inputs.description, dispatch]);
 
     const resetClick = () => {
@@ -45,7 +42,7 @@ const Search = () => {
         <>
             <form className='form-search' onSubmit={(e) => handdleClick(e)}>
                 <div className='form-description'>
-                    <Input
+                    <input
                         type='text'
                         placeholder='Search case description...'
                         onChange={(e) =>
@@ -53,27 +50,30 @@ const Search = () => {
                                 description: e.target.value,
                             })
                         }
+                        value={inputs.description}
                     />
                 </div>
                 <div className='form-from'>
-                    <Input
+                    <input
                         type='number'
                         onChange={(e) =>
                             setInputs({ ...inputs, from: e.target.value })
                         }
-                        placeholder='from'
+                        placeholder='From year'
+                        value={inputs.from}
                     />
-                    <img src={calendar} alt='calendar' />
+                    {/* <img src={calendar} alt='calendar' className='calendar' /> */}
                 </div>
                 <div className='form-to'>
-                    <Input
+                    <input
                         type='number'
                         onChange={(e) =>
                             setInputs({ ...inputs, to: e.target.value })
                         }
-                        placeholder='to'
+                        placeholder='To year'
+                        value={inputs.to}
                     />
-                    <img src={calendar} alt='calendar' />
+                    {/* <img src={calendar} alt='calendar' /> */}
                 </div>
                 <button className='btn-form' type='submit'>
                     Find cases

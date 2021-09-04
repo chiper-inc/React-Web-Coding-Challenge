@@ -29,15 +29,21 @@ export const Card = ({
                     <h1>{title}</h1>
                     <h3 className='description'>
                         {description ? (
-                            description
+                            description.length > 500 ? (
+                                `${description.slice(0, 500)}...`
+                            ) : (
+                                description
+                            )
                         ) : (
                             <h3 className='not-found'>Description not found</h3>
                         )}
                     </h3>
                     <div className='date-direction'>
-                        <h3>Stolen: </h3>
-                        <h3> {datos()}</h3>
-                        <h3> {stolen_location}</h3>
+                        <h3 className='stolen'>Date Stolen:</h3>
+                        <h3>{datos()}</h3>
+                        <hr />
+                        <h3 className='stolen'>Location:</h3>
+                        <h3>{stolen_location}</h3>
                     </div>
                 </div>
             </div>
