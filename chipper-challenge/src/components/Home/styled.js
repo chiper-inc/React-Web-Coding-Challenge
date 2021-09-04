@@ -10,6 +10,13 @@ export const StyledDiv = styled.div`
     justify-content: center;
     margin-bottom: 15px;
     align-items: center;
+    font-family: 'Karla', sans-serif;
+
+    .total-thefts {
+        display: flex;
+        flex-direction: flex-end;
+        font-size: 2rem;
+    }
 
     .card {
         display: flex;
@@ -19,7 +26,6 @@ export const StyledDiv = styled.div`
         justify-content: center;
         height: 25rem;
         border: 0.2rem solid #fff;
-        
 
         .description {
             font-size: 1.4rem;
@@ -36,13 +42,19 @@ export const StyledDiv = styled.div`
             height: 25rem;
             width: 30%;
             float: left;
+            /* display: flex; */
         }
+
+        .img {
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
         .info {
         }
-        .date-direction{
-            display:flex;
-            justify-content:center;
-            
+        .date-direction {
+            display: flex;
+            justify-content: center;
         }
     }
 `;

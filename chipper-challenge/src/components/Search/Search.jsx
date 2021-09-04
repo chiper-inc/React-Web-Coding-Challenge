@@ -25,8 +25,12 @@ const Search = () => {
     };
 
     useEffect(() => {
-        dispatch(searchBikes(inputs));
-    }, [inputs.description]);
+        if (inputs) {
+            dispatch(searchBikes(inputs));
+        } else {
+            dispatch(getBikes());
+        }
+    }, [inputs.description, dispatch]);
 
     const resetClick = () => {
         setInputs({
@@ -46,7 +50,6 @@ const Search = () => {
                         placeholder='Search case description...'
                         onChange={(e) =>
                             setInputs({
-                                ...inputs,
                                 description: e.target.value,
                             })
                         }

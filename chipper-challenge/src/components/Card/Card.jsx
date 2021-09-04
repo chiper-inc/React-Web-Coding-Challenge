@@ -19,7 +19,11 @@ export const Card = ({
         <div className='card'>
             <div key={id}>
                 <div>
-                    <img src={large_img} alt='Bike not found' />
+                    <img
+                        className='img '
+                        src={large_img}
+                        alt='Bike not found'
+                    />
                 </div>
                 <div className='info'>
                     <h1>{title}</h1>
@@ -32,8 +36,8 @@ export const Card = ({
                     </h3>
                     <div className='date-direction'>
                         <h3>Stolen: </h3>
-                        <h3>{datos()}</h3>
-                        <h3>{stolen_location}</h3>
+                        <h3> {datos()}</h3>
+                        <h3> {stolen_location}</h3>
                     </div>
                 </div>
             </div>

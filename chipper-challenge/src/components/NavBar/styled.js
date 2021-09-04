@@ -30,6 +30,7 @@ const StyledDiv = styled.div`
             display: flex;
             justify-content: center;
             padding: 1.5rem;
+
             .form-description {
                 margin-right: 15px;
                 outline: none;

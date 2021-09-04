@@ -9,7 +9,8 @@ import Pagination from '../Pagination/Pagination';
 const Home = () => {
     const dispatch = useDispatch();
     const bikes = useSelector((state) => state.stolenBikes);
-    const from = new URLSearchParams(useLocation().search.slice(1)).get('from') || 0;
+    const from =
+        new URLSearchParams(useLocation().search.slice(1)).get('from') || 0;
 
     useEffect(() => {
         dispatch(getBikes());
@@ -17,16 +18,21 @@ const Home = () => {
 
     return (
         <StyledDiv>
-            {bikes && bikes.length > 0 ?
+            <h3 className='total-thefts'>
+                Total bikes stolen : {bikes.length}
+            </h3>
+            {bikes && bikes.length > 0 ? (
                 <>
                     <Pagination />
                     {bikes &&
                         bikes.slice(from, from + 10).map((bike, idx) => {
                             return <Card key={idx} {...bike} />;
                         })}
-                    <Pagination /> 
+                    <Pagination />
                 </>
-                : <h2>Loading...</h2>}
+            ) : (
+                <h2>Loading</h2>
+            )}
         </StyledDiv>
     );
 };
