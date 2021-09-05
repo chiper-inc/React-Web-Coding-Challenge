@@ -1,0 +1,75 @@
+.container {
+  margin: 10px 0px 0px;
+  overflow: hidden;
+  display: flex;
+}
+.containerInput {
+  width: 50%;
+  float: left;
+}
+
+.input {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.input input {
+  width: 280px;
+}
+
+input {
+  height: 30px;
+  /* border-radius: 5px; */
+}
+
+button {
+  height: 34px;
+}
+
+#btnSearch {
+  outline: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+#btnSearch:hover {
+  background-color: #dcdbdb;
+}
+
+.containerBtnSearch {
+  float: left;
+}
+
+.containerDate {
+  float: left;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.containerDate label {
+  margin-right: 5px;
+}
+
+.containerForm {
+  overflow: hidden;
+}
+
+.containerDateFrom {
+  float: left;
+  margin-right: 10px;
+}
+
+.containerDateTo {
+  float: left;
+  margin-right: 10px;
+}
+
+.containerBtnFindDate {
+  float: left;
+}
+
+.containerBtnFindDate button:hover {
+  background-color: #dcdbdb;
+  cursor: pointer;
+}

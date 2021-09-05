@@ -3,6 +3,8 @@
   background-color: black;
   height: 150px;
   overflow: hidden;
+  box-shadow: 0 4px 2px -2px gray;
+  margin: 0px 0px 25px 0px;
 }
 
 .containerLogo {

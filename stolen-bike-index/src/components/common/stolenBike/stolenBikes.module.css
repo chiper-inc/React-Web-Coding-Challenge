@@ -1,0 +1,51 @@
+.container {
+  margin: 10px 0px 0px 0px;
+  width: 100%;
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.containerItem {
+  margin: 10px 0px 0px 0px;
+  width: 90%;
+  height: 200px;
+}
+
+.totalCases {
+  display: flex;
+  margin: 15px 0px 0px 100px;
+  font-weight: 500;
+  align-items: center;
+}
+.totalNumber {
+  width: 70px;
+}
+
+.containerPager {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0px 20px 0;
+}
+
+.containerPager span {
+  font-weight: 700;
+  margin: 0px 10px 0px 10px;
+}
+
+#btnPrev {
+  cursor: pointer;
+}
+
+#btnNext {
+  cursor: pointer;
+}
+
+.containerBtnAllCases {
+  margin-left: 10px;
+}
+
+#btnAllCases {
+  cursor: pointer;
+}

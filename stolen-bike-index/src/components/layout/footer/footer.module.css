@@ -2,4 +2,7 @@
   height: 100px;
   width: 100%;
   background-color: black;
+  position: sticky;
+  bottom: 0px;
+  top: 100%;
 }
