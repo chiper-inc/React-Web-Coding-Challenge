@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import {
-  createStore, applyMiddleware, combineReducers, compose,
+  createStore, applyMiddleware, compose,
 } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from '../reducer/index';
@@ -11,10 +11,7 @@ declare global {
   }
 }
 
-const reducer = (combineReducers({
-  rootReducer,
-}));
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
 export default store;
