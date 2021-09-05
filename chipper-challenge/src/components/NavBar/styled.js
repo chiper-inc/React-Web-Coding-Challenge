@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 const StyledDiv = styled.div`
-    margin-top: 15px;
+    display: block;
+    background-color: white !important;
+    padding-top: 10px;
     .container {
+        margin-top: 15px;
         display: flex;
         justify-content: center;
         .logo-container {

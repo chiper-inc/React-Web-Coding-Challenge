@@ -1,13 +1,15 @@
 import React from 'react';
-import './App.css';
 import Home from './components/Home/Home';
 import NavBar from './components/NavBar/NavBar';
+import Scroll from './components/Scroll/Scroll';
 
 function App() {
     return (
-        <div className='App'>
+        <div>
             <NavBar />
+
             <Home />
+            <Scroll />
         </div>
     );
 }

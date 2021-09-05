@@ -36,15 +36,13 @@ const bikes = (state = initialState, action) => {
             };
         }
         case 'GET_BIKES': {
-            const { description, from, to } = action.payload;
+            const { title, from, to } = action.payload;
             let copy = [...state.stolenBikes];
-            if (description)
+            if (title)
                 copy = copy.filter(
                     (bike) =>
-                        bike.description &&
-                        bike.description
-                            .toLowerCase()
-                            .includes(description.toLowerCase())
+                        bike.title &&
+                        bike.title.toLowerCase().includes(title.toLowerCase())
                 );
             if (from) copy = copy.filter((bike) => bike.year >= parseInt(from));
             if (to) copy = copy.filter((bike) => bike.year <= parseInt(to));

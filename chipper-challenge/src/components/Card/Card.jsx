@@ -15,22 +15,33 @@ export const Card = ({
         return `${myDate.toGMTString().slice(0, 16)}`;
     };
 
+    const image =
+        'https://i0.wp.com/elfutbolito.mx/wp-content/uploads/2019/04/image-not-found.png?ssl=1';
+
     return (
         <div className='card'>
             <div key={id}>
                 <div>
-                    <img
-                        className='img '
-                        src={large_img}
-                        alt='Bike not found'
-                    />
+                    {large_img ? (
+                        <img
+                            src={large_img}
+                            alt='Bike not found'
+                            className='img'
+                        />
+                    ) : (
+                        <img
+                            className='img '
+                            src={image}
+                            alt='Bike not found'
+                        />
+                    )}
                 </div>
                 <div className='info'>
                     <h1>{title}</h1>
                     <h3 className='description'>
                         {description ? (
                             description.length > 500 ? (
-                                `${description.slice(0, 500)}...`
+                                `${description.slice(0, 250)}...`
                             ) : (
                                 description
                             )
@@ -41,7 +52,7 @@ export const Card = ({
                     <div className='date-direction'>
                         <h3 className='stolen'>Date Stolen:</h3>
                         <h3>{datos()}</h3>
-                        <hr />
+
                         <h3 className='stolen'>Location:</h3>
                         <h3>{stolen_location}</h3>
                     </div>

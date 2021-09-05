@@ -11,7 +11,6 @@ import Error from './../Error/Error';
 const Home = () => {
     const dispatch = useDispatch();
     const { stolenBikes, loading } = useSelector((state) => state);
-    `11`;
 
     const page =
         new URLSearchParams(useLocation().search.slice(1)).get('page') || 0;
@@ -22,28 +21,30 @@ const Home = () => {
 
     return (
         <StyledDiv>
-            <h3 className='total-thefts'>
-                Total bikes stolen:
-                {stolenBikes && stolenBikes.length}
-            </h3>
-            {loading ? (
-                <div className='loading'>
-                    <HashLoader />
-                </div>
-            ) : stolenBikes && stolenBikes.length > 0 ? (
-                <>
-                    <Pagination />
-                    {stolenBikes &&
-                        stolenBikes
-                            .slice(page * 10, page * 10 + 10)
-                            .map((bike, idx) => {
-                                return <Card key={idx} {...bike} />;
-                            })}
-                    <Pagination />
-                </>
-            ) : (
-                <Error />
-            )}
+            <div className='container-cards'>
+                <h3 className='total-thefts'>
+                    Total bikes stolen:
+                    {stolenBikes && stolenBikes.length}
+                </h3>
+                {loading ? (
+                    <div className='loading'>
+                        <HashLoader />
+                    </div>
+                ) : stolenBikes && stolenBikes.length > 0 ? (
+                    <>
+                        <Pagination />
+                        {stolenBikes &&
+                            stolenBikes
+                                .slice(page * 10, page * 10 + 10)
+                                .map((bike, idx) => {
+                                    return <Card key={idx} {...bike} />;
+                                })}
+                        <Pagination />
+                    </>
+                ) : (
+                    <Error />
+                )}
+            </div>
         </StyledDiv>
     );
 };

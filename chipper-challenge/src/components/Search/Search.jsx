@@ -2,12 +2,12 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { searchBikes, getBikes } from '../../redux/actions';
-// import calendar from '../../assests/calendar.svg';
+// import { setPage } from '../../redux/actions';
 
 const Search = () => {
     const dispatch = useDispatch();
     const [inputs, setInputs] = useState({
-        description: '',
+        title: '',
         from: '',
         to: '',
     });
@@ -15,7 +15,7 @@ const Search = () => {
     const handdleClick = (e) => {
         e.preventDefault();
         setInputs({
-            description: inputs.description,
+            title: inputs.title,
             from: inputs.from,
             to: inputs.to,
         });
@@ -23,20 +23,21 @@ const Search = () => {
     };
 
     useEffect(() => {
-        if (inputs.description === '') {
+        if (inputs.title === '') {
             dispatch(getBikes());
         }
         dispatch(searchBikes(inputs));
-    }, [inputs.description, dispatch]);
+    }, [inputs.title, dispatch]);
 
-    const resetClick = () => {
-        setInputs({
-            description: '',
-            from: '',
-            to: '',
-        });
-        dispatch(getBikes());
-    };
+    // const resetClick = () => {
+    //     setInputs({
+    //         title: '',
+    //         from: '',
+    //         to: '',
+    //     });
+    //     dispatch(getBikes());
+    //     dispatch(setPage(0));
+    // };
 
     return (
         <>
@@ -44,18 +45,18 @@ const Search = () => {
                 <div className='form-description'>
                     <input
                         type='text'
-                        placeholder='Search case description...'
+                        placeholder='Search case title...'
                         onChange={(e) =>
                             setInputs({
-                                description: e.target.value,
+                                title: e.target.value,
                             })
                         }
-                        value={inputs.description}
+                        value={inputs.title}
                     />
                 </div>
                 <div className='form-from'>
                     <input
-                        type='number'
+                        type='date'
                         onChange={(e) =>
                             setInputs({ ...inputs, from: e.target.value })
                         }
@@ -66,7 +67,7 @@ const Search = () => {
                 </div>
                 <div className='form-to'>
                     <input
-                        type='number'
+                        type='date'
                         onChange={(e) =>
                             setInputs({ ...inputs, to: e.target.value })
                         }
@@ -79,9 +80,9 @@ const Search = () => {
                     Find cases
                 </button>
             </form>
-            <button className='btn-reset' onClick={() => resetClick()}>
+            {/* <button className='btn-reset' onClick={() => resetClick()}>
                 Reset
-            </button>
+            </button> */}
         </>
     );
 };

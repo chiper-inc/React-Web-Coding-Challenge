@@ -1,56 +1,64 @@
 import styled from 'styled-components';
 
 export const StyledDiv = styled.div`
-    width: 100%;
-    margin-bottom: 15px;
-    background-color: #152d35;
+    box-sizing: content-cover;
+    background: #152d35;
     background-size: cover;
-    display: flex;
-    flex-direction: column;
-    grid-gap: 4em;
-    justify-content: center;
-    margin-bottom: 15px;
-    align-items: center;
     font-family: 'Karla', sans-serif;
 
+    .container-cards {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 4em;
+        justify-content: center;
+        align-items: center;
+    }
     .total-thefts {
         display: flex;
         flex-direction: flex-end;
         font-size: 2rem;
         color: #fff;
+        margin-bottom: 25px;
     }
 
     .card {
         display: flex;
         flex-direction: column;
+        text-align: center;
         width: 80%;
         background-color: #f7f6f2;
         justify-content: center;
-        height: 25rem;
-        border: 0.2rem solid #fff;
+        height: 18rem;
+        font-family: 'Karla', sans-serif;
+        object-fit: cover;
+        border-radius: 4px;
+
+        .img {
+            font-size: 1.4rem;
+            text-align: center;
+            height: 18rem;
+            width: 30%;
+            float: left;
+            background-size: cover;
+            object-fit: fill;
+            display: block;
+            transition: 0.3s;
+        }
+        .img:hover {
+            border: 0.2rem solid #fff;
+            transform: scale(1.2);
+        }
 
         .description {
-            font-size: 1.4rem;
+            font-size: 1rem;
             font-weight: 300;
             text-transform: initial;
         }
 
         .not-found {
             margin-right: 5px;
-            font-size: 1.4rem;
+            font-size: 1rem;
             font-weight: 300;
-        }
-
-        img {
-            height: 25rem;
-            width: 30%;
-            float: left;
-            /* display: flex; */
-        }
-
-        .img {
-            font-size: 1.4rem;
-            text-align: center;
         }
 
         .info {
@@ -59,15 +67,22 @@ export const StyledDiv = styled.div`
         .date-direction {
             display: flex;
             justify-content: center;
-            font-size: 1.4rem;
+            font-size: 0.8rem;
+            text-align: center;
+
             h3 {
                 margin-left: 5px;
+                margin-top: 5px;
                 font-weight: 300;
+                text-align: center;
+                align-items: center;
             }
             .stolen {
                 border-bottom: 0.2rem solid red;
                 text-transform: uppercase;
+                font-size: 1rem;
                 font-weight: 500;
+                text-align: center;
             }
         }
     }

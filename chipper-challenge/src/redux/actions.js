@@ -24,13 +24,12 @@ export const getBikesById = (id) => async (dispatch) => {
 };
 
 export const searchBikes =
-    ({ description, from, to }) =>
+    ({ title, from, to }) =>
     async (dispatch) => {
         dispatch({ type: 'LOADING' });
-        dispatch({ type: 'GET_BIKES', payload: { description, from, to } });
+        dispatch({ type: 'GET_BIKES', payload: { title, from, to } });
     };
 
 export const setPage = (page) => {
-    console.log('PAGEEEEE: ', page);
     return { type: 'SET_PAGE', payload: page };
 };
