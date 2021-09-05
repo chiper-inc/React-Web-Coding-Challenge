@@ -10,7 +10,7 @@ function BikesList({bikes}) {
                 id={bike.id}
                 key={bike.id}
                 title={bike.title}
-                dateoftheft={bike.date_stolen}
+                date_stolen={bike.date_stolen}
                 theftlocation={bike.stolen_location}
                 serial={bike.serial}
                 colors={bike.frame_colors}
