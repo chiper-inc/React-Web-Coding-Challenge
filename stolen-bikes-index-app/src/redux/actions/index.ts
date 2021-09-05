@@ -8,7 +8,6 @@ export type Action = {
 };
 
 export const GET_STOLEN_BIKES = 'GET_STOLEN_BIKES';
-export const CHANGE_PAGE = 'CHANGE_PAGE';
 
 export const getStolenBikes = () => function (dispatch: any) {
   return BikeIndexApi.get<StolenBikes>('/search?page=1&per_page=100&location=Berlin&distance=10&stolenness=proximity')
@@ -27,11 +26,4 @@ export const getStolenBikes = () => function (dispatch: any) {
         })),
       });
     });
-};
-
-export const changePage = (newPage :number) => function (dispatch:any) {
-  return dispatch({
-    type: CHANGE_PAGE,
-    payload: newPage,
-  });
 };
