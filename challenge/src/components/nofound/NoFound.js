@@ -1,12 +1,12 @@
 import React from "react";
 import { Container } from "./style";
 
-const NoResults = () => {
+const NoFound = () => {
   return (
     <Container>
-      <h3>No results...</h3>
+      <h2>404 No found..</h2>
     </Container>
   );
 };
 
-export default NoResults;
+export default NoFound;

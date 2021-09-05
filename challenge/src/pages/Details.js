@@ -5,24 +5,24 @@ import Loader from "../components/loader/Loader";
 import DetailBike from "../components/detailsBike/DetailBike";
 
 const Details = () => {
-  const { serial } = useParams();
-  const [bikes, setBikes] = useState([]);
+  const { id } = useParams();
+  const [bike, setBikes] = useState({});
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchBikes = async () => {
       setLoading(true);
       const { data } = await axios.get(
-        `https://bikeindex.org:443/api/v3/search?page=1&per_page=100&serial=${serial}&location=Berlin&distance=10&stolenness=proximity`
+        "https://bikeindex.org/api/v3/bikes/" + id
       );
-      setBikes(data.bikes);
-      console.log(data.bikes);
+      setBikes(data.bike);
+      console.log(data.bike);
       setLoading(false);
     };
     fetchBikes();
   }, []);
-  console.log(bikes);
-  return <div>{loading ? <Loader /> : <DetailBike bikes={bikes} />}</div>;
+  // console.log(bike);
+  return <div>{loading ? <Loader /> : <DetailBike bike={bike} />}</div>;
 };
 
 export default Details;

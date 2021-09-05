@@ -63,10 +63,11 @@ export const TitleDescription = styled.div`
 `;
 export const Text = styled.div`
   margin: 10px;
+  text-align: justify;
 `;
-export const Map = styled.div`
+export const Mapview = styled.div`
   width: calc(100% - 380px);
   height: 100%;
-  background-color: red;
+  background-color: gray;
   border-radius: 0px 10px 10px 0px;
 `;
