@@ -10,12 +10,12 @@
 .containerItem {
   margin: 10px 0px 0px 0px;
   width: 90%;
-  height: 20px;
+  height: 200px;
 }
 
 .totalCases {
   display: flex;
-  margin: 15px 0px 0px 101px;
+  margin: 15px 0px 0px 100px;
   font-weight: 500;
   align-items: center;
 }
