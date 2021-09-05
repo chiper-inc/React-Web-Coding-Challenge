@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledDiv = styled.div`
     box-sizing: content-cover;
-    background: #152d35;
+    background: #93b5c6;
     background-size: cover;
     font-family: 'Karla', sans-serif;
 
@@ -12,6 +12,30 @@ export const StyledDiv = styled.div`
         grid-gap: 4em;
         justify-content: center;
         align-items: center;
+        .pagination ul {
+            display: flex;
+            justify-content: space-around;
+            text-decoration: none;
+            list-style-type: none;
+        }
+        li {
+            text-decoration: none;
+            /* border: 1px solid white; */
+            border-radius: 8px;
+            background-color: #c9ccd5;
+            padding: 12px;
+            width: 30px;
+            text-align: center;
+            margin-right: 5px;
+        }
+        a {
+            text-decoration: none;
+            color: #4c4c6d;
+        }
+        li:focus,
+        a:focus {
+            background-color: aqua;
+        }
     }
     .total-thefts {
         display: flex;
