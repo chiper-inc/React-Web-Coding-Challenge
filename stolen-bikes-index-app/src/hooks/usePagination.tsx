@@ -1,52 +1,23 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { SimpleStolenBikes } from '../interfaces/SimpleStolenBikesInterface';
+import { State } from '../redux/reducer';
 
-export const usePagination = (total: SimpleStolenBikes[], perPage: number = 10) => {
-  const index = useRef(1);
-  const top = Math.ceil(total.length / perPage);
+export const usePagination = (perPage: number = 10) => {
+  
+  const index = useSelector((state:State) => state.actualPage);
+  const allItems = useSelector((state:State) => state.stolenBikes);
 
   const [page, setPage] = useState<SimpleStolenBikes[]>([]);
 
-  const getPage = (number: number) => {
-    setPage(total.slice(perPage * (number - 1), perPage * number));
-  };
-
-  const nextPage = () => {
-    if (index.current < top) {
-      index.current += 1;
-      getPage(index.current);
-    }
-  };
-
-  const prevPage = () => {
-    if (index.current > 1) {
-      index.current -= 1;
-      getPage(index.current);
-    }
-  };
-
-  const goFirst = () => {
-    index.current = 1;
-    getPage(index.current);
-  };
-
-  const goLast = () => {
-    index.current = top;
-    getPage(index.current);
-  };
-
   useEffect(() => {
-    getPage(index.current);
+    setPage(allItems.slice(perPage * (index - 1), perPage * index));
   }, []);
 
   return {
-    index,
+    totalItems: allItems.length,
     page,
-    getPage,
-    nextPage,
-    prevPage,
-    goFirst,
-    goLast,
+    perPage,
   };
 };
 
