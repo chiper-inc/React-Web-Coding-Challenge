@@ -1,9 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Container, SubContainer, Title, Image } from "./style";
+import {
+  Container,
+  SubContainer,
+  Title,
+  Image,
+  Cont,
+  Description,
+  Map,
+  TitleDescription,
+  Text,
+} from "./style";
 import Img from "../../assets/Img";
 import { toDate } from "../../helpers/toDate";
-// import { toDate } from "../../helpers/toDate";
 
 const DetailBike = ({ bikes }) => {
   return (
@@ -27,6 +36,19 @@ const DetailBike = ({ bikes }) => {
           <span>{bikes[0]?.frame_model}</span>
         </Title>
       </SubContainer>
+      <Cont>
+        <Description>
+          <TitleDescription>
+            <h2>Case Description</h2>
+          </TitleDescription>
+          <Text>
+            <span>
+              {bikes[0]?.description || "Sorry description not found.."}
+            </span>
+          </Text>
+        </Description>
+        <Map>dfdf</Map>
+      </Cont>
     </Container>
   );
 };
