@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { SiGooglemaps } from "react-icons/si";
+import { BiCalendarCheck } from "react-icons/bi";
+import { RiPaletteLine } from "react-icons/ri";
 export const Container = styled(Link)`
   display: flex;
   width: 86%;
@@ -42,4 +45,20 @@ export const Text = styled.div`
   h3 {
     margin-bottom: 10px;
   }
+`;
+export const IconoMap = styled(SiGooglemaps)`
+  font-size: 18px;
+  margin-right: 8px;
+  color: #302c3b;
+`;
+
+export const IconDate = styled(BiCalendarCheck)`
+  margin-right: 8px;
+  font-size: 18px;
+  color: #302c3b;
+`;
+export const IconColor = styled(RiPaletteLine)`
+  margin-right: 8px;
+  font-size: 18px;
+  color: #302c3b;
 `;

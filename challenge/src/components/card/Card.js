@@ -1,6 +1,14 @@
 import React from "react";
 import Img from "../../assets/Img";
-import { Container, ImageBici, ContainerText, Text } from "./style";
+import {
+  Container,
+  ImageBici,
+  ContainerText,
+  Text,
+  IconoMap,
+  IconDate,
+  IconColor,
+} from "./style";
 import PropTypes from "prop-types";
 import { toDate } from "../../helpers/toDate";
 
@@ -20,14 +28,24 @@ const Card = ({
       <ContainerText>
         <Text>
           <h3>{title} </h3>
-          <h5>Location of the theft:</h5> <span>{stolen_location}</span>
+          <h5>
+            <IconoMap />
+            Location of the theft:
+          </h5>{" "}
+          <span>{stolen_location}</span>
         </Text>
         <Text>
-          <h5>Date of the theft:</h5>
+          <h5>
+            <IconDate />
+            Date of the theft:
+          </h5>
           <span>{toDate(date_stolen)}</span>
         </Text>
         <Text>
-          <h5>Colors: </h5>
+          <h5>
+            <IconColor />
+            Colors:{" "}
+          </h5>
           <span> {frame_colors[0] || "No data"}</span>
         </Text>
       </ContainerText>

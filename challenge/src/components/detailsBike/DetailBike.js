@@ -22,9 +22,7 @@ const DetailBike = ({ bike }) => {
     position: "relative",
     top: 0,
     bottom: 0,
-    zoom: 15,
-    height: "100%",
-    width: "100%",
+    zoom: 13,
   });
   const {
     title,
@@ -82,6 +80,8 @@ const DetailBike = ({ bike }) => {
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
             onViewportChange={(viewport) => setViewport(viewport)}
             mapStyle="mapbox://styles/mapbox/streets-v11"
+            width="100%"
+            height="100%"
           >
             <Marker
               latitude={viewport.latitude}
