@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Card = ({
+import { datos } from '../../utils/';
+
+const Card = ({
     title,
     description,
     date_stolen,
@@ -9,12 +11,6 @@ export const Card = ({
     large_img,
     id,
 }) => {
-    const datos = () => {
-        let myDate = new Date(date_stolen * 1000);
-
-        return `${myDate.toGMTString().slice(0, 16)}`;
-    };
-
     const image =
         'https://i0.wp.com/elfutbolito.mx/wp-content/uploads/2019/04/image-not-found.png?ssl=1';
 
@@ -51,7 +47,7 @@ export const Card = ({
                     </h3>
                     <div className='date-direction'>
                         <h3 className='stolen'>Date Stolen:</h3>
-                        <h3>{datos()}</h3>
+                        <h3>{datos(date_stolen)}</h3>
 
                         <h3 className='stolen'>Location:</h3>
                         <h3>{stolen_location}</h3>
@@ -70,3 +66,5 @@ Card.propTypes = {
     large_img: PropTypes.string,
     id: PropTypes.number,
 };
+
+export default Card;

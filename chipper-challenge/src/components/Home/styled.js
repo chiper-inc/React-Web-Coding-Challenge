@@ -32,9 +32,10 @@ export const StyledDiv = styled.div`
             text-decoration: none;
             color: #4c4c6d;
         }
-        li:focus,
+
         a:focus {
-            background-color: aqua;
+            font-size: 25px;
+            min-width: 100%;
         }
     }
     .total-thefts {

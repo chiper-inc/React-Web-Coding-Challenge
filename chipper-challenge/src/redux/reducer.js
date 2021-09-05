@@ -1,25 +1,16 @@
 const initialState = {
     stolenBikes: [],
-    getBikesById: {},
     loading: false,
-    pagination: {
-        page: 0,
-        totalPages: 1,
-    },
+    type: 'all',
 };
 
 const bikes = (state = initialState, action) => {
     switch (action.type) {
         case 'STOLEN_BIKES':
-            console.log(Math.floor(action.payload.length / 10));
             return {
                 ...state,
                 stolenBikes: action.payload,
                 loading: false,
-                pagination: {
-                    ...state.pagination,
-                    totalPages: Math.floor(action.payload.length / 10) - 1,
-                },
             };
 
         case 'LOADING':
@@ -28,13 +19,6 @@ const bikes = (state = initialState, action) => {
                 loading: true,
             };
 
-        case 'GET_BY_ID': {
-            return {
-                ...state,
-                getBikesById: action.payload,
-                loading: false,
-            };
-        }
         case 'GET_BIKES': {
             const { title, from, to } = action.payload;
             let copy = [...state.stolenBikes];
@@ -51,16 +35,10 @@ const bikes = (state = initialState, action) => {
                 ...state,
                 stolenBikes: copy,
                 loading: false,
+                type: 'diff',
             };
         }
-        case 'SET_PAGE':
-            return {
-                ...state,
-                pagination: {
-                    ...state.pagination,
-                    page: action.payload,
-                },
-            };
+
         default:
             return state;
     }

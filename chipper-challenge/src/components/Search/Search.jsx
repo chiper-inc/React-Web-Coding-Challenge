@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { searchBikes, getBikes } from '../../redux/actions';
+import { Button } from './styled';
 // import { setPage } from '../../redux/actions';
 
 const Search = () => {
@@ -12,7 +13,7 @@ const Search = () => {
         to: '',
     });
 
-    const handdleClick = (e) => {
+    const handleClick = (e) => {
         e.preventDefault();
         setInputs({
             title: inputs.title,
@@ -29,19 +30,18 @@ const Search = () => {
         dispatch(searchBikes(inputs));
     }, [inputs.title, dispatch]);
 
-    // const resetClick = () => {
-    //     setInputs({
-    //         title: '',
-    //         from: '',
-    //         to: '',
-    //     });
-    //     dispatch(getBikes());
-    //     dispatch(setPage(0));
-    // };
+    const resetClick = () => {
+        setInputs({
+            title: '',
+            from: '',
+            to: '',
+        });
+        dispatch(getBikes());
+    };
 
     return (
         <>
-            <form className='form-search' onSubmit={(e) => handdleClick(e)}>
+            <form className='form-search' onSubmit={(e) => handleClick(e)}>
                 <div className='form-description'>
                     <input
                         type='text'
@@ -76,9 +76,12 @@ const Search = () => {
                     />
                     {/* <img src={calendar} alt='calendar' /> */}
                 </div>
-                <button className='btn-form' type='submit'>
+                <Button className='btn-form' type='submit'>
                     Find cases
-                </button>
+                </Button>
+                <Button className='btn-form' type='submit' onClick={resetClick}>
+                    Reset Values
+                </Button>
             </form>
             {/* <button className='btn-reset' onClick={() => resetClick()}>
                 Reset
