@@ -19,7 +19,7 @@ const CardList = ({ loading, cases, currentBikes }) => {
 };
 
 CardList.propTypes = {
-  loading: PropTypes.boolean,
+  loading: PropTypes.bool,
   cases: PropTypes.number,
   currentBikes: PropTypes.array,
 };

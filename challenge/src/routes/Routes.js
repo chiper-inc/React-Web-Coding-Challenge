@@ -12,7 +12,7 @@ const Routes = () => {
         <Header />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/details/:id" exact component={Details} />
+          <Route path="/details/:serial" exact component={Details} />
           <Route>
             <h2>404 not found</h2>
           </Route>

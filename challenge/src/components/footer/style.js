@@ -9,6 +9,8 @@ export const Container = styled.div`
   border-radius: 0px 0px 15px 15px;
   flex-direction: row;
   background-color: rgb(235, 230, 230);
+  border-radius: 12px 12px 0px 0px;
+
   span {
     font-weight: 500;
   }

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 120px;
+  height: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,8 +14,8 @@ export const Container = styled.div`
 `;
 export const LogoImage = styled.div`
   img {
-    width: 115px;
-    height: 95px;
+    width: 110px;
+    height: 90px;
     margin: 8px;
   }
 `;

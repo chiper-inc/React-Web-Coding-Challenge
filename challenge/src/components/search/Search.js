@@ -88,7 +88,7 @@ const Search = ({ setBikes, setCase, setLoading, setCurrentPage }) => {
 Search.propTypes = {
   setBikes: PropTypes.func,
   setCase: PropTypes.func,
-  setLoading: PropTypes.boolean,
+  setLoading: PropTypes.func,
   setCurrentPage: PropTypes.func,
 };
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-
-export const Container = styled.div`
+import { Link } from "react-router-dom";
+export const Container = styled(Link)`
   display: flex;
   width: 86%;
   height: 150px;
@@ -12,6 +12,8 @@ export const Container = styled.div`
   margin: auto;
   margin-top: 7px;
   margin-bottom: 16px;
+  text-decoration: none;
+  color: inherit;
 `;
 
 export const ImageBici = styled.div`

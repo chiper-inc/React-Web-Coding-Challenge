@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { toDate } from "../../helpers/toDate";
 
 const Card = ({
+  serial,
   title,
   stolen_location,
   large_img,
@@ -12,7 +13,7 @@ const Card = ({
   date_stolen,
 }) => {
   return (
-    <Container>
+    <Container to={`details/${serial}`}>
       <ImageBici>
         <img src={large_img || Img.Bicicleta} alt="Bicicleta" />
       </ImageBici>
@@ -26,16 +27,16 @@ const Card = ({
           <span>{toDate(date_stolen)}</span>
         </Text>
         <Text>
-          <h5>Colors: {""} </h5>
+          <h5>Colors: </h5>
           <span> {frame_colors[0] || "No data"}</span>
         </Text>
-        {/* {stolen_location} */}
       </ContainerText>
     </Container>
   );
 };
 
 Card.propTypes = {
+  serial: PropTypes.string,
   title: PropTypes.string,
   stolen_location: PropTypes.string,
   large_img: PropTypes.string,
