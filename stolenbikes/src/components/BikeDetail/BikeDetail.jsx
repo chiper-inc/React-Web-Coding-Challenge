@@ -19,7 +19,8 @@ function BikeDetail() {
             alert("Oops, we couldn't bring the detail, try again by refreshing the page!")
             console.log(error)
         })
-    })
+    },[])
+
     return (
         <>
         {bikeDetail ? (

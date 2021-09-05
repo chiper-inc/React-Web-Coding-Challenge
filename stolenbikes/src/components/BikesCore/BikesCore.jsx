@@ -13,7 +13,6 @@ function BikesCore() {
     const [endDate, setEndDate] = useState(null);
     const [casesPerPage] = useState(10);
 
-    console.log(currentPage,"currentPage")
     //Get Bikes reported and total cases count
     function getData (page = currentPage, keyword = '') {
             axios.get(`https://bikeindex.org:443/api/v3/search?page=${page}&per_page=10&query=${keyword}&location=Berlin&distance=10&stolenness=proximity`)
@@ -30,9 +29,16 @@ function BikesCore() {
         getData()
     }, []);
 
-    function filterByDate(startDate,endDate){
-        
-    }
+    // function filterByDate(startDate,endDate, reportedBikes){
+    //     if (!startDate || !endDate) return reportedBikes;
+    //     else {
+    //         let filtered = reportedBikes?.filter((bike) =>
+    //         { return (bike.date_stolen > startDate &&
+    //             bike.date_stolen < endDate) })
+    //         return filtered;
+    //     }
+    // }
+
     //Change Page
     function paginate(pageNumber){
         if(currentPage !== pageNumber){
@@ -40,7 +46,6 @@ function BikesCore() {
             getData()
         }
     }
-    console.log(reportedBikes,"reported bikes")
     return (
         <div>
             <Filter
