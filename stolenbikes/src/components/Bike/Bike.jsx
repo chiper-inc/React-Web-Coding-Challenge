@@ -9,7 +9,7 @@ function Bike({
     serial,
     theftlocation,
     colors,
-    picture}) {
+    picture }) {
 
     const { dateStolen } = useDate(date_stolen);
 

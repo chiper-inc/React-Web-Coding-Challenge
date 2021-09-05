@@ -10,6 +10,7 @@ function BikeDetail() {
         bikeDetail?.stolen_record.date_stolen,
         bikeDetail?.stolen_record.created_at
       );
+      console.log(bikeDetail)
 
     useEffect(() => {
         axios.get(`https://bikeindex.org:443/api/v3/bikes/${id}`)
@@ -24,8 +25,8 @@ function BikeDetail() {
         {bikeDetail ? (
             <>
                 <h2>{bikeDetail.title}</h2>
-                <strong>Stolen <p>{bikeDetail.dateStolen}</p></strong>
-                <img src={bikeDetail.public_images && (bikeDetail.public_images[0].medium)} alt={bikeDetail.frame_model} />
+                <strong>Stolen <p>{dateStolen}</p></strong>
+                <img src={bikeDetail.public_images.length && (bikeDetail.public_images[0].medium || "https://png.pngtree.com/element_our/20190603/ourlarge/pngtree-illustration-of-red-mountain-bike-image_1437250.jpg")} alt={bikeDetail.frame_model} />
                 <strong>Model: <span>{bikeDetail.frame_model}</span></strong>
                 <strong>Location: <span>{bikeDetail.stolen_location}</span></strong>
                 <strong>Serial: <span>{bikeDetail.serial}</span></strong>

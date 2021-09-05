@@ -9,6 +9,8 @@ function BikesCore() {
     const [reportedBikes, setReportedBikes] = useState();
     const [totalCasesCount, setTotalCasesCount] = useState();
     const [currentPage, setCurrentPage] = useState(1);
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
     const [casesPerPage] = useState(10);
 
     console.log(currentPage,"currentPage")
@@ -28,6 +30,9 @@ function BikesCore() {
         getData()
     }, []);
 
+    function filterByDate(startDate,endDate){
+        
+    }
     //Change Page
     function paginate(pageNumber){
         if(currentPage !== pageNumber){
@@ -38,7 +43,14 @@ function BikesCore() {
     console.log(reportedBikes,"reported bikes")
     return (
         <div>
-            <Filter getData={getData} currentPage={currentPage} setTotalCasesCount={setTotalCasesCount} setReportedBikes={setReportedBikes}/>
+            <Filter
+                getData={getData}
+                currentPage={currentPage}
+                setTotalCasesCount={setTotalCasesCount}
+                setReportedBikes={setReportedBikes}
+                startDate={startDate} setStartDate={setStartDate}
+                endDate={endDate} setEndDate={setEndDate}
+            />
             {totalCasesCount ? <span>Total: {totalCasesCount}</span> : totalCasesCount === 0 ? null : <span>Loading Total...</span>}
             {reportedBikes ? <BikesList bikes={reportedBikes}/> : <p>Loading Cases...</p>}
             <Pagination casesPerPage={casesPerPage} totalCasesCount={totalCasesCount} paginate={paginate} />
