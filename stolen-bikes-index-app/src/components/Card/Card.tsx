@@ -15,7 +15,7 @@ export default function Card({ bike }:Props) {
         <span>{bike.title}</span>
         <span>{bike.description}</span>
         <span>{bike.locationOfTheft}</span>
-        <span>{bike.dateOfTheft}</span>
+        <span>{bike.dateOfTheft.toDateString()}</span>
       </Link>
     </div>
   );

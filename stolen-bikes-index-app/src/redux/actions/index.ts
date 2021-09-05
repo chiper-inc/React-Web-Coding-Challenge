@@ -13,7 +13,6 @@ export const GET_STOLEN_BIKES = 'GET_STOLEN_BIKES';
 export const getStolenBikes = () => function (dispatch: any) {
   return BikeIndexApi.get<StolenBikes>('/search?page=1&per_page=100&location=Berlin&distance=10&stolenness=proximity')
     .then((response) => {
-      console.log(response.data.bikes);
       dispatch({
         type: GET_STOLEN_BIKES,
         payload: response.data.bikes.map(({
@@ -21,7 +20,7 @@ export const getStolenBikes = () => function (dispatch: any) {
         }):SimpleStolenBikes => ({
           id,
           title,
-          dateOfTheft: (new Date(date_stolen * 1000)).toDateString(),
+          dateOfTheft: (new Date(date_stolen * 1000)),
           description: `${description?.substr(0, 100)}...`,
           locationOfTheft: stolen_location,
           img: large_img,

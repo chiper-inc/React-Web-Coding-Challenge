@@ -14,7 +14,7 @@ export default function DisplayCards({ list }: Props) {
 
   useEffect(() => {
     getPage();
-  }, [page]);
+  }, [list]);
 
   return (
     <div>

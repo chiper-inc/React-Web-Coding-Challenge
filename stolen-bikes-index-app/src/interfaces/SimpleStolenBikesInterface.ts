@@ -2,7 +2,7 @@ export interface SimpleStolenBikes {
   id:number,
   title: string;
   description: string;
-  dateOfTheft: string;
+  dateOfTheft: Date;
   locationOfTheft: string;
   img?: string | null;
 }
