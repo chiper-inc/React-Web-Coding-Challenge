@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { SimpleStolenBikes } from '../../interfaces/SimpleStolenBikesInterface';
 import './Card.css';
 
@@ -9,12 +10,13 @@ interface Props {
 export default function Card({ bike }:Props) {
   return (
     <div>
-      <img src={bike.img || ''} alt="" />
-      <span>{bike.title}</span>
-      <span>{bike.description}</span>
-      <span>{bike.locationOfTheft}</span>
-      <span>{bike.dateOfTheft}</span>
-      <span>{bike.id}</span>
+      <Link to={`/bike/${bike.id}`}>
+        <img src={bike.img || ''} alt="" />
+        <span>{bike.title}</span>
+        <span>{bike.description}</span>
+        <span>{bike.locationOfTheft}</span>
+        <span>{bike.dateOfTheft}</span>
+      </Link>
     </div>
   );
 }
