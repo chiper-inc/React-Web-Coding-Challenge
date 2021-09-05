@@ -3,12 +3,12 @@ import { SimpleStolenBikes } from '../interfaces/SimpleStolenBikesInterface';
 
 export const usePagination = (total: SimpleStolenBikes[], perPage: number = 10) => {
   const index = useRef(1);
-  const top = total.length;
+  const top = Math.ceil(total.length / perPage);
 
-  const [paged, setPaged] = useState<SimpleStolenBikes[]>([]);
+  const [page, setPage] = useState<SimpleStolenBikes[]>([]);
 
-  const getPage = (page: number) => {
-    setPaged(total.slice(perPage * (page - 1), perPage * page));
+  const getPage = (number: number) => {
+    setPage(total.slice(perPage * (number - 1), perPage * number));
   };
 
   const nextPage = () => {
@@ -41,7 +41,7 @@ export const usePagination = (total: SimpleStolenBikes[], perPage: number = 10) 
 
   return {
     index,
-    paged,
+    page,
     getPage,
     nextPage,
     prevPage,
