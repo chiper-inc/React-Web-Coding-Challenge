@@ -1,15 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { changePage } from '../redux/actions';
 import { State } from '../redux/reducer';
-import usePagination from './usePagination';
 
 export const useHandlePagination = () => {
 
   const index = useSelector((state:State) => state.actualPage);
+  const total = useSelector((state:State) => state.stolenBikes.length);
   const dispatch = useDispatch();
-  const { totalItems, perPage } = usePagination();
 
-  const top = Math.ceil(totalItems / perPage);
+  const top = Math.ceil(total / 10);
 
   const nextPage = () => {
     if (index < top) { dispatch(changePage(index + 1)); }
@@ -26,7 +25,7 @@ export const useHandlePagination = () => {
   const goLast = () => {
     dispatch(changePage(top));
   };
-
+  
   return {
     index,
     nextPage,

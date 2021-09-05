@@ -8,7 +8,7 @@ export type State = {
 
 const InitialState: State = {
   stolenBikes: [],
-  actualPage: 1,
+  actualPage: 0,
 };
 
 export default function rootReducer(state:State = InitialState, action:Action):State {
@@ -17,6 +17,7 @@ export default function rootReducer(state:State = InitialState, action:Action):S
       return {
         ...state,
         stolenBikes: action.payload,
+        actualPage: 1,
       };
     case CHANGE_PAGE:
       return {

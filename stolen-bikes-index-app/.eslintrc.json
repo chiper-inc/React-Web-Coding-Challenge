@@ -29,7 +29,10 @@
             }
          ],
         "no-use-before-define": "off",
-        "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ]
+        "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
+        "react/destructuring-assignment":"off",
+        "no-trailing-spaces":"off",
+        "padded-blocks":"off"
     },
     "settings": {
         "import/resolver": {
