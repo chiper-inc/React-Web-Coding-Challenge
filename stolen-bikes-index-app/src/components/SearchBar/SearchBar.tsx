@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
+import useFilter from '../../hooks/useFilter';
+import { SimpleStolenBikes } from '../../interfaces/SimpleStolenBikesInterface';
 
-export default function SearchBar() {
+interface Props {
+  onChange: Dispatch<SetStateAction<SimpleStolenBikes[]>>
+}
+export default function SearchBar({ onChange }:Props) {
 
   const [input, setInput] = useState('');
+  const { filterByTitle } = useFilter();
 
   const handleInputChange = (event:any) => {
     setInput(event.target.value);
@@ -10,6 +16,7 @@ export default function SearchBar() {
 
   const handleSubmit = (event:any) => {
     event.preventDefault();
+    onChange(filterByTitle(input));
   };
 
   return (

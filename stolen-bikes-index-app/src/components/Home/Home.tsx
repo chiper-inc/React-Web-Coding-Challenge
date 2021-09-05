@@ -11,18 +11,17 @@ export default function Home() {
   const dispatch = useDispatch();
   const allItems = useSelector((state:State) => state.stolenBikes);
  
-  const [filteredResults, setFilteredResults] = useState<SimpleStolenBikes[]>([]);
+  const [results, setResults] = useState<SimpleStolenBikes[]>([]);
 
   useEffect(() => {
     if (!allItems.length) { dispatch(getStolenBikes()); }
-    setFilteredResults([]);
   }, []);
 
   return (
     <div className="homeCtn">
       <h1>Stolen bikes</h1>
-      <SearchBar />
-      <DisplayCards list={filteredResults.length ? filteredResults : allItems} />
+      <SearchBar onChange={setResults} />
+      <DisplayCards list={results.length ? results : allItems} />
     </div>
   );
 }

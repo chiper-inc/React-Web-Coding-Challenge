@@ -11,7 +11,7 @@ export default function Card({ bike }:Props) {
   return (
     <div>
       <Link to={`/bike/${bike.id}`}>
-        <img src={bike.img || ''} alt="" />
+        {/* <img src={bike.img || ''} alt="" /> */}
         <span>{bike.title}</span>
         <span>{bike.description}</span>
         <span>{bike.locationOfTheft}</span>
