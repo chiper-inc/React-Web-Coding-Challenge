@@ -1,4 +1,5 @@
 {
+    "homepage": "https://sbs001.github.io/React-Web-Coding-Challenge",
     "name": "stolen-bikes-index-app",
     "version": "0.1.0",
     "private": true,
@@ -26,7 +27,9 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "browserslist": {
         "production": [
@@ -52,6 +55,7 @@
         "eslint-plugin-import": "^2.24.2",
         "eslint-plugin-jsx-a11y": "^6.4.1",
         "eslint-plugin-react": "^7.25.1",
-        "eslint-plugin-react-hooks": "^4.2.0"
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "gh-pages": "^3.2.3"
     }
 }

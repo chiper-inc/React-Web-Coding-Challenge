@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
 }
 
 .homeCtn h1 {
@@ -14,4 +15,30 @@
     color: red;
     font-size: 40px;
     font-weight: 300;
+}
+
+.undoBtn {
+    position: absolute;
+    left: 17%;
+    top: 170px;
+    cursor: pointer;
+    border: none;
+    width: 120px;
+    height: 30px;
+    background-color: rgba(77, 77, 77, 0.72);
+    border-radius: 5px;
+    color: white;
+    transition: 0.8s;
+    animation: fromLeft 1s ease;
+}
+
+@keyframes fromLeft {
+    from {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

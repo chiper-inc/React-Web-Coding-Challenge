@@ -25,6 +25,11 @@ export default function Home() {
     <div className="homeCtn fadeIn">
       <h1>Stolen bikes</h1>
 
+      {isSearch && (
+      <button className="undoBtn" onClick={() => { setResults([]); setIsSearch(false); }} type="button">
+        Undo search
+      </button>
+      )}
       <Search onSearch={setResults} isSearch={setIsSearch} />
       
       {!allItems.length 
