@@ -4,7 +4,7 @@ import { SimpleStolenBikes } from '../../interfaces/SimpleStolenBikesInterface';
 import { getStolenBikes } from '../../redux/actions';
 import { State } from '../../redux/reducer';
 import DisplayCards from '../DisplayCards/DisplayCards';
-import SearchBar from '../Search/Search';
+import Search from '../Search/Search';
 import Spinner from '../Spinner/Spinner';
 import './Home.css';
 
@@ -13,6 +13,7 @@ export default function Home() {
   const allItems = useSelector((state:State) => state.stolenBikes);
  
   const [results, setResults] = useState<SimpleStolenBikes[]>([]);
+  const [isSearch, setIsSearch] = useState(false);
 
   useEffect(() => {
     if (!allItems.length) { dispatch(getStolenBikes()); }
@@ -21,9 +22,12 @@ export default function Home() {
   return (
     <div className="homeCtn fadeIn">
       <h1>Stolen bikes</h1>
-      <SearchBar onChange={setResults} />
-      {!allItems.length ? <Spinner />
-        : <DisplayCards list={results.length ? results : allItems} />}
+
+      <Search onSearch={setResults} isSearch={setIsSearch} />
+      
+      {!allItems.length 
+        ? <Spinner />
+        : <DisplayCards list={isSearch ? results : allItems} />}
     </div>
   );
 }

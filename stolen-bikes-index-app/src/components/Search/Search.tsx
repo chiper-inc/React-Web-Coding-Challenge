@@ -6,7 +6,8 @@ import { State } from '../../redux/reducer';
 import './Search.css';
 
 interface Props {
-  onChange: Dispatch<SetStateAction<SimpleStolenBikes[]>>
+  onSearch: Dispatch<SetStateAction<SimpleStolenBikes[]>>;
+  isSearch: Dispatch<SetStateAction<boolean>>
 }
 
  interface Inputs {
@@ -15,7 +16,7 @@ interface Props {
   to:Date 
 }
 
-export default function SearchBar({ onChange }:Props) {
+export default function SearchBar({ onSearch, isSearch }:Props) {
   
   const [inputs, setInputs] = useState<Inputs>({ title: '', from: new Date(0), to: new Date() });
   const allItems = useSelector(({ stolenBikes }:State) => stolenBikes);
@@ -33,7 +34,9 @@ export default function SearchBar({ onChange }:Props) {
                 && dateOfTheft < new Date(inputs.to)),
     );
 
-    onChange(result);
+    isSearch(true);
+    onSearch(result);
+
   };
 
   return (

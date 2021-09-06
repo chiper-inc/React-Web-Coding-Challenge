@@ -17,10 +17,14 @@ export default function DisplayCards({ list }: Props) {
     getPage();
   }, [list]);
 
+  if (!list.length) return <h1 className="displayCtn">No results</h1>;
   return (
+
     <div className="displayCtn">
       <p>{`Total: ${totalItems}`}</p>
+
       {page.map((element, i) => (<Card bike={element} key={i.toString()} />))}
+
       <div className="buttonsCtn fadeIn">
         <button type="button" onClick={goFirst}>first</button>
         <button type="button" onClick={prevPage}>back</button>
