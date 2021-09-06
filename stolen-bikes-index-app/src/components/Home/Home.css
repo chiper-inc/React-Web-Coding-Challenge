@@ -9,3 +9,9 @@
 .homeCtn h1 {
     font-size: 40px;
 }
+
+.error {
+    color: red;
+    font-size: 40px;
+    font-weight: 300;
+}

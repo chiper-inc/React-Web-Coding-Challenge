@@ -10,7 +10,8 @@ import './Home.css';
 
 export default function Home() {
   const dispatch = useDispatch();
-  const allItems = useSelector((state:State) => state.stolenBikes);
+  const allItems = useSelector(({ stolenBikes }:State) => stolenBikes);
+  const serverError = useSelector(({ error }:State) => error);
  
   const [results, setResults] = useState<SimpleStolenBikes[]>([]);
   const [isSearch, setIsSearch] = useState(false);
@@ -19,6 +20,7 @@ export default function Home() {
     if (!allItems.length) { dispatch(getStolenBikes()); }
   }, []);
 
+  if (serverError) return <h3 className="homeCtn error">Server Error. Please try later</h3>;
   return (
     <div className="homeCtn fadeIn">
       <h1>Stolen bikes</h1>
