@@ -2,6 +2,8 @@ import React,{useState} from 'react';
 import {useForm} from '../../hooks/useForm';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import {Filters, FiltersContainer, FormContainer} from './Filter.styles';
+
 
 function Filter({
     getData,
@@ -28,36 +30,40 @@ function Filter({
       }
 
     return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <input
-                type='text'
-                name="keyword"
-                value={keyword}
-                placeholder="Search case descriptions"
-                onChange={handleInputChange}
-                autoComplete="off"/>
-                <button type="submit">Search</button>
-                <DatePicker
-                    selected={startDate}
-                    onChange={(date) => setStartDate(date)}
-                    selectsStart
-                    startDate={startDate}
-                    endDate={endDate}
-                    placeholderText="From"
-                />
-                <DatePicker
-                    selected={endDate}
-                    onChange={(date) => setEndDate(date)}
-                    selectsEnd
-                    startDate={startDate}
-                    endDate={endDate}
-                    minDate={startDate}
-                    placeholderText="To"
-                />
-            </form>
-                {allButton && <button onClick={() => getData()}>See all</button>}
-        </>
+        <FiltersContainer>
+            <Filters>
+                <FormContainer onSubmit={handleSubmit}>
+                    <input
+                    type='text'
+                    name="keyword"
+                    value={keyword}
+                    placeholder="Search case descriptions"
+                    onChange={handleInputChange}
+                    autoComplete="off"/>
+                    <button type="submit">Search</button>
+                    <DatePicker
+                        selected={startDate}
+                        onChange={(date) => setStartDate(date)}
+                        selectsStart
+                        startDate={startDate}
+                        endDate={endDate}
+                        placeholderText="From"
+                    />
+                    <DatePicker
+                        selected={endDate}
+                        onChange={(date) => setEndDate(date)}
+                        selectsEnd
+                        startDate={startDate}
+                        endDate={endDate}
+                        minDate={startDate}
+                        placeholderText="To"
+                    />
+                </FormContainer>
+                <FormContainer all>
+                    {allButton && <button onClick={() => getData()}>See all</button>}
+                </FormContainer>
+            </Filters>
+        </FiltersContainer>
     )
 }
 

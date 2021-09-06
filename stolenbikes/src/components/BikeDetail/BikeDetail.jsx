@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useParams } from "react-router-dom";
 import useDate from '../../hooks/useDate';
 import axios from 'axios';
+import { Date, DetailsContainer, FeaturesContainer, ImageContainer, IncidentContainer } from './BikeDetail.styles';
 
 function BikeDetail() {
     const { id } = useParams();
@@ -24,20 +25,30 @@ function BikeDetail() {
     return (
         <>
         {bikeDetail ? (
-            <>
+            <DetailsContainer>
                 <h2>{bikeDetail.title}</h2>
-                <strong>Stolen <p>{dateStolen}</p></strong>
-                <img src={bikeDetail.public_images.length && (bikeDetail.public_images[0].medium || "https://png.pngtree.com/element_our/20190603/ourlarge/pngtree-illustration-of-red-mountain-bike-image_1437250.jpg")} alt={bikeDetail.frame_model} />
-                <strong>Model: <span>{bikeDetail.frame_model}</span></strong>
-                <strong>Location: <span>{bikeDetail.stolen_location}</span></strong>
-                <strong>Serial: <span>{bikeDetail.serial}</span></strong>
-                <strong>Year: <span>{bikeDetail.year}</span></strong>
-                <strong>Type: <span>{bikeDetail.type_of_cycle}</span></strong>
-                <strong>Colors: {bikeDetail.frame_colors}</strong>
-
-                <strong>Reported: <p>{dateStolenReport}</p></strong>
-                <strong>Description: <p>{bikeDetail.description}</p></strong>
-            </>
+                <Date>
+                    <strong>Stolen <p>{dateStolen}</p></strong>
+                </Date>
+                <ImageContainer>
+                    <img src={bikeDetail.public_images.length && (bikeDetail.public_images[0].medium || "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Cycling_%28road%29_pictogram.svg/1024px-Cycling_%28road%29_pictogram.svg.png")} alt={bikeDetail.frame_model} />
+                </ImageContainer>
+                <FeaturesContainer>
+                    <strong>Model: <span>{bikeDetail.frame_model}</span></strong>
+                    <strong>Location: <span>{bikeDetail.stolen_location}</span></strong>
+                    <strong>Serial: <span>{bikeDetail.serial}</span></strong>
+                    <strong>Year: <span>{bikeDetail.year}</span></strong>
+                    <strong>Type: <span>{bikeDetail.type_of_cycle}</span></strong>
+                    <strong>Colors: {bikeDetail.frame_colors}</strong>
+                </FeaturesContainer>
+                <IncidentContainer>
+                    <h2>Description</h2>
+                    <Date>
+                        <strong>Reported: <p>{dateStolenReport}</p></strong>
+                    </Date>
+                    <p>{bikeDetail.stolen_record?.theft_description || 'Description not available'}</p>
+                </IncidentContainer>
+            </DetailsContainer>
             ):( <p>Loading...</p>)}
     </>
     )
