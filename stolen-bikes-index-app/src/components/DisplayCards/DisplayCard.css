@@ -6,8 +6,24 @@
         margin-top: 20px;
     }
     
+    .displayCtn p {
+        width: 80%;
+        text-align: end;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    
     .buttonsCtn {
         margin-bottom: 20px;
+    }
+    
+    .buttonsCtn span {
+        margin: 5px 0;
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: rgba(77, 77, 77, 0.994);
+        background-color: rgb(230, 230, 104);
     }
     
     .buttonsCtn button {
@@ -17,7 +33,7 @@
         height: 30px;
         margin: 0 10px;
         background-color: rgba(77, 77, 77, 0.72);
-        border-radius: 10px;
+        border-radius: 5px;
         color: white;
         cursor: pointer;
         transition: 0.8s;

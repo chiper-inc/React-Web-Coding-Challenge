@@ -4,6 +4,7 @@ import BikeIndexApi from '../../api/BikeIndexApi';
 import { BikeDetail } from '../../interfaces/BikeDetailInterface';
 import './StolenBike.css';
 import noImg from '../../assets/no-img.jpg';
+import Spinner from '../Spinner/Spinner';
 
 interface Params {
   id: string
@@ -25,7 +26,7 @@ export default function StolenBike() {
       .then(() => setLoading(false));
   }, []);
 
-  if (loading) return <h1>loading</h1>;
+  if (loading) return <Spinner />;
   return (
     <div className="detailCtn fadeIn">
       <h1>{detail.bike.title}</h1>
