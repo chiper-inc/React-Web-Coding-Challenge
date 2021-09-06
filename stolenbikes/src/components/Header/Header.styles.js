@@ -9,6 +9,7 @@ export const Container = styled.div`
     color: #404040;
     height: 150px;
     align-items: center;
+    ${'' /* justify-content: space-evenly; */}
     max-width: 1200px;
     margin: auto;
 

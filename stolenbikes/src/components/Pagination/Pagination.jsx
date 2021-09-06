@@ -1,24 +1,26 @@
 import React from "react";
+import { Button, PaginateContainer,Pages } from './Pagination.styles';
 
-function pagination({ casesPerPage, totalCasesCount,paginate }) {
+
+function Pagination({ casesPerPage, totalCasesCount,paginate }) {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalCasesCount / casesPerPage); i++) {
     pageNumbers.push(i);
   }
   return (
-    <nav>
-      <ul className="page-numbers">
+    <PaginateContainer>
+      <Pages className="page-numbers">
         {pageNumbers.map((number) => (
           <li key={number}>
-            <button onClick={()=> paginate(number)}>
+            <Button onClick={()=> paginate(number)}>
               {number}
-            </button>
+            </Button>
           </li>
         ))}
-      </ul>
-    </nav>
+      </Pages>
+    </PaginateContainer>
   );
 }
 
-export default pagination;
+export default Pagination;

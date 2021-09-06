@@ -34,13 +34,13 @@ function Filter({
             <Filters>
                 <FormContainer onSubmit={handleSubmit}>
                     <input
+                    search
                     type='text'
                     name="keyword"
                     value={keyword}
                     placeholder="Search case descriptions"
                     onChange={handleInputChange}
                     autoComplete="off"/>
-                    <button type="submit">Search</button>
                     <DatePicker
                         selected={startDate}
                         onChange={(date) => setStartDate(date)}
@@ -58,6 +58,7 @@ function Filter({
                         minDate={startDate}
                         placeholderText="To"
                     />
+                    <button type="submit">Search</button>
                 </FormContainer>
                 <FormContainer all>
                     {allButton && <button onClick={() => getData()}>See all</button>}

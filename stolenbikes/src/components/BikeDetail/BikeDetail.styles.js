@@ -4,7 +4,6 @@ export const DetailsContainer = styled.section`
   display: flex;
   flex-direction: column;
 
-
   h2 {
     text-decoration: underline;
     color: #0E6AB4;
@@ -21,8 +20,8 @@ export const ImageContainer = styled.div`
   }
 
   ${props => props.map && css`
-    display: grid;
-    grid-template-columns: 1fr 477px;
+    display: flex;
+    align-items: center;
     & > p {
       line-height: 20px;
     }
@@ -38,6 +37,7 @@ export const ImageContainer = styled.div`
 
     ${props => props.map && css`
       grid-template-columns: 1fr;
+      width:100%;
       & > p {
         line-height: 20px;
       }

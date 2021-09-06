@@ -2,10 +2,13 @@ import styled from 'styled-components';
 
 export const Card = styled.div`
   display: flex;
+  align-items: center;
+  justify-self: center;
+  width: 90%;
   border-radius: 8px;
+  justify-content: space-evenly;
   padding: 10px;
-  /* box-shadow: 0px 1px 3px rgba(0,0,0,.2); */
-  box-shadow: 0px 1px 3px rgb(1, 194, 156,.2);
+  box-shadow: 0px 1px 3px rgba(0,0,0,.2);
   transition: box-shadow .1s;
   transition: transform .1s;
 
@@ -30,9 +33,8 @@ export const TextContainer = styled.div`
   padding: 30px 40px;
 
   & > h3 {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     color: #0E6AB4;
-    border-bottom: 1px solid #0E6AB4;
     display: inline-block;
   }
 `
