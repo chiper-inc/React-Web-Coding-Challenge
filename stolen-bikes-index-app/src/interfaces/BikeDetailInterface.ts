@@ -52,13 +52,13 @@ export interface BikeComplete {
 export interface Component {
   id: number;
   description: string;
-  serialNumber: string;
-  componentType: string;
-  componentGroup: string;
+  serial_number: string;
+  component_type: string;
+  component_group: string;
   rear: null;
   front: null;
-  manufacturerName: null | string;
-  modelName: string;
+  manufacturer_name: null | string;
+  model_name: string;
   year: number | null;
 }
 
@@ -72,16 +72,16 @@ export interface PublicImage {
 }
 
 export interface StolenRecord {
-  dateStolen: number;
+  date_stolen: number;
   location: string;
   latitude: number;
   longitude: number;
-  theftDescription: string;
-  lockingDescription: string;
-  lockDefeatDescription: string;
-  policeReportNumber: string;
-  policeReportDepartment: string;
-  createdAt: number;
-  createOpen311: boolean;
+  theft_description: string;
+  locking_description: string;
+  lock_defeat_description: string;
+  police_report_number: string;
+  police_report_department: string;
+  created_at: number;
+  createO_open311: boolean;
   id: number;
 }
