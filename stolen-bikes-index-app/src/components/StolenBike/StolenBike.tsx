@@ -25,9 +25,9 @@ export default function StolenBike() {
       .then(() => setLoading(false));
   }, []);
 
-  if (loading) return <h1>loafing</h1>;
+  if (loading) return <h1>loading</h1>;
   return (
-    <div className="detailCtn">
+    <div className="detailCtn fadeIn">
       <h1>{detail.bike.title}</h1>
 
       <div className="detailBody">

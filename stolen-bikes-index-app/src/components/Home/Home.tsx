@@ -18,7 +18,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="homeCtn">
+    <div className="homeCtn fadeIn">
       <h1>Stolen bikes</h1>
       <SearchBar onChange={setResults} />
       <DisplayCards list={results.length ? results : allItems} />

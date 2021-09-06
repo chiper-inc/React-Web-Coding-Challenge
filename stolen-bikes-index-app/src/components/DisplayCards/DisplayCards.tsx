@@ -19,7 +19,7 @@ export default function DisplayCards({ list }: Props) {
 
   return (
     <div className="displayCtn">
-      <div className="buttonsCtn">
+      <div className="buttonsCtn fadeIn">
         <button type="button" onClick={goFirst}>first</button>
         <button type="button" onClick={prevPage}>back</button>
         <span>{index}</span>

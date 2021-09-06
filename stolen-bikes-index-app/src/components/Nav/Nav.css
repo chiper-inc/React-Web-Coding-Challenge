@@ -9,6 +9,7 @@
     background-color: rgba(77, 77, 77, 0.72);
     box-shadow: 2px 6px 15px 10px rgba(0, 0, 0, 0.38);
     z-index: 99;
+    animation: ease fromTop 2s;
 }
 
 .nav a,
@@ -31,4 +32,15 @@
     font-size: 25px;
     margin-left: 5px;
     text-decoration: underline;
+}
+
+@keyframes fromTop {
+    from {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
