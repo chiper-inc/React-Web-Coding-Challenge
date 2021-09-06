@@ -3,6 +3,7 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { SimpleStolenBikes } from '../../interfaces/SimpleStolenBikesInterface';
 import { State } from '../../redux/reducer';
+import './Search.css';
 
 interface Props {
   onChange: Dispatch<SetStateAction<SimpleStolenBikes[]>>
@@ -36,7 +37,7 @@ export default function SearchBar({ onChange }:Props) {
   };
 
   return (
-    <div className="searchBar">
+    <div className="searchCtn">
       <form onSubmit={handleSubmit}>
 
         <input name="title" type="text" onChange={handleInputChange} placeholder="Search..." />

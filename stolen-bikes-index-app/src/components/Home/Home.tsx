@@ -4,7 +4,7 @@ import { SimpleStolenBikes } from '../../interfaces/SimpleStolenBikesInterface';
 import { getStolenBikes } from '../../redux/actions';
 import { State } from '../../redux/reducer';
 import DisplayCards from '../DisplayCards/DisplayCards';
-import SearchBar from '../SearchBar/SearchBar';
+import SearchBar from '../Search/Search';
 import './Home.css';
 
 export default function Home() {
