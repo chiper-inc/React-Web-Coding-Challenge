@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 export const DetailsContainer = styled.section`
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   h2 {
     text-decoration: underline;

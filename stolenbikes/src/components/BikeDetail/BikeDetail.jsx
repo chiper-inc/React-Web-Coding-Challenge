@@ -4,7 +4,6 @@ import useDate from '../../hooks/useDate';
 import axios from 'axios';
 import { Date, DetailsContainer, FeaturesContainer, ImageContainer, IncidentContainer } from './BikeDetail.styles';
 import ReactMapGL from 'react-map-gl';
-// import 'mapbox-gl/dist/mapbox-gl.css';
 
 function BikeDetail() {
     const API_KEY = 'pk.eyJ1IjoiaW1qb3NlaGlkYWxnbyIsImEiOiJja290MG43MXUwMGJlMndubnU1Zzl3Ym9rIn0.-dtkqxqBOu_WoWzExl5PCA';
@@ -52,7 +51,7 @@ function BikeDetail() {
                     <strong>Stolen <p>{dateStolen}</p></strong>
                 </Date>
                 <ImageContainer>
-                    <img src={bikeDetail.public_images.length && bikeDetail.public_images[0].medium || "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Cycling_%28road%29_pictogram.svg/1024px-Cycling_%28road%29_pictogram.svg.png"} alt={bikeDetail.frame_model} />
+                    <img src={bikeDetail.public_images.length & bikeDetail.public_images[0].medium || "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Cycling_%28road%29_pictogram.svg/1024px-Cycling_%28road%29_pictogram.svg.png"} alt={bikeDetail.frame_model} />
                 </ImageContainer>
                 <FeaturesContainer>
                     <strong>Model: <span>{bikeDetail.frame_model}</span></strong>

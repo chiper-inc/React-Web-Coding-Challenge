@@ -29,21 +29,13 @@ function BikesCore() {
         getData()
     }, []);
 
-    // function filterByDate(startDate,endDate, reportedBikes){
-    //     if (!startDate || !endDate) return reportedBikes;
-    //     else {
-    //         let filtered = reportedBikes?.filter((bike) =>
-    //         { return (bike.date_stolen > startDate &&
-    //             bike.date_stolen < endDate) })
-    //         return filtered;
-    //     }
-    // }
 
     //Change Page
     function paginate(pageNumber){
         if(currentPage !== pageNumber){
             setCurrentPage(pageNumber)
             getData()
+            window.scroll(0, 0);
         }
     }
     return (
