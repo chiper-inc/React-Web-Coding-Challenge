@@ -1,6 +1,28 @@
-.displayCtn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
+    .displayCtn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .buttonsCtn {
+        margin-bottom: 20px;
+    }
+    
+    .buttonsCtn button {
+        margin: 0;
+        border: none;
+        width: 70px;
+        height: 30px;
+        margin: 0 10px;
+        background-color: rgba(77, 77, 77, 0.72);
+        border-radius: 10px;
+        color: white;
+        cursor: pointer;
+        transition: 0.8s;
+    }
+    
+    .buttonsCtn button:hover {
+        opacity: 0.7;
+    }

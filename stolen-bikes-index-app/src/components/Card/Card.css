@@ -2,11 +2,16 @@
     width: 80%;
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    margin-bottom: 30px;
     border: 1px solid gray;
     border-radius: 10px;
     padding: 5px;
     box-shadow: 2px 4px 21px 6px rgba(178, 178, 30, 0.64);
+    transition: 1s;
+}
+
+.cardCtn:hover {
+    transform: scale(1.05);
 }
 
 .cardCtn img {

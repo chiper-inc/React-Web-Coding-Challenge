@@ -19,11 +19,11 @@ export default function DisplayCards({ list }: Props) {
 
   return (
     <div className="displayCtn">
-      <div>
-        <span>{index}</span>
-        <button type="button" onClick={prevPage}>back</button>
-        <button type="button" onClick={nextPage}>next</button>
+      <div className="buttonsCtn">
         <button type="button" onClick={goFirst}>first</button>
+        <button type="button" onClick={prevPage}>back</button>
+        <span>{index}</span>
+        <button type="button" onClick={nextPage}>next</button>
         <button type="button" onClick={goLast}>last</button>
       </div>
       
