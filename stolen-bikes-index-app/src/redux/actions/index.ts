@@ -5,10 +5,11 @@ import { StolenBikes } from '../../interfaces/StolenBikesInterface';
 
 export type Action = {
   type: string;
-  payload: SimpleStolenBikes[] & number;
+  payload: SimpleStolenBikes[] & boolean;
 };
 
 export const GET_STOLEN_BIKES = 'GET_STOLEN_BIKES';
+export const SET_ERROR = 'SET_ERROR';
 
 export const getStolenBikes = () => function (dispatch: any) {
   return BikeIndexApi.get<StolenBikes>('/search?page=1&per_page=100&location=Berlin&distance=10&stolenness=proximity')
@@ -25,6 +26,12 @@ export const getStolenBikes = () => function (dispatch: any) {
           locationOfTheft: stolen_location,
           img: large_img,
         })),
+      });
+    })
+    .catch(() => {
+      dispatch({
+        type: SET_ERROR,
+        payload: true,
       });
     });
 };
