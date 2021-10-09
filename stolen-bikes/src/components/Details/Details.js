@@ -10,6 +10,8 @@ import {
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import bikeImg from '../../assets/img/bike.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     width: '90vw',
-    // height: 'auto',
   },
   header: {
     display: 'flex',
@@ -33,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
   },
   gridItem: {
     display: 'flex',
-    // justifyContent: 'space-between',
     alignItems: 'flex-start',
     width: 'auto',
     gap: 15,
@@ -73,12 +73,13 @@ const useStyles = makeStyles((theme) => ({
 
 const Details = ({ handleDetails }) => {
   const classes = useStyles();
+  const bikeById = useSelector((state) => state.bikes.bikeById);
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
         <CardContent>
           <Grid container className={classes.header}>
-            <Grid item className={classes.gridItem}>
+            <Grid item xs={12} className={classes.gridItem}>
               <IconButton
                 className={classes.icon}
                 onClick={() => handleDetails()}
@@ -87,13 +88,13 @@ const Details = ({ handleDetails }) => {
               </IconButton>
               <Typography component="h4" variant="h3" color="primary">
                 {/* title */}
-                2020 Kona Rove
+                {bikeById.title}
               </Typography>
             </Grid>
-            <Grid item className={classes.gridItem}>
+            <Grid item xs={12} className={classes.gridItem}>
               <Typography component="p" variant="h6">
                 {/* description */}
-                With bike rack and fenders
+                {bikeById.description}
               </Typography>
             </Grid>
           </Grid>
@@ -103,7 +104,7 @@ const Details = ({ handleDetails }) => {
             <Grid item xs={12} sm={8} className={classes.gridItem}>
               <CardMedia
                 className={classes.media}
-                image="https://files.bikeindex.org/uploads/Pu/488295/large_2020_Feb_Kona_Rove__1_.JPG"
+                image={bikeById.large_img || bikeImg}
                 title="Contemplative Reptile"
               />
             </Grid>
@@ -116,7 +117,7 @@ const Details = ({ handleDetails }) => {
                   </Typography>
                   <Typography component="p" variant="h6">
                     {/* frame model */}
-                    Rove
+                    {bikeById.frame_model}
                   </Typography>
                 </div>
                 <div className={classes.detail}>
@@ -126,7 +127,15 @@ const Details = ({ handleDetails }) => {
                   </Typography>
                   <Typography component="p" variant="h6">
                     {/* Color */}
-                    Teal
+                    {bikeById.frame_colors
+                      ? bikeById.frame_colors.map((color, index) => {
+                          const text =
+                            index + 1 === bikeById.frame_colors.length
+                              ? `${color}.`
+                              : `${color}, `;
+                          return text;
+                        })
+                      : 'Unknown'}
                   </Typography>
                 </div>
                 <div className={classes.detail}>
@@ -136,7 +145,7 @@ const Details = ({ handleDetails }) => {
                   </Typography>
                   <Typography component="p" variant="h6">
                     {/* manufacturer name */}
-                    Kona
+                    {bikeById.manufacturer_name}
                   </Typography>
                 </div>
                 <div className={classes.detail}>
@@ -146,7 +155,7 @@ const Details = ({ handleDetails }) => {
                   </Typography>
                   <Typography component="p" variant="h6">
                     {/* serial number */}
-                    AK90507460
+                    {bikeById.serial}
                   </Typography>
                 </div>
                 <div className={classes.detail}>
@@ -156,7 +165,7 @@ const Details = ({ handleDetails }) => {
                   </Typography>
                   <Typography component="p" variant="h6">
                     {/* year */}
-                    2020
+                    {bikeById.year ? bikeById.year : 'Unkown'}
                   </Typography>
                 </div>
                 <div className={classes.detail}>
@@ -166,7 +175,7 @@ const Details = ({ handleDetails }) => {
                   </Typography>
                   <Typography component="p" variant="h6">
                     {/* stole date */}
-                    Jun 27th, 6am
+                    {`${new Date(bikeById.date_stolen * 1000).toDateString()}`}
                   </Typography>
                 </div>
                 <div className={classes.detail}>
@@ -176,7 +185,7 @@ const Details = ({ handleDetails }) => {
                   </Typography>
                   <Typography component="p" variant="h6">
                     {/* Stolen Location */}
-                    Hyattsville, MD - US
+                    {bikeById.stolen_location}
                   </Typography>
                 </div>
               </CardContent>

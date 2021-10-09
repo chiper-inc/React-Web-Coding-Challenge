@@ -13,6 +13,13 @@
   },
   "plugins": ["react"],
   "rules": {
+    "no-return-assign": 0,
+    "implicit-arrow-linebreak": 0,
+    "operator-linebreak": 0,
+    "indent": 0,
+    "react/jsx-indent": 0,
+    "camelcase": ["error", { "properties": "never" }],
+    "no-console": 0,
     "linebreak-style": ["error", "windows"],
     "object-curly-newline": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
