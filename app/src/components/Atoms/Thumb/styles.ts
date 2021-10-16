@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-around;
-  gap: 10px;
+  align-items: center;
+  justify-items: center;
   padding: ${globalStyles.metrics.padding};
-  background-color: ${globalStyles.colors.silver};
-  margin-bottom: ${globalStyles.metrics.margin};
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 `;

@@ -1,6 +1,10 @@
 import React from 'react';
-import { Spinner } from './styles';
+import { Container, Spinner } from './styles';
 
-const Loading: React.FC = () => <Spinner />;
+const Loading: React.FC = () => (
+  <Container>
+    <Spinner />
+  </Container>
+);
 
 export { Loading };

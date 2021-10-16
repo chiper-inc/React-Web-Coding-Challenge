@@ -2,12 +2,10 @@ import { globalStyles } from '@/styles/globalStyles';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-around;
-  gap: 10px;
+  border: 1px solid #ccc;
   padding: ${globalStyles.metrics.padding};
-  background-color: ${globalStyles.colors.silver};
+  margin-top: ${globalStyles.metrics.margin};
   margin-bottom: ${globalStyles.metrics.margin};
+  width: 100%;
+  min-height: 100px;
 `;

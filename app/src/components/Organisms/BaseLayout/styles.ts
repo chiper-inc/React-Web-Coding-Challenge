@@ -12,9 +12,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body{
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
     background-color: ${globalStyles.colors.black20};
   };
 

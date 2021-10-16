@@ -1,18 +1,13 @@
 import { Forms, TitlePage } from '@/components/Molecules';
+import { IFilters } from '@/Interfaces';
 import React from 'react';
 
-interface IFilters {
-  word?: string;
-  from?: string;
-  to?: string;
-}
-
 interface HeaderProps {
-  onSearch: (filters: object) => void;
+  onSearch: (filters: object | null) => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ onSearch }) => {
-  const [filters, setFilters] = React.useState<IFilters>();
+  const [filters, setFilters] = React.useState<IFilters | null>();
 
   const handleChange = (event: any) => {
     const { name, value } = event.target;
@@ -23,6 +18,11 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
     onSearch(filters as object);
   }, [filters, onSearch]);
 
+  const handleClear = React.useCallback(() => {
+    setFilters(null);
+    onSearch(null);
+  }, [onSearch]);
+
   return (
     <>
       <TitlePage title="Police Department of Berlin" subtitle="Stolen Bykes" />
@@ -31,6 +31,7 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
         from={(event) => handleChange(event)}
         to={(event) => handleChange(event)}
         onSearch={() => handleSearch()}
+        onClear={() => handleClear()}
       />
     </>
   );

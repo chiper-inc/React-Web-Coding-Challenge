@@ -6,6 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-items: center;
+  width: 100%;
 
   label {
     margin-bottom: 4px;
@@ -16,6 +17,7 @@ export const Container = styled.div`
   }
 
   input {
+    width: 100%;
     font-family: inherits, sans-serif;
     height: 24px;
     border: 1px solid ${globalStyles.colors.black50};

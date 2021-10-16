@@ -1,11 +1,23 @@
-import { BaseLayout, Header } from '@/components/Organisms';
+import { BaseLayout, Header, ListBikes } from '@/components/Organisms';
+import { IBikes } from '@/Interfaces';
 import React from 'react';
 
-const PageHome: React.FC = () => {
+interface PageHomeProps {
+  onSearch: (params: object) => void;
+  bikesStolen: IBikes[];
+  countStolen: number;
+}
+
+const PageHome: React.FC<PageHomeProps> = ({
+  onSearch,
+  bikesStolen,
+  countStolen,
+}: PageHomeProps) => {
   return (
     <>
       <BaseLayout>
-        <Header onSearch={(params) => console.log(params)} />
+        <Header onSearch={(params) => onSearch(params as object)} />
+        <ListBikes list={bikesStolen} />
       </BaseLayout>
     </>
   );
