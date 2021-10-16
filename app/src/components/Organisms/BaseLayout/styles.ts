@@ -30,6 +30,7 @@ export const Container = styled.div`
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  min-height: 100vh;
   background-color: ${globalStyles.colors.white};
   box-shadow: ${globalStyles.metrics.borderRadius};
 

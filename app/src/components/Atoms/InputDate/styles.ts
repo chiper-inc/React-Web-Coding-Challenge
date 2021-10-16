@@ -3,12 +3,24 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-items: center;
-  padding: ${globalStyles.metrics.padding};
 
-  img {
-    width: 100%;
-    height: auto;
+  label {
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1.3px;
+    margin-left: ${globalStyles.metrics.margin};
+  }
+
+  input {
+    font-family: inherits, sans-serif;
+    height: 24px;
+    border: 1px solid ${globalStyles.colors.black50};
+    outline-color: black;
+    border-radius: ${globalStyles.metrics.borderRadius};
+    padding: ${globalStyles.metrics.padding};
   }
 `;

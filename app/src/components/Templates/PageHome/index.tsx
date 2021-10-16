@@ -5,7 +5,7 @@ const PageHome: React.FC = () => {
   return (
     <>
       <BaseLayout>
-        <Header />
+        <Header onSearch={(params) => console.log(params)} />
       </BaseLayout>
     </>
   );

@@ -6,11 +6,7 @@ interface TitleProps {
 }
 
 const Title: React.FC<TitleProps> = ({ title }: TitleProps) => {
-  return (
-    <Container>
-      <h1>{title}</h1>
-    </Container>
-  );
+  return <Container>{title}</Container>;
 };
 
 export { Title };

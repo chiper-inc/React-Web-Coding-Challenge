@@ -1,24 +1,23 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { darken, opacify } from 'polished'
+import { darken, opacify } from 'polished';
 
-import { ButtonProps } from '.'
-import globalStyles from '@styles/styles'
+import { ButtonProps } from '.';
+import { globalStyles } from '@/styles/globalStyles';
 
 export const Container = styled.button<ButtonProps>`
-  pointer-events: ${({ disabled }) => (disabled ? 'none' : 'auto')};
-  filter: ${({ disabled }) => (disabled ? 'grayscale(1)' : 'grayscale(0)')};
-  opacity: ${({ disabled }) => (disabled ? '0.4' : '1')};
-  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
+  pointer-events: ${({ disabled }) => (disabled ? `none` : `auto`)};
+  filter: ${({ disabled }) => (disabled ? `grayscale(1)` : `grayscale(0)`)};
+  opacity: ${({ disabled }) => (disabled ? `0.4` : `1`)};
+  cursor: ${({ disabled }) => (disabled ? `not-allowed` : `pointer`)};
   margin: 0;
-  padding: 12px 16px;
+  padding: 8px 16px;
   font-size: 12px;
-  font-weight: 900;
   text-transform: uppercase;
   outline: none;
   border-radius: ${globalStyles.metrics.borderRadius};
   background-color: ${({ color, outlined }) =>
-    outlined ? 'transparent' : color};
+    outlined ? `transparent` : color};
   color: ${({ color, outlined }) =>
     outlined ? color : globalStyles.colors.white};
   border: 2px solid ${({ color }) => color};
@@ -60,8 +59,8 @@ export const Container = styled.button<ButtonProps>`
 
   &:hover {
     background-color: ${({ color, outlined }) =>
-      outlined ? opacify(0.2, color) : darken(0.1, color)};
+      outlined ? opacify(0.2, color as string) : darken(0.1, color as string)};
     color: ${globalStyles.colors.white};
     border: 2px solid ${({ color }) => color};
   }
-`
+`;

@@ -6,11 +6,7 @@ interface SubtitleProps {
 }
 
 const Subtitle: React.FC<SubtitleProps> = ({ subtitle }: SubtitleProps) => {
-  return (
-    <Container>
-      <p>{subtitle}</p>
-    </Container>
-  );
+  return <Container>{subtitle}</Container>;
 };
 
 export { Subtitle };

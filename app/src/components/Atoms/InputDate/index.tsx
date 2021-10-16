@@ -5,7 +5,7 @@ interface InputDateProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
 }
 
-const Input: React.FC<InputDateProps> = ({
+const InputDate: React.FC<InputDateProps> = ({
   label,
   ...props
 }: InputDateProps) => {
@@ -17,4 +17,4 @@ const Input: React.FC<InputDateProps> = ({
   );
 };
 
-export { Input };
+export { InputDate };
