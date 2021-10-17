@@ -14,15 +14,14 @@ const Home: NextPage = () => {
     showLoading();
     const bikes = await getSearchBikes();
     const count = await getCountOcurrencesBikes();
-    console.log(bikes);
     setBikesStolen(bikes.bikes);
     setCountStolen(count.stolen);
     hideLoading();
   };
 
   const handleSearch = async (filters: IFilters) => {
-    const bikes = await getSearchBikes(filters);
-    setBikesStolen(bikes);
+    const res = await getSearchBikes(filters);
+    setBikesStolen(res.bikes);
   };
 
   React.useEffect(() => {

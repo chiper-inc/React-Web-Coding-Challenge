@@ -4,7 +4,7 @@ import { Container } from './styles';
 import NoImage from '@/assets/images/no-image.jpg';
 
 interface ThumbProps {
-  url: string;
+  url: string | undefined;
   size: number;
   alt: string;
 }

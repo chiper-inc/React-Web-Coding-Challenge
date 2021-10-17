@@ -13,14 +13,13 @@ export const Container = styled.div`
     font-size: 12px;
     font-weight: 300;
     letter-spacing: 1.3px;
-    margin-left: ${globalStyles.metrics.margin};
   }
 
   input {
     width: 100%;
     font-family: inherits, sans-serif;
     height: 24px;
-    border: 1px solid ${globalStyles.colors.black50};
+    border: 1px solid ${globalStyles.colors.black25};
     outline-color: black;
     border-radius: ${globalStyles.metrics.borderRadius};
     padding: ${globalStyles.metrics.padding};

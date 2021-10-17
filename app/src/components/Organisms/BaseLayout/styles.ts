@@ -23,8 +23,6 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Container = styled.div`
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
   min-height: 100vh;
