@@ -1,5 +1,6 @@
 import { Button, Input, InputDate } from '@/components/Atoms';
 import React from 'react';
+import { FaSearch, FaTrash } from 'react-icons/fa';
 import { Container } from './styles';
 
 interface FormsProps {
@@ -26,8 +27,10 @@ const Forms: React.FC<FormsProps> = ({
       />
       <InputDate label="De" name="from" onChange={(event) => from(event)} />
       <InputDate label="Até" name="to" onChange={(event) => to(event)} />
-      <Button onClick={onSearch}>Buscar</Button>
-      <Button onClick={onClear} outlined>
+      <Button onClick={onSearch} startIcon={<FaSearch />}>
+        Buscar
+      </Button>
+      <Button onClick={onClear} outlined startIcon={<FaTrash />}>
         Limpar
       </Button>
     </Container>

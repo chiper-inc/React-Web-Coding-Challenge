@@ -1,4 +1,4 @@
-import { IFilters } from '@/Interfaces';
+import { IBikes, IFilters } from '@/Interfaces';
 import api from './api';
 
 const PER_PAGE = 10;
@@ -16,5 +16,10 @@ export async function getSearchBikes(
 
 export async function getCountOcurrencesBikes(): Promise<any> {
   const res = await api.get(`/search/count`);
+  return res.data;
+}
+
+export async function getBikeById(id: string): Promise<any> {
+  const res = await api.get(`/bikes/${id}`);
   return res.data;
 }

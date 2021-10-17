@@ -1,3 +1,5 @@
 export { BaseLayout } from './BaseLayout';
-export { Header } from './Header';
+export { HeaderHome } from './HeaderHome';
+export { HeaderDetails } from './HeaderDetails';
 export { ListBikes } from './ListBikes';
+export { DetailsBike } from './DetailsBike';

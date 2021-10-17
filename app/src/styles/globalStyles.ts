@@ -2,13 +2,13 @@ export const globalStyles = {
   colors: {
     background: `#ffffff`,
     text: `#777`,
-    primary: `#00ab64`,
-    secondary: `#3398dc`,
+    primary: `#978746`,
+    secondary: `#222`,
     success: `#04d47e`,
     error: `#f03434`,
     warning: `#f9bf3b`,
     info: `#e4f1fe`,
-    boxShadow: `0px -5px 15px #0000001A`,
+    boxShadow: `0px 2px 10px #0000001A`,
 
     black: `#000000`,
     black5: `#0000000D`,

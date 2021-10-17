@@ -2,11 +2,13 @@ import { Forms, TitlePage } from '@/components/Molecules';
 import { IFilters } from '@/Interfaces';
 import React from 'react';
 
-interface HeaderProps {
+interface HeaderHomeProps {
   onSearch: (filters: object | null) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onSearch }) => {
+const HeaderHome: React.FC<HeaderHomeProps> = ({
+  onSearch,
+}: HeaderHomeProps) => {
   const [filters, setFilters] = React.useState<IFilters | null>();
 
   const handleChange = (event: any) => {
@@ -37,4 +39,4 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
   );
 };
 
-export { Header };
+export { HeaderHome };

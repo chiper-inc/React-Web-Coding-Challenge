@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
   html, body{
     box-sizing: border-box;
     margin: 0;
@@ -13,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body{
     background-color: ${globalStyles.colors.black20};
+    color: ${globalStyles.colors.text}
   };
 
   *,

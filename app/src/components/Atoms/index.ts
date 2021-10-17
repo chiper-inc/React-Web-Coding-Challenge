@@ -7,3 +7,5 @@ export { Button } from './Button';
 export { Loading } from './Loading';
 export { Card } from './Card';
 export { Thumb } from './Thumb';
+export { TextParagraph } from './TextParagraph';
+export { TitleParagraph } from './TitleParagraph';
