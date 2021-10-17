@@ -23,8 +23,8 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Container = styled.div`
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
+  padding-bottom: ${globalStyles.metrics.padding};
   min-height: 100vh;
   background-color: ${globalStyles.colors.white};
   box-shadow: ${globalStyles.metrics.borderRadius};

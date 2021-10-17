@@ -10,6 +10,7 @@ import {
   NoContent,
   Title,
 } from './styles';
+import Link from 'next/link';
 
 interface CardBikesProps {
   bike: IBikes;
@@ -21,7 +22,11 @@ const CardBikes: React.FC<CardBikesProps> = ({ bike }: CardBikesProps) => {
       <Container>
         <Thumb url={bike.thumb} size={100} alt={bike.title} />
         <Infos>
-          <Title>{bike?.title}</Title>
+          <Link href={`/details/${bike.id}`}>
+            <a>
+              <Title>{bike?.title}</Title>
+            </a>
+          </Link>
           {bike?.description ? (
             <Description>{bike?.description}</Description>
           ) : (

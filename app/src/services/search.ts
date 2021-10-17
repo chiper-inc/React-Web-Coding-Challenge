@@ -1,11 +1,13 @@
 import { IFilters } from '@/Interfaces';
 import api from './api';
 
+const PER_PAGE = 10;
+
 export async function getSearchBikes(
   filters: IFilters | null = null,
 ): Promise<any> {
   const res = await api.get(
-    `/search?${
+    `/search?per_page=${PER_PAGE}&${
       filters && new URLSearchParams(JSON.stringify(filters)).toString()
     }`,
   );
