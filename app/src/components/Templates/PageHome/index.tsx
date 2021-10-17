@@ -1,3 +1,4 @@
+import { Empty } from '@/components/Molecules';
 import {
   BaseLayout,
   HeaderHome,
@@ -28,12 +29,19 @@ const PageHome: React.FC<PageHomeProps> = ({
     <>
       <BaseLayout>
         <HeaderHome onSearch={(params) => onSearch(params as object)} />
-        <ListBikes list={bikesStolen} total={countStolen} />
-        <Pagination
-          current={currentPage}
-          total={totalPage}
-          handleClick={handlePaginate}
-        />
+
+        {bikesStolen && bikesStolen.length > 0 ? (
+          <>
+            <ListBikes list={bikesStolen} total={countStolen} />
+            <Pagination
+              current={currentPage}
+              total={totalPage}
+              handleClick={handlePaginate}
+            />
+          </>
+        ) : (
+          <Empty />
+        )}
       </BaseLayout>
     </>
   );

@@ -10,4 +10,9 @@ export const Container = styled.div`
   padding: ${globalStyles.metrics.padding};
   background-color: ${globalStyles.colors.silver};
   margin-bottom: ${globalStyles.metrics.margin};
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;

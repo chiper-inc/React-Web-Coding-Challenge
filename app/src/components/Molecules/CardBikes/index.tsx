@@ -1,6 +1,6 @@
 import { Card, NoContent, Thumb } from '@/components/Atoms';
 import { IBikes } from '@/Interfaces';
-import { convertTimestamp } from '@/utils/dates';
+import { convertTimestampToDate } from '@/utils/dates';
 import React from 'react';
 import { Container, Details, Infos, Title, Description } from './styles';
 import Link from 'next/link';
@@ -26,7 +26,7 @@ const CardBikes: React.FC<CardBikesProps> = ({ bike }: CardBikesProps) => {
             <NoContent>Sem Descrição</NoContent>
           )}
           <Details>
-            {convertTimestamp(bike?.date_stolen)} {bike?.stolen_location}
+            {convertTimestampToDate(bike?.date_stolen)} {bike?.stolen_location}
           </Details>
         </Infos>
       </Container>

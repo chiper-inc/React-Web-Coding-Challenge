@@ -15,9 +15,9 @@ const ListBikes: React.FC<ListBikesProps> = ({
   return (
     <Container>
       <Total>Total: {total}</Total>
-      {list &&
-        list.length > 0 &&
-        list.map((bike) => <CardBikes key={bike.id} bike={bike} />)}
+      {list.map((bike) => (
+        <CardBikes key={bike.id} bike={bike} />
+      ))}
     </Container>
   );
 };

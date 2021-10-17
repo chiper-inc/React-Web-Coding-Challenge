@@ -9,7 +9,7 @@ export async function getSearchBikes(
   const res = await api.get(
     `/search?page=${page}&per_page=${perPage}${
       filters
-        ? `&${new URLSearchParams(JSON.stringify(filters)).toString()}`
+        ? `&${new URLSearchParams(filters as unknown as string).toString()}`
         : ``
     }`,
   );

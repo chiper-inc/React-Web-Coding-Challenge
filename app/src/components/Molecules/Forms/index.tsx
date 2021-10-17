@@ -1,4 +1,5 @@
 import { Button, Input, InputDate } from '@/components/Atoms';
+import { convertDateToTimestamp } from '@/utils/dates';
 import React from 'react';
 import { FaSearch, FaTrash } from 'react-icons/fa';
 import { Container } from './styles';
@@ -22,11 +23,19 @@ const Forms: React.FC<FormsProps> = ({
     <Container>
       <Input
         label="Buscar por Descrição"
-        name="word"
+        name="query"
         onChange={(event) => searchWord(event)}
       />
-      <InputDate label="De" name="from" onChange={(event) => from(event)} />
-      <InputDate label="Até" name="to" onChange={(event) => to(event)} />
+      <InputDate
+        label="De"
+        name="stolen_after"
+        onChange={(event) => from(event)}
+      />
+      <InputDate
+        label="Até"
+        name="stolen_before"
+        onChange={(event) => to(event)}
+      />
       <Button onClick={onSearch} startIcon={<FaSearch />}>
         Buscar
       </Button>

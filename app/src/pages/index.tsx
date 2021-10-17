@@ -50,7 +50,7 @@ const Home: NextPage = () => {
         bikesStolen={bikesStolen}
         countStolen={countStolen}
         currentPage={currentPage}
-        totalPage={Math.round(countStolen / 10)}
+        totalPage={Math.round(countStolen / perPage)}
         handlePaginate={(num) =>
           handleSearch(filters as IFilters, num, perPage)
         }

@@ -6,6 +6,9 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-items: center;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 
   label {
     margin-bottom: 4px;
@@ -21,5 +24,8 @@ export const Container = styled.div`
     outline-color: black;
     border-radius: ${globalStyles.metrics.borderRadius};
     padding: ${globalStyles.metrics.padding};
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 `;

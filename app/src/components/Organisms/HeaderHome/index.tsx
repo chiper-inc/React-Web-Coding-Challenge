@@ -1,5 +1,6 @@
 import { Forms, TitlePage } from '@/components/Molecules';
 import { IFilters } from '@/Interfaces';
+import { convertDateToTimestamp } from '@/utils/dates';
 import React from 'react';
 
 interface HeaderHomeProps {
@@ -12,7 +13,10 @@ const HeaderHome: React.FC<HeaderHomeProps> = ({
   const [filters, setFilters] = React.useState<IFilters | null>();
 
   const handleChange = (event: any) => {
-    const { name, value } = event.target;
+    const { name } = event.target;
+    let { value } = event.target;
+    if (name === `stolen_before` || name === `stolen_after`)
+      value = convertDateToTimestamp(value);
     setFilters({ ...filters, [name]: value });
   };
 

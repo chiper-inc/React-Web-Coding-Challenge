@@ -1,7 +1,7 @@
 export interface IFilters {
-  word?: string;
-  from?: string;
-  to?: string;
+  query?: string;
+  stolen_before?: string;
+  stolen_after?: string;
 }
 
 export interface IBikes {

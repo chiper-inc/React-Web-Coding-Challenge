@@ -27,6 +27,10 @@ export const Container = styled.button<ButtonProps>`
   justify-content: center;
   letter-spacing: 1.5px;
 
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
   span {
     margin: 0px 8px;
   }
