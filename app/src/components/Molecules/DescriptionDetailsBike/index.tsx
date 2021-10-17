@@ -26,11 +26,13 @@ const DescriptionDetailsBike: React.FC<DescriptionDetailsBikeProps> = ({
       <TitleParagraph>Descrição</TitleParagraph>
       <TextParagraph>{description}</TextParagraph>
       <TextParagraph>Serial: {serial}</TextParagraph>
-      <Link href={url as string}>
-        <a target="_blank">
-          <Button>Mais Detalhes</Button>
-        </a>
-      </Link>
+      {url && (
+        <Link href={url}>
+          <a target="_blank">
+            <Button>Mais Detalhes</Button>
+          </a>
+        </Link>
+      )}
       <Thumb url={image} size={300} alt={serial as string} />
     </Container>
   );

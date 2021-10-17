@@ -9,3 +9,4 @@ export { Card } from './Card';
 export { Thumb } from './Thumb';
 export { TextParagraph } from './TextParagraph';
 export { TitleParagraph } from './TitleParagraph';
+export { NoContent } from './NoContent';

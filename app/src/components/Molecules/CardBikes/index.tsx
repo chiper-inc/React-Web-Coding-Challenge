@@ -1,15 +1,8 @@
-import { Card, Thumb } from '@/components/Atoms';
+import { Card, NoContent, Thumb } from '@/components/Atoms';
 import { IBikes } from '@/Interfaces';
 import { convertTimestamp } from '@/utils/dates';
 import React from 'react';
-import {
-  Container,
-  Description,
-  Details,
-  Infos,
-  NoContent,
-  Title,
-} from './styles';
+import { Container, Details, Infos, Title, Description } from './styles';
 import Link from 'next/link';
 
 interface CardBikesProps {

@@ -10,18 +10,33 @@ const Home: NextPage = () => {
   const [bikesStolen, setBikesStolen] = React.useState<IBikes[]>([]);
   const [countStolen, setCountStolen] = React.useState<number>(0);
 
+  const [currentPage, setCurrentPage] = React.useState<number>(1);
+  const [perPage, setPerPage] = React.useState<number>(10);
+  const [filters, setFilters] = React.useState<IFilters>();
+
   const getBikes = async () => {
     showLoading();
-    const bikes = await getSearchBikes();
-    const count = await getCountOcurrencesBikes();
+    const bikes = await getSearchBikes(filters, currentPage, perPage);
     setBikesStolen(bikes.bikes);
-    setCountStolen(count.stolen);
+    if (!countStolen) {
+      const count = await getCountOcurrencesBikes();
+      setCountStolen(count.stolen);
+    }
     hideLoading();
   };
 
-  const handleSearch = async (filters: IFilters) => {
-    const res = await getSearchBikes(filters);
+  const handleSearch = async (
+    filters: IFilters,
+    page: number,
+    perPage: number,
+  ) => {
+    showLoading();
+    setCurrentPage(page);
+    setPerPage(perPage);
+    setFilters(filters);
+    const res = await getSearchBikes(filters, page, perPage);
     setBikesStolen(res.bikes);
+    hideLoading();
   };
 
   React.useEffect(() => {
@@ -31,9 +46,14 @@ const Home: NextPage = () => {
   return (
     <>
       <PageHome
-        onSearch={(params) => handleSearch(params)}
+        onSearch={(params) => handleSearch(params, currentPage, perPage)}
         bikesStolen={bikesStolen}
         countStolen={countStolen}
+        currentPage={currentPage}
+        totalPage={Math.round(countStolen / 10)}
+        handlePaginate={(num) =>
+          handleSearch(filters as IFilters, num, perPage)
+        }
       />
     </>
   );
