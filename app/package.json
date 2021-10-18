@@ -14,11 +14,9 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint --fix",
     "type-check": "tsc",
-    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
-    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
     "postinstall": "husky install",
-    "commit": "cz",
     "pre-commit": "lint-staged"
   },
   "dependencies": {
