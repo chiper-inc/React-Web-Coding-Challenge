@@ -17,7 +17,8 @@
     "lint": "next lint --fix",
     "type-check": "tsc",
     "postinstall": "husky install",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "prepare": "husky install"
   },
   "dependencies": {
     "axios": "0.23.0",
@@ -50,7 +51,7 @@
     "eslint-config-prettier": "8.3.0",
     "eslint-import-resolver-typescript": "2.5.0",
     "eslint-plugin-prettier": "4.0.0",
-    "husky": "7.0.2",
+    "husky": "^7.0.0",
     "lint-staged": "11.2.3",
     "prettier": "2.4.1",
     "typescript": "4.4.3"
