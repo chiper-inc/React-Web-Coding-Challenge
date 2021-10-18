@@ -1,5 +1,4 @@
 import { Button, Input, InputDate } from '@/components/Atoms';
-import { convertDateToTimestamp } from '@/utils/dates';
 import React from 'react';
 import { FaSearch, FaTrash } from 'react-icons/fa';
 import { Container } from './styles';
