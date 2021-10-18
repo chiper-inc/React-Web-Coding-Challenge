@@ -1,9 +1,4 @@
-import {
-  Button,
-  TextParagraph,
-  Thumb,
-  TitleParagraph,
-} from '@/components/Atoms';
+import { TextParagraph, Thumb, TitleParagraph } from '@/components/Atoms';
 import React from 'react';
 import { Container } from './styles';
 import Link from 'next/link';
