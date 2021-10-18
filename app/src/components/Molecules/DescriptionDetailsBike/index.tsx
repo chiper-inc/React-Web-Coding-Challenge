@@ -7,6 +7,7 @@ import {
 import React from 'react';
 import { Container } from './styles';
 import Link from 'next/link';
+import { FaPlusCircle } from 'react-icons/fa';
 
 interface DescriptionDetailsBikeProps {
   description: string | undefined;
@@ -29,7 +30,7 @@ const DescriptionDetailsBike: React.FC<DescriptionDetailsBikeProps> = ({
       {url && (
         <Link href={url}>
           <a target="_blank">
-            <Button>Mais Detalhes</Button>
+            <FaPlusCircle /> Mais Detalhes
           </a>
         </Link>
       )}
