@@ -14,17 +14,10 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint --fix",
     "type-check": "tsc",
-    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
-    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
     "postinstall": "husky install",
-    "commit": "cz"
-  },
-  "lint-staged": {
-    "./src/**/*.{ts,js,jsx,tsx}": [
-      "yarn lint --fix",
-      "yarn format"
-    ]
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "axios": "0.23.0",
