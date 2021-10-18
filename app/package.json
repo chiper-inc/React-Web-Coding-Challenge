@@ -21,12 +21,6 @@
     "commit": "cz",
     "pre-commit": "lint-staged"
   },
-  "lint-staged": {
-    "./src/**/*.{ts,js,jsx,tsx}": [
-      "yarn lint --fix",
-      "yarn format"
-    ]
-  },
   "dependencies": {
     "axios": "0.23.0",
     "leaflet": "1.7.1",
