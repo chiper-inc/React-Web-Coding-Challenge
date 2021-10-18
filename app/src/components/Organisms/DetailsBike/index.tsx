@@ -17,7 +17,7 @@ const DetailsBike: React.FC<DetailsBikeProps> = ({
   const MyMap = React.useMemo(
     () =>
       dynamic(() => import(`@/components/Atoms/Map`), {
-        loading: () => <p>A map is loading</p>,
+        loading: () => <p>Loading</p>,
         ssr: false,
       }),
     [],
@@ -25,7 +25,13 @@ const DetailsBike: React.FC<DetailsBikeProps> = ({
   return (
     <Container>
       <TitleDetailsBike title={bike?.title} location={bike?.stolen_location} />
-      <MyMap />
+      {bike?.stolen_record && (
+        <MyMap
+          lat={bike?.stolen_record?.latitude as number}
+          lng={bike?.stolen_record?.longitude as number}
+          title={bike?.title}
+        />
+      )}
       <DescriptionDetailsBike
         description={bike?.description}
         serial={bike?.serial}
