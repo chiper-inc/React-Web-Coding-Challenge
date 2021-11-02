@@ -1,12 +1,12 @@
 import { useState } from 'react';
+import './style.scss';
 
 const BarFilter = () => {
-  const [startDate, setStartDate] = useState(new Date());
   return (
-    <div className="bar-filter mt-8 flex items-center">
-      <div className="content-search mr-4 w-3/12">
+    <div className="bar-filter">
+      <div className="content-search w-full md:w-3/12">
         <input
-          className="border border-black w-full p-1"
+          className="input-search"
           placeholder="Search case descriptions"
         />
       </div>
