@@ -1,11 +1,13 @@
-import axios from "axios";
+/* eslint-disable import/no-anonymous-default-export */
+import axios from 'axios';
 
 const URL = 'https://bikeindex.org:443/api';
-const INDEX = `${URL}/v3/search?page=1&per_page=10&location=berlin&stolenness=proximity`;
 
-const index = async () => {
+const index = async (page = 1) => {
   try {
-    const res = await axios.get(INDEX);
+    const res = await axios.get(
+      `${URL}/v3/search?page=${page}&per_page=10&location=berlin&stolenness=proximity`
+    );
     // console.log('index response', res)
     return res.data;
   } catch (e) {
@@ -30,6 +32,4 @@ const cip = async (params) => {
   }
 }; */
 
-export default {
-  index,
-};
+export default { index };
