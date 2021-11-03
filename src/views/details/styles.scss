@@ -1,23 +1,62 @@
-.details{
-    @apply mt-8;
-    .detail-bike{
-        .stolen{
-            @apply uppercase text-xl md:text-3xl text-red-700 font-bold
+.details {
+  @apply mt-8;
+  .detail-bike {
+    .header-detail {
+      .stolen {
+        @apply uppercase text-xl md:text-3xl text-red-700 font-bold;
+      }
+
+      .title {
+        span {
+          @apply text-blue-900 font-extrabold;
+        }
+        @apply text-2xl md:text-4xl text-blue-800;
+      }
+
+      .date {
+        span {
+          @apply text-gray-600 font-extrabold;
+        }
+        @apply mt-2;
+      }
+    }
+    .details {
+      .content-img {
+        .img-bike {
+          @apply w-full h-full rounded;
         }
 
-        .title{
-            span{
-                @apply text-blue-900 font-extrabold
-            }
-            @apply text-2xl md:text-4xl text-blue-800
-        }
+        @apply mt-4 md:mt-16 h-auto;
+      }
 
-        .date{
-            span{
-                @apply text-gray-800 font-extrabold;
-               
+      .info-details {
+        @apply mt-2 md:mt-4  grid grid-cols-1 md:grid-cols-2;
+
+        .col-1,
+        .col-2 {
+          p {
+            @apply mt-2 text-gray-500;
+            span {
+              @apply font-bold text-gray-600;
             }
-            @apply mt-2;
+          }
+        }
+      }
+    }
+
+    .distinguishing-features, .theft-details, .description-of-incident, .additional-parts{
+        .title-detail{
+            @apply text-xl md:text-2xl uppercase text-blue-800;
         }
     }
+
+    .distinguishing-features, .description-of-incident, .additional-parts{
+        p{
+            @apply text-gray-500 mt-2 md:mt-4;
+            span{
+                @apply capitalize font-bold text-gray-600 mr-2
+            }
+        }
+    }
+  }
 }
