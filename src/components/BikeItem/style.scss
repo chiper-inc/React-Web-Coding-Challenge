@@ -12,8 +12,7 @@
     rounded;
 
   .content-img {
-    width: 8.125rem;
-    height: 8.125rem;
+    @apply w-full h-full md:w-32 md:h-32;
     img {
       width: 100%;
       height: 100%;
