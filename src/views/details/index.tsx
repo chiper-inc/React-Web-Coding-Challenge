@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { ErrorData, Loading } from '../../components';
+import useDateFull from '../../hooks/useDateFull';
 import { DetailsType } from '../../types/types';
 import BikesServices from '../../utils/services/BikesServices';
 import './styles.scss';
@@ -16,7 +17,7 @@ const Details = () => {
   const [info, setInfo]: DetailsProps['info'] = useState({});
   const [loading, setLoading] = useState(true);
   const [showError, setShowError] = useState(false);
-  const [dateTransform, setDateTransform] = useState('');
+  const dateTransform = useDateFull(info);
   const searchID = async () => {
     try {
       const infoResponse = await BikesServices.searchID(id);
@@ -36,25 +37,7 @@ const Details = () => {
   }, []);
 
   useEffect(() => {
-    let timestamp = info?.stolen_record?.date_stolen;
-    let dateFormat = new Date(timestamp * 1000);
-    let hours =
-      dateFormat.getHours() === 0
-        ? '12'
-        : dateFormat.getHours() > 12
-        ? dateFormat.getHours() - 12
-        : dateFormat.getHours();
-    let minutes =
-      (dateFormat.getMinutes() < 10 ? '0' : '') + dateFormat.getMinutes();
-    let ampm = dateFormat.getHours() < 12 ? 'AM' : 'PM';
-    let formattedTime = hours + ':' + minutes + ' ' + ampm;
-    let timeZone = dateFormat.getTimezoneOffset() / 60;
-    let date = `${dateFormat.getFullYear()}-${
-      dateFormat.getMonth() + 1 < 10 ? '0' : ''
-    }${dateFormat.getMonth() + 1}-${
-      dateFormat.getDate() < 10 ? '0' : ''
-    }${dateFormat.getDate()} ${formattedTime} -0${timeZone}`;
-    setDateTransform(date);
+    // setDateTransform(date);
   }, [info]);
 
   return (
