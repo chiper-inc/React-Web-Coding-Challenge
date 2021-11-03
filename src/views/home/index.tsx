@@ -12,6 +12,7 @@ const Home = () => {
   const [bikes, setBikes] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [titleSearch, setTitleSearch] = useState('');
   /* Aca se hace el calculo de total de paginas el 61 fue extraido de la documentacion
     de la API por alguna razon este valor no lo retornan en la data y por eso no se puede 
     saber dinamicamente el valor y se divide entre 9 para que me de un valor flotante mayor a 
@@ -38,9 +39,15 @@ const Home = () => {
     searchAll();
   }, [page]);
 
+  useEffect(() => {
+    if(!!titleSearch && titleSearch.length >= 4){
+      console.log('title search', titleSearch);
+    }
+  }, [titleSearch]);
+
   return (
     <div className="home">
-      <BarFilter />
+      <BarFilter titleSearch={titleSearch} setTitleSearch={setTitleSearch} />
       {loading ? (
         <Loading />
       ) : (

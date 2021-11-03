@@ -21,3 +21,8 @@ export interface MapType {
     longitude: number,
     zoom: 11
 }
+
+export interface BarFilterType {
+    titleSearch: string
+    setTitleSearch: function
+}
