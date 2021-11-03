@@ -1,0 +1,22 @@
+.details{
+    @apply mt-8;
+    .detail-bike{
+        .stolen{
+            @apply uppercase text-xl md:text-3xl text-red-700 font-bold
+        }
+
+        .title{
+            span{
+                @apply text-blue-900 font-extrabold
+            }
+            @apply text-2xl md:text-4xl text-blue-800
+        }
+
+        .date{
+            span{
+                @apply text-gray-800 font-extrabold;
+               
+            }
+        }
+    }
+}

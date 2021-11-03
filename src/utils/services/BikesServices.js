@@ -14,22 +14,15 @@ const index = async (page = 1) => {
     throw e;
   }
 };
-/* const authorization = async (params) => {
+
+const searchID = async (id) => {
   try {
-    const r = await axios.post(`${AUTH}`, params);
-    return r.data;
+    const res = await axios.get(`${URL}/v3/bikes/${id}`);
+    console.log('searchID response', res);
+    return res.data;
   } catch (e) {
     throw e;
   }
 };
 
-const cip = async (params) => {
-  try {
-    const r = await axios.post(`${CIP}`, params);
-    return r.data;
-  } catch (e) {
-    throw e;
-  }
-}; */
-
-export default { index };
+export default { index, searchID };
