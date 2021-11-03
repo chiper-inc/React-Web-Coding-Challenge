@@ -19,7 +19,6 @@ const Home = () => {
   const totalPage = Math.round(61 / 9);
 
   const searchAll = async () => {
-    setLoading(true);
     try {
       const bikesResponse = await BikesServices.index(page);
       setLoading(false);
