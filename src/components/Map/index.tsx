@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { MapType } from '../../types/types';
 import ReactMapGl from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
