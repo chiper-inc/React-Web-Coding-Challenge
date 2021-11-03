@@ -1,7 +1,7 @@
 /* eslint-disable no-extend-native */
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { ErrorData, Loading } from '../../components';
+import { ErrorData, Loading, Map } from '../../components';
 import useDateFull from '../../hooks/useDateFull';
 import useOnlyDate from '../../hooks/useOnlyDate';
 import { DetailsType } from '../../types/types';
@@ -132,7 +132,13 @@ const Details = () => {
             <h3 className="title-detail">theft details</h3>
 
             <div className="content">
-              <div className="content-map w-full md:w-3/5">map</div>
+              <div className="content-map w-full md:w-3/5 md:pr-4">
+                <Map
+                  latitude={info?.stolen_record?.latitude}
+                  longitude={info?.stolen_record?.longitude}
+                  zoom={11}
+                />
+              </div>
               <div className="content-info w-full md:w-2/5">
                 <span>Location</span>
                 <p>

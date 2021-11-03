@@ -15,3 +15,9 @@ export interface PaginationType {
 export interface DetailsType {
     id: string,
 }
+
+export interface MapType {
+    latitude: number,
+    longitude: number,
+    zoom: 11
+}
