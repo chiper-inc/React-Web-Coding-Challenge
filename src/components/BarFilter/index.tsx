@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { BarFilterType } from '../../types/types';
 import './style.scss';
 interface BarFilterProps {
