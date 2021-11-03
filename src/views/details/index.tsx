@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { ErrorData, Loading } from '../../components';
 import useDateFull from '../../hooks/useDateFull';
+import useOnlyDate from '../../hooks/useOnlyDate';
 import { DetailsType } from '../../types/types';
 import BikesServices from '../../utils/services/BikesServices';
 import './styles.scss';
@@ -18,6 +19,8 @@ const Details = () => {
   const [loading, setLoading] = useState(true);
   const [showError, setShowError] = useState(false);
   const dateTransform = useDateFull(info);
+  const stolen_at = useOnlyDate(info);
+
   const searchID = async () => {
     try {
       const infoResponse = await BikesServices.searchID(id);
@@ -150,11 +153,7 @@ const Details = () => {
                     : 'n/a'}
                 </p>
                 <span>stolen at</span>
-                <p>
-                  {!!info?.stolen_record?.lock_defeat_description
-                    ? info?.stolen_record?.lock_defeat_description
-                    : 'n/a'}
-                </p>
+                <p>{!!stolen_at ? stolen_at : 'n/a'}</p>
               </div>
             </div>
           </section>
