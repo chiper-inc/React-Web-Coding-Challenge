@@ -1,0 +1,16 @@
+.loading {
+  @apply mt-8 flex-col flex justify-center items-center ;
+
+  .spinner {
+    @apply animate-spin
+            rounded-full
+            h-32
+            w-32
+            border-t-2 
+            border-b-2 
+          border-yellow-500;
+  }
+  .text {
+    @apply text-4xl mt-4;
+  }
+}
