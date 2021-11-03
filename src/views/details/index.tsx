@@ -48,11 +48,12 @@ const Details = () => {
       (dateFormat.getMinutes() < 10 ? '0' : '') + dateFormat.getMinutes();
     let ampm = dateFormat.getHours() < 12 ? 'AM' : 'PM';
     let formattedTime = hours + ':' + minutes + ' ' + ampm;
+    let timeZone = dateFormat.getTimezoneOffset() / 60;
     let date = `${dateFormat.getFullYear()}-${
       dateFormat.getMonth() + 1 < 10 ? '0' : ''
     }${dateFormat.getMonth() + 1}-${
       dateFormat.getDate() < 10 ? '0' : ''
-    }${dateFormat.getDate()} ${formattedTime}`;
+    }${dateFormat.getDate()} ${formattedTime} -0${timeZone}`;
     setDateTransform(date);
   }, [info]);
 
@@ -73,6 +74,8 @@ const Details = () => {
           <p className="date">
             <span>Stolen </span>
             {dateTransform}
+            <span> from </span>
+            {info?.stolen_location}
           </p>
         </section>
       )}
