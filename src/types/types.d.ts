@@ -11,3 +11,7 @@ export interface PaginationType {
     setPage: function
     totalPage: number
 }
+
+export interface DetailsType {
+    id: string,
+}

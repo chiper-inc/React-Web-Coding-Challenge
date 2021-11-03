@@ -1,7 +1,7 @@
 // import React from 'react';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Header } from './components';
-import { Home } from './views';
+import { Details, Home } from './views';
 
 function App() {
   return (
@@ -9,6 +9,9 @@ function App() {
       <Header />
       <Router>
         <Switch>
+          <Route path="/details/:id">
+            <Details />
+          </Route>
           <Route path="/">
             <Home />
           </Route>

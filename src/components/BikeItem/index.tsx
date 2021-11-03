@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { NoImage } from '../../assets/images';
 import { BikeItemType } from '../../types/types';
 
@@ -13,7 +14,9 @@ const BikeItem = ({ bike }: BikeItemProps) => {
         <img src={!!bike?.thumb ? bike?.thumb : NoImage} alt={bike.title} />
       </div>
       <div className="content-info">
-        <a className="title" href='/'>{bike.title}</a>
+        <Link className="title" to={`/details/${bike.id}`}>
+          {bike.title}
+        </Link>
         <p className="description">
           {!!bike.description ? bike.description : 'No description'}
         </p>
