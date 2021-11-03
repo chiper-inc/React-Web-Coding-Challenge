@@ -71,7 +71,7 @@
             @apply capitalize font-bold text-gray-600;
           }
           p {
-            @apply text-gray-500;
+            @apply text-gray-500 mb-2;
           }
         }
         @apply w-full flex flex-col md:flex-row mt-2 md:mt-4;
