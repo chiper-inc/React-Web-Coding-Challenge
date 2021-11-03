@@ -5,5 +5,15 @@ import Pagination from './Pagination';
 import Loading from './Loading';
 import ErrorData from './Error';
 import Map from './Map';
+import EmptyResult from './EmptyResult';
 
-export { Header, BarFilter, BikeItem, Pagination, Loading, ErrorData, Map };
+export {
+  Header,
+  BarFilter,
+  BikeItem,
+  Pagination,
+  Loading,
+  ErrorData,
+  Map,
+  EmptyResult,
+};

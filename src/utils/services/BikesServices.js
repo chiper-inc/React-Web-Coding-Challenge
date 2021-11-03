@@ -15,6 +15,18 @@ const index = async (page = 1) => {
   }
 };
 
+const searchForTitle = async (title) => {
+  try {
+    const res = await axios.get(
+      `${URL}/v3/search?per_page=10&manufacturer=${title}&location=berlin&stolenness=proximity`
+    );
+    // console.log('index response', res)
+    return res.data;
+  } catch (e) {
+    throw e;
+  }
+};
+
 const searchID = async (id) => {
   try {
     const res = await axios.get(`${URL}/v3/bikes/${id}`);
@@ -25,4 +37,4 @@ const searchID = async (id) => {
   }
 };
 
-export default { index, searchID };
+export default { index, searchID, searchForTitle };

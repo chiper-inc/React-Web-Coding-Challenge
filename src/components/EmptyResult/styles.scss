@@ -1,0 +1,13 @@
+.error-data {
+  @apply mt-8 flex-col flex justify-center items-center ;
+
+  .content-image{
+    img{
+      @apply w-full h-full
+    }
+    @apply w-32 h-32;
+  }
+  .text {
+    @apply text-2xl md:text-4xl mt-4 text-red-700;
+  }
+}
