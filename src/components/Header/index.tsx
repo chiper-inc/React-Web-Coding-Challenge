@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Logo } from '../../assets/images';
 import './style.scss';
 const Header = () => {
@@ -8,7 +9,9 @@ const Header = () => {
         <img src={Logo} alt="Logo" />
       </div>
       <div className="content-info">
-        <h1 className="title">Police Department of Berlin</h1>
+        <Link className="title" to="/">
+          Police Department of Berlin
+        </Link>
         <h4 className="sub-title">Stolen bykes.</h4>
       </div>
     </div>
