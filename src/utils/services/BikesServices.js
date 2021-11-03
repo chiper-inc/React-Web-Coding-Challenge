@@ -18,7 +18,7 @@ const index = async (page = 1) => {
 const searchID = async (id) => {
   try {
     const res = await axios.get(`${URL}/v3/bikes/${id}`);
-    console.log('searchID response', res);
+    // console.log('searchID response', res);
     return res.data;
   } catch (e) {
     throw e;
