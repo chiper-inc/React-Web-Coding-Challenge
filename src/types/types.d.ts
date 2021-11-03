@@ -5,3 +5,9 @@ export interface BikeItemType {
     description: string;
     stolen_location: string
 }
+
+export interface PaginationType {
+    page: number,
+    setPage: function
+    totalPage: number
+}
