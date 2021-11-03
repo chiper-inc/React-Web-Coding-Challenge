@@ -24,7 +24,7 @@ const Details = () => {
   const searchID = async () => {
     try {
       const infoResponse = await BikesServices.searchID(id);
-      console.log(infoResponse.bike);
+      // console.log(infoResponse.bike);
       setInfo(infoResponse.bike);
 
       setLoading(false);

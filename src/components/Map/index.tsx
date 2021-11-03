@@ -15,7 +15,7 @@ const Map = ({
   longitude = -73.96625,
   zoom = 11,
 }: MapProps) => {
-  console.log('props map', latitude, longitude, zoom);
+  // console.log('props map', latitude, longitude, zoom);
   const withMap = '100%';
   const heightMap = '400px';
   return (
