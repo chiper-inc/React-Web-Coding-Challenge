@@ -44,19 +44,38 @@
       }
     }
 
-    .distinguishing-features, .theft-details, .description-of-incident, .additional-parts{
-        .title-detail{
-            @apply text-xl md:text-2xl uppercase text-blue-800;
-        }
+    .distinguishing-features,
+    .theft-details,
+    .description-of-incident,
+    .additional-parts {
+      .title-detail {
+        @apply text-xl md:text-2xl uppercase text-blue-800;
+      }
     }
 
-    .distinguishing-features, .description-of-incident, .additional-parts{
-        p{
-            @apply text-gray-500 mt-2 md:mt-4;
-            span{
-                @apply capitalize font-bold text-gray-600 mr-2
-            }
+    .distinguishing-features,
+    .description-of-incident,
+    .additional-parts {
+      p {
+        span {
+          @apply capitalize font-bold text-gray-600 mr-2;
         }
+        @apply text-gray-500 mt-2 md:mt-4;
+      }
+    }
+
+    .theft-details {
+      .content {
+        .content-info {
+          span {
+            @apply capitalize font-bold text-gray-600;
+          }
+          p {
+            @apply text-gray-500;
+          }
+        }
+        @apply w-full flex flex-col md:flex-row mt-2 md:mt-4;
+      }
     }
   }
 }

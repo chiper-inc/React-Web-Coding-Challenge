@@ -144,6 +144,36 @@ const Details = () => {
 
           <section className="theft-details mt-4 w-full md:w-2/4">
             <h3 className="title-detail">theft details</h3>
+
+            <div className="content">
+              <div className="content-map w-full md:w-3/5">map</div>
+              <div className="content-info w-full md:w-2/5">
+                <span>Location</span>
+                <p>
+                  {!!info?.stolen_record?.location
+                    ? info?.stolen_record?.location
+                    : 'n/a'}
+                </p>
+                <span>locking description</span>
+                <p>
+                  {!!info?.stolen_record?.locking_description
+                    ? info?.stolen_record?.locking_description
+                    : 'n/a'}
+                </p>
+                <span>locking circumvented</span>
+                <p>
+                  {!!info?.stolen_record?.lock_defeat_description
+                    ? info?.stolen_record?.lock_defeat_description
+                    : 'n/a'}
+                </p>
+                <span>stolen at</span>
+                <p>
+                  {!!info?.stolen_record?.lock_defeat_description
+                    ? info?.stolen_record?.lock_defeat_description
+                    : 'n/a'}
+                </p>
+              </div>
+            </div>
           </section>
           <section className="description-of-incident mt-4 w-full md:w-2/4">
             <h3 className="title-detail">description of incident</h3>
