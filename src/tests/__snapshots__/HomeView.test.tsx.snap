@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component Home View 1`] = `
+<div
+  className="home"
+>
+  <BarFilter
+    setTitleSearch={[Function]}
+    titleSearch=""
+  />
+  <Loading />
+</div>
+`;
+
+exports[`renders the component Pagination 1`] = `
+<div
+  className="home"
+>
+  <BarFilter
+    setTitleSearch={[Function]}
+    titleSearch=""
+  />
+  <Loading />
+</div>
+`;

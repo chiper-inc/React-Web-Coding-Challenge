@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component Bike 1`] = `
+<div
+  className="content-bike "
+>
+  <div
+    className="content-img"
+  >
+    <img
+      src="noImage.png"
+    />
+  </div>
+  <div
+    className="content-info"
+  >
+    <Link
+      className="title"
+      to="/details/undefined"
+    />
+    <p
+      className="description"
+    >
+      No description
+    </p>
+    <p
+      className="location"
+    >
+      No location
+    </p>
+  </div>
+</div>
+`;

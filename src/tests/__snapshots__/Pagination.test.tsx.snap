@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component Home 1`] = `
+<div
+  className="home"
+>
+  <BarFilter
+    setTitleSearch={[Function]}
+    titleSearch=""
+  />
+  <Loading />
+</div>
+`;
+
+exports[`renders the component Home View 1`] = `
+<div
+  className="home"
+>
+  <BarFilter
+    setTitleSearch={[Function]}
+    titleSearch=""
+  />
+  <Loading />
+</div>
+`;
+
+exports[`renders the component Pagination 1`] = `
+<div
+  className="home"
+>
+  <BarFilter
+    setTitleSearch={[Function]}
+    titleSearch=""
+  />
+  <Loading />
+</div>
+`;
+
+exports[`renders the component Pagination Test 1`] = `
+<div
+  className="pagination flex"
+>
+  <button
+    className="btn"
+    onClick={[Function]}
+  >
+    First
+  </button>
+  <button
+    className="btn desactive"
+    disabled={true}
+    onClick={[Function]}
+  >
+    Prev
+  </button>
+  <button
+    className="btn"
+    disabled={false}
+    onClick={[Function]}
+  >
+    Next
+  </button>
+  <button
+    className="btn"
+    onClick={[Function]}
+  >
+    Last
+  </button>
+</div>
+`;

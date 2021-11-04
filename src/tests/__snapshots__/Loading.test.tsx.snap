@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component Header 1`] = `
+<div
+  className="header"
+>
+  <div
+    className="content-img"
+  >
+    <img
+      alt="Logo"
+      src="logo.jpg"
+    />
+  </div>
+  <div
+    className="content-info"
+  >
+    <Link
+      className="title"
+      to="/"
+    >
+      Police Department of Berlin
+    </Link>
+    <h4
+      className="sub-title"
+    >
+      Stolen bykes.
+    </h4>
+  </div>
+</div>
+`;
+
+exports[`renders the component Loading 1`] = `
+<div
+  className="loading"
+>
+  <div
+    className="spinner"
+  />
+  <p
+    className="text"
+  >
+    Loading
+  </p>
+</div>
+`;

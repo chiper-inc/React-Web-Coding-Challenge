@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders the component 1`] = `
+exports[`renders the component App 1`] = `
 <div
   className="container mx-auto px-4 mt-8"
 >
@@ -22,7 +22,7 @@ exports[`renders the component 1`] = `
 </div>
 `;
 
-exports[`renders the component App 1`] = `
+exports[`renders the component Home 1`] = `
 <div
   className="container mx-auto px-4 mt-8"
 >
