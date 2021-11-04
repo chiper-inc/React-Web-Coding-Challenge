@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component Home View 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "history": Object {
+        "action": "PUSH",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "jrvzwy",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          Object {
+            "hash": "",
+            "key": "52jwir",
+            "pathname": "/details/360966",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 1,
+        "length": 2,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "52jwir",
+          "pathname": "/details/360966",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      },
+      "location": Object {
+        "hash": "",
+        "key": "52jwir",
+        "pathname": "/details/360966",
+        "search": "",
+        "state": undefined,
+      },
+      "match": Object {
+        "isExact": false,
+        "params": Object {},
+        "path": "/",
+        "url": "/",
+      },
+      "staticContext": undefined,
+    }
+  }
+>
+  <ContextProvider
+    value={
+      Object {
+        "action": "PUSH",
+        "block": [Function],
+        "canGo": [Function],
+        "createHref": [Function],
+        "entries": Array [
+          Object {
+            "hash": "",
+            "key": "jrvzwy",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          Object {
+            "hash": "",
+            "key": "52jwir",
+            "pathname": "/details/360966",
+            "search": "",
+            "state": undefined,
+          },
+        ],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "index": 1,
+        "length": 2,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "key": "52jwir",
+          "pathname": "/details/360966",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Details />
+  </ContextProvider>
+</ContextProvider>
+`;

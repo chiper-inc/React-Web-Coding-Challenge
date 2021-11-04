@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component Map 1`] = `
+<div
+  className="w-full"
+>
+  <ForwardRef
+    altitude={1.5}
+    asyncRender={false}
+    attributionControl={true}
+    bearing={0}
+    className=""
+    clickRadius={0}
+    container={<body />}
+    disableTokenWarning={false}
+    doubleClickZoom={true}
+    dragPan={true}
+    dragRotate={true}
+    eventRecognizerOptions={Object {}}
+    getCursor={[Function]}
+    height="400px"
+    keyboard={true}
+    latitude={7854126}
+    longitude={5414578}
+    mapOptions={Object {}}
+    mapStyle="mapbox://styles/mapbox/streets-v10"
+    mapboxApiAccessToken="pk.eyJ1IjoiZW1hbnVlbGp0YyIsImEiOiJja3ZqcjZsY2UybzNmMnVxaTVwNXpsMXd5In0.AXN4b5miAcgBzZUBw66sxw"
+    mapboxApiUrl="https://api.mapbox.com"
+    maxPitch={85}
+    maxZoom={24}
+    minPitch={0}
+    minZoom={0}
+    onClick={null}
+    onContextMenu={[Function]}
+    onError={[Function]}
+    onHover={null}
+    onLoad={[Function]}
+    onNativeClick={null}
+    onResize={[Function]}
+    onTransitionEnd={[Function]}
+    onTransitionInterrupt={[Function]}
+    onTransitionStart={[Function]}
+    onViewStateChange={null}
+    onViewportChange={null}
+    pitch={0}
+    preserveDrawingBuffer={false}
+    preventStyleDiffing={false}
+    reuseMaps={false}
+    scrollZoom={true}
+    style={null}
+    touchAction="none"
+    touchRotate={false}
+    touchZoom={true}
+    transitionDuration={0}
+    transitionEasing={[Function]}
+    transitionInterpolator={
+      LinearInterpolator {
+        "propNames": Array [
+          "longitude",
+          "latitude",
+          "zoom",
+          "bearing",
+          "pitch",
+        ],
+      }
+    }
+    transitionInterruption={1}
+    visibilityConstraints={
+      Object {
+        "maxPitch": 85,
+        "maxZoom": 24,
+        "minPitch": 0,
+        "minZoom": 0,
+      }
+    }
+    visible={true}
+    width="100%"
+    zoom={11}
+  />
+</div>
+`;

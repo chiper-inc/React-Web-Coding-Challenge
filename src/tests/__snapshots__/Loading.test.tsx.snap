@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component Loading 1`] = `
+<div
+  className="loading"
+>
+  <div
+    className="spinner"
+  />
+  <p
+    className="text"
+  >
+    Loading
+  </p>
+</div>
+`;

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component Header Mpount 1`] = `
+<div
+  className="header"
+>
+  <div
+    className="content-img"
+  >
+    <img
+      alt="Logo"
+      src="logo.png"
+    />
+  </div>
+  <div
+    className="content-info"
+  >
+    <a
+      className="title"
+      href="/"
+    >
+      Police Department of Berlin
+    </a>
+    <h4
+      className="sub-title"
+    >
+      Stolen bykes.
+    </h4>
+  </div>
+</div>
+`;

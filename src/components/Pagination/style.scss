@@ -1,0 +1,24 @@
+.pagination {
+  @apply flex mt-8 flex-col md:flex-row;
+
+  .btn {
+    @apply px-12 py-3 m-4 ml-0 bg-blue-400 text-white font-bold rounded;
+    &:hover {
+      @apply bg-blue-600;
+    }
+    &.desactive {
+      @apply cursor-not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  .item-number {
+    @apply p-4 m-4 ml-0 bg-gray-400 text-white font-bold rounded cursor-pointer hidden md:block;
+    &:hover {
+      @apply bg-blue-600;
+    }
+    &.active {
+      @apply bg-blue-400;
+    }
+  }
+}

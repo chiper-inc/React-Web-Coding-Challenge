@@ -1,0 +1,108 @@
+{
+  "name": "bike-test",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@craco/craco": "^6.4.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.3.2",
+    "axios": "^0.24.0",
+    "install": "^0.13.0",
+    "node-sass": "5.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-map-gl": "^6.1.17",
+    "react-map-gl-geocoder": "^2.2.0",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --runInBand --watchAll=false",
+    "eject": "react-scripts eject",
+    "isready": "npm run format && npm run lint && npm run test:coverage && npm run build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/enzyme": "3.10.10",
+    "@types/enzyme-adapter-react-16": "1.0.6",
+    "autoprefixer": "^9",
+    "enzyme": "3.11.0",
+    "enzyme-adapter-react-16": "1.15.6",
+    "enzyme-to-json": "3.6.2",
+    "jest-fetch-mock": "3.0.3",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "ts-jest": "27.0.7"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts",
+      "!src/index.tsx",
+      "!src/serviceWorker.ts",
+      "!src/reportWebVitals.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "./src/*/*.types.{ts,tsx}",
+      "./src/index.tsx",
+      "./src/serviceWorker.ts"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text-summary",
+      "clover"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 80,
+        "branches": 0,
+        "lines": 70,
+        "functions": 70
+      }
+    },
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+      "src/(.*)$": "<rootDir>/src/$1"
+    }
+  }
+}

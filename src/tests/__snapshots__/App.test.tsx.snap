@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the component App 1`] = `
+<Fragment>
+  <Header />
+  <div
+    className="container mx-auto px-4 mt-8"
+  >
+    <BrowserRouter>
+      <Switch>
+        <Route
+          path="/details/:id"
+        >
+          <Details />
+        </Route>
+        <Route
+          path="/"
+        >
+          <Home />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  </div>
+</Fragment>
+`;

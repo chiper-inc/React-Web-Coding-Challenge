@@ -1,0 +1,44 @@
+.content-bike {
+  &:hover{
+      background-color: #2600f8;
+    }
+  @apply p-4
+    mt-8 
+    grid 
+    grid-cols-1 
+    md:grid-cols-bikeItem 
+    md:items-center 
+    gap-4
+    border-2
+    border-gray-400
+    rounded;
+    background-color: rgb(0, 255, 234);
+    
+  .content-img {
+    @apply w-full h-full md:w-32 md:h-32;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .content-info {
+    @apply flex flex-col justify-between gap-4;
+
+    .title {
+      &:hover{
+        @apply text-white;
+      }
+      @apply text-2xl md:text-4xl text-blue-600 underline cursor-pointer;
+      
+    }
+    .description {
+      @apply text-base md:text-2xl text-gray-400;
+    }
+
+    .location {
+      @apply text-base md:text-2xl text-red-600;
+    }
+  }
+}

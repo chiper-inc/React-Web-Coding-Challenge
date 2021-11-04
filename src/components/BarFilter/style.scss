@@ -1,0 +1,10 @@
+.bar-filter {
+    @apply  mt-8 flex items-center;
+
+    .content-search{
+        @apply mr-4;
+        .input-search{
+            @apply border-2 border-gray-400 rounded w-full p-1;
+        }
+    }
+}
