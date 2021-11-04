@@ -10,7 +10,7 @@ test('should have the logo image', () => {
   const img = component.find('img');
   //@ts-ignore
   const src = img.getElement().props.src;
-  expect(src).toBe('logo.jpg');
+  expect(src).toBe('logo.png');
 });
 
 test('should have the element h4', () => {

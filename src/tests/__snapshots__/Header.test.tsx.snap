@@ -9,7 +9,7 @@ exports[`renders the component Header Mpount 1`] = `
   >
     <img
       alt="Logo"
-      src="logo.jpg"
+      src="logo.png"
     />
   </div>
   <div
