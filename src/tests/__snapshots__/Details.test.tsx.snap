@@ -12,14 +12,14 @@ exports[`renders the component Home View 1`] = `
         "entries": Array [
           Object {
             "hash": "",
-            "key": "0jl5m8",
+            "key": "v5b7el",
             "pathname": "/",
             "search": "",
             "state": undefined,
           },
           Object {
             "hash": "",
-            "key": "2y3d4j",
+            "key": "dnqqz8",
             "pathname": "/details/360966",
             "search": "",
             "state": undefined,
@@ -33,7 +33,7 @@ exports[`renders the component Home View 1`] = `
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "2y3d4j",
+          "key": "dnqqz8",
           "pathname": "/details/360966",
           "search": "",
           "state": undefined,
@@ -43,7 +43,7 @@ exports[`renders the component Home View 1`] = `
       },
       "location": Object {
         "hash": "",
-        "key": "2y3d4j",
+        "key": "dnqqz8",
         "pathname": "/details/360966",
         "search": "",
         "state": undefined,
@@ -68,14 +68,14 @@ exports[`renders the component Home View 1`] = `
         "entries": Array [
           Object {
             "hash": "",
-            "key": "0jl5m8",
+            "key": "v5b7el",
             "pathname": "/",
             "search": "",
             "state": undefined,
           },
           Object {
             "hash": "",
-            "key": "2y3d4j",
+            "key": "dnqqz8",
             "pathname": "/details/360966",
             "search": "",
             "state": undefined,
@@ -89,7 +89,7 @@ exports[`renders the component Home View 1`] = `
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "2y3d4j",
+          "key": "dnqqz8",
           "pathname": "/details/360966",
           "search": "",
           "state": undefined,
