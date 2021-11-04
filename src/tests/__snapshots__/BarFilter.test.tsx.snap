@@ -1,25 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders the component BarFilter 1`] = `
-<div
-  className="bar-filter"
->
-  <div
-    className="content-search w-full md:w-3/12"
-  >
-    <input
-      className="input-search"
-      onChange={[Function]}
-      placeholder="Search case descriptions"
-      value=""
-    />
-  </div>
-  <div
-    className="content-range-date"
-  />
-</div>
-`;
-
 exports[`renders the component BarFilter Test 1`] = `
 <div
   className="bar-filter"

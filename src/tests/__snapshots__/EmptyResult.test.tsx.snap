@@ -19,23 +19,3 @@ exports[`renders the component EmptyResult 1`] = `
   </p>
 </div>
 `;
-
-exports[`renders the component ErrorData 1`] = `
-<div
-  className="error-data"
->
-  <div
-    className="content-img"
-  >
-    <img
-      alt="No found"
-      src="noFound.png"
-    />
-  </div>
-  <p
-    className="text"
-  >
-    Opps, something went wrong..
-  </p>
-</div>
-`;

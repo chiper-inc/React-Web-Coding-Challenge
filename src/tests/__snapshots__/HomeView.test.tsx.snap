@@ -11,15 +11,3 @@ exports[`renders the component Home View 1`] = `
   <Loading />
 </div>
 `;
-
-exports[`renders the component Pagination 1`] = `
-<div
-  className="home"
->
-  <BarFilter
-    setTitleSearch={[Function]}
-    titleSearch=""
-  />
-  <Loading />
-</div>
-`;

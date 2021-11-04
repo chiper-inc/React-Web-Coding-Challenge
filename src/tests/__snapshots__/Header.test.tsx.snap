@@ -1,28 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders the component 1`] = `
-<div
-  className="container mx-auto px-4 mt-8"
->
-  <BrowserRouter>
-    <Header />
-    <Switch>
-      <Route
-        path="/details/:id"
-      >
-        <Details />
-      </Route>
-      <Route
-        path="/"
-      >
-        <Home />
-      </Route>
-    </Switch>
-  </BrowserRouter>
-</div>
-`;
-
-exports[`renders the component Header 1`] = `
+exports[`renders the component Header Mpount 1`] = `
 <div
   className="header"
 >
@@ -37,42 +15,12 @@ exports[`renders the component Header 1`] = `
   <div
     className="content-info"
   >
-    <Link
+    <a
       className="title"
-      to="/"
+      href="/"
     >
       Police Department of Berlin
-    </Link>
-    <h4
-      className="sub-title"
-    >
-      Stolen bykes.
-    </h4>
-  </div>
-</div>
-`;
-
-exports[`renders the component Headerw 1`] = `
-<div
-  className="header"
->
-  <div
-    className="content-img"
-  >
-    <img
-      alt="Logo"
-      src="logo.jpg"
-    />
-  </div>
-  <div
-    className="content-info"
-  >
-    <Link
-      className="title"
-      to="/"
-    >
-      Police Department of Berlin
-    </Link>
+    </a>
     <h4
       className="sub-title"
     >
