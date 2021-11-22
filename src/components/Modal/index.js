@@ -58,7 +58,11 @@ export default function FullScreenDialog({ openModal, setOpenModal, data }) {
             </Grid>
             <Grid item xs={12}>
               <Typography variant="h6" component="div" color="text.secondary">
-                Stolen: {moment.unix(data?.date_stolen).format("MMMM Do YYYY, h:mm:ss a")} at {data?.stolen_location}
+                Stolen:{" "}
+                {moment
+                  .unix(data?.date_stolen)
+                  .format("MMMM Do YYYY, h:mm:ss a")}{" "}
+                at {data?.stolen_location}
               </Typography>
             </Grid>
             <Grid item xs={3}>
@@ -80,7 +84,9 @@ export default function FullScreenDialog({ openModal, setOpenModal, data }) {
               </Grid>
             </Grid>
             <Grid item xs={12}>
-              <Map />
+              <div style={{ width: "90%" }}>
+                <Map />
+              </div>
             </Grid>
           </Grid>
         </Container>
