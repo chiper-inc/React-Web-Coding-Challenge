@@ -1,3 +1,6 @@
+## DEMO
+Open [dbracamonte-chiper-challenge](https://dbracamonte-chiper-challenge.netlify.app/) to view DEMO.
+
 # Stolen Bike Index - Frontend (React) Conding Challenge
 ![JOIN Stolen Bike Cases](https://github.com/chiper-inc/React-Web-Coding-Challenge/blob/master/illustration.png)
 
