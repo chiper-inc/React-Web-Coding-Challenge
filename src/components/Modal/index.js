@@ -84,9 +84,7 @@ export default function FullScreenDialog({ openModal, setOpenModal, data }) {
               </Grid>
             </Grid>
             <Grid item xs={12}>
-              <div style={{ width: "90%" }}>
-                <Map />
-              </div>
+              <Map />
             </Grid>
           </Grid>
         </Container>
