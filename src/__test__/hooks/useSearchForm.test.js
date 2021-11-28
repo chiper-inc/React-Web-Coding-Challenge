@@ -1,33 +1,33 @@
-import { renderHook, act } from '@testing-library/react-hooks'
-import { useSearchForm } from '../../hooks/useSearchForm'
+import { renderHook, act } from "@testing-library/react-hooks";
+import { useSearchForm } from "../../hooks/useSearchForm";
 
-test('render hook useSearchForm', () => {
-  const { result } = renderHook(() => useSearchForm())
-
-  act(() => {
-    const event = {
-      target: {
-        value: 'bike',
-      },
-    }
-    result.current.handleChangeKeyword(event)
-  })
+test("render hook useSearchForm", () => {
+  const { result } = renderHook(() => useSearchForm());
 
   act(() => {
     const event = {
       target: {
-        value: '2020-08-21',
+        value: "bike",
       },
-    }
-    result.current.handleChangeDateFrom(event)
-  })
+    };
+    result.current.handleChangeKeyword(event);
+  });
 
   act(() => {
     const event = {
       target: {
-        value: '2020-08-24',
+        value: "2020-08-21",
       },
-    }
-    result.current.handleChangeDateTo(event)
-  })
-})
+    };
+    result.current.handleChangeDateFrom(event);
+  });
+
+  act(() => {
+    const event = {
+      target: {
+        value: "2020-08-24",
+      },
+    };
+    result.current.handleChangeDateTo(event);
+  });
+});

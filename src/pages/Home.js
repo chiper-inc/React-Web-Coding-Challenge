@@ -1,18 +1,18 @@
-import React, { useContext } from 'react'
-import { Grid, Typography } from '@material-ui/core'
-import { SearchForm } from '../components/SearchForm'
-import { Paginate } from '../components/Paginate'
-import { Error } from '../components/Error'
-import { Loading } from '../components/Loading'
-import { ListOfIncidents } from '../components/ListOfIncidents'
-import { usePaginate } from '../hooks/usePaginate'
-import IncidentsContext from '../context/IncidentsContext'
-import { NoData } from '../components/NoData'
+import React, { useContext } from "react";
+import { Grid, Typography } from "@material-ui/core";
+import { SearchForm } from "../components/SearchForm";
+import { Paginate } from "../components/Paginate";
+import { Error } from "../components/Error";
+import { Loading } from "../components/Loading";
+import { ListOfIncidents } from "../components/ListOfIncidents";
+import { usePaginate } from "../hooks/usePaginate";
+import IncidentsContext from "../context/IncidentsContext";
+import { NoData } from "../components/NoData";
 
 export const Home = () => {
-  const { page, handleChangePage } = usePaginate()
+  const { page, handleChangePage } = usePaginate();
 
-  const { loading, error, incidents } = useContext(IncidentsContext)
+  const { loading, error, incidents } = useContext(IncidentsContext);
 
   return (
     <>
@@ -41,15 +41,9 @@ export const Home = () => {
       </Grid>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          {!loading && (
-            <Paginate
-              currentPage={page}
-              count={18}
-              handleChangePage={handleChangePage}
-            />
-          )}
+          {!loading && <Paginate currentPage={page} count={18} handleChangePage={handleChangePage} />}
         </Grid>
       </Grid>
     </>
-  )
-}
+  );
+};

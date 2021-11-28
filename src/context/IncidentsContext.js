@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-const Context = React.createContext({})
+const Context = React.createContext({});
 
-export function IncidentsContextProvider ({ children }) {
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-  const [incidents, setIncidents] = useState([])
-  const [currentDate, setCurrentDate] = useState('')
+export function IncidentsContextProvider({ children }) {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [incidents, setIncidents] = useState([]);
+  const [currentDate, setCurrentDate] = useState("");
 
   return (
     <Context.Provider
@@ -18,12 +18,12 @@ export function IncidentsContextProvider ({ children }) {
         setLoading,
         setError,
         setIncidents,
-        setCurrentDate
+        setCurrentDate,
       }}
     >
       {children}
     </Context.Provider>
-  )
+  );
 }
 
-export default Context
+export default Context;

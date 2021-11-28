@@ -41,16 +41,6 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.3",
     "react-test-renderer": "^16.13.1",
-    "standard": "^14.3.4"
-  },
-  "standard": {
-    "ignore": [
-      "/src/__test__/**"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "./node_modules/standard/eslintrc.json"
-    ]
+    "prettier": "^2.1.2"
   }
 }
