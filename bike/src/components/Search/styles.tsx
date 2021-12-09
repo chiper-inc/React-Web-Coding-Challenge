@@ -27,4 +27,9 @@ export const Button = styled.button`
   border: 1px solid darkgreen;
   border-radius: 5px;
   font-size: 1rem;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: green;
+  }
 `;
