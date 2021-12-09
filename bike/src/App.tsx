@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import { searchBikeService } from './services/search-bike';
 import BikeList from './components/BikeList';
+import Search from './components/Search';
+import { ISearchData } from './interfaces/Search';
+import Header from './components/Header';
+import Pagination from './components/Pagination';
 
 function App() {
   const [bikes, setBikes] = useState([]);
@@ -11,10 +15,10 @@ function App() {
   useEffect(() => {
     service();
     console.log(bikes, currentPage, totalPage, hasError);
-  }, []);
+  }, [currentPage]);
 
   const service = async () => {
-    const { data, error } = await searchBikeService({});
+    const { data, error } = await searchBikeService({ page: currentPage });
     if (data) {
       setBikes(data.bikes);
       setCurrentPage(data.currentPage);
@@ -23,10 +27,26 @@ function App() {
     setHasError(error !== null);
   };
 
+  const handlerSearch = (data: ISearchData) => {
+    console.log('click', data);
+  };
+
+  const handlerCurrentPage = (page: number) => {
+    setCurrentPage(page);
+  };
+
   return (
-    <div className="App">
+    <>
+      <Header />
+      <Search searchAction={handlerSearch} />
       <BikeList bikes={bikes} />
-    </div>
+      <Pagination
+        currentPage={currentPage}
+        totalPage={totalPage}
+        limit={1}
+        changePage={handlerCurrentPage}
+      />
+    </>
   );
 }
 

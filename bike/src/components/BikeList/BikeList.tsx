@@ -8,7 +8,7 @@ interface IBikeListProps {
 
 const BikeList = ({ bikes }: IBikeListProps) => (
   <BikeListContent>
-    {bikes.map((bike) => <BikeCard bike={bike} />)}
+    {bikes.map((bike) => <BikeCard key={bike.id} bike={bike} />)}
   </BikeListContent>
 );
 

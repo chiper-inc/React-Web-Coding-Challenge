@@ -4,7 +4,7 @@ export const BikeCardContent = styled.div`
   display: flex;
   position: relative;
   height: 10rem;
-  margin: 1rem 2rem;
+  margin: 1rem 0;
   background-color: #f1f0f0;
   border: 2px solid #ccc;
   border-radius: 1rem;
@@ -34,6 +34,7 @@ export const InfoContent = styled.div`
 export const InfoTitle = styled.a`
   color: #3498db;
   text-decoration: none;
+  cursor: pointer;
 `;
 
 export const InfoDescription = styled.div`
