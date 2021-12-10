@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const BikeCardContent = styled.div`
   display: flex;
@@ -31,7 +32,7 @@ export const InfoContent = styled.div`
   padding: 1rem;
 `;
 
-export const InfoTitle = styled.a`
+export const InfoTitle = styled(Link)`
   color: #3498db;
   text-decoration: none;
   cursor: pointer;

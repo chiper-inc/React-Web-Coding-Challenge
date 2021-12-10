@@ -1,3 +1,18 @@
+interface StolenRecord {
+    dateStolen: number;
+    location: string;
+    latitude: number;
+    longitude: number;
+    theftDescription: string;
+    lockingDescription: string;
+    lockDefeatDescription: string;
+    policeReportNumber: string;
+    policeReportDepartment: string;
+    createdAt: number;
+    createOpen311: boolean;
+    id: number;
+}
+
 export interface IBike {
     dateStolen: number;
     description: string;
@@ -19,4 +34,5 @@ export interface IBike {
     title: string;
     url: string;
     year: number;
+    stolenRecord: StolenRecord;
 }

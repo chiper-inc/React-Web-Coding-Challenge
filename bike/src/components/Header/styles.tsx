@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderContent = styled.header`
-  margin: 0 20% 2rem;
+  margin: 2rem;
   
   .title {
     font-size: 3rem;

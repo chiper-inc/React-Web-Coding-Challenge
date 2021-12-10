@@ -17,8 +17,8 @@ const BikeCard = ({ bike }: IBikeProps) => {
         <Image src={bike.largeImg} alt={bike.title} />
       </ImageContent>
       <InfoContent>
-        <InfoTitle>{bike.title} {bike.frameColors.join(' ')}</InfoTitle>
-        <InfoDescription>{bike.description}</InfoDescription>
+        <InfoTitle to={`${bike.id}`}>{bike.title} {bike.frameColors.join(' ')}</InfoTitle>
+        <InfoDescription>{bike.description || 'No Description'}</InfoDescription>
         <InfoDate>{formatDate(bike.dateStolen)}</InfoDate>
       </InfoContent>
     </BikeCardContent>
