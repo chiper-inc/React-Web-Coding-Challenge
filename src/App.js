@@ -13,6 +13,7 @@ function BikeRobery() {
   let [isLoaded, setIsLoaded] = useState(false)
   let [bikes, setBikes] = useState([])
   let [page, setPage] = useState(1)
+  let [countBikes, setCountBikes] = useState(0)
   //const [per_page, setPPage] = useState(10)
   useEffect(() => {
     fetch('https://bikeindex.org/api/v3/search?stolenness=proximity&location=Berlin')
@@ -30,6 +31,23 @@ function BikeRobery() {
           setError(error)
         }
       )
+    fetch(
+      'https://bikeindex.org/api/v3/search/count?stolenness=proximity&location=Berlin'
+    )
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true)
+          setCountBikes(result.stolen)
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          setIsLoaded(true)
+          setError(error)
+        }
+      )
   }, [])
   if (error) {
     return <div>Error: {error.message}</div>
@@ -38,6 +56,8 @@ function BikeRobery() {
   } else {
     return (
       <div className="grid">
+        <p className="description">Stolen Bikes - total number of bike theft cases: {countBikes}</p>
+
         {bikes.map((el) => (
           <a href={el.url} className="card">
             <img
@@ -88,8 +108,6 @@ function App() {
 
       <main>
         <h1 className="title">Police Departament of Berlin</h1>
-
-        <p className="description">Stolen Bikes</p>
 
         <div>
           <BikeRobery />
