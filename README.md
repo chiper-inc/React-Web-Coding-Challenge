@@ -14,18 +14,18 @@ As a police officer:
 - [X] I want to see a list of reported bike thefts for the Berlin area.
 - [X] I want to see the first 10 bike theft cases, with the ability to - paginate (10 cases per page).
 - [X] I want to see a total number of bike theft cases.
-- [ ] For each reported bike theft I want to see:
-  - [ ] Case title
-  - [ ] Case description
-  - [ ] Date of the theft
-  - [ ] Date of when the case was reported
-  - [ ] Location of the theft
-  - [ ] Picture of the bike, if available
-- [ ] I want to filter reported bike thefts by partial case title.
-- [ ] I want to filter reported bike thefts by date range.
-- [ ] I want to see a loading state until the list is available.
-- [ ] I want to see an error state if the list is unavailable.
-- [ ] I want to see an empty state if there are no results.
+- [X] For each reported bike theft I want to see:
+  - [X] Case title
+  - [X] Case description
+  - [X] Date of the theft
+  - [X] Date of when the case was reported
+  - [X] Location of the theft
+  - [X] Picture of the bike, if available
+- [X] I want to filter reported bike thefts by partial case title.
+- [X] I want to filter reported bike thefts by date range.
+- [X] I want to see a loading state until the list is available.
+- [X] I want to see an error state if the list is unavailable.
+- [X] I want to see an empty state if there are no results.
 
 ## Your Mission
 

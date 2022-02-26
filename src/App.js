@@ -14,25 +14,21 @@ function BikeRobery() {
   let [bikes, setBikes] = useState([])
   let [page, setPage] = useState(1)
   let [countBikes, setCountBikes] = useState(0)
-  //const [per_page, setPPage] = useState(10)
-  useEffect(() => {
-    fetch('https://bikeindex.org/api/v3/search?stolenness=proximity&location=Berlin')
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true)
-          setBikes(result.bikes)
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          setIsLoaded(true)
-          setError(error)
-        }
-      )
+  let [query, setQuery] = useState('')
+  let [from, setFrom] = useState('')
+  let [to, setTo] = useState('')
+  function search() {
+    setIsLoaded(false)
+    let title = ''
+    if (query) title = `&query=${query}`
+    let fromto = ''
+    if (from && to) {
+      fromto = `&date_stolen=${from}`
+      if (to) fromto += `|${to}`
+    } else if (to) fromto += `&date_stolen=${to}`
+    else if (from) fromto += `&date_stolen=${from}`
     fetch(
-      'https://bikeindex.org/api/v3/search/count?stolenness=proximity&location=Berlin'
+      `https://bikeindex.org/api/v3/search/count?stolenness=proximity&distance=100&location=Berlin${title}`
     )
       .then((res) => res.json())
       .then(
@@ -48,16 +44,82 @@ function BikeRobery() {
           setError(error)
         }
       )
+    fetch(
+      `https://bikeindex.org/api/v3/search?&per_page=10&page=${page}&stolenness=proximity&distance=100&location=Berlin${title}${fromto}`
+    )
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true)
+          setBikes(result.bikes)
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          setIsLoaded(true)
+          setError(error)
+        }
+      )
+  }
+  function nextPage() {
+    setPage((page += 1))
+    search()
+  }
+  function backPage() {
+    setPage((page -= 1))
+    search()
+  }
+  function goPage(pageselect) {
+    setPage(pageselect)
+    search()
+  }
+  //init page
+  useEffect(() => {
+    search()
   }, [])
   if (error) {
-    return <div>Error: {error.message}</div>
+    return <div>Error Oooops, something went wrong: {error.message}</div>
   } else if (!isLoaded) {
     return <div>Loading...</div>
   } else {
     return (
       <div className="grid">
-        <p className="description">Stolen Bikes - total number of bike theft cases: {countBikes}</p>
-
+        <div className="grid">
+          <form>
+            <label>
+              <input
+                placeholder="Search cases title"
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+              <input
+                placeholder="From"
+                type="date"
+                value={from}
+                onChange={(e) => setFrom(e.target.value)}
+              />
+              <input
+                placeholder="To"
+                type="date"
+                value={to}
+                onChange={(e) => setTo(e.target.value)}
+              />
+            </label>
+            <button type="button" onClick={() => search()}>
+              Find cases
+            </button>
+          </form>
+        </div>
+        <div className="card">
+          <p className=" text-end"> total number of bike theft cases: {countBikes}</p>
+        </div>
+        {bikes.length <= 0 ? (
+          <div className="card">
+            <p className="text-end">No results.</p>
+          </div>
+        ) : null}
         {bikes.map((el) => (
           <a href={el.url} className="card">
             <img
@@ -68,7 +130,8 @@ function BikeRobery() {
               }
             />
             <div className="content">
-              <h3>{el.title} </h3>
+              <h3>title:{el.title} </h3>
+              <p>description:{el.description} </p>
               <p>Serial: {el.serial} </p>
               <p>
                 Primary colors:
@@ -80,19 +143,43 @@ function BikeRobery() {
                 <span style={{ color: el.stolen ? 'red' : 'none' }}>STOLEN</span>:
                 {new Intl.DateTimeFormat('en-US').format(el.date_stolen)}
               </p>
-              <p>{el.stolen_location}</p>
+              <p>Date Reported year:{el.year}</p>
+              <p>Location of the theft:{el.stolen_location}</p>
             </div>
           </a>
         ))}
-        {page <= 1 ? (
-          <div className="grid">
-            <button onClick={() => setPage((page += 1))}>Next Page</button>
-          </div>
-        ) : page > 1 ? (
-          <div className="grid">
-            <button onClick={() => setPage((page -= 1))}>Back Page</button>
-          </div>
-        ) : null}
+        <div className="card">
+          {page > 1 ? (
+            <div className="grid">
+              <button type="button" onClick={() => backPage()}>
+                Back Page
+              </button>
+            </div>
+          ) : null}
+          <p>Page Current: {page}</p>
+          {page != 2 ? (
+            <button type="button" onClick={() => goPage(2)}>
+              2
+            </button>
+          ) : null}
+          {page != 3 ? (
+            <button type="button" onClick={() => goPage(3)}>
+              3
+            </button>
+          ) : null}
+          {page != 4 ? (
+            <button type="button" onClick={() => goPage(4)}>
+              4
+            </button>
+          ) : null}
+          {page >= 1 ? (
+            <div className="grid">
+              <button type="button" onClick={() => nextPage()}>
+                Next Page
+              </button>
+            </div>
+          ) : null}
+        </div>
       </div>
     )
   }
@@ -103,6 +190,7 @@ function App() {
     <div className="container">
       <Head>
         <title>Police Departament of Berlin - Stolen Bike</title>
+        <p className="description">Stolen Bikes</p>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -137,11 +225,11 @@ function App() {
 
       <footer>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://ivancho2802.github.io/ings.ivandiaz/"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="Ingeniero - Ivan Diaz"
         >
-          Powered by <img src="/vercel.svg" alt="Vercel" className="logo" />
+          Powered by Ingeniero - Ivan Diaz
         </a>
       </footer>
 
@@ -153,6 +241,10 @@ function App() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+        }
+
+        .text-end {
+          text-align: right;
         }
 
         main {
@@ -201,7 +293,7 @@ function App() {
         .title {
           margin: 0;
           line-height: 1.15;
-          font-size: 4rem;
+          font-size: 2rem;
         }
 
         .title,
@@ -229,12 +321,12 @@ function App() {
           justify-content: center;
           flex-wrap: wrap;
 
-          max-width: 800px;
-          margin-top: 3rem;
+          max-width: 1000px;
         }
 
         .card {
           margin: 1rem;
+          display: flex;
           flex-basis: 100%;
           padding: 1.5rem;
           text-align: left;
@@ -260,12 +352,12 @@ function App() {
 
         .card h3 {
           margin: 0 0 1rem 0;
-          font-size: 1.5rem;
+          font-size: 1rem;
         }
 
         .card p {
           margin: 0;
-          font-size: 1.25rem;
+          font-size: 1rem;
           line-height: 1.5;
         }
         .card img {
@@ -273,7 +365,6 @@ function App() {
           height: 200px;
           margin: auto;
           min-width: 70px;
-          padding: 24px;
           vertical-align: middle;
           float: left;
         }
