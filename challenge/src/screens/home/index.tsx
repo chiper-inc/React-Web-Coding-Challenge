@@ -24,7 +24,7 @@ const Home = (props: HomePropsInterface) => {
         {bikes.length > 0 && bikes.map((bike, index) => (
           <div key={bike.id} className="list-bikes" style={{ backgroundColor: index % 2 ? 'white' : '#eae9e9' }}>
             <div className="image-list-bake">
-              <img alt="bike-list-item" src={bike.large_img || assets.bike} />
+              <img alt="bike-list-item" src={bike.large_img || assets.defaultPlaceholder} />
             </div>
             <div className="detail-list-bike">
               <span>
@@ -36,6 +36,8 @@ const Home = (props: HomePropsInterface) => {
               <span>
                 <b>Serial: </b> {bike.serial}
               </span>
+            </div>
+            <div className="detail-list-bike">
               <span>
                 <b>Color: </b> {bike.frame_colors}
               </span>

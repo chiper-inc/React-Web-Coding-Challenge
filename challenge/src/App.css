@@ -82,7 +82,6 @@
 .image-list-bake {
   width: 200px;
   height: 200px;
-  border-radius: 20px;
   border: 1px solid black;
   margin-right: 10px;
 }
@@ -90,11 +89,10 @@
   width: 100%;
   height: 100%;
   background-size: 100% 100%;
-  border-radius: 20px;
 }
 .detail-list-bike {
   display: flex;
-  width: calc(100% - 200px);
+  width: calc((100% - 200px) / 2);
   flex-direction: column;
 }
 .list-bikes-container {

@@ -13,7 +13,7 @@ export const setSearchState = (index: string, value: any) => (dispatch: Dispatch
 export const getSearchBikes = () => (dispatch: Dispatch<any>) => {
   searchBikes()
     .then((response) => {
-      console.log('GET BIKES SUCCESS', response);
+      console.log('GET BIKES SUCCESS', response.headers);
       dispatch(setSearchState('bikes', response.data.bikes));
     })
     .catch((error) => {
