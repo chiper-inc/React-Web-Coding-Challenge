@@ -22,6 +22,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install node ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: challenge/yarn.lock
       - run: npm install --global yarn
         working-directory: challenge
       - run: yarn install
