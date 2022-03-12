@@ -4,6 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import globalAxios from 'axios';
+
+globalAxios.defaults.headers.common = {
+  'access-control-allow-origin': 'https://bikeindex.org/oauth/token',
+  Referer: 'https://bikeindex.org/',
+};
 
 ReactDOM.render(
   <BrowserRouter>
