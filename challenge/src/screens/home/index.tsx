@@ -4,19 +4,30 @@ import { connect } from 'react-redux';
 import { RootType } from '../../redux';
 import { BikeInterface } from '../../redux/search/reducer';
 import assets from '../../assets/images';
+import { Spinner } from 'react-bootstrap';
 
 interface HomePropsInterface {
   getSearchBikes: () => void;
   bikes: [] | BikeInterface[];
+  loading: boolean;
 }
 
 const Home = (props: HomePropsInterface) => {
   useEffect(() => {
     props.getSearchBikes();
   }, []);
-  const { bikes } = props;
+  const { bikes, loading } = props;
+  if (loading) {
+    return (
+      <div className="spinner-container">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>
+    );
+  }
   return (
-    <div>
+    <div className="content-dashboard">
       <h2>
         SEARCH FOR ALL BIKES
       </h2>
@@ -27,17 +38,19 @@ const Home = (props: HomePropsInterface) => {
               <img alt="bike-list-item" src={bike.large_img || assets.defaultPlaceholder} />
             </div>
             <div className="detail-list-bike">
-              <span>
+              <h3>
                 <b>Title: </b>{bike.title}
-              </span>
-              <span>
-                <b>Description: </b>{bike.description}
-              </span>
+              </h3>
+              {bike.description && (
+                <span>
+                  <b>Description: </b>{bike.description}
+                </span>
+              )}
+            </div>
+            <div className="detail-list-bike">
               <span>
                 <b>Serial: </b> {bike.serial}
               </span>
-            </div>
-            <div className="detail-list-bike">
               <span>
                 <b>Color: </b> {bike.frame_colors}
               </span>
@@ -65,9 +78,10 @@ const Home = (props: HomePropsInterface) => {
 };
 
 const mapStateToProps = ({ SearchReducer }: RootType) => {
-  const { bikes } = SearchReducer;
+  const { bikes, loading } = SearchReducer;
   return {
     bikes,
+    loading,
   };
 };
 

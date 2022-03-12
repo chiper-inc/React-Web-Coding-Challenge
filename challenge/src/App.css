@@ -64,11 +64,13 @@
 }
 .header-bikes {
   width: 100%;
-  background: #eae9e9;
+  background: #222222;
   padding: 10px 50px;
   display: flex;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: white;
+  margin-bottom: 20px;
 }
 .header-bikes .bike-logo-nav {
   width: 100px;
@@ -97,4 +99,17 @@
 }
 .list-bikes-container {
   margin-top: 20px;
+}
+.detail-list-bike h3 {
+  color: #3498db;
+}
+.content-dashboard {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.spinner-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -11,6 +11,7 @@ export const setSearchState = (index: string, value: any) => (dispatch: Dispatch
 };
 
 export const getSearchBikes = () => (dispatch: Dispatch<any>) => {
+  dispatch(setSearchState('loading', true));
   searchBikes()
     .then((response) => {
       console.log('GET BIKES SUCCESS', response.headers);
@@ -18,5 +19,8 @@ export const getSearchBikes = () => (dispatch: Dispatch<any>) => {
     })
     .catch((error) => {
       console.warn('GET BIKES ERROR', error);
+    })
+    .finally(() => {
+      dispatch(setSearchState('loading', false));
     });
 };

@@ -27,10 +27,12 @@ export interface BikeInterface {
 
 export interface InitialSearchStateInterface {
   bikes: [] | BikeInterface[];
+  loading: boolean;
 }
 
 const initialState: InitialSearchStateInterface = {
   bikes: [],
+  loading: false,
 };
 
 interface PayloadPropInterface {
