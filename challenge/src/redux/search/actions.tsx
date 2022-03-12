@@ -11,9 +11,9 @@ export const setSearchState = (index: string, value: any) => (dispatch: Dispatch
 };
 
 export const getSearchBikes = () => (dispatch: Dispatch<any>, getState: any) => {
-  const page = getState().SearchReducer.page;
+  const { page, search } = getState().SearchReducer;
   dispatch(setSearchState('loading', true));
-  searchBikes(page)
+  searchBikes(page, search)
     .then((response) => {
       console.log('GET BIKES SUCCESS', response.headers);
       dispatch(setSearchState('bikes', response.data.bikes));

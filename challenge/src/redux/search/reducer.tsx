@@ -30,6 +30,7 @@ export interface InitialSearchStateInterface {
   loading: boolean;
   total: number;
   page: number;
+  search: string | null;
 }
 
 const initialState: InitialSearchStateInterface = {
@@ -37,6 +38,7 @@ const initialState: InitialSearchStateInterface = {
   loading: false,
   total: 108570,
   page: 1,
+  search: null,
 };
 
 interface PayloadPropInterface {
