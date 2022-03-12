@@ -20,7 +20,6 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     
     steps:
-      - run: cd challenge/
       - uses: actions/checkout@v2
       - name: Install node ${{ matrix.node-version }}
         uses: actions/setup-node@v2
