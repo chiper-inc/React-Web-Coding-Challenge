@@ -28,11 +28,15 @@ export interface BikeInterface {
 export interface InitialSearchStateInterface {
   bikes: [] | BikeInterface[];
   loading: boolean;
+  total: number;
+  page: number;
 }
 
 const initialState: InitialSearchStateInterface = {
   bikes: [],
   loading: false,
+  total: 108570,
+  page: 1,
 };
 
 interface PayloadPropInterface {

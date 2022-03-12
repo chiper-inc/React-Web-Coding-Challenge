@@ -113,3 +113,7 @@
   align-items: center;
   justify-content: center;
 }
+.pagination-container {
+  width: 100%;
+  padding: 20px;
+}

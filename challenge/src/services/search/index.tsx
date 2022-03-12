@@ -1,9 +1,9 @@
 import globalAxios from 'axios';
 
-export const searchBikes = () => {
+export const searchBikes = (page = 1) => {
   const config = {
     params: {
-      page: 1,
+      page,
       per_page: 10,
       location: 'Berlin',
       distance: 10,

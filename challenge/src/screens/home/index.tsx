@@ -1,22 +1,55 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect } from 'react';
-import { getSearchBikes } from '../../redux/search/actions';
+import { getSearchBikes, setSearchState } from '../../redux/search/actions';
 import { connect } from 'react-redux';
 import { RootType } from '../../redux';
 import { BikeInterface } from '../../redux/search/reducer';
 import assets from '../../assets/images';
-import { Spinner } from 'react-bootstrap';
+import { Spinner, Pagination } from 'react-bootstrap';
 
 interface HomePropsInterface {
+  setSearchState: (index: string, value: any) => void;
   getSearchBikes: () => void;
   bikes: [] | BikeInterface[];
   loading: boolean;
+  total: number;
+  page: number;
 }
 
 const Home = (props: HomePropsInterface) => {
+  const { bikes, loading, total, page } = props;
+  useEffect(() => {
+    props.getSearchBikes();
+  }, [page]);
   useEffect(() => {
     props.getSearchBikes();
   }, []);
-  const { bikes, loading } = props;
+  const pagination = () => {
+    return (
+      <div className="pagination-container">
+        <Pagination>
+          {page > 1 && (
+            <Pagination.Item onClick={() => props.setSearchState('page', page - 1)}>
+              Prev
+            </Pagination.Item>
+          )}
+          <Pagination.Item key={page} active>
+            {page}
+          </Pagination.Item>
+          <Pagination.Ellipsis />
+          <Pagination.Item key={total / 10}>
+            {total / 10}
+          </Pagination.Item>
+          {page < total && (
+            <Pagination.Item onClick={() => props.setSearchState('page', page + 1)}>
+              Next
+            </Pagination.Item>
+          )}
+        </Pagination>
+      </div>
+    );
+  };
+
   if (loading) {
     return (
       <div className="spinner-container">
@@ -31,6 +64,10 @@ const Home = (props: HomePropsInterface) => {
       <h2>
         SEARCH FOR ALL BIKES
       </h2>
+      <hr/>
+      <div>
+        Total: {total} | Current page: {page}
+      </div>
       <div className="list-bikes-container">
         {bikes.length > 0 && bikes.map((bike, index) => (
           <div key={bike.id} className="list-bikes" style={{ backgroundColor: index % 2 ? 'white' : '#eae9e9' }}>
@@ -73,20 +110,24 @@ const Home = (props: HomePropsInterface) => {
           </div>
         ))}
       </div>
+      {pagination()}
     </div>
   );
 };
 
 const mapStateToProps = ({ SearchReducer }: RootType) => {
-  const { bikes, loading } = SearchReducer;
+  const { bikes, loading, total, page } = SearchReducer;
   return {
     bikes,
     loading,
+    total,
+    page,
   };
 };
 
 const mapStateToActions = {
   getSearchBikes,
+  setSearchState,
 };
 
 export default connect(mapStateToProps, mapStateToActions)(Home);

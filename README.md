@@ -12,8 +12,8 @@ This app needs to display the list of reported bike thefts based on the Bikewise
 As a police officer:
 
 - [x] I want to see a list of reported bike thefts for the Berlin area.
-- [ ] I want to see the first 10 bike theft cases, with the ability to - paginate (10 cases per page).
-- [ ] I want to see a total number of bike theft cases.
+- [x] I want to see the first 10 bike theft cases, with the ability to - paginate (10 cases per page).
+- [x] I want to see a total number of bike theft cases.
 - [x] For each reported bike theft I want to see:
   - [x] Case title
   - [x] Case description

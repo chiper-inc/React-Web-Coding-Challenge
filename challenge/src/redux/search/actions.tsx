@@ -10,9 +10,10 @@ export const setSearchState = (index: string, value: any) => (dispatch: Dispatch
   });
 };
 
-export const getSearchBikes = () => (dispatch: Dispatch<any>) => {
+export const getSearchBikes = () => (dispatch: Dispatch<any>, getState: any) => {
+  const page = getState().SearchReducer.page;
   dispatch(setSearchState('loading', true));
-  searchBikes()
+  searchBikes(page)
     .then((response) => {
       console.log('GET BIKES SUCCESS', response.headers);
       dispatch(setSearchState('bikes', response.data.bikes));
