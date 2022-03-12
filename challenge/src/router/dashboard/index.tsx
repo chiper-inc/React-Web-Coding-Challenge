@@ -6,7 +6,7 @@ import assets from '../../assets/images';
 
 const Dashboard = () => {
   return (
-    <Container>
+    <div>
       <div className="header-bikes">
         <div>
           <img alt="bike logo" src={assets.bike} className="bike-logo-nav" />
@@ -16,10 +16,12 @@ const Dashboard = () => {
           <p>Stolen bikes</p>
         </div>
       </div>
-      <Routes>
-        <Route path={Routing.HomeRoute} element={<Home />} />
-      </Routes>
-    </Container>
+      <Container>
+        <Routes>
+          <Route path={Routing.HomeRoute} element={<Home />} />
+        </Routes>
+      </Container>
+    </div>
   );
 };
 
