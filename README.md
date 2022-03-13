@@ -11,21 +11,21 @@ This app needs to display the list of reported bike thefts based on the Bikewise
 
 As a police officer:
 
-- [ ] I want to see a list of reported bike thefts for the Berlin area.
-- [ ] I want to see the first 10 bike theft cases, with the ability to - paginate (10 cases per page).
-- [ ] I want to see a total number of bike theft cases.
-- [ ] For each reported bike theft I want to see:
-  - [ ] Case title
-  - [ ] Case description
-  - [ ] Date of the theft
-  - [ ] Date of when the case was reported
-  - [ ] Location of the theft
-  - [ ] Picture of the bike, if available
-- [ ] I want to filter reported bike thefts by partial case title.
+- [x] I want to see a list of reported bike thefts for the Berlin area.
+- [x] I want to see the first 10 bike theft cases, with the ability to - paginate (10 cases per page).
+- [x] I want to see a total number of bike theft cases.
+- [x] For each reported bike theft I want to see:
+  - [x] Case title
+  - [x] Case description
+  - [x] Date of the theft
+  - [x] Date of when the case was reported
+  - [x] Location of the theft
+  - [x] Picture of the bike, if available
+- [x] I want to filter reported bike thefts by partial case title.
 - [ ] I want to filter reported bike thefts by date range.
-- [ ] I want to see a loading state until the list is available.
+- [x] I want to see a loading state until the list is available.
 - [ ] I want to see an error state if the list is unavailable.
-- [ ] I want to see an empty state if there are no results.
+- [x] I want to see an empty state if there are no results.
 
 ## Your Mission
 
@@ -55,21 +55,21 @@ Host the website on the service of your choice (zeit, Heroku, AWS, GCloud, ...)
 
 ## Tech Requirements
 
-- React
-- Tests: Jest + react-testing-library / enzyme
-- Code Linter
-- Typescript is a plus
-- CSSinJS is a plus: styled-components, styled-system, ...
+- [x] React
+- [ ] Tests: Jest + react-testing-library / enzyme
+- [x] Code Linter
+- [x] Typescript is a plus
+- [ ] CSSinJS is a plus: styled-components, styled-system, ...
 
 ## Instructions
 
-- Fork this repo
-- The challenge is on!
-- Build a performant, clean and well-structured solution
-- Commit early and often. We want to be able to check your progress
-- Make the app public. Deploy it using the service of your choice
-- Create a pull request
-- Please complete your working solution within 5 days of receiving this challenge, and be sure to notify us when it is ready for review.
+- [x] Fork this repo
+- [x] The challenge is on!
+- [x] Build a performant, clean and well-structured solution
+- [x] Commit early and often. We want to be able to check your progress
+- [x] Make the app public. Deploy it using the service of your choice
+- [x] Create a pull request
+- [x] Please complete your working solution within 5 days of receiving this challenge, and be sure to notify us when it is ready for review.
 
 ## License
 
