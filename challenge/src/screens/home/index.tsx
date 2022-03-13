@@ -26,12 +26,13 @@ const Home = (props: HomePropsInterface) => {
     props.getSearchBikes();
   }, []);
   const pagination = () => {
-    if (loading || search) return <></>;
+    if (loading) return <></>;
     if (bikes.length === 0) {
       return (
         <img src={assets.notFound} alt="not found" />
       );
     }
+    if (search && bikes.length < 10) return <></>;
     return (
       <div className="pagination-container">
         <Pagination>
