@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {createTheme, styled, ThemeProvider} from "@mui/material";
 
+const customTheme = createTheme({
+  palette: {
+    primary: {
+      main: '#8e9ead',
+      contrastText: 'white',
+    },
+  },
+});
+
+const MyThemeComponent = styled('div')(({ theme }) => ({
+  color: theme.palette.primary.contrastText,
+  backgroundColor: theme.palette.primary.main,
+  padding: theme.spacing(1),
+  borderRadius: theme.shape.borderRadius,
+}));
+interface IApp{
+  env: string
+}
 function App() {
+  const [envTest, setEnvTest] = useState(process.env.REACT_APP_TEST);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ThemeProvider theme={customTheme}>
+        <MyThemeComponent>Styled div with theme {envTest}</MyThemeComponent>
+      </ThemeProvider>
   );
 }
 
