@@ -1,13 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { CommonTemplate } from '../components/templates/index.templates'
 
-import { HomePage } from '../pages/index.pages'
-
-const CommonRouter = () => {
+import { CasePage, HomePage } from '."../pages/index.pages";const CommonRouter = () => {
 	return (
 		<BrowserRouter>
-			<Routes>
-				<Route index element={<HomePage />} />
-			</Routes>
+			<CommonTemplate>
+				<Routes>
+					<Route index element={ <HomePage /> } />
+					<Route path={ "case/:caseId" } element={ <CasePage /> } />
+				</Routes>
+			</CommonTemplate>
 		</BrowserRouter>
 	)
 }
