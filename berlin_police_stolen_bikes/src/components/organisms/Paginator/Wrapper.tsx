@@ -4,29 +4,44 @@ import {
 	faAngleLeft,
 	faAngleRight,
 } from '@fortawesome/free-solid-svg-icons'
-import { Dispatch, FC, SetStateAction } from 'react'
+import { FC } from 'react'
 
 import { PaginatorBtn } from '../../molecules/index.molecules'
 
 interface PaginatorWrapperProps {
 	currentPage: number
-	setCurrentPage: Dispatch<SetStateAction<number>>
+	nextPage: () => void
+	prevPage: () => void
+	firstPage: () => void
+	lastPage: () => void
 }
 
-const PaginatorWrapper: FC<PaginatorWrapperProps> = ({ currentPage, setCurrentPage }) => {
-	const hdlNextPage = () => {
-		setCurrentPage((prevState) => prevState + 1)
-	}
-
+const PaginatorWrapper: FC<PaginatorWrapperProps> = ({
+	currentPage,
+	nextPage,
+	prevPage,
+	firstPage,
+	lastPage,
+}) => {
 	return (
 		<footer className={'flex justify-center gap-x-3'}>
-			<PaginatorBtn name={'First'} startIcon={faAngleDoubleLeft} />
-			<PaginatorBtn name={'Prev'} startIcon={faAngleLeft} />
-			<PaginatorBtn name={1} />
+			<PaginatorBtn
+				name={'First'}
+				startIcon={faAngleDoubleLeft}
+				cta={firstPage}
+				isDisabled={currentPage === 1}
+			/>
+			<PaginatorBtn
+				name={'Prev'}
+				startIcon={faAngleLeft}
+				cta={prevPage}
+				isDisabled={currentPage === 1}
+			/>
+			{currentPage > 1 && <PaginatorBtn name={currentPage - 1} cta={prevPage} />}
 			<PaginatorBtn name={currentPage} />
-			<PaginatorBtn name={3} />
-			<PaginatorBtn name={'Next'} endIcon={faAngleRight} cta={hdlNextPage} />
-			<PaginatorBtn name={'Last'} endIcon={faAngleDoubleRight} />
+			<PaginatorBtn name={currentPage + 1} cta={nextPage} />
+			<PaginatorBtn name={'Next'} endIcon={faAngleRight} cta={nextPage} />
+			<PaginatorBtn name={'Last'} endIcon={faAngleDoubleRight} cta={lastPage} />
 		</footer>
 	)
 }

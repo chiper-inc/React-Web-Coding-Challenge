@@ -1,86 +1,83 @@
-import axios from 'axios'
 import { FC, useEffect, useState } from 'react'
-import { FaBicycle } from 'react-icons/fa'
+import { toast } from 'react-toastify'
+import axios from 'axios'
 
-import { PaginatorWrapper, SearchWrapper } from '../components/organisms/index.organisms'
-
-interface StolenBike {
-	date_stolen: number | null
-	description: null | string
-	frame_colors: string[]
-	frame_model: null | string
-	id: number
-	is_stock_img: boolean
-	large_img?: string
-	location_found: null | string
-	manufacturer_name: string
-	external_id: null
-	registry_name: null
-	registry_url: null
-	serial: string
-	status: string
-	stolen: boolean
-	stolen_coordinates: number[] | null
-	stolen_location: null | string
-	thumb: null | string
-	title: string
-	url: string
-	year: number | null
-}
+import {
+	CardItem,
+	PaginatorWrapper,
+	SearchWrapper,
+	SkeletonCardItem,
+} from '../components/organisms/index.organisms'
+import { isEmptyArr } from '../utils/index.utils'
+import { usePaginator } from '../hooks/index.hooks'
+import { BikeProps } from '../interfaces/index.interfaces'
 
 const HomePage: FC = () => {
+	const [pageLength] = useState<number>(10)
 	const [onLoading, setOnLoading] = useState<boolean>(true)
 	const [currentPage, setCurrentPage] = useState<number>(1)
-	const [stolenBikesList, setStolenBikesList] = useState<Array<StolenBike>>([])
+	const [bikeList, setBikeList] = useState<Array<BikeProps>>([])
+
+	const { nextPage, prevPage, firstPage, lastPage } = usePaginator(currentPage, setCurrentPage)
 
 	const getCases = async () => {
+		setOnLoading(true)
+
 		try {
 			const { data } = await axios(
-				`/search?page=${currentPage}&per_page=10&location=Berlin&distance=100&stolenness=proximity`
+				`/search?page=${currentPage}&per_page=${pageLength}&location=Berlin&distance=100&stolenness=proximity`
 			)
+
 			return data
-		} catch (err) {
-			console.log(err)
+		} catch ({ message }) {
+			toast.error(`${message}`)
 		} finally {
-			setOnLoading(false)
+			setTimeout(() => {
+				setOnLoading(false)
+			}, 500)
 		}
 	}
 
 	useEffect(() => {
-		getCases().then(({ bikes }) => setStolenBikesList(bikes))
+		getCases().then(({ bikes }) => setBikeList(bikes))
 
-		return () => {
-			setStolenBikesList([])
-		}
-	}, [])
+		// return () => {}
+	}, [currentPage])
 
 	return (
 		<>
 			<SearchWrapper />
-			<section className={'flex flex-col mt-8'}>
+			{isEmptyArr(bikeList) ? (
+				<legend className={'h-10'} />
+			) : (
+				<legend className={'text-right py-4 '}>Total cases: 85</legend>
+			)}
+			<section className={'grid'}>
 				{onLoading ? (
-					<div />
+					<>
+						<SkeletonCardItem />
+						<SkeletonCardItem />
+						<SkeletonCardItem />
+						<SkeletonCardItem />
+						<SkeletonCardItem />
+						<SkeletonCardItem />
+						<SkeletonCardItem />
+					</>
+				) : isEmptyArr(bikeList) ? (
+					<>D</>
 				) : (
-					stolenBikesList.map(({ id, title, status, description, large_img, frame_colors }) => (
-						<article key={id} className={'grid grid-cols-5 gap-x-8 odd:bg-gray-100'}>
-							<figure className={'w-full grid justify-items-center items-center'}>
-								{large_img ? (
-									<img className={'w-full h-40 object-cover'} src={large_img} alt={title} />
-								) : (
-									<FaBicycle className={'w-3/4 h-3/4'} />
-								)}
-							</figure>
-							<aside className={'py-5 col-start-2 col-end-6'}>
-								<h1 className={'text-blue-700 font-semibold text-xl'}>
-									{status} {title} {frame_colors.toString()}
-								</h1>
-								<p>{description}</p>
-							</aside>
-						</article>
-					))
+					bikeList.map((bike) => <CardItem key={bike.id} {...bike} />)
 				)}
 			</section>
-			<PaginatorWrapper currentPage={currentPage} setCurrentPage={setCurrentPage} />
+			{!isEmptyArr(bikeList) && (
+				<PaginatorWrapper
+					currentPage={currentPage}
+					lastPage={lastPage}
+					nextPage={nextPage}
+					prevPage={prevPage}
+					firstPage={firstPage}
+				/>
+			)}
 		</>
 	)
 }

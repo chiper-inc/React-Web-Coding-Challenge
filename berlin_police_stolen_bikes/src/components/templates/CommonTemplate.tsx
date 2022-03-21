@@ -7,7 +7,7 @@ interface CommonTemplateProps {
 }
 
 const CommonTemplate: FC<CommonTemplateProps> = ({ children }) => (
-	<main className={'px-32 2xl:px-96 pb-5'}>
+	<main className={'px-4 md:px-32 2xl:px-96 pb-5'}>
 		<HeaderWrapper />
 		{children}
 	</main>

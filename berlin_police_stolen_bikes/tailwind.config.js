@@ -336,6 +336,7 @@ module.exports = {
 		}),
 		flexGrow: {
 			0: '0',
+			2: '2',
 			DEFAULT: '1',
 		},
 		flexShrink: {
@@ -946,5 +947,5 @@ module.exports = {
 		'active',
 		'disabled',
 	],
-	plugins: [],
+	plugins: [require('@tailwindcss/line-clamp')],
 }

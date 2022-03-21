@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { CommonRouter } from './router/index.router'
 import './styles/base/_base.css'
 
-axios.defaults.baseURL = 'https://bikeindex.org/api/v3'
+axios.defaults.baseURL = 'https://bikeindex.org:443/api/v3'
 axios.defaults.headers.common['Content-type'] = 'application/json'
 
 ReactDOM.render(
