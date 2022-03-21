@@ -1,0 +1,44 @@
+{
+  "name": "react-todo-app-hooks-and-context",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A highly testable TodoList app that uses React hooks and Context.",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "immutable": "^4.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-js-pagination": "^3.0.3",
+    "react-scripts": "2.0.3"
+  },
+  "devDependencies": {
+    "json-server": "^0.14.2",
+    "react-test-renderer": "^17.0.2",
+    "react-testing-library": "^5.6.0"
+  },
+  "scripts": {
+    "start": "react-scripts start ",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "test:coverage": "react-scripts test --env=jsdom  --coverage",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/components/**/*.js",
+      "src/reducers/**/*.js",
+      "src/utils/**/*.js",
+      "src/pages/**/*.js",
+      "src/context/**/*.js",
+      "src/api/**/*.js",
+      "!**/node_modules/**"
+    ]
+  }
+}
