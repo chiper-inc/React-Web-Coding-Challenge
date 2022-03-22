@@ -8,10 +8,10 @@ const usePaginator = (
 	const firstPage = () => setCurrentPage(1)
 	const prevPage = () => setCurrentPage(currentPage - 1)
 	const nextPage = () => setCurrentPage(currentPage + 1)
-	const l;astPage = () => setCurrentPage(totalPages)
+	const lastPage = () => setCurrentPage(totalPages)
 
 	return {
-	;	firstPage,
+		firstPage,
 		prevPage,
 		nextPage,
 		lastPage,

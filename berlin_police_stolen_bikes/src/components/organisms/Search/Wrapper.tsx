@@ -1,16 +1,33 @@
-import { FC } from 'react'
+import axios from 'axios'
+import { FC, SetStateAction } from 'react'
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 
 import { BtnSolid, FormInput } from '../../atoms/index.atoms'
 
-// interface SearchWrapperProps {}
+interface SearchWrapperProps {
+	setOnSearch: { (value: SetStateAction<boolean>): void; (arg0: boolean): void }
+}
 
-// const SearchWrapper: FC<SearchWrapperProps> = () => {
-const SearchWrapper: FC = () => {
+// const SearchWrapper: FC = ({ setOnSearch }) => {
+const SearchWrapper: FC<SearchWrapperProps> = ({ setOnSearch }) => {
 	const { handleSubmit, register, watch } = useForm()
 
 	const hdlSubmit = (data: {}) => {
+		setOnSearch(true)
 		console.log(data)
+	}
+
+	const hdlSearch = async (data: unknown) => {
+		console.log(data)
+
+		try {
+			const resp = await axios(`/search?Giant`)
+			console.log(resp)
+		} catch ({ message }) {
+			toast.error(`${message}`)
+			// } finally {
+		}
 	}
 
 	// const hdlSearch = () => {}

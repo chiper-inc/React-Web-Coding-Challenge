@@ -17,7 +17,7 @@ const ProductItem: FC<BikeProps> = ({
 	<BikeItemStyled
 		key={id}
 		to={`/case/${id}`}
-		className={`flex flex-col md:grid gap-x-4 p-3 odd:bg-gray-100 dark:odd:bg-slate-800 md:h-48`}
+		className={`md:h-48 flex flex-col md:grid gap-x-4 p-3 odd:bg-gray-100 dark:odd:bg-slate-800 text-slate-500 dark:text-slate-300 transition-colors ease-in-out duration-500`}
 	>
 		<figure
 			className={`w-full md:w-48 h-64 md:h-full text-center overflow-hidden ${
