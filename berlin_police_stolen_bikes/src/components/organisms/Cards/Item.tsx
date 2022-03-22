@@ -55,4 +55,5 @@ const ProductItem: FC<BikeProps> = ({
 const BikeItemStyled = styled(Link)`
 	grid-template-columns: 12rem 1fr;
 `
+
 export default ProductItem

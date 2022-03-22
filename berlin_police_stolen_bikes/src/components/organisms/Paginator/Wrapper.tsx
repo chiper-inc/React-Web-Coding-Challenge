@@ -14,34 +14,46 @@ interface PaginatorWrapperProps {
 	prevPage: () => void
 	firstPage: () => void
 	lastPage: () => void
+	totalPages: number
 }
 
-const PaginatorWrapper: FC<PaginatorWrapperProps> = ({
+const PaginatorWrapper: FC<PaginatorWrapperProps> = ( {
 	currentPage,
+	totalPages,
 	nextPage,
 	prevPage,
 	firstPage,
 	lastPage,
-}) => {
+) => {
 	return (
-		<footer className={'flex justify-center gap-x-3'}>
+		<footer className={ "flex justify-center gap-x-3 mt-5" }>
 			<PaginatorBtn
-				name={'First'}
-				startIcon={faAngleDoubleLeft}
-				cta={firstPage}
-				isDisabled={currentPage === 1}
+				name={ "First" }
+				startIcon={ faAngleDoubleLeft }
+				cta={ firstPage }
+				isDisabled={ currentPage === 1 }
 			/>
 			<PaginatorBtn
-				name={'Prev'}
-				startIcon={faAngleLeft}
-				cta={prevPage}
-				isDisabled={currentPage === 1}
+				name={ "Prev" }
+				startIcon={ faAngleLeft }
+				cta={ prevPage }
+				isDisabled={ currentPage === 1 }
 			/>
-			{currentPage > 1 && <PaginatorBtn name={currentPage - 1} cta={prevPage} />}
-			<PaginatorBtn name={currentPage} />
-			<PaginatorBtn name={currentPage + 1} cta={nextPage} />
-			<PaginatorBtn name={'Next'} endIcon={faAngleRight} cta={nextPage} />
-			<PaginatorBtn name={'Last'} endIcon={faAngleDoubleRight} cta={lastPage} />
+			{ currentPage > 1 && <PaginatorBtn name={ currentPage - 1 } cta={ prevPage } /> }
+			<PaginatorBtn name={ currentPage } />
+			{ !( currentPage === totalPages ) && <PaginatorBtn name={ currentPage + 1 } cta={ nextPage } /> }
+			<PaginatorBtn
+				name={ "Next" }
+				endIcon={ faAngleRight }
+				cta={ nextPage }
+				isDisabled={ currentPage === totalPages }
+			/>
+			<PaginatorBtn
+				name={ "Last" }
+				endIcon={ faAngleDoubleRight }
+				cta={ lastPage }
+				isDisabled={ currentPage === totalPages }
+			/>
 		</footer>
 	)
 }
