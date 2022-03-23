@@ -533,6 +533,7 @@ module.exports = {
 			'4/6': '66.666667%',
 			'5/6': '83.333333%',
 			full: '100%',
+			'mid-screen': '50vh',
 			screen: '100vh',
 			min: 'min-content',
 			max: 'max-content',

@@ -4,9 +4,9 @@ import { FaBicycle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { BikeProps } from '../../../interfaces/index.interfaces'
+import { StolenBikeProps } from '../../../interfaces/index.interfaces'
 
-const ProductItem: FC<BikeProps> = ({
+const CardStolenBike: FC<StolenBikeProps> = ({
 	id,
 	large_img,
 	title,
@@ -14,10 +14,10 @@ const ProductItem: FC<BikeProps> = ({
 	date_stolen,
 	stolen_location,
 }) => (
-	<BikeItemStyled
+	<CardLinkStyled
 		key={id}
 		to={`/case/${id}`}
-		className={`md:h-48 flex flex-col md:grid gap-x-4 p-3 odd:bg-gray-100 dark:odd:bg-slate-800 text-slate-500 dark:text-slate-300 transition-colors ease-in-out duration-500`}
+		className={`md:h-48 flex flex-col md:grid gap-x-4 p-3 odd:bg-gray-100 dark:odd:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors ease-in-out duration-500`}
 	>
 		<figure
 			className={`w-full md:w-48 h-64 md:h-full text-center overflow-hidden ${
@@ -52,11 +52,11 @@ const ProductItem: FC<BikeProps> = ({
 				</aside>
 			</article>
 		</aside>
-	</BikeItemStyled>
+	</CardLinkStyled>
 )
 
-const BikeItemStyled = styled(Link)`
+const CardLinkStyled = styled(Link)`
 	grid-template-columns: 12rem 1fr;
 `
 
-export default ProductItem
+export default CardStolenBike

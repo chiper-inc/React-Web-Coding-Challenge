@@ -29,14 +29,16 @@ const PaginatorWrapper: FC<PaginatorWrapperProps> = ({
 		<footer className={'flex justify-center gap-x-3 mt-5'}>
 			<PaginatorBtn
 				name={'First'}
-				startIcon={faAngleDoubleLeft}
+				classNameText={'hidden md:block'}
 				cta={firstPage}
+				startIcon={faAngleDoubleLeft}
 				isDisabled={currentPage <= 1}
 			/>
 			<PaginatorBtn
 				name={'Prev'}
-				startIcon={faAngleLeft}
+				classNameText={'hidden md:block'}
 				cta={prevPage}
+				startIcon={faAngleLeft}
 				isDisabled={currentPage <= 1}
 			/>
 			{currentPage > 1 && <PaginatorBtn name={currentPage - 1} cta={prevPage} />}
@@ -44,14 +46,16 @@ const PaginatorWrapper: FC<PaginatorWrapperProps> = ({
 			{currentPage < totalPages && <PaginatorBtn name={currentPage + 1} cta={nextPage} />}
 			<PaginatorBtn
 				name={'Next'}
-				endIcon={faAngleRight}
+				classNameText={'hidden md:block'}
 				cta={nextPage}
+				endIcon={faAngleRight}
 				isDisabled={currentPage === totalPages}
 			/>
 			<PaginatorBtn
 				name={'Last'}
-				endIcon={faAngleDoubleRight}
+				classNameText={'hidden md:block'}
 				cta={lastPage}
+				endIcon={faAngleDoubleRight}
 				isDisabled={currentPage === totalPages}
 			/>
 		</footer>

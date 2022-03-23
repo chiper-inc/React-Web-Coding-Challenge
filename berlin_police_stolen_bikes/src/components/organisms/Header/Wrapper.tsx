@@ -6,7 +6,7 @@ import { HeaderLogo } from '../../molecules/index.molecules'
 const HeaderWrapper: FC = () => {
 	return (
 		<header
-			className={`w-full py-4 md:py-8 grid grid-flow-col grid-rows-2 gap-x-4 md:gap-x-8 justify-start bg-slate-50 dark:bg-slate-900 md:sticky md:top-0 z-50 text-slate-500 dark:text-slate-300 transition-colors ease-in-out duration-500`}
+			className={`w-full py-4 md:py-8 grid grid-flow-col grid-rows-2 gap-x-4 md:gap-x-8 justify-start bg-slate-50 dark:bg-slate-900 md:sticky md:top-0 z-50 text-slate-600 dark:text-slate-300 transition-colors ease-in-out duration-500`}
 		>
 			<HeaderLogo className={'row-start-1 row-end-3'} />
 			<HeaderTitle

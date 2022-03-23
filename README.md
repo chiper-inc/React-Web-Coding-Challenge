@@ -1,4 +1,4 @@
-# Stolen Bike Index - Frontend (React) Conding Challenge
+# Stolen Bike Index - Frontend (React) Coding Challenge
 ![JOIN Stolen Bike Cases](https://github.com/chiper-inc/React-Web-Coding-Challenge/blob/master/illustration.png)
 
 ## Context
@@ -21,11 +21,11 @@ As a police officer:
   - [ ] Date of when the case was reported (Not Returned)
   - [x] Location of the theft
   - [x] Picture of the bike, if available
-- [ ] I want to filter reported bike thefts by partial case title.
-- [ ] I want to filter reported bike thefts by date range.
-- [ ] I want to see a loading state until the list is available.
+- [x] I want to filter reported bike thefts by partial case title.
+- [ ] I want to filter reported bike thefts by date range. (Currently not supported)
+- [x] I want to see a loading state until the list is available.
 - [x] I want to see an error state if the list is unavailable.
-- [ ] I want to see an empty state if there are no results.
+- [x] I want to see an empty state if there are no results.
 
 ## Your Mission
 

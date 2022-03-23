@@ -4,7 +4,7 @@ const SkeletonCardItem = () => (
 	<article
 		style={{ gridTemplateColumns: '12rem 1fr' }}
 		className={
-			'md:h-48 flex flex-col md:grid gap-x-4 p-3 odd:bg-gray-100 dark:odd:bg-slate-800 text-slate-500 dark:text-slate-300 transition-colors ease-in-out duration-500'
+			'md:h-48 flex flex-col md:grid gap-x-4 p-3 odd:bg-gray-100 dark:odd:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors ease-in-out duration-500'
 		}
 	>
 		<figure className={`w-full md:w-48 h-64 md:h-full flex text-center overflow-hidden`}>
