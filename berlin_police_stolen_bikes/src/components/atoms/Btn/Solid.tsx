@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 interface BtnSolidProps {
 	name: string
-	cta: () => void
+	cta?: () => void
 	className?: string
 	type?: 'button' | 'submit' | 'reset'
 }

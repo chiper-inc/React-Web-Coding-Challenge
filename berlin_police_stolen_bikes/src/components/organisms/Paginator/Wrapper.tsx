@@ -31,17 +31,17 @@ const PaginatorWrapper: FC<PaginatorWrapperProps> = ({
 				name={'First'}
 				startIcon={faAngleDoubleLeft}
 				cta={firstPage}
-				isDisabled={currentPage === 1}
+				isDisabled={currentPage <= 1}
 			/>
 			<PaginatorBtn
 				name={'Prev'}
 				startIcon={faAngleLeft}
 				cta={prevPage}
-				isDisabled={currentPage === 1}
+				isDisabled={currentPage <= 1}
 			/>
 			{currentPage > 1 && <PaginatorBtn name={currentPage - 1} cta={prevPage} />}
 			<PaginatorBtn name={currentPage} />
-			{!(currentPage === totalPages) && <PaginatorBtn name={currentPage + 1} cta={nextPage} />}
+			{currentPage < totalPages && <PaginatorBtn name={currentPage + 1} cta={nextPage} />}
 			<PaginatorBtn
 				name={'Next'}
 				endIcon={faAngleRight}

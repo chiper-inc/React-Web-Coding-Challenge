@@ -1,42 +1,24 @@
-import axios from 'axios'
 import { FC, SetStateAction } from 'react'
-import { useForm } from 'react-hook-form'
-import { toast } from 'react-toastify'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { BtnSolid, FormInput } from '../../atoms/index.atoms'
 
 interface SearchWrapperProps {
-	setOnSearch: { (value: SetStateAction<boolean>): void; (arg0: boolean): void }
+	setKeyword: { (value: SetStateAction<string>): void; (arg0: string): void }
 }
 
-// const SearchWrapper: FC = ({ setOnSearch }) => {
-const SearchWrapper: FC<SearchWrapperProps> = ({ setOnSearch }) => {
-	const { handleSubmit, register, watch } = useForm()
+interface FormProps {
+	keyword: string
+	from: string
+	to: string
+}
 
-	const hdlSubmit = (data: {}) => {
-		setOnSearch(true)
-		console.log(data)
+const SearchWrapper: FC<SearchWrapperProps> = ({ setKeyword }) => {
+	const { handleSubmit, register } = useForm<FormProps>()
+
+	const hdlSubmit: SubmitHandler<FormProps> = ({ keyword }) => {
+		setKeyword(keyword)
 	}
-
-	const hdlSearch = async (data: unknown) => {
-		console.log(data)
-
-		try {
-			const resp = await axios(`/search?Giant`)
-			console.log(resp)
-		} catch ({ message }) {
-			toast.error(`${message}`)
-			// } finally {
-		}
-	}
-
-	// const hdlSearch = () => {}
-
-	// {
-	// 	/* <form onSubmit={handleSubmit(hdlSearch)}> */
-	// }
-
-	console.log(watch('keyword'))
 
 	return (
 		<form className={'grid grid-cols-2 md:grid-cols-5 gap-4'} onSubmit={handleSubmit(hdlSubmit)}>
@@ -61,7 +43,6 @@ const SearchWrapper: FC<SearchWrapperProps> = ({ setOnSearch }) => {
 			<BtnSolid
 				type={'submit'}
 				name={'Find cases'}
-				cta={() => console.log('')}
 				className={'col-start-1 col-end-3 md:col-start-5 md:col-end-6'}
 			/>
 		</form>

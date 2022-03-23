@@ -1,6 +1,4 @@
-import axios from 'axios'
 import { FC, useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
 
 import {
 	CardItem,
@@ -8,7 +6,7 @@ import {
 	SearchWrapper,
 	SkeletonCardItem,
 } from '../components/organisms/index.organisms'
-import { getStolenBikeCount } from '../helpers/index.helpers'
+import { getStolenBikes, getStolenBikesCount } from '../helpers/index.helpers'
 import { usePaginator } from '../hooks/index.hooks'
 import { BikeProps } from '../interfaces/index.interfaces'
 import { isEmptyArr } from '../utils/index.utils'
@@ -16,45 +14,39 @@ import { isEmptyArr } from '../utils/index.utils'
 const HomePage: FC = () => {
 	const [distance] = useState<number>(100)
 	const [location] = useState<string>('Berlin')
+	const [keyword, setKeyword] = useState<string>('')
 	const [totalItems, setTotalItems] = useState<number>(0)
 	const [totalPages, setTotalPages] = useState<number>(0)
-	const [onSearch, setOnSearch] = useState<boolean>(false)
 	const [pageLength, setPageLength] = useState<number>(10)
 	const [onLoading, setOnLoading] = useState<boolean>(true)
 	const [currentPage, setCurrentPage] = useState<number>(1)
 	const [bikeList, setBikeList] = useState<Array<BikeProps>>([])
-
 	const { nextPage, prevPage, firstPage, lastPage } = usePaginator(
 		currentPage,
 		setCurrentPage,
 		totalPages
 	)
 
-	const getStolenBikes = async () => {
+	useEffect(() => {
 		setOnLoading(true)
 
-		try {
-			const { data } = await axios(
-				`/search?page=${currentPage}&per_page=${pageLength}&location=${location}&distance=${distance}&stolenness=proximity`
-			)
-
-			return data
-		} catch ({ message }) {
-			toast.error(`${message}`)
-		} finally {
+		getStolenBikes(distance, location, pageLength, currentPage, keyword).then(({ bikes }) => {
+			setBikeList(bikes)
 			setTimeout(() => {
 				setOnLoading(false)
 			}, 500)
-		}
-	}
+		})
+		getStolenBikesCount(distance, location, keyword).then(({ non, proximity, stolen }) => {
+			setTotalItems(non + proximity + stolen)
+			setTimeout(() => {
+				setOnLoading(false)
+			}, 500)
+		})
+	}, [currentPage, keyword])
 
 	useEffect(() => {
-		getStolenBikes().then(({ bikes }) => setBikeList(bikes))
-
-		getStolenBikeCount(distance, location).then(({ proximity }) => setTotalItems(proximity))
-
 		setTotalPages(Math.ceil(totalItems / pageLength))
-	}, [currentPage])
+	}, [totalItems])
 
 	useEffect(() => {
 		return () => {
@@ -67,7 +59,7 @@ const HomePage: FC = () => {
 
 	return (
 		<>
-			<SearchWrapper setOnSearch={setOnSearch} />
+			<SearchWrapper setKeyword={setKeyword} />
 			{!isEmptyArr(bikeList) && (
 				<legend
 					className={
@@ -98,7 +90,7 @@ const HomePage: FC = () => {
 					bikeList.map((bike) => <CardItem key={bike.id} {...bike} />)
 				)}
 			</section>
-			{(!isEmptyArr(bikeList) || onSearch) && (
+			{(!isEmptyArr(bikeList) || onLoading) && (
 				<PaginatorWrapper
 					currentPage={currentPage}
 					totalPages={totalPages}

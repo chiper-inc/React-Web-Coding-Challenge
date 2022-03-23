@@ -40,11 +40,14 @@ const ProductItem: FC<BikeProps> = ({
 					<strong className={'uppercase text-sm'}>
 						stolen date:{' '}
 						<span className={'capitalize font-normal ml-0.5'}>
-							{moment(date_stolen).format('MMMM Do YYYY, hh:mm A')}
+							{date_stolen ? moment(date_stolen).format('MMMM Do YYYY, hh:mm A') : 'N/A'}
 						</span>
 					</strong>
 					<strong className={'uppercase text-sm'}>
-						stolen location: <span className={'capitalize font-normal'}>{stolen_location}</span>
+						stolen location:{' '}
+						<span className={'capitalize font-normal'}>
+							{stolen_location ? stolen_location : 'N/A'}
+						</span>
 					</strong>
 				</aside>
 			</article>
