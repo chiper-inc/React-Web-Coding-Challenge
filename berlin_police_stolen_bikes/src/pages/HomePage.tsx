@@ -13,11 +13,11 @@ import { isEmptyArr } from '../utils/index.utils'
 
 const HomePage: FC = () => {
 	const [distance] = useState<number>(100)
+	const [pageLength] = useState<number>(10)
 	const [location] = useState<string>('Berlin')
 	const [keyword, setKeyword] = useState<string>('')
 	const [totalItems, setTotalItems] = useState<number>(0)
 	const [totalPages, setTotalPages] = useState<number>(0)
-	const [pageLength, setPageLength] = useState<number>(10)
 	const [onLoading, setOnLoading] = useState<boolean>(true)
 	const [currentPage, setCurrentPage] = useState<number>(1)
 	const [bikeList, setBikeList] = useState<Array<BikeProps>>([])
@@ -47,15 +47,6 @@ const HomePage: FC = () => {
 	useEffect(() => {
 		setTotalPages(Math.ceil(totalItems / pageLength))
 	}, [totalItems])
-
-	useEffect(() => {
-		return () => {
-			setBikeList([])
-			setTotalItems(0)
-			setTotalPages(0)
-			setPageLength(0)
-		}
-	}, [])
 
 	return (
 		<>
