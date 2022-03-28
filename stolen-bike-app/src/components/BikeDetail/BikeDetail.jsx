@@ -1,6 +1,6 @@
 import { useGetDetailsBike } from '../../hooks/useGetDetailsBike';
 import { useParams, Link } from 'react-router-dom';
-import { Loading } from '../Loading/Loading';
+import { Loading } from '../../helpers/Loading/Loading';
 import { WrapperCard, Header2, WrapperDetails, Image, InformationWrap, Information, Badge, WrapperHeader } from './BikeDetail.styles';
 import bike_not_found from './../../assets/img/bike_not_found.png';
 import { Button } from './../Search/Search.styles';

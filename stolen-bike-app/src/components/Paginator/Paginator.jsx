@@ -1,14 +1,16 @@
 import { WrapperPaginator, Button } from './Paginator.styles'
 
-export const Paginator = ({setPage}) => {
-    const handlePrevPage = () => setPage((prevPage) =>  prevPage > 0 ? prevPage-1 : 0);
-    const handleNextPage = () => setPage((prevPage) => prevPage+1);
+export const Paginator = ({page, setPage}) => {
+    const handlePrevPage = () => setPage(page > 0 ? page-1 : 0);
+    const handleNextPage = () => setPage(page+1);
 
     return (
         <WrapperPaginator>
-            <Button type="button" onClick={handlePrevPage}>
-                <i className="fa-solid fa-chevron-left"></i>
-            </Button>
+            { page>0 && 
+                <Button type="button" onClick={handlePrevPage}>
+                    <i className="fa-solid fa-chevron-left"></i>
+                </Button>
+            }
             <Button type="button" onClick={handleNextPage}>
                 <i className="fa-solid fa-chevron-right"></i>
             </Button>

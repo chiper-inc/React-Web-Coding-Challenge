@@ -30,7 +30,7 @@ export const useGetBikes = () => {
     useEffect(() => {
         const getBikesApi = async () => {
             setLoading(true);
-            getBikes(query)
+            getBikes(query, page)
             .then((nextBikes) => {
                 setBikes(nextBikes.data.bikes);
                 getCount(query);
@@ -45,5 +45,5 @@ export const useGetBikes = () => {
         .then((result) => setCount(result.data.stolen))
     }
     
-    return {bikes, loading, error, setPage, setQuery, count};
+    return {bikes, loading, error, page, setPage, setQuery, count};
 }
