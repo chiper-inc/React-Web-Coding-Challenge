@@ -9,7 +9,6 @@ import { Paginator } from '../../components/Paginator/Paginator';
 
 export const BikesList = () => {
     const {bikes, loading, error, setPage, setQuery} = useGetBikes();
-    console.log(error)
     return (
         <Wrapper>
             <Search setQuery={setQuery}/>
