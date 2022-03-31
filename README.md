@@ -12,6 +12,7 @@ This app needs to display the list of reported bike thefts based on the Bikewise
 As a police officer:
 
 - [ ] I want to see a list of reported bike thefts for the Berlin area.
+- [ ] I want to see a detail page of the reported bike.
 - [ ] I want to see the first 10 bike theft cases, with the ability to - paginate (10 cases per page).
 - [ ] I want to see a total number of bike theft cases.
 - [ ] For each reported bike theft I want to see:
@@ -22,7 +23,6 @@ As a police officer:
   - [ ] Location of the theft
   - [ ] Picture of the bike, if available
 - [ ] I want to filter reported bike thefts by partial case title.
-- [ ] I want to filter reported bike thefts by date range.
 - [ ] I want to see a loading state until the list is available.
 - [ ] I want to see an error state if the list is unavailable.
 - [ ] I want to see an empty state if there are no results.
@@ -38,6 +38,7 @@ The API is known to have some limitations. If you are not able to implement a pa
 For the layout of each page, please refer to the provided wireframes:
 
 - [Index page](./screens/index.png)
+- [Detail page](./screens/details.png)
 - [Error state](./screens/index_error.png)
 - [Empty state](./screens/index_empty.png)
 - [Loading state](./screens/index_loading.png)
@@ -55,11 +56,10 @@ Host the website on the service of your choice (zeit, Heroku, AWS, GCloud, ...)
 
 ## Tech Requirements
 
-- React
-- Tests: Jest + react-testing-library / enzyme
+- React + Typescript
 - Code Linter
-- Typescript is a plus
-- CSSinJS is a plus: styled-components, styled-system, ...
+- Tests: Jest + react-testing-library / enzyme
+- CSS Frameworks is a plus: styled-components, tailwind, sass, less, stylus...
 
 ## Instructions
 
