@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="row justify-content-center"
+    >
+      <div
+        class="col-md-8"
+      >
+        <h2>
+          Police of departament of Berlin
+        </h2>
+        <h4>
+          Stolen bykes
+        </h4>
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-md-12"
+      >
+        <br />
+        <div
+          class="input-group"
+        >
+          <input
+            class="form-control"
+            data-testid="input-data-title"
+            placeholder="Title"
+            value=""
+          />
+          <input
+            class="form-control"
+            data-testid="input-data-from"
+            placeholder="From"
+            type="date"
+            value=""
+          />
+          <input
+            class="form-control"
+            data-testid="input-data-to"
+            placeholder="From"
+            type="date"
+            value=""
+          />
+          <div
+            class="input-group-append"
+          >
+            <button
+              class="btn btn-primary"
+              data-testid="btn-clear"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      Loading
+    </div>
+  </div>
+</DocumentFragment>
+`;
