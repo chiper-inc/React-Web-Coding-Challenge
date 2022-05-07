@@ -9,7 +9,7 @@ const StolenBikeDetail = () => {
   const { bike, searchById } = useBikeIndex();
 
   useEffect(()=>{
-    searchById(id);
+    searchById(id!);
   }, [])
   
   return(

@@ -7,8 +7,8 @@ const BikeItemList = ({ title, date_stolen, description, thumb, stolen_location,
   return(
     <section className="BikeItemList">
       <img 
-      alt={title} 
-      src={thumb ? thumb : imgSourceDefault} />
+        alt={title} 
+        src={thumb ? thumb : imgSourceDefault} />
       <div>
         <Link to={`/detail/${id}`}>{title}</Link>
         <p>{stolen_location}</p>
