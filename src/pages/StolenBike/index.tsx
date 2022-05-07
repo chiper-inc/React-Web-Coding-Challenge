@@ -1,5 +1,7 @@
+import FilterBar from '../../components/FilterBar';
+
 const StolenBike = () => (
-  <section><p>Stolen Bite page</p></section>
+  <section><FilterBar /></section>
 )
 
 export default StolenBike;
