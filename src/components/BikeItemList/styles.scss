@@ -1,0 +1,29 @@
+.BikeItemList {
+    width: 80%;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 2px solid black;
+    
+    
+    img {
+      width: 100px;
+      height: 100px;
+      margin: auto;
+    }
+  
+    div {
+      width: 80%;
+      margin: auto;
+      p {
+        margin: 0;
+      }
+      a {
+        margin: 0
+      }
+    }
+}
